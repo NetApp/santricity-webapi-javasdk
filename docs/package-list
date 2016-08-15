@@ -1,0 +1,8 @@
+com.netapp.santricity
+com.netapp.santricity.api.symbol
+com.netapp.santricity.api.utils
+com.netapp.santricity.api.v2
+com.netapp.santricity.auth
+com.netapp.santricity.models.symbol
+com.netapp.santricity.models.utils
+com.netapp.santricity.models.v2
