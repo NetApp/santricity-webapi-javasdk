@@ -29,7 +29,7 @@ The following dependency must be added to your project's POM:
 <dependency>
 	<groupId>com.netapp.santricity</groupId>
 	<artifactId>santricity-java-client</artifactId>
-	<version>1.0.0</version>
+	<version>1.0</version>
 	<scope>compile</scope>
 </dependency>
 ```
@@ -39,7 +39,7 @@ The following dependency must be added to your project's POM:
 The following groovy dependency must be added to your project's build file:
 
 ```groovy
-compile "com.netapp.santricity:santricity-java-client:1.0.0"
+compile "com.netapp.santricity:santricity-java-client:1.0"
 ```
 
 ####All Other Users
@@ -48,7 +48,7 @@ First, enter the following command to generate the JAR file:	mvn package
 
 Next, manually install the following JAR files:
 
- * target/santricity-java-client-1.0.0.jar
+ * target/santricity-java-client-1.0.jar
  * target/lib/\*.jar
 
 
@@ -57,7 +57,7 @@ Next, manually install the following JAR files:
  Once installation is complete, enter the following command to get started using the
  Java SDK:
 
-```xml
+```java
 import com.netapp.santricity.ApiClient;
 import com.netapp.santricity.ApiException;
 import com.netapp.santricity.api.v2.StorageSystemsApi;

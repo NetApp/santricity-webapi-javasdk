@@ -5,11 +5,11 @@
   <artifactId>santricity-java-client</artifactId>
   <packaging>jar</packaging>
   <name>santricity-java-client</name>
-  <version>1.0.0</version>
+  <version>1.0</version>
   <scm>
-    <connection>scm:git:git@github.com:swagger-api/swagger-mustache.git</connection>
-    <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
+    <connection>scm:git:https://github.com/NetApp/santricity-webapi-javasdk.git</connection>
+    <developerConnection>scm:git:https://github.com/NetApp/santricity-webapi-javasdk.git</developerConnection>
+    <url>https://github.com/NetApp/santricity-webapi-javasdk</url>
   </scm>
   <prerequisites>
     <maven>2.2.0</maven>
