@@ -65,6 +65,7 @@
         </configuration>
       </plugin>
 
+      <!-- Generate jar -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -81,16 +82,21 @@
               </sources>
             </configuration>
           </execution>
+        </executions>
+      </plugin>
+
+      <!--Generate javadocs -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
           <execution>
-            <id>add_test_sources</id>
-            <phase>generate-test-sources</phase>
+            <id>attach-javadocs</id>
             <goals>
-              <goal>add-test-source</goal>
+              <goal>jar</goal>
             </goals>
             <configuration>
-              <sources>
-                <source>src/test/java</source>
-              </sources>
+              <additionalparam>-Xdoclint:none</additionalparam>
             </configuration>
           </execution>
         </executions>
@@ -104,6 +110,21 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+
+      <!--Generate sources jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <!-- For testing build.gradle -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -197,7 +218,14 @@
       <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.8</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+
   <properties>
     <swagger-core-version>1.5.8</swagger-core-version>
     <jersey-version>2.23</jersey-version>
