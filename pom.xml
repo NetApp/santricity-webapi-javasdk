@@ -125,27 +125,27 @@
         </executions>
       </plugin>
 
-      <!-- For testing build.gradle -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
-        <executions>
-          <execution>
-            <id>gradle-test</id>
-            <phase>integration-test</phase>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <configuration>
-              <executable>gradle</executable>
-              <arguments>
-                <argument>check</argument>
-              </arguments>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+      <!--&lt;!&ndash; For testing build.gradle &ndash;&gt;-->
+      <!--<plugin>-->
+        <!--<groupId>org.codehaus.mojo</groupId>-->
+        <!--<artifactId>exec-maven-plugin</artifactId>-->
+        <!--<version>1.2.1</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>gradle-test</id>-->
+            <!--<phase>integration-test</phase>-->
+            <!--<goals>-->
+              <!--<goal>exec</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+              <!--<executable>gradle</executable>-->
+              <!--<arguments>-->
+                <!--<argument>check</argument>-->
+              <!--</arguments>-->
+            <!--</configuration>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
     </plugins>
   </build>
   <dependencies>
