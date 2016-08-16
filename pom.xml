@@ -235,4 +235,8 @@
     <junit-version>4.12</junit-version>
     <javax-version>2.0.1</javax-version>
   </properties>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
 </project>
