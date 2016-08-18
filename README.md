@@ -1,7 +1,7 @@
 
 # NetApp SANtricity Client Library - Java SDK
 
-
+[![Build Status](http://10.113.1.247:8080/buildStatus/icon?job=Java SDK)](http://10.113.1.247:8080/job/Java SDK)
 ##Requirements
 
  The SANtricity Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
