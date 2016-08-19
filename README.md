@@ -54,8 +54,8 @@ Next, manually install the following JAR files:
 
 ###Getting started
 
- Once installation is complete, enter the following command to get started using the
- Java SDK:
+ Once installation is complete, enter the following command to get started using the 
+ NetApp SANtricity WebAPI-Java SDK:
 
 ```java
 import com.netapp.santricity.ApiClient;
