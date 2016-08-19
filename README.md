@@ -1,21 +1,21 @@
 
-# NetApp SANtricity Client Library - Java SDK
+# NetApp SANtricity WebAPI-Java SDK
 
 [![Build Status](http://10.113.1.247:8080/buildStatus/icon?job=Java SDK)](http://10.113.1.247:8080/job/Java SDK)
 ##Requirements
 
- The SANtricity Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
+ The NetApp SANtricity WebAPI-Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
 
 
 ##Installation
 
-The Java SDK client library must be installed to your local Maven repository.
+The NetApp SANtricity WebAPI-Java SDK client library must be installed to your local Maven repository.
 
-To install the Java SDK, perform the following command: ``mvn install``
+To install the NetApp SANtricity WebAPI-Java SDK, perform the following command: ``mvn install``
 
-Optionally, you can deploy the Java SDK installation to a remote Maven repository.
+Optionally, you can deploy the NetApp SANtricity WebAPI-Java SDK installation to a remote Maven repository.
 
-To deploy the Java SDK installation remotely, configure the settings of the repository and perform the following command: ``mvn deploy``
+To deploy the NetApp SANtricity WebAPI-Java SDK installation remotely, configure the settings of the repository and perform the following command: ``mvn deploy``
 
 
 ###Dependencies
@@ -115,109 +115,3 @@ public class FailureList {
 	}
 }
 ```
-
-###Configuring Java to trust REST API Self Signed Certificates
-
-If you need to use the default self-signed certificate, perform the following steps
-to permit the Java application to trust the certificate for the REST API.
-
-1.	From a browser, navigate to the API documentation using HTTPS (e.g., https://hostname.foo.com:8443/devmgr/docs)
-
-2.	Export the certificate to a file.
-
-	**NOTE:** Export to the default DER encoding is acceptable.
-
-3.	Use the keytool command to import the certificate to the cacerts file for your jvm.
-
-		**Example:**
-		```
-		cd C:\Program Files\Java\jdk1.8.0_65
-		jre\bin\keytool.exe -import -trustcacerts -keystore jre\lib\security\cacerts -alias rest-host-cert -file rest-host.cer
-		```
-
-	**NOTE:** You must enter the password for the keystore. By default, the password is ``changeit``.
-
-
-###Using HTTPS with the Java SDK
-
-The Java SDK is compatible with SSL. The SDK utilizes the default Java keystore for trusted
-certificates. As a result, you can install the appropriate CA certificate in the default
-Java keystore. The default Java CA certificate store is located at ``$JAVA_HOME/jre/lib/security/cacerts``.
-
-If needed, SSL host verification can be disabled with the ApiClient object's ``disableSSLVerification()`` method.
-
-
-####Enabling SSL Connections
-
- To use an SSL connection with the Java SDK, simply use the appropriate HTTPS URL for
- the target REST API server. Ensure to specify the HTTPS protocol and appropriate port
- for the encrypted connection.
-
-```java
-apiClient apiClient = new ApiClient();
-apiClient.setBasePath("https://127.0.0.1:8443/devmgr/v2");
-```
-
-
-####Certificate Management
-
-The trusted root certificates for the Java SDK are managed using the Java keystore
-integrated with the Java JVM. This same keystore is used to run the application
-utilizing the SDK. If you need to import a certificate to utilize SSL with HTTPs
-connection to the REST server, you must import the certificate to the Java keystore.
-
-
-#####Importing a certificate
-
-You will need to import a certificate to the Java keystore if any of the following
-conditions apply:
-
-*	The REST API service (proxy or embedded) is using a self-signed certificate. This
- 	is the default state "out-of-box".
- 	*	In this case, the self-signed certificate is imported.
-*	The REST API service (proxy or embedded) is using a signed certificate by an
- 	untrusted Certificate Authority (CA).
- 	*	This might be the case if you signed the certificate with your own CA or an enterprise CA was used to sign the certificate.
- 	*	In this case, the root CA certificate is imported.
-
-		**Example of importing a certificate using the Java keytool**
-
-			```
-			cd C:\Program Files\Java\jdk1.8.0_65
-			jre\bin\keytool.exe -import -trustcacerts -keystore jre\lib\security\cacerts -alias rest-host-cert -file rest-host.cer
-			```
-
-
-####Disabling SSL Host Verification
-
-**NOTE:**	Disabling SSL host verification can be a security risk and is not recommended.
-			However, this information is being provided for certain use cases where the
-			security implications are understood and acceptable.
-
-Disabling SSL host verification can be used as a workaround to importing an untrusted
-certificate from the REST API server to the client system. This will permit the use of
-the HTTPS URL and encryption without requiring the full level of trust.
-
-**Example of disabling SSL Host Verification**
-
-```java
-apiClient apiClient = new ApiClient();
-apiClient.setBasePath("https://127.0.0.1:8443/devmgr/v2");
-apiClient.disableSSLVerification()
-```
-
-
-####Reference Exception
-
-*	Connections to a proxy with the default self-signed certificate with correct
- 	hostname but no certificate installed
-
- 	```
-	API Exception for self-signed cert without cert installed
-	```
-
-*	Connections to proxy with self-signed certificate with mis-matched hostname
-
-	```
-	API Exception for self-signed cert when name doesn't match
-	```
