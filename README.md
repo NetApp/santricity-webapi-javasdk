@@ -1,21 +1,21 @@
 
-# NetApp SANtricity WebAPI-Java SDK
+# NetApp SANtricity WebAPI - Java SDK
 
 [![Build Status](http://10.113.1.247:8080/buildStatus/icon?job=Java SDK)](http://10.113.1.247:8080/job/Java SDK)
 ##Requirements
 
- The NetApp SANtricity WebAPI-Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
+ The NetApp SANtricity WebAPI - Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
 
 
 ##Installation
 
-The NetApp SANtricity WebAPI-Java SDK client library must be installed to your local Maven repository.
+The NetApp SANtricity WebAPI - Java SDK client library must be installed to your local Maven repository.
 
-To install the NetApp SANtricity WebAPI-Java SDK, perform the following command: ``mvn install``
+To install the NetApp SANtricity WebAPI - Java SDK, perform the following command: ``mvn install``
 
-Optionally, you can deploy the NetApp SANtricity WebAPI-Java SDK installation to a remote Maven repository.
+Optionally, you can deploy the NetApp SANtricity WebAPI - Java SDK installation to a remote Maven repository.
 
-To deploy the NetApp SANtricity WebAPI-Java SDK installation remotely, configure the settings of the repository and perform the following command: ``mvn deploy``
+To deploy the NetApp SANtricity WebAPI - Java SDK installation remotely, configure the settings of the repository and perform the following command: ``mvn deploy``
 
 
 ###Dependencies
@@ -55,7 +55,7 @@ Next, manually install the following JAR files:
 ###Getting started
 
  Once installation is complete, enter the following command to get started using the 
- NetApp SANtricity WebAPI-Java SDK:
+ NetApp SANtricity WebAPI - Java SDK:
 
 ```java
 import com.netapp.santricity.ApiClient;
