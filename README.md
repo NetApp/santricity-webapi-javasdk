@@ -35,8 +35,6 @@ Used and declared dependencies
 
 <td>**Scope**</td>
 
-<td>**Classifier**</td>
-
 <td>**Type**</td>
 
 <td>**Optional**</td>
