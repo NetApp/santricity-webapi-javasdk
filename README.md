@@ -1,12 +1,11 @@
 
 # NetApp SANtricity WebAPI - Java SDK
 
-##Requirements
-
- The NetApp SANtricity WebAPI - Java SDK client library requires an installation of [Apache Maven](https://maven.apache.org/).
-
 
 ##Installation
+
+Our build scripts requires [Apache Maven](https://maven.apache.org/) for pulling down the dependencies from Maven Central and compiling the source. 
+Instead, if you would like to use a different build system please check the [Dependency List](####DependencyList) below to download the appropriate ones. 
 
 The NetApp SANtricity WebAPI - Java SDK client library must be installed to your local Maven repository.
 
@@ -19,11 +18,201 @@ To deploy the NetApp SANtricity WebAPI - Java SDK installation remotely, configu
 
 ###Dependencies
 
+####DependencyList
+Used and declared dependencies
+
+<table class="bodyTable">
+
+<tbody>
+
+<tr class="a">
+
+<td>**GroupId**</td>
+
+<td>**ArtifactId**</td>
+
+<td>**Version**</td>
+
+<td>**Scope**</td>
+
+<td>**Classifier**</td>
+
+<td>**Type**</td>
+
+<td>**Optional**</td>
+
+</tr>
+
+<tr class="b">
+
+<td>io.swagger</td>
+
+<td>swagger-annotations</td>
+
+<td>1.5.8</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="a">
+
+<td>org.glassfish.jersey.core</td>
+
+<td>jersey-client</td>
+
+<td>2.23</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="b">
+
+<td>org.glassfish.jersey.media</td>
+
+<td>jersey-media-multipart</td>
+
+<td>2.23</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="a">
+
+<td>org.glassfish.jersey.media</td>
+
+<td>jersey-media-json-jackson</td>
+
+<td>2.23</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="b">
+
+<td>org.glassfish.jersey.core</td>
+
+<td>jersey-common</td>
+
+<td>2.23</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="a">
+
+<td>com.fasterxml.jackson.core</td>
+
+<td>jackson-annotations</td>
+
+<td>2.7.0</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="b">
+
+<td>com.fasterxml.jackson.core</td>
+
+<td>jackson-databind</td>
+
+<td>2.7.0</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="a">
+
+<td>com.fasterxml.jackson.datatype</td>
+
+<td>jackson-datatype-joda</td>
+
+<td>2.1.5</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="b">
+
+<td>javax.ws.rs</td>
+
+<td>javax.ws.rs-api</td>
+
+<td>2.0.1</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+<tr class="a">
+
+<td>com.brsanthu</td>
+
+<td>migbase64</td>
+
+<td>2.2</td>
+
+<td>compile</td>
+
+<td>jar</td>
+
+<td>false</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
 
 ####Maven Users
 
 The following dependency must be added to your project's POM:
-
+Note: This is not yet uploaded to Maven Central yet and hence not avalialbe, we will remove this message after it has been posted to Maven Central. 
 ```xml
 <dependency>
 	<groupId>com.netapp.santricity</groupId>
@@ -53,8 +242,7 @@ Next, manually install the following JAR files:
 
 ###Getting started
 
- Once installation is complete, enter the following command to get started using the 
- NetApp SANtricity WebAPI - Java SDK:
+Here's an example for using the NetApp SANtricity WebAPI - Java SDK:
 
 ```java
 import com.netapp.santricity.ApiClient;
