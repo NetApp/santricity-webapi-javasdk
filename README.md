@@ -1,6 +1,7 @@
 
 # NetApp SANtricity WebAPI - Java SDK
 
+[![Build Status](https://travis-ci.org/NetApp/santricity-webapi-javasdk.svg?branch=master)](https://travis-ci.org/NetApp/santricity-webapi-javasdk)
 
 ##Installation
 
