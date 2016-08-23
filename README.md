@@ -1,6 +1,8 @@
 
 # NetApp SANtricity WebAPI - Java SDK
 
+[![Build Status](https://travis-ci.org/NetApp/santricity-webapi-javasdk.svg?branch=master)](https://travis-ci.org/NetApp/santricity-webapi-javasdk)
+
 ##Installation
 
 Our build scripts requires [Apache Maven](https://maven.apache.org/) for pulling down the dependencies from Maven Central and compiling the source. 
