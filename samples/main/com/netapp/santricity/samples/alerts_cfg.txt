@@ -1,3 +1,3 @@
 #ip:port,username,passwd
-10.113.76.89:8443,rw,I2finiti!
-10.113.76.91:8443,rw,I2finiti!
+10.113.76.89:8443,rw,password
+10.113.76.91:8443,rw,password
