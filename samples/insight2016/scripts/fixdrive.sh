@@ -1,0 +1,1 @@
+curl -k -u rw:rw -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "$1" "https://localhost/devmgr/v2/storage-systems/2/symbol/setDriveToOptimal?controller=auto&verboseErrorResponse=true"
