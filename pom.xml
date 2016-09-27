@@ -6,6 +6,31 @@
   <packaging>jar</packaging>
   <name>santricity-java-client</name>
   <version>1.0</version>
+  <description>The NetApp SANtricity WebAPI - Java SDK client library is a open source SDK that facilitate access to the
+    NetApp E-Series storage system for automation and integration into third-party web or script-based management tools.
+  </description>
+  <url>https://github.com/NetApp/santricity-webapi-javasdk</url>
+  <licenses>
+    <license>
+      <name>The Clear BSD License</name>
+      <url>https://github.com/NetApp/santricity-webapi-javasdk/blob/master/LICENSE.md</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>netappsantricity</id>
+      <name>NetApp SANtricity</name>
+      <email>chockali@netapp.com</email>
+      <url>https://github.com/chocks</url>
+      <organization>NetApp</organization>
+      <organizationUrl>http://www.netapp.com</organizationUrl>
+      <roles>
+        <role>developer</role>
+      </roles>
+      <timezone>America/Chicago</timezone>
+    </developer>
+  </developers>
   <scm>
     <connection>scm:git:https://github.com/NetApp/santricity-webapi-javasdk.git</connection>
     <developerConnection>scm:git:https://github.com/NetApp/santricity-webapi-javasdk.git</developerConnection>
