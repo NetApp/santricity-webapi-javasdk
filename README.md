@@ -211,7 +211,6 @@ Used and declared dependencies
 ####Maven Users
 
 The following dependency must be added to your project's POM:
-Note: This is not yet uploaded to Maven Central yet and hence not avalialbe, we will remove this message after it has been posted to Maven Central. 
 ```xml
 <dependency>
 	<groupId>com.netapp.santricity</groupId>
