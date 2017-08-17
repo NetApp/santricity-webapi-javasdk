@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/NetApp/santricity-webapi-javasdk.svg?branch=master)](https://travis-ci.org/NetApp/santricity-webapi-javasdk)
 
-##Installation
+## Installation
 
 Our build scripts requires [Apache Maven](https://maven.apache.org/) for pulling down the dependencies from Maven Central and compiling the source. 
 Instead, if you would like to use a different build system please check the [Dependency List](####DependencyList) below to download the appropriate ones. 
@@ -17,9 +17,10 @@ Optionally, you can deploy the NetApp SANtricity WebAPI - Java SDK installation 
 To deploy the NetApp SANtricity WebAPI - Java SDK installation remotely, configure the settings of the repository and perform the following command: ``mvn deploy``
 
 
-###Dependencies
+### Dependencies
 
-####DependencyList
+#### Dependency List
+
 Used and declared dependencies
 
 <table class="bodyTable">
@@ -28,17 +29,17 @@ Used and declared dependencies
 
 <tr class="a">
 
-<td>**GroupId**</td>
+<td><b>GroupId</b></td>
 
-<td>**ArtifactId**</td>
+<td><b>ArtifactId</b></td>
 
-<td>**Version**</td>
+<td><b>Version</b></td>
 
-<td>**Scope**</td>
+<td><b>Scope</b></td>
 
-<td>**Type**</td>
+<td><b>Type</b></td>
 
-<td>**Optional**</td>
+<td><b>Optional</b></td>
 
 </tr>
 
@@ -208,7 +209,7 @@ Used and declared dependencies
 
 
 
-####Maven Users
+#### Maven Users
 
 The following dependency must be added to your project's POM:
 ```xml
@@ -220,7 +221,7 @@ The following dependency must be added to your project's POM:
 </dependency>
 ```
 
-####Gradle Users
+#### Gradle Users
 
 The following groovy dependency must be added to your project's build file:
 
@@ -228,7 +229,7 @@ The following groovy dependency must be added to your project's build file:
 compile "com.netapp.santricity:santricity-java-client:1.0"
 ```
 
-####All Other Users
+#### All Other Users
 
 First, enter the following command to generate the JAR file:	mvn package
 
@@ -238,7 +239,7 @@ Next, manually install the following JAR files:
  * target/lib/\*.jar
 
 
-###Getting started
+### Getting started
 
 Here's an example for using the NetApp SANtricity WebAPI - Java SDK:
 
