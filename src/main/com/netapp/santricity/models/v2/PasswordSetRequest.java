@@ -42,7 +42,7 @@ import java.util.Objects;
  * Passed in to set the passwords.  The security on this call is a little different.  If the admin password is &lt;n&gt;not&lt;/b&gt; set and adminPassword is true, than this call is allowed.  If the admin password is set, then the user must have a valid login session as admin
  */
 @ApiModel(description = "Passed in to set the passwords.  The security on this call is a little different.  If the admin password is <n>not</b> set and adminPassword is true, than this call is allowed.  If the admin password is set, then the user must have a valid login session as admin")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class PasswordSetRequest   {
   
     private String currentAdminPassword;

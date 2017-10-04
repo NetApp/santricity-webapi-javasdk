@@ -42,7 +42,7 @@ import java.util.Objects;
  * Interface statistics for storage system.
  */
 @ApiModel(description = "Interface statistics for storage system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AnalyzedInterfaceStatistics   {
   
     private Date observedTime;
@@ -81,7 +81,7 @@ public class AnalyzedInterfaceStatistics   {
 
 
   /**
-   * Channel Type enumeration Drive side, host side, or management.
+   * The channel type for the interface.
    */
   public enum ChannelTypeEnum {
     hostside("hostside"),
@@ -110,13 +110,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * A timestamp representing when the data was collected
    **/
   public AnalyzedInterfaceStatistics observedTime(Date observedTime) {
     this.observedTime = observedTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "A timestamp representing when the data was collected")
   @JsonProperty("observedTime")
   public Date getObservedTime() {
     return observedTime;
@@ -128,13 +129,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * The time in which this data was polled and generated in milliseconds
    **/
   public AnalyzedInterfaceStatistics observedTimeInMS(Long observedTimeInMS) {
     this.observedTimeInMS = observedTimeInMS;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The time in which this data was polled and generated in milliseconds")
   @JsonProperty("observedTimeInMS")
   public Long getObservedTimeInMS() {
     return observedTimeInMS;
@@ -146,14 +148,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * read_iops double NOT NULL
+   * Read operations per second.
    **/
   public AnalyzedInterfaceStatistics readIOps(Double readIOps) {
     this.readIOps = readIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read operations per second.")
   @JsonProperty("readIOps")
   public Double getReadIOps() {
     return readIOps;
@@ -165,14 +167,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * write_iops double NOT NULL
+   * Write operations per second.
    **/
   public AnalyzedInterfaceStatistics writeIOps(Double writeIOps) {
     this.writeIOps = writeIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write operations per second.")
   @JsonProperty("writeIOps")
   public Double getWriteIOps() {
     return writeIOps;
@@ -184,14 +186,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * other_iops double NOT NULL
+   * SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.
    **/
   public AnalyzedInterfaceStatistics otherIOps(Double otherIOps) {
     this.otherIOps = otherIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "other_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.")
   @JsonProperty("otherIOps")
   public Double getOtherIOps() {
     return otherIOps;
@@ -203,14 +205,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * combined_iops double NOT NULL
+   * All operations per second.
    **/
   public AnalyzedInterfaceStatistics combinedIOps(Double combinedIOps) {
     this.combinedIOps = combinedIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "All operations per second.")
   @JsonProperty("combinedIOps")
   public Double getCombinedIOps() {
     return combinedIOps;
@@ -222,14 +224,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * read_throughput double NOT NULL
+   * Read throughput in MB/s.
    **/
   public AnalyzedInterfaceStatistics readThroughput(Double readThroughput) {
     this.readThroughput = readThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read throughput in MB/s.")
   @JsonProperty("readThroughput")
   public Double getReadThroughput() {
     return readThroughput;
@@ -241,14 +243,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * write_throughput double NOT NULL
+   * Write throughput in MB/s.
    **/
   public AnalyzedInterfaceStatistics writeThroughput(Double writeThroughput) {
     this.writeThroughput = writeThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write throughput in MB/s.")
   @JsonProperty("writeThroughput")
   public Double getWriteThroughput() {
     return writeThroughput;
@@ -260,14 +262,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * combined_throughput double NOT NULL
+   * Combined read/write throughput in MB/s.
    **/
   public AnalyzedInterfaceStatistics combinedThroughput(Double combinedThroughput) {
     this.combinedThroughput = combinedThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Combined read/write throughput in MB/s.")
   @JsonProperty("combinedThroughput")
   public Double getCombinedThroughput() {
     return combinedThroughput;
@@ -279,14 +281,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * read_response_time double NOT NULL
+   * Read response time average in milliseconds.
    **/
   public AnalyzedInterfaceStatistics readResponseTime(Double readResponseTime) {
     this.readResponseTime = readResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read response time average in milliseconds.")
   @JsonProperty("readResponseTime")
   public Double getReadResponseTime() {
     return readResponseTime;
@@ -298,14 +300,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * write_response_time double NOT NULL
+   * Write response time average in milliseconds.
    **/
   public AnalyzedInterfaceStatistics writeResponseTime(Double writeResponseTime) {
     this.writeResponseTime = writeResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write response time average in milliseconds.")
   @JsonProperty("writeResponseTime")
   public Double getWriteResponseTime() {
     return writeResponseTime;
@@ -317,14 +319,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * combined_response_time double NOT NULL
+   * Combined average response time in milliseconds.
    **/
   public AnalyzedInterfaceStatistics combinedResponseTime(Double combinedResponseTime) {
     this.combinedResponseTime = combinedResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Combined average response time in milliseconds.")
   @JsonProperty("combinedResponseTime")
   public Double getCombinedResponseTime() {
     return combinedResponseTime;
@@ -336,13 +338,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * Average read operation size in bytes.
    **/
   public AnalyzedInterfaceStatistics averageReadOpSize(Double averageReadOpSize) {
     this.averageReadOpSize = averageReadOpSize;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Average read operation size in bytes.")
   @JsonProperty("averageReadOpSize")
   public Double getAverageReadOpSize() {
     return averageReadOpSize;
@@ -354,13 +357,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * Average write operation size in bytes.
    **/
   public AnalyzedInterfaceStatistics averageWriteOpSize(Double averageWriteOpSize) {
     this.averageWriteOpSize = averageWriteOpSize;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Average write operation size in bytes.")
   @JsonProperty("averageWriteOpSize")
   public Double getAverageWriteOpSize() {
     return averageWriteOpSize;
@@ -372,13 +376,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * The amount of read operations in this analysed interval.
    **/
   public AnalyzedInterfaceStatistics readOps(Double readOps) {
     this.readOps = readOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The amount of read operations in this analysed interval.")
   @JsonProperty("readOps")
   public Double getReadOps() {
     return readOps;
@@ -390,13 +395,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
+   * The amount of write operations in this analysed interval.
    **/
   public AnalyzedInterfaceStatistics writeOps(Double writeOps) {
     this.writeOps = writeOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The amount of write operations in this analysed interval.")
   @JsonProperty("writeOps")
   public Double getWriteOps() {
     return writeOps;
@@ -426,14 +432,14 @@ public class AnalyzedInterfaceStatistics   {
 
   
   /**
-   * Channel Type enumeration Drive side, host side, or management.
+   * The channel type for the interface.
    **/
   public AnalyzedInterfaceStatistics channelType(ChannelTypeEnum channelType) {
     this.channelType = channelType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Channel Type enumeration Drive side, host side, or management.")
+  @ApiModelProperty(example = "null", required = true, value = "The channel type for the interface.")
   @JsonProperty("channelType")
   public ChannelTypeEnum getChannelType() {
     return channelType;

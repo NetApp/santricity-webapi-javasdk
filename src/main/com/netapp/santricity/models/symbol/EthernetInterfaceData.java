@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * EthernetInterfaceData
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class EthernetInterfaceData   {
   
     private VendorPartData partData;
@@ -77,6 +77,9 @@ public class EthernetInterfaceData   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -119,6 +122,9 @@ public class EthernetInterfaceData   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -187,6 +193,9 @@ public class EthernetInterfaceData   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

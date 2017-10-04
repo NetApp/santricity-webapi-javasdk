@@ -42,16 +42,16 @@ import java.util.Objects;
  * Statistics data averaged over a time range.
  */
 @ApiModel(description = "Statistics data averaged over a time range.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AverageAnalysedValue   {
   
     private Double min;
 
     private Double max;
 
-    private Double value;
-
     private Double std;
+
+    private Double value;
 
   
   /**
@@ -92,24 +92,6 @@ public class AverageAnalysedValue   {
   
   /**
    **/
-  public AverageAnalysedValue value(Double value) {
-    this.value = value;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", required = true, value = "")
-  @JsonProperty("value")
-  public Double getValue() {
-    return value;
-  }
-  
-  public void setValue(Double value) {
-    this.value = value;
-  }
-
-  
-  /**
-   **/
   public AverageAnalysedValue std(Double std) {
     this.std = std;
     return this;
@@ -126,6 +108,24 @@ public class AverageAnalysedValue   {
   }
 
   
+  /**
+   **/
+  public AverageAnalysedValue value(Double value) {
+    this.value = value;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "")
+  @JsonProperty("value")
+  public Double getValue() {
+    return value;
+  }
+  
+  public void setValue(Double value) {
+    this.value = value;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -138,13 +138,13 @@ public class AverageAnalysedValue   {
     AverageAnalysedValue averageAnalysedValue = (AverageAnalysedValue) o;
     return Objects.equals(this.min, averageAnalysedValue.min) &&
         Objects.equals(this.max, averageAnalysedValue.max) &&
-        Objects.equals(this.value, averageAnalysedValue.value) &&
-        Objects.equals(this.std, averageAnalysedValue.std);
+        Objects.equals(this.std, averageAnalysedValue.std) &&
+        Objects.equals(this.value, averageAnalysedValue.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(min, max, value, std);
+    return Objects.hash(min, max, std, value);
   }
 
   @Override
@@ -154,8 +154,8 @@ public class AverageAnalysedValue   {
     
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    std: ").append(toIndentedString(std)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }

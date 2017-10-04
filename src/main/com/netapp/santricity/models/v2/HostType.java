@@ -42,7 +42,7 @@ import java.util.Objects;
  * A Host Type is a definition of the operating system of the Host computer  that accesses the storage system, for example VmWare, Windows, Solaris, Linux, etc.  The Host   Type is used by the storage system to customize the I/O protocol based on the implementation of   the host I/O drivers.
  */
 @ApiModel(description = "A Host Type is a definition of the operating system of the Host computer  that accesses the storage system, for example VmWare, Windows, Solaris, Linux, etc.  The Host   Type is used by the storage system to customize the I/O protocol based on the implementation of   the host I/O drivers.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class HostType   {
   
     private String name;

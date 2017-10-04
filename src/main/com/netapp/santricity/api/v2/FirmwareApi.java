@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class FirmwareApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class FirmwareApi {
   /**
    * Activate staged controller firmware
    * Mode: Proxy only. Activate Controller Firmware that was previous staged for a later upgrade operation. This operation will begin activation of the uploaded package.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return CfwUpgradeResponse
    * @throws ApiException if fails to make API call
@@ -108,8 +108,8 @@ public class FirmwareApi {
   }
   
   /**
-   * Activates a previously staged Firmware
-   * Mode: Embedded only. 
+   * Activates previously staged firmware.
+   * Mode: Embedded only. A successful activation will shut the web server down which may result in the request to timeout, be canceled, or return with a 503 Service Unavailable before the success response could be returned.
    * @throws ApiException if fails to make API call
    */
   public void activateStagedFirmware() throws ApiException {
@@ -271,9 +271,10 @@ public class FirmwareApi {
    * Mode: Embedded only. 
    * @param systemId  (required)
    * @param file  (optional)
+   * @return EmbeddedCompatibilityCheckResponse
    * @throws ApiException if fails to make API call
    */
-  public void checkEmbeddedFirmwareBundleCompatibility(String systemId, File file) throws ApiException {
+  public EmbeddedCompatibilityCheckResponse checkEmbeddedFirmwareBundleCompatibility(String systemId, File file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'systemId' is set
@@ -311,7 +312,8 @@ public class FirmwareApi {
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
     
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    GenericType<EmbeddedCompatibilityCheckResponse> localVarReturnType = new GenericType<EmbeddedCompatibilityCheckResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }
   
@@ -320,9 +322,10 @@ public class FirmwareApi {
    * Mode: Embedded only. 
    * @param systemId  (required)
    * @param file  (optional)
+   * @return EmbeddedCompatibilityCheckResponse
    * @throws ApiException if fails to make API call
    */
-  public void checkEmbeddedNVSRAMCompatibility(String systemId, File file) throws ApiException {
+  public EmbeddedCompatibilityCheckResponse checkEmbeddedNVSRAMCompatibility(String systemId, File file) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'systemId' is set
@@ -360,14 +363,15 @@ public class FirmwareApi {
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
     
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    GenericType<EmbeddedCompatibilityCheckResponse> localVarReturnType = new GenericType<EmbeddedCompatibilityCheckResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }
   
   /**
    * Clear staged firmware details on the array
    * Mode: Proxy only. Clear staged firmware details on the storage array
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void clearStagedFirmware(String systemId) throws ApiException {
@@ -498,7 +502,7 @@ public class FirmwareApi {
   /**
    * Retrieve status of a Controller Firmware upgrade operation
    * Mode: Proxy only. Retrieve the status of a running controller firmware or nvsram upgrade operation.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return CfwUpgradeResponse
    * @throws ApiException if fails to make API call
    */
@@ -544,16 +548,17 @@ public class FirmwareApi {
   }
   
   /**
-   * Get last successful firmware updgrade timestamps and firmware upgrade logs
+   * Get last successful firmware upgrade timestamps and firmware upgrade logs
    * Mode: Embedded only. 
    * @param cfwUpgrade Controller Firmware Upgrade (optional)
    * @param iomUpgrade IOM Firmware Upgrade (optional)
    * @param driveUpgrade Drive Firmware Upgrade (optional)
+   * @param nvsramUpgrade NVSRAM Upgrade (optional)
    * @param includeLogs Include firmware log  (optional)
    * @return EmbeddedFirmwareResponse
    * @throws ApiException if fails to make API call
    */
-  public EmbeddedFirmwareResponse getEmbeddedFirmwareInformation(Boolean cfwUpgrade, Boolean iomUpgrade, Boolean driveUpgrade, Boolean includeLogs) throws ApiException {
+  public EmbeddedFirmwareResponse getEmbeddedFirmwareInformation(Boolean cfwUpgrade, Boolean iomUpgrade, Boolean driveUpgrade, Boolean nvsramUpgrade, Boolean includeLogs) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -570,6 +575,8 @@ public class FirmwareApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "iomUpgrade", iomUpgrade));
     
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "driveUpgrade", driveUpgrade));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "nvsramUpgrade", nvsramUpgrade));
     
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "includeLogs", includeLogs));
     
@@ -694,7 +701,7 @@ public class FirmwareApi {
   
   /**
    * Get health check status
-   * Mode: Both Embedded and Proxy. 
+   * This endpoint should be utilized to retrieve the results of the health check. There are multiple parts to the health check process. If a critical portion fails, the entire check will be set to failed. If an invalid password is detected or a controller cannot be contacted, the check will return without completing additional unnecessary steps.
    * @param requestId Retrieve result of a previously submitted request. (optional)
    * @return HealthCheckResponse
    * @throws ApiException if fails to make API call
@@ -828,7 +835,7 @@ public class FirmwareApi {
   /**
    * Retrieve details on the staged firmware
    * Mode: Proxy only. Retrieve the list of code modules and versions of the firmware staged on the storage array.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return StagedFirmwareResponse
    * @throws ApiException if fails to make API call
    */
@@ -968,7 +975,7 @@ public class FirmwareApi {
   /**
    * Initiate a Controller Firmware upgrade operation
    * Mode: Proxy only. Start a controller firmware or nvsram upgrade operation.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return InitialAsyncResponse
    * @throws ApiException if fails to make API call
@@ -1099,7 +1106,7 @@ public class FirmwareApi {
   /**
    * Upload a firmware file.
    * Mode: Embedded only. Upload endpoint for firmware that is not staged but directly loaded to the controller. This endpoint only applies when running embedded, not as a proxy.. File can be named the veosimage or the nvsramimage
-   * @param staged set to true to indicate  to stage (optional)
+   * @param staged set to true to indicate to stage (optional)
    * @param nvsram set to true to NVSRAM is included, and if so it must be first.  If this is true and a DLP file is included, it must be  first.  If not,  an error is generated (optional)
    * @param nvsramfile  (optional)
    * @param dlpfile  (optional)
@@ -1201,7 +1208,7 @@ public class FirmwareApi {
   
   /**
    * Upload a nvsram file.
-   * Mode: Embedded only. Upload endpoint for nvsram to download to the controller.
+   * Mode: Embedded only. Upload endpoint for nvsram to download to the controller. Controllers will reboot when operation completes
    * @param systemId  (required)
    * @param nvsramimage  (optional)
    * @throws ApiException if fails to make API call

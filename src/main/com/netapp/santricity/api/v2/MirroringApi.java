@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class MirroringApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class MirroringApi {
   /**
    * Begin synchronization of an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @throws ApiException if fails to make API call
@@ -115,7 +115,7 @@ public class MirroringApi {
   /**
    * Complete an incomplete Async Mirror relationship
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param incompleteMirrorId  (required)
    * @param body  (optional)
    * @return AmgMember
@@ -171,7 +171,7 @@ public class MirroringApi {
   /**
    * Get a specific Async Mirror Group Member
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return AmgMember
    * @throws ApiException if fails to make API call
@@ -226,7 +226,7 @@ public class MirroringApi {
   /**
    * Retrieve a member volume associated with an AMG
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorId  (required)
    * @param id  (required)
    * @return AmgMember
@@ -288,7 +288,7 @@ public class MirroringApi {
   /**
    * Retrieve sync progress of an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorGroupId  (required)
    * @return AsyncMirrorGroupSyncProgress
    * @throws ApiException if fails to make API call
@@ -343,7 +343,7 @@ public class MirroringApi {
   /**
    * Retrieve the member volumes associated with an AMG
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorId  (required)
    * @return List<AmgMember>
    * @throws ApiException if fails to make API call
@@ -398,7 +398,7 @@ public class MirroringApi {
   /**
    * Get all Async Mirror Group Members
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AmgMember>
    * @throws ApiException if fails to make API call
    */
@@ -446,7 +446,7 @@ public class MirroringApi {
   /**
    * Retrieve the sync progress of all Async Mirror Groups at once
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AsyncMirrorGroupSyncProgress>
    * @throws ApiException if fails to make API call
    */
@@ -494,7 +494,7 @@ public class MirroringApi {
   /**
    * Retrieve the repository usage statistics for all AmgMembers.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AsyncMirrorRepositoryUtilization>
    * @throws ApiException if fails to make API call
    */
@@ -542,7 +542,7 @@ public class MirroringApi {
   /**
    * Get Async Mirror Groups
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<Amg>
    * @throws ApiException if fails to make API call
    */
@@ -590,7 +590,7 @@ public class MirroringApi {
   /**
    * Get Remote Volume Mirrors
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<RemoteMirrorPair>
    * @throws ApiException if fails to make API call
    */
@@ -638,7 +638,7 @@ public class MirroringApi {
   /**
    * Retrieve the repository usage statistics for a single AmgMember.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return AsyncMirrorRepositoryUtilization
    * @throws ApiException if fails to make API call
@@ -693,7 +693,7 @@ public class MirroringApi {
   /**
    * Get an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return Amg
    * @throws ApiException if fails to make API call
@@ -748,7 +748,7 @@ public class MirroringApi {
   /**
    * Get a list of storage-systems that support Asynchronous Mirroring
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param compatibleOnly Only return storage-systems supporting async mirroring that compatible with the target storage-system. (optional, default to false)
    * @return List<RemoteCandidate>
    * @throws ApiException if fails to make API call
@@ -799,7 +799,7 @@ public class MirroringApi {
   /**
    * Get Async Mirror Group relationships that have not yet been completed
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AmgIncompleteMember>
    * @throws ApiException if fails to make API call
    */
@@ -847,7 +847,7 @@ public class MirroringApi {
   /**
    * Get Async Mirror Group relationships that have not yet been completed
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorId  (required)
    * @return List<AmgIncompleteMember>
    * @throws ApiException if fails to make API call
@@ -902,7 +902,7 @@ public class MirroringApi {
   /**
    * Retrieve the current remote StorageDevice mirroring connections for an Amg
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorGroupId  (required)
    * @return AsyncMirrorConnectionsResponse
    * @throws ApiException if fails to make API call
@@ -957,7 +957,7 @@ public class MirroringApi {
   /**
    * Retrieve the current remote StorageDevice mirroring connections
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AsyncMirrorConnectionsResponse>
    * @throws ApiException if fails to make API call
    */
@@ -1005,7 +1005,7 @@ public class MirroringApi {
   /**
    * Get Remote Volume Mirror
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return RemoteMirrorPair
    * @throws ApiException if fails to make API call
@@ -1060,7 +1060,7 @@ public class MirroringApi {
   /**
    * Retrieve potential mirror candidates for a volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param volumeId  (required)
    * @return List<RemoteMirrorCandidate>
    * @throws ApiException if fails to make API call
@@ -1115,7 +1115,7 @@ public class MirroringApi {
   /**
    * Get Remote Mirror synchronization status
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return JobProgress
    * @throws ApiException if fails to make API call
@@ -1170,7 +1170,7 @@ public class MirroringApi {
   /**
    * Add a new member to an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorId  (required)
    * @param body  (optional)
    * @return AmgMember
@@ -1226,7 +1226,7 @@ public class MirroringApi {
   /**
    * Create an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return Amg
    * @throws ApiException if fails to make API call
@@ -1275,7 +1275,7 @@ public class MirroringApi {
   /**
    * Create Remote Volume Mirror
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return RemoteMirrorPair
    * @throws ApiException if fails to make API call
@@ -1324,7 +1324,7 @@ public class MirroringApi {
   /**
    * Remove a member from an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mirrorId  (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
@@ -1384,7 +1384,7 @@ public class MirroringApi {
   /**
    * Delete an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1437,7 +1437,7 @@ public class MirroringApi {
   /**
    * Remove an Async Mirror relationship that has not been completed
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param incompleteMirrorId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1490,7 +1490,7 @@ public class MirroringApi {
   /**
    * Remove a Remote Volume Mirror
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1543,7 +1543,7 @@ public class MirroringApi {
   /**
    * Resume synchronization of an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param deleteRecoveryPointIfNecessary  (optional, default to true)
    * @throws ApiException if fails to make API call
@@ -1599,7 +1599,7 @@ public class MirroringApi {
   /**
    * Suspend synchronization of an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1652,7 +1652,7 @@ public class MirroringApi {
   /**
    * Test connectivity of an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return List<AsyncCommunicationData>
@@ -1708,7 +1708,7 @@ public class MirroringApi {
   /**
    * Test Remote Mirror Communication
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return RemoteCommunicationData
    * @throws ApiException if fails to make API call
@@ -1763,7 +1763,7 @@ public class MirroringApi {
   /**
    * Update an Async Mirror Group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return Amg
@@ -1819,7 +1819,7 @@ public class MirroringApi {
   /**
    * Update the mirror role of an Async Mirror Group.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @throws ApiException if fails to make API call
@@ -1873,7 +1873,7 @@ public class MirroringApi {
   /**
    * Update a Remote Volume Mirror
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return RemoteMirrorPair

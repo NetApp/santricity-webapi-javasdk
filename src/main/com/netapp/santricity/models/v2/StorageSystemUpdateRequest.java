@@ -42,7 +42,7 @@ import java.util.Objects;
  * Structure used to pass update information for the storage system
  */
 @ApiModel(description = "Structure used to pass update information for the storage system")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class StorageSystemUpdateRequest   {
   
     private String storedPassword;

@@ -42,7 +42,7 @@ import java.util.Objects;
  * Class that holds details on the Firmware upgrade timestamps and logs.
  */
 @ApiModel(description = "Class that holds details on the Firmware upgrade timestamps and logs.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class EmbeddedFirmwareResponse   {
   
     private Date cfwUpgradeTS;
@@ -51,11 +51,15 @@ public class EmbeddedFirmwareResponse   {
 
     private Date driveUpgradeTS;
 
+    private Date nvsramUpgradeTS;
+
     private List<LogRecord> cfwLog;
 
     private List<LogRecord> iomLog;
 
     private List<LogRecord> driveLog;
+
+    private List<LogRecord> nvsramLog;
 
   
   /**
@@ -116,6 +120,25 @@ public class EmbeddedFirmwareResponse   {
 
   
   /**
+   * Timestamp of the last successful NVSRAM upgrade
+   **/
+  public EmbeddedFirmwareResponse nvsramUpgradeTS(Date nvsramUpgradeTS) {
+    this.nvsramUpgradeTS = nvsramUpgradeTS;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Timestamp of the last successful NVSRAM upgrade")
+  @JsonProperty("nvsramUpgradeTS")
+  public Date getNvsramUpgradeTS() {
+    return nvsramUpgradeTS;
+  }
+  
+  public void setNvsramUpgradeTS(Date nvsramUpgradeTS) {
+    this.nvsramUpgradeTS = nvsramUpgradeTS;
+  }
+
+  
+  /**
    * Array of log records of controller firmware upgrades
    **/
   public EmbeddedFirmwareResponse cfwLog(List<LogRecord> cfwLog) {
@@ -172,6 +195,25 @@ public class EmbeddedFirmwareResponse   {
   }
 
   
+  /**
+   * Array of log records NVSRAM upgrades
+   **/
+  public EmbeddedFirmwareResponse nvsramLog(List<LogRecord> nvsramLog) {
+    this.nvsramLog = nvsramLog;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Array of log records NVSRAM upgrades")
+  @JsonProperty("nvsramLog")
+  public List<LogRecord> getNvsramLog() {
+    return nvsramLog;
+  }
+  
+  public void setNvsramLog(List<LogRecord> nvsramLog) {
+    this.nvsramLog = nvsramLog;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -185,14 +227,16 @@ public class EmbeddedFirmwareResponse   {
     return Objects.equals(this.cfwUpgradeTS, embeddedFirmwareResponse.cfwUpgradeTS) &&
         Objects.equals(this.iomUpgradeTS, embeddedFirmwareResponse.iomUpgradeTS) &&
         Objects.equals(this.driveUpgradeTS, embeddedFirmwareResponse.driveUpgradeTS) &&
+        Objects.equals(this.nvsramUpgradeTS, embeddedFirmwareResponse.nvsramUpgradeTS) &&
         Objects.equals(this.cfwLog, embeddedFirmwareResponse.cfwLog) &&
         Objects.equals(this.iomLog, embeddedFirmwareResponse.iomLog) &&
-        Objects.equals(this.driveLog, embeddedFirmwareResponse.driveLog);
+        Objects.equals(this.driveLog, embeddedFirmwareResponse.driveLog) &&
+        Objects.equals(this.nvsramLog, embeddedFirmwareResponse.nvsramLog);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cfwUpgradeTS, iomUpgradeTS, driveUpgradeTS, cfwLog, iomLog, driveLog);
+    return Objects.hash(cfwUpgradeTS, iomUpgradeTS, driveUpgradeTS, nvsramUpgradeTS, cfwLog, iomLog, driveLog, nvsramLog);
   }
 
   @Override
@@ -203,9 +247,11 @@ public class EmbeddedFirmwareResponse   {
     sb.append("    cfwUpgradeTS: ").append(toIndentedString(cfwUpgradeTS)).append("\n");
     sb.append("    iomUpgradeTS: ").append(toIndentedString(iomUpgradeTS)).append("\n");
     sb.append("    driveUpgradeTS: ").append(toIndentedString(driveUpgradeTS)).append("\n");
+    sb.append("    nvsramUpgradeTS: ").append(toIndentedString(nvsramUpgradeTS)).append("\n");
     sb.append("    cfwLog: ").append(toIndentedString(cfwLog)).append("\n");
     sb.append("    iomLog: ").append(toIndentedString(iomLog)).append("\n");
     sb.append("    driveLog: ").append(toIndentedString(driveLog)).append("\n");
+    sb.append("    nvsramLog: ").append(toIndentedString(nvsramLog)).append("\n");
     sb.append("}");
     return sb.toString();
   }

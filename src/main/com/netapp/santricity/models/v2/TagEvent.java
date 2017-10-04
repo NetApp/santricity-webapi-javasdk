@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * TagEvent
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class TagEvent extends ObjectChangeEvent  {
   
     private Date timestamp;
@@ -68,7 +68,14 @@ public class TagEvent extends ObjectChangeEvent  {
     criticalMelChangeEvent("criticalMelChangeEvent"),
     statisticsCollectionEvent("statisticsCollectionEvent"),
     melClearEvent("melClearEvent"),
-    workload("workload");
+    workload("workload"),
+    ldapConfigChangeEvent("ldapConfigChangeEvent"),
+    symbolPortChangeEvent("symbolPortChangeEvent"),
+    keyStoreChangeEvent("keyStoreChangeEvent"),
+    trustStoreChangeEvent("trustStoreChangeEvent"),
+    externalCertChangeEvent("externalCertChangeEvent"),
+    sslReloadCompleteEvent("sslReloadCompleteEvent"),
+    sessionTimeoutChangeEvent("sessionTimeoutChangeEvent");
 ;
     private String value;
 

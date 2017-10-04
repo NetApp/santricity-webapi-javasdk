@@ -42,7 +42,7 @@ import java.util.Objects;
  * Information on StorageSystem capabilities, features, and limits.
  */
 @ApiModel(description = "Information on StorageSystem capabilities, features, and limits.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class CapabilitiesResponse   {
   
     private FeatureBundle featureBundle;
@@ -225,6 +225,8 @@ public class CapabilitiesResponse   {
     capabilityWlcLogging("capabilityWlcLogging"),
     capabilityFipsDriveSupport("capabilityFipsDriveSupport"),
     capabilityApplicationAwareness("capabilityApplicationAwareness"),
+    capabilityEmbeddedEkms("capabilityEmbeddedEkms"),
+    capabilityCacheMirroringProtectionInformation("capabilityCacheMirroringProtectionInformation"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -243,6 +245,8 @@ public class CapabilitiesResponse   {
     private List<ProductCapabilitiesEnum> productCapabilities;
 
     private List<FeatureState> featureStates;
+
+    private StorageSystemAttributes storageSystemAttributes;
 
     private FeatureParams featureParameters;
 
@@ -320,6 +324,25 @@ public class CapabilitiesResponse   {
 
   
   /**
+   * Configuration parameters, constants, and other useful information for clients that may vary between storage-systems.
+   **/
+  public CapabilitiesResponse storageSystemAttributes(StorageSystemAttributes storageSystemAttributes) {
+    this.storageSystemAttributes = storageSystemAttributes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Configuration parameters, constants, and other useful information for clients that may vary between storage-systems.")
+  @JsonProperty("storageSystemAttributes")
+  public StorageSystemAttributes getStorageSystemAttributes() {
+    return storageSystemAttributes;
+  }
+  
+  public void setStorageSystemAttributes(StorageSystemAttributes storageSystemAttributes) {
+    this.storageSystemAttributes = storageSystemAttributes;
+  }
+
+  
+  /**
    **/
   public CapabilitiesResponse featureParameters(FeatureParams featureParameters) {
     this.featureParameters = featureParameters;
@@ -351,12 +374,13 @@ public class CapabilitiesResponse   {
         Objects.equals(this.capabilities, capabilitiesResponse.capabilities) &&
         Objects.equals(this.productCapabilities, capabilitiesResponse.productCapabilities) &&
         Objects.equals(this.featureStates, capabilitiesResponse.featureStates) &&
+        Objects.equals(this.storageSystemAttributes, capabilitiesResponse.storageSystemAttributes) &&
         Objects.equals(this.featureParameters, capabilitiesResponse.featureParameters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(featureBundle, capabilities, productCapabilities, featureStates, featureParameters);
+    return Objects.hash(featureBundle, capabilities, productCapabilities, featureStates, storageSystemAttributes, featureParameters);
   }
 
   @Override
@@ -368,6 +392,7 @@ public class CapabilitiesResponse   {
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    productCapabilities: ").append(toIndentedString(productCapabilities)).append("\n");
     sb.append("    featureStates: ").append(toIndentedString(featureStates)).append("\n");
+    sb.append("    storageSystemAttributes: ").append(toIndentedString(storageSystemAttributes)).append("\n");
     sb.append("    featureParameters: ").append(toIndentedString(featureParameters)).append("\n");
     sb.append("}");
     return sb.toString();

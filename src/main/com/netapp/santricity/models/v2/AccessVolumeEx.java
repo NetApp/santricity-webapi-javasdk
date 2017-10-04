@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * AccessVolumeEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AccessVolumeEx   {
   
     private Boolean enabled;
@@ -59,6 +59,7 @@ public class AccessVolumeEx   {
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -132,21 +133,21 @@ public class AccessVolumeEx   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private Long totalSizeInBytes;
+
+    private String currentControllerId;
 
     private List<LUNMapping> listOfMappings;
 
     private Boolean mapped;
 
-    private String currentControllerId;
-
     private String preferredControllerId;
 
-    private Long totalSizeInBytes;
+    private String name;
+
+    private String id;
 
   
   /**
@@ -263,42 +264,6 @@ public class AccessVolumeEx   {
   
   /**
    **/
-  public AccessVolumeEx name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public AccessVolumeEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public AccessVolumeEx wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -312,6 +277,42 @@ public class AccessVolumeEx   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public AccessVolumeEx totalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("totalSizeInBytes")
+  public Long getTotalSizeInBytes() {
+    return totalSizeInBytes;
+  }
+  
+  public void setTotalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+  }
+
+  
+  /**
+   **/
+  public AccessVolumeEx currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -353,24 +354,6 @@ public class AccessVolumeEx   {
   
   /**
    **/
-  public AccessVolumeEx currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-  }
-
-  
-  /**
-   **/
   public AccessVolumeEx preferredControllerId(String preferredControllerId) {
     this.preferredControllerId = preferredControllerId;
     return this;
@@ -389,19 +372,37 @@ public class AccessVolumeEx   {
   
   /**
    **/
-  public AccessVolumeEx totalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public AccessVolumeEx name(String name) {
+    this.name = name;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("totalSizeInBytes")
-  public Long getTotalSizeInBytes() {
-    return totalSizeInBytes;
+  @JsonProperty("name")
+  public String getName() {
+    return name;
   }
   
-  public void setTotalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public AccessVolumeEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -421,19 +422,19 @@ public class AccessVolumeEx   {
         Objects.equals(this.accessVolumeRef, accessVolumeEx.accessVolumeRef) &&
         Objects.equals(this.reserved1, accessVolumeEx.reserved1) &&
         Objects.equals(this.objectType, accessVolumeEx.objectType) &&
-        Objects.equals(this.name, accessVolumeEx.name) &&
-        Objects.equals(this.id, accessVolumeEx.id) &&
         Objects.equals(this.wwn, accessVolumeEx.wwn) &&
+        Objects.equals(this.totalSizeInBytes, accessVolumeEx.totalSizeInBytes) &&
+        Objects.equals(this.currentControllerId, accessVolumeEx.currentControllerId) &&
         Objects.equals(this.listOfMappings, accessVolumeEx.listOfMappings) &&
         Objects.equals(this.mapped, accessVolumeEx.mapped) &&
-        Objects.equals(this.currentControllerId, accessVolumeEx.currentControllerId) &&
         Objects.equals(this.preferredControllerId, accessVolumeEx.preferredControllerId) &&
-        Objects.equals(this.totalSizeInBytes, accessVolumeEx.totalSizeInBytes);
+        Objects.equals(this.name, accessVolumeEx.name) &&
+        Objects.equals(this.id, accessVolumeEx.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, volumeHandle, capacity, accessVolumeRef, reserved1, objectType, name, id, wwn, listOfMappings, mapped, currentControllerId, preferredControllerId, totalSizeInBytes);
+    return Objects.hash(enabled, volumeHandle, capacity, accessVolumeRef, reserved1, objectType, wwn, totalSizeInBytes, currentControllerId, listOfMappings, mapped, preferredControllerId, name, id);
   }
 
   @Override
@@ -447,14 +448,14 @@ public class AccessVolumeEx   {
     sb.append("    accessVolumeRef: ").append(toIndentedString(accessVolumeRef)).append("\n");
     sb.append("    reserved1: ").append(toIndentedString(reserved1)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    preferredControllerId: ").append(toIndentedString(preferredControllerId)).append("\n");
-    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,12 +42,14 @@ import java.util.Objects;
  * Used to create a storage system.
  */
 @ApiModel(description = "Used to create a storage system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class StorageSystemCreateRequest   {
   
     private String id;
 
     private List<String> controllerAddresses;
+
+    private Boolean validate;
 
     private String password;
 
@@ -93,6 +95,25 @@ public class StorageSystemCreateRequest   {
   
   public void setControllerAddresses(List<String> controllerAddresses) {
     this.controllerAddresses = controllerAddresses;
+  }
+
+  
+  /**
+   * Enables validation of the added storage array. Returns errors if there are wwn mismatches or if the storage array cannot be contacted.
+   **/
+  public StorageSystemCreateRequest validate(Boolean validate) {
+    this.validate = validate;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "Enables validation of the added storage array. Returns errors if there are wwn mismatches or if the storage array cannot be contacted.")
+  @JsonProperty("validate")
+  public Boolean getValidate() {
+    return validate;
+  }
+  
+  public void setValidate(Boolean validate) {
+    this.validate = validate;
   }
 
   
@@ -184,6 +205,7 @@ public class StorageSystemCreateRequest   {
     StorageSystemCreateRequest storageSystemCreateRequest = (StorageSystemCreateRequest) o;
     return Objects.equals(this.id, storageSystemCreateRequest.id) &&
         Objects.equals(this.controllerAddresses, storageSystemCreateRequest.controllerAddresses) &&
+        Objects.equals(this.validate, storageSystemCreateRequest.validate) &&
         Objects.equals(this.password, storageSystemCreateRequest.password) &&
         Objects.equals(this.wwn, storageSystemCreateRequest.wwn) &&
         Objects.equals(this.enableTrace, storageSystemCreateRequest.enableTrace) &&
@@ -192,7 +214,7 @@ public class StorageSystemCreateRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, controllerAddresses, password, wwn, enableTrace, metaTags);
+    return Objects.hash(id, controllerAddresses, validate, password, wwn, enableTrace, metaTags);
   }
 
   @Override
@@ -202,6 +224,7 @@ public class StorageSystemCreateRequest   {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    controllerAddresses: ").append(toIndentedString(controllerAddresses)).append("\n");
+    sb.append("    validate: ").append(toIndentedString(validate)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
     sb.append("    enableTrace: ").append(toIndentedString(enableTrace)).append("\n");

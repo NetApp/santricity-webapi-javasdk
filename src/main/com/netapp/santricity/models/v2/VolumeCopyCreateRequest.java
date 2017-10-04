@@ -42,7 +42,7 @@ import java.util.Objects;
  * Creates a Volume Copy.
  */
 @ApiModel(description = "Creates a Volume Copy.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumeCopyCreateRequest   {
   
     private String sourceId;
@@ -77,8 +77,6 @@ public class VolumeCopyCreateRequest   {
     private CopyPriorityEnum copyPriority;
 
     private Boolean targetWriteProtected;
-
-    private Boolean disableSnapshot;
 
     private Boolean onlineCopy;
 
@@ -162,25 +160,6 @@ public class VolumeCopyCreateRequest   {
 
   
   /**
-   * Deprecated, this value is ignored.
-   **/
-  public VolumeCopyCreateRequest disableSnapshot(Boolean disableSnapshot) {
-    this.disableSnapshot = disableSnapshot;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "Deprecated, this value is ignored.")
-  @JsonProperty("disableSnapshot")
-  public Boolean getDisableSnapshot() {
-    return disableSnapshot;
-  }
-  
-  public void setDisableSnapshot(Boolean disableSnapshot) {
-    this.disableSnapshot = disableSnapshot;
-  }
-
-  
-  /**
    * If true, a snapshot will be created of the source volume, and the copy initiated on it to prevent any loss of use of the source volume.
    **/
   public VolumeCopyCreateRequest onlineCopy(Boolean onlineCopy) {
@@ -232,14 +211,13 @@ public class VolumeCopyCreateRequest   {
         Objects.equals(this.targetId, volumeCopyCreateRequest.targetId) &&
         Objects.equals(this.copyPriority, volumeCopyCreateRequest.copyPriority) &&
         Objects.equals(this.targetWriteProtected, volumeCopyCreateRequest.targetWriteProtected) &&
-        Objects.equals(this.disableSnapshot, volumeCopyCreateRequest.disableSnapshot) &&
         Objects.equals(this.onlineCopy, volumeCopyCreateRequest.onlineCopy) &&
         Objects.equals(this.repositoryCandidate, volumeCopyCreateRequest.repositoryCandidate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceId, targetId, copyPriority, targetWriteProtected, disableSnapshot, onlineCopy, repositoryCandidate);
+    return Objects.hash(sourceId, targetId, copyPriority, targetWriteProtected, onlineCopy, repositoryCandidate);
   }
 
   @Override
@@ -251,7 +229,6 @@ public class VolumeCopyCreateRequest   {
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    copyPriority: ").append(toIndentedString(copyPriority)).append("\n");
     sb.append("    targetWriteProtected: ").append(toIndentedString(targetWriteProtected)).append("\n");
-    sb.append("    disableSnapshot: ").append(toIndentedString(disableSnapshot)).append("\n");
     sb.append("    onlineCopy: ").append(toIndentedString(onlineCopy)).append("\n");
     sb.append("    repositoryCandidate: ").append(toIndentedString(repositoryCandidate)).append("\n");
     sb.append("}");

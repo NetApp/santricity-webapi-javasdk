@@ -41,10 +41,12 @@ import java.util.Objects;
 /**
  * ResourceBundle
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ResourceBundle   {
   
     private Locale locale;
+
+    private String baseBundleName;
 
     private EnumerationString keys;
 
@@ -64,6 +66,24 @@ public class ResourceBundle   {
   
   public void setLocale(Locale locale) {
     this.locale = locale;
+  }
+
+  
+  /**
+   **/
+  public ResourceBundle baseBundleName(String baseBundleName) {
+    this.baseBundleName = baseBundleName;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("baseBundleName")
+  public String getBaseBundleName() {
+    return baseBundleName;
+  }
+  
+  public void setBaseBundleName(String baseBundleName) {
+    this.baseBundleName = baseBundleName;
   }
 
   
@@ -96,12 +116,13 @@ public class ResourceBundle   {
     }
     ResourceBundle resourceBundle = (ResourceBundle) o;
     return Objects.equals(this.locale, resourceBundle.locale) &&
+        Objects.equals(this.baseBundleName, resourceBundle.baseBundleName) &&
         Objects.equals(this.keys, resourceBundle.keys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locale, keys);
+    return Objects.hash(locale, baseBundleName, keys);
   }
 
   @Override
@@ -110,6 +131,7 @@ public class ResourceBundle   {
     sb.append("class ResourceBundle {\n");
     
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    baseBundleName: ").append(toIndentedString(baseBundleName)).append("\n");
     sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("}");
     return sb.toString();

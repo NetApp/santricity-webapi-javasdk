@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class BApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class BApi {
   /**
    * This function is used to bind a new connection to a particular controller. If the server is actually a controller itself, the controller will just ensure that its CONTROLLER REF is the same as the one passed in as an argument. If the server is an agent, it will use the CONTROLLER REF argument to determine which locally-attached controller should be used for all further interactions over the RPC connection.
    * Documented return codes: error, illegalParam, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor value that identifies the controller to which all further requests on this RPC connection should be routed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * SystemAttributeDefaults
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class SystemAttributeDefaults   {
   
     private DiskPoolDefaultAttributes diskPoolDefaultAttributes;
@@ -57,6 +57,8 @@ public class SystemAttributeDefaults   {
     private EmbeddedSNMPAgentDefaultAttributes snmpAgentDefaultAttributes;
 
     private CumulativeStatisticsDefaultAttributes statisticsDefaultAttributes;
+
+    private TunnelingDefaultAttributes tunnelingDefaultAttributes;
 
   
   /**
@@ -192,6 +194,25 @@ public class SystemAttributeDefaults   {
   }
 
   
+  /**
+   * Supplies default attributes used for the HTTP UTM tunneling API.
+   **/
+  public SystemAttributeDefaults tunnelingDefaultAttributes(TunnelingDefaultAttributes tunnelingDefaultAttributes) {
+    this.tunnelingDefaultAttributes = tunnelingDefaultAttributes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Supplies default attributes used for the HTTP UTM tunneling API.")
+  @JsonProperty("tunnelingDefaultAttributes")
+  public TunnelingDefaultAttributes getTunnelingDefaultAttributes() {
+    return tunnelingDefaultAttributes;
+  }
+  
+  public void setTunnelingDefaultAttributes(TunnelingDefaultAttributes tunnelingDefaultAttributes) {
+    this.tunnelingDefaultAttributes = tunnelingDefaultAttributes;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -208,12 +229,13 @@ public class SystemAttributeDefaults   {
         Objects.equals(this.arvmDefaultAttributes, systemAttributeDefaults.arvmDefaultAttributes) &&
         Objects.equals(this.concatDefaultAttributes, systemAttributeDefaults.concatDefaultAttributes) &&
         Objects.equals(this.snmpAgentDefaultAttributes, systemAttributeDefaults.snmpAgentDefaultAttributes) &&
-        Objects.equals(this.statisticsDefaultAttributes, systemAttributeDefaults.statisticsDefaultAttributes);
+        Objects.equals(this.statisticsDefaultAttributes, systemAttributeDefaults.statisticsDefaultAttributes) &&
+        Objects.equals(this.tunnelingDefaultAttributes, systemAttributeDefaults.tunnelingDefaultAttributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(diskPoolDefaultAttributes, thinVolDefaultAttributes, pitGroupsDefaultAttributes, arvmDefaultAttributes, concatDefaultAttributes, snmpAgentDefaultAttributes, statisticsDefaultAttributes);
+    return Objects.hash(diskPoolDefaultAttributes, thinVolDefaultAttributes, pitGroupsDefaultAttributes, arvmDefaultAttributes, concatDefaultAttributes, snmpAgentDefaultAttributes, statisticsDefaultAttributes, tunnelingDefaultAttributes);
   }
 
   @Override
@@ -228,6 +250,7 @@ public class SystemAttributeDefaults   {
     sb.append("    concatDefaultAttributes: ").append(toIndentedString(concatDefaultAttributes)).append("\n");
     sb.append("    snmpAgentDefaultAttributes: ").append(toIndentedString(snmpAgentDefaultAttributes)).append("\n");
     sb.append("    statisticsDefaultAttributes: ").append(toIndentedString(statisticsDefaultAttributes)).append("\n");
+    sb.append("    tunnelingDefaultAttributes: ").append(toIndentedString(tunnelingDefaultAttributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

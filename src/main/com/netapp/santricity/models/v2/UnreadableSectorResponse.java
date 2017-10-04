@@ -42,7 +42,7 @@ import java.util.Objects;
  * The list of unreadable drive sectors
  */
 @ApiModel(description = "The list of unreadable drive sectors")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class UnreadableSectorResponse   {
   
     private Integer maxLimit;

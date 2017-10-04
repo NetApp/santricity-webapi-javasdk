@@ -312,7 +312,7 @@ public class CopyServicesApiTest {
     /**
      * Retrieve the repository usage statistics for all SnapshotGroups.
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -333,7 +333,7 @@ public class CopyServicesApiTest {
     /**
      * Get all Snapshot Groups
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -417,7 +417,7 @@ public class CopyServicesApiTest {
     /**
      * Get all Snapshots
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -720,7 +720,7 @@ public class CopyServicesApiTest {
     /**
      * Get a Snapshot Volume
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -743,7 +743,7 @@ public class CopyServicesApiTest {
     /**
      * Get a Snapshot Group
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -766,7 +766,7 @@ public class CopyServicesApiTest {
     /**
      * Retrieve the repository usage statistics for a single SnapshotGroup.
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1052,7 +1052,7 @@ public class CopyServicesApiTest {
     /**
      * Create a Snapshot
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1075,7 +1075,7 @@ public class CopyServicesApiTest {
     /**
      * Create a Snapshot Group
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1267,7 +1267,7 @@ public class CopyServicesApiTest {
     /**
      * Delete a Snapshot Volume
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1290,7 +1290,7 @@ public class CopyServicesApiTest {
     /**
      * Delete a Snapshot Group
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -1461,7 +1461,7 @@ public class CopyServicesApiTest {
     /**
      * Update a Snapshot Group
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails

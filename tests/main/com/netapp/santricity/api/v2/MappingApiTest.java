@@ -65,27 +65,6 @@ public class MappingApiTest {
     }
     
     /**
-     * Get all HostTypes
-     *
-     * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAllHostPortTypesTest() throws ApiException {
-        
-        String systemId = null;
-        
-        try{
-        List<HostType> response = api.getAllHostPortTypes(systemId);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * Get the list of HostTypes
      *
      * Mode: Both Embedded and Proxy. 
@@ -188,29 +167,6 @@ public class MappingApiTest {
         
         try{
         HostGroup response = api.getHostGroup(systemId, id);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Get a HostType
-     *
-     * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getHostPortTypeTest() throws ApiException {
-        
-        String systemId = null;
-        
-        String id = null;
-        
-        try{
-        HostType response = api.getHostPortType(systemId, id);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -395,29 +351,6 @@ public class MappingApiTest {
         
         try{
         api.removeHostGroup(systemId, id);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Set default HostType
-     *
-     * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void setHostPortTypeDefaultTest() throws ApiException {
-        
-        String systemId = null;
-        
-        SingleNumberValue body = null;
-        
-        try{
-        HostType response = api.setHostPortTypeDefault(systemId, body);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

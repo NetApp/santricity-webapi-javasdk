@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class UApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class UApi {
   /**
    * This procedure is used to take a controller out of the quiesced state.
    * Documented return codes: ok, error, illegalParam, invalidControllerref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A value of the controller to take out of the quiesced state. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class UApi {
   /**
    * This procedure starts the drive download stage of the parallel drive firmware download process.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -175,7 +175,7 @@ public class UApi {
   /**
    * This procedure is used to update the firmware on one or more power supplies.
    * Documented return codes: ok, psuFirmwareDownloadFailed, psuFirmwareUpdateMfgDeviceCodeMismatch, psuFirmwareUpdateNotAllRedundant, psuFirmwareUpdateNotAllOptimal. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A PSUFirmwareUpdateDescriptor object that contains all the attributes required to update the firmware on the power supplies. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +235,7 @@ public class UApi {
   /**
    * Updates the Tray ID of a tray.
    * Documented return codes: ok, error, illegalParam, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the physical tray and the ID value to set for the tray. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +295,7 @@ public class UApi {
   /**
    * This procedure changes the mgmtClientAttribute for a volume.
    * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The VolumeAttributeUpdateDescriptor object. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

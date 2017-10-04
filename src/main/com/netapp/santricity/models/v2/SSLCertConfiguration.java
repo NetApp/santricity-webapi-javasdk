@@ -39,26 +39,28 @@ import java.util.Objects;
 
 
 /**
- * Configuration information to setup SSL
+ * Configuration information to setup SSL.
  */
-@ApiModel(description = "Configuration information to setup SSL")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@ApiModel(description = "Configuration information to setup SSL.")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class SSLCertConfiguration   {
   
     private String dn;
+
+    private List<RelativeDistinguishedName> rdns;
 
     private List<SubjectAlternateName> subjectAlternateNames;
 
   
   /**
-   * The common name for the certificate, usally the DNS name or IP of the server
+   * The distinguished name for the certificate.
    **/
   public SSLCertConfiguration dn(String dn) {
     this.dn = dn;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "The common name for the certificate, usally the DNS name or IP of the server")
+  @ApiModelProperty(example = "null", value = "The distinguished name for the certificate.")
   @JsonProperty("dn")
   public String getDn() {
     return dn;
@@ -70,14 +72,33 @@ public class SSLCertConfiguration   {
 
   
   /**
-   * List of Subject Alternate names
+   * List of relative distinguished names. Multi-valued RDNs are represented as multiple attributes in a single RelativeDistinguishedName.
+   **/
+  public SSLCertConfiguration rdns(List<RelativeDistinguishedName> rdns) {
+    this.rdns = rdns;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "List of relative distinguished names. Multi-valued RDNs are represented as multiple attributes in a single RelativeDistinguishedName.")
+  @JsonProperty("rdns")
+  public List<RelativeDistinguishedName> getRdns() {
+    return rdns;
+  }
+  
+  public void setRdns(List<RelativeDistinguishedName> rdns) {
+    this.rdns = rdns;
+  }
+
+  
+  /**
+   * List of subject alternate names.
    **/
   public SSLCertConfiguration subjectAlternateNames(List<SubjectAlternateName> subjectAlternateNames) {
     this.subjectAlternateNames = subjectAlternateNames;
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "List of Subject Alternate names")
+  @ApiModelProperty(example = "null", value = "List of subject alternate names.")
   @JsonProperty("subjectAlternateNames")
   public List<SubjectAlternateName> getSubjectAlternateNames() {
     return subjectAlternateNames;
@@ -99,12 +120,13 @@ public class SSLCertConfiguration   {
     }
     SSLCertConfiguration sSLCertConfiguration = (SSLCertConfiguration) o;
     return Objects.equals(this.dn, sSLCertConfiguration.dn) &&
+        Objects.equals(this.rdns, sSLCertConfiguration.rdns) &&
         Objects.equals(this.subjectAlternateNames, sSLCertConfiguration.subjectAlternateNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dn, subjectAlternateNames);
+    return Objects.hash(dn, rdns, subjectAlternateNames);
   }
 
   @Override
@@ -113,6 +135,7 @@ public class SSLCertConfiguration   {
     sb.append("class SSLCertConfiguration {\n");
     
     sb.append("    dn: ").append(toIndentedString(dn)).append("\n");
+    sb.append("    rdns: ").append(toIndentedString(rdns)).append("\n");
     sb.append("    subjectAlternateNames: ").append(toIndentedString(subjectAlternateNames)).append("\n");
     sb.append("}");
     return sb.toString();

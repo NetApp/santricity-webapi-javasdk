@@ -46,7 +46,7 @@ public class FileManagementApiTest {
     /**
      * Retrieve the list of support artifacts by type
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -86,6 +86,29 @@ public class FileManagementApiTest {
     }
     
     /**
+     * Gets a file from the private file directory
+     *
+     * The response type of this method is a file stream.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getPrivateFileTest() throws ApiException {
+        
+        String id = null;
+        
+        Boolean autoDelete = null;
+        
+        try{
+        File response = api.getPrivateFile(id, autoDelete);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Retrieve a file from the scratch directory
      *
      * Mode: Both Embedded and Proxy. 
@@ -107,7 +130,7 @@ public class FileManagementApiTest {
     /**
      * Retrieve a specific support artifact.
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -119,6 +142,27 @@ public class FileManagementApiTest {
         
         try{
         File response = api.getSupportArtifacts(identifier);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Deletes a file from the private file directory
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void removePrivateFileTest() throws ApiException {
+        
+        String id = null;
+        
+        try{
+        api.removePrivateFile(id);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -149,7 +193,7 @@ public class FileManagementApiTest {
     /**
      * Deletes a specific support artifact.
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -182,6 +226,27 @@ public class FileManagementApiTest {
         
         try{
         List<FileInfo> response = api.uploadFile(file);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Upload a private file for later reference in an API call.
+     *
+     * If the provided multipart form has non-file data, that data will be ignored and only the files will be handled.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void uploadPrivateFileTest() throws ApiException {
+        
+        File file = null;
+        
+        try{
+        PrivateFileInfo response = api.uploadPrivateFile(file);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

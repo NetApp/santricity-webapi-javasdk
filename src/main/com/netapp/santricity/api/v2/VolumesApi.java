@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumesApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class VolumesApi {
   /**
    * Perform a RAID type migration on a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return VolumeGroupEx
@@ -117,7 +117,7 @@ public class VolumesApi {
   /**
    * Expand the capacity of a StoragePool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param poolId Storage pool id (required)
    * @param body  (optional)
    * @return VolumeGroupEx
@@ -173,7 +173,7 @@ public class VolumesApi {
   /**
    * Expand a ThinVolume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return ThinVolumeEx
@@ -227,117 +227,9 @@ public class VolumesApi {
   }
   
   /**
-   * @deprecated NOTE: This method has been DEPRECATED
-   * 
-   * @param systemId The id of the storage-system (required)
-   * @param id  (required)
-   * @param body  (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void expandThinVolumeCapacityOld(String systemId, String id, ThinVolumeExpansionRequest body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling expandThinVolumeCapacityOld");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling expandThinVolumeCapacityOld");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/thin-volumes/expand/{id}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
-   * Export a full disk encryption key 
-   * Mode: Both Embedded and Proxy. The response type of this method is a file stream. Use secure pass phrase for additional security instead of pass phrase.
-   * @param systemId The id of the storage-system (required)
-   * @param passPhrase Pass phrase (optional)
-   * @param fileName File name (optional)
-   * @return File
-   * @throws ApiException if fails to make API call
-   */
-  public File exportFDEKey(String systemId, String passPhrase, String fileName) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling exportFDEKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/security-key/export".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "passPhrase", passPhrase));
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fileName", fileName));
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/octet-stream"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<File> localVarReturnType = new GenericType<File>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
    * Get the access volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return AccessVolumeEx
    * @throws ApiException if fails to make API call
    */
@@ -385,7 +277,7 @@ public class VolumesApi {
   /**
    * Retrieve the list of LunMappings
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<LUNMapping>
    * @throws ApiException if fails to make API call
    */
@@ -433,7 +325,7 @@ public class VolumesApi {
   /**
    * Get a list of all mappable objects
    * Mode: Both Embedded and Proxy. Provides a simplified way to discover the type of mappable object from an id/reference.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<MappableObject>
    * @throws ApiException if fails to make API call
    */
@@ -481,7 +373,7 @@ public class VolumesApi {
   /**
    * Get list of storage pools
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<VolumeGroupEx>
    * @throws ApiException if fails to make API call
    */
@@ -529,7 +421,7 @@ public class VolumesApi {
   /**
    * Get the list of ThinVolumes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<ThinVolumeEx>
    * @throws ApiException if fails to make API call
    */
@@ -577,7 +469,7 @@ public class VolumesApi {
   /**
    * Get the list of volumes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<VolumeEx>
    * @throws ApiException if fails to make API call
    */
@@ -625,7 +517,7 @@ public class VolumesApi {
   /**
    * Retrieve a LunMapping
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return LUNMapping
    * @throws ApiException if fails to make API call
@@ -680,7 +572,7 @@ public class VolumesApi {
   /**
    * Get a specific mappable object
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return MappableObject
    * @throws ApiException if fails to make API call
@@ -735,7 +627,7 @@ public class VolumesApi {
   /**
    * Get a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return VolumeGroupEx
    * @throws ApiException if fails to make API call
@@ -790,7 +682,7 @@ public class VolumesApi {
   /**
    * Retrieve a list of expansion candidates for a StoragePool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param poolId Storage pool id (required)
    * @return List<VolumeGroupExpansionCandidate>
    * @throws ApiException if fails to make API call
@@ -845,7 +737,7 @@ public class VolumesApi {
   /**
    * Check the progress of a long-running action on a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return List<OperationProgress>
    * @throws ApiException if fails to make API call
@@ -900,7 +792,7 @@ public class VolumesApi {
   /**
    * Get maximum number of drives that can be removed from a StoragePool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return RemovableDriveResponse
    * @throws ApiException if fails to make API call
@@ -955,7 +847,7 @@ public class VolumesApi {
   /**
    * Get a ThinVolume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return ThinVolumeEx
    * @throws ApiException if fails to make API call
@@ -1008,108 +900,9 @@ public class VolumesApi {
   }
   
   /**
-   * @deprecated NOTE: This method has been DEPRECATED
-   * 
-   * @param systemId The id of the storage-system (required)
-   * @param id  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void getThinVolume2(String systemId, String id) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getThinVolume2");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getThinVolume2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/thin-volumes/expand/{id}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
-   * @deprecated NOTE: This method has been DEPRECATED
-   * 
-   * @param systemId The id of the storage-system (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void getThinVolumes2(String systemId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getThinVolumes2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/thin-volumes/expand".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
    * Get a specific volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return VolumeEx
    * @throws ApiException if fails to make API call
@@ -1164,7 +957,7 @@ public class VolumesApi {
   /**
    * Get the volume expansion progress
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return VolumeActionProgressResponse
    * @throws ApiException if fails to make API call
@@ -1217,117 +1010,9 @@ public class VolumesApi {
   }
   
   /**
-   * @deprecated NOTE: This method has been DEPRECATED
-   * 
-   * @param systemId The id of the storage-system (required)
-   * @param id  (required)
-   * @throws ApiException if fails to make API call
-   */
-  public void getVolumeExpansionProgress2(String systemId, String id) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getVolumeExpansionProgress2");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getVolumeExpansionProgress2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/volumes/expand/{id}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
-   * Import a full disk encryption key
-   * Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-   * @param systemId The id of the storage-system (required)
-   * @param passPhrase Pass phrase (optional)
-   * @param keyfile file (optional)
-   * @param securePassPhrase Secure pass phrase (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void importFDEKey(String systemId, String passPhrase, File keyfile, String securePassPhrase) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling importFDEKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/security-key/import".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "passPhrase", passPhrase));
-    
-
-    
-
-    if (keyfile != null)
-      localVarFormParams.put("keyfile", keyfile);
-    if (securePassPhrase != null)
-      localVarFormParams.put("securePassPhrase", securePassPhrase);
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
    * Initialize a ThinVolume
    * Mode: Both Embedded and Proxy. Reinitialize the target thin volume, wiping out all existing data!
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param thinVolumeId  (required)
    * @return ThinVolumeEx
    * @throws ApiException if fails to make API call
@@ -1382,7 +1067,7 @@ public class VolumesApi {
   /**
    * Initialize a volume
    * Mode: Both Embedded and Proxy. This procedure causes the specified volume to be re-initialized. All data that is currently present on the volume will be irretrievably lost as a result of this operation. Once a format operation starts, the volume&#39;s action field will be changed to &#39;initializing&#39;; the getVolumeActionProgress procedure can then be used to monitor the progress of the operation. Volume format operations are typically required only when reviving a volume that has been marked failed for some reason. Newly-created volumes need not be explicitly formatted using this procedure.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param volumeId  (required)
    * @return VolumeEx
    * @throws ApiException if fails to make API call
@@ -1437,7 +1122,7 @@ public class VolumesApi {
   /**
    * Move a LunMapping to a different host or host group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param mappingId  (required)
    * @param body  (optional)
    * @return LUNMapping
@@ -1491,58 +1176,9 @@ public class VolumesApi {
   }
   
   /**
-   * Create or change a full disk encryption key
-   * Mode: Both Embedded and Proxy. The result of this method is the creation of a new key file. Retrieve with the /file/{filename} endpoint.
-   * @param systemId The id of the storage-system (required)
-   * @param body  (optional)
-   * @return SecureVolumeKeyResponse
-   * @throws ApiException if fails to make API call
-   */
-  public SecureVolumeKeyResponse newFDEKey(String systemId, SecureVolumeKeyRequest body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling newFDEKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/security-key".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<SecureVolumeKeyResponse> localVarReturnType = new GenericType<SecureVolumeKeyResponse>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
    * Create a new LunMapping
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return LUNMapping
    * @throws ApiException if fails to make API call
@@ -1591,7 +1227,7 @@ public class VolumesApi {
   /**
    * Create a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return VolumeGroupEx
    * @throws ApiException if fails to make API call
@@ -1640,7 +1276,7 @@ public class VolumesApi {
   /**
    * Create a ThinVolume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return ThinVolumeEx
    * @throws ApiException if fails to make API call
@@ -1689,7 +1325,7 @@ public class VolumesApi {
   /**
    * Create a new volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return VolumeEx
    * @throws ApiException if fails to make API call
@@ -1738,7 +1374,7 @@ public class VolumesApi {
   /**
    * Remove a LunMapping
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1791,7 +1427,7 @@ public class VolumesApi {
   /**
    * Delete a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param deleteVolumes Automatically delete all owned volumes when a delete request is received. (optional, default to false)
    * @throws ApiException if fails to make API call
@@ -1847,7 +1483,7 @@ public class VolumesApi {
   /**
    * Reduce the number of drives of a StoragePool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return VolumeGroupEx
@@ -1903,7 +1539,7 @@ public class VolumesApi {
   /**
    * Delete a ThinVolume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -1956,7 +1592,7 @@ public class VolumesApi {
   /**
    * Delete a volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -2009,7 +1645,7 @@ public class VolumesApi {
   /**
    * Start the volume expansion
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return VolumeActionProgressResponse
@@ -2063,63 +1699,9 @@ public class VolumesApi {
   }
   
   /**
-   * @deprecated NOTE: This method has been DEPRECATED
-   * 
-   * @param systemId The id of the storage-system (required)
-   * @param id  (required)
-   * @param body  (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void startVolumeExpansion2(String systemId, String id, VolumeExpansionRequest body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling startVolumeExpansion2");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling startVolumeExpansion2");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/volumes/expand/{id}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
-    
-  }
-  
-  /**
    * Update a storage pool
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param request  (required)
    * @return VolumeGroupEx
@@ -2180,7 +1762,7 @@ public class VolumesApi {
   /**
    * Update a ThinVolume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return ThinVolumeEx
@@ -2236,7 +1818,7 @@ public class VolumesApi {
   /**
    * Update volume parameters
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return VolumeEx
@@ -2286,66 +1868,6 @@ public class VolumesApi {
     
     GenericType<VolumeEx> localVarReturnType = new GenericType<VolumeEx>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
-   * Validate a full disk encryption key
-   * Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-   * @param systemId The id of the storage-system (required)
-   * @param keyfile file (required)
-   * @param passPhrase Pass phrase (optional)
-   * @param securePassPhrase Secure pass phrase (optional)
-   * @throws ApiException if fails to make API call
-   */
-  public void validateFDEKey(String systemId, File keyfile, String passPhrase, String securePassPhrase) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling validateFDEKey");
-    }
-    
-    // verify the required parameter 'keyfile' is set
-    if (keyfile == null) {
-      throw new ApiException(400, "Missing the required parameter 'keyfile' when calling validateFDEKey");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/security-key/validate".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "passPhrase", passPhrase));
-    
-
-    
-
-    if (keyfile != null)
-      localVarFormParams.put("keyfile", keyfile);
-    if (securePassPhrase != null)
-      localVarFormParams.put("securePassPhrase", securePassPhrase);
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "multipart/form-data"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
     
   }
   

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * Cluster
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class Cluster   {
   
     private String clusterRef;
@@ -53,6 +53,8 @@ public class Cluster   {
     private Boolean confirmLUNMappingCreation;
 
     private Boolean protectionInformationCapableAccessMethod;
+
+    private Boolean isLun0Restricted;
 
     private String name;
 
@@ -155,6 +157,25 @@ public class Cluster   {
 
   
   /**
+   * Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.
+   **/
+  public Cluster isLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.")
+  @JsonProperty("isLun0Restricted")
+  public Boolean getIsLun0Restricted() {
+    return isLun0Restricted;
+  }
+  
+  public void setIsLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+  }
+
+  
+  /**
    **/
   public Cluster name(String name) {
     this.name = name;
@@ -205,13 +226,14 @@ public class Cluster   {
         Objects.equals(this.isSAControlled, cluster.isSAControlled) &&
         Objects.equals(this.confirmLUNMappingCreation, cluster.confirmLUNMappingCreation) &&
         Objects.equals(this.protectionInformationCapableAccessMethod, cluster.protectionInformationCapableAccessMethod) &&
+        Objects.equals(this.isLun0Restricted, cluster.isLun0Restricted) &&
         Objects.equals(this.name, cluster.name) &&
         Objects.equals(this.id, cluster.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterRef, label, isSAControlled, confirmLUNMappingCreation, protectionInformationCapableAccessMethod, name, id);
+    return Objects.hash(clusterRef, label, isSAControlled, confirmLUNMappingCreation, protectionInformationCapableAccessMethod, isLun0Restricted, name, id);
   }
 
   @Override
@@ -224,6 +246,7 @@ public class Cluster   {
     sb.append("    isSAControlled: ").append(toIndentedString(isSAControlled)).append("\n");
     sb.append("    confirmLUNMappingCreation: ").append(toIndentedString(confirmLUNMappingCreation)).append("\n");
     sb.append("    protectionInformationCapableAccessMethod: ").append(toIndentedString(protectionInformationCapableAccessMethod)).append("\n");
+    sb.append("    isLun0Restricted: ").append(toIndentedString(isLun0Restricted)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

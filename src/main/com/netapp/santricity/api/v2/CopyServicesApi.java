@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class CopyServicesApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class CopyServicesApi {
   /**
    * Convert a ReadOnly Snapshot Volume to ReadWrite mode
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param viewId  (required)
    * @param body  (optional)
    * @return PitViewEx
@@ -117,7 +117,7 @@ public class CopyServicesApi {
   /**
    * Expand a Concat Repository Volume by providing an expansion candidate.
    * Mode: Both Embedded and Proxy. An expansion candidate of type \&quot;expansion\&quot; is only valid for ThinVolume repositories. ThinVolume repositories are likewise also limited to a single repository member, which prevents use of the \&quot;existingVol\&quot; and \&quot;newVol\&quot; expansion types.
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return ConcatRepositoryVolume
@@ -173,7 +173,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the list of Concat Repository Volumes.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<ConcatRepositoryVolume>
    * @throws ApiException if fails to make API call
    */
@@ -221,7 +221,7 @@ public class CopyServicesApi {
   /**
    * Get a list of all consistency group members
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PITCGMember>
    * @throws ApiException if fails to make API call
    */
@@ -269,7 +269,7 @@ public class CopyServicesApi {
   /**
    * Get ConsistencyGroup members
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @return List<PITCGMember>
    * @throws ApiException if fails to make API call
@@ -324,7 +324,7 @@ public class CopyServicesApi {
   /**
    * Get a list of all consistency group snapshot views
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PITConsistencyGroupView>
    * @throws ApiException if fails to make API call
    */
@@ -372,7 +372,7 @@ public class CopyServicesApi {
   /**
    * Get Snapshot views associated with the ConsistencyGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @return List<PITConsistencyGroupView>
    * @throws ApiException if fails to make API call
@@ -427,7 +427,7 @@ public class CopyServicesApi {
   /**
    * Get Snapshots associated with the ConsistencyGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @return List<Snapshot>
    * @throws ApiException if fails to make API call
@@ -482,7 +482,7 @@ public class CopyServicesApi {
   /**
    * Get all consistency groups
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PITConsistencyGroup>
    * @throws ApiException if fails to make API call
    */
@@ -530,7 +530,7 @@ public class CopyServicesApi {
   /**
    * Get progress of all copy pairs
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<VolumeCopyProgress>
    * @throws ApiException if fails to make API call
    */
@@ -578,7 +578,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the repository usage statistics for all Legacy Snapshots.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<RepositoryUtilization>
    * @throws ApiException if fails to make API call
    */
@@ -626,7 +626,7 @@ public class CopyServicesApi {
   /**
    * Get Legacy Snapshots
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<LegacySnapshotEx>
    * @throws ApiException if fails to make API call
    */
@@ -673,8 +673,8 @@ public class CopyServicesApi {
   
   /**
    * Retrieve the repository usage statistics for all SnapshotGroups.
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PITGroupRepositoryUtilization>
    * @throws ApiException if fails to make API call
    */
@@ -721,8 +721,8 @@ public class CopyServicesApi {
   
   /**
    * Get all Snapshot Groups
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<SnapshotGroup>
    * @throws ApiException if fails to make API call
    */
@@ -770,7 +770,7 @@ public class CopyServicesApi {
   /**
    * Get all Snapshot Schedules
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<ScheduleInstance>
    * @throws ApiException if fails to make API call
    */
@@ -818,7 +818,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the repository usage statistics for all SnapshotVolumes.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PITViewRepositoryUtilization>
    * @throws ApiException if fails to make API call
    */
@@ -866,7 +866,7 @@ public class CopyServicesApi {
   /**
    * Get all Snapshot Volumes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PitViewEx>
    * @throws ApiException if fails to make API call
    */
@@ -913,8 +913,8 @@ public class CopyServicesApi {
   
   /**
    * Get all Snapshots
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<Snapshot>
    * @throws ApiException if fails to make API call
    */
@@ -962,7 +962,7 @@ public class CopyServicesApi {
   /**
    * Get the list of volume copy pairs
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<VolumeCopyPair>
    * @throws ApiException if fails to make API call
    */
@@ -1010,7 +1010,7 @@ public class CopyServicesApi {
   /**
    * Get a specific Concat Repository Volume.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return ConcatRepositoryVolume
    * @throws ApiException if fails to make API call
@@ -1065,7 +1065,7 @@ public class CopyServicesApi {
   /**
    * Request a list of ConcatVolumeCandidates for a single base volume.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return List<CVCandidateResponse>
    * @throws ApiException if fails to make API call
@@ -1114,7 +1114,7 @@ public class CopyServicesApi {
   /**
    * Get consistency group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return PITConsistencyGroup
    * @throws ApiException if fails to make API call
@@ -1169,7 +1169,7 @@ public class CopyServicesApi {
   /**
    * Get ConsistencyGroup member
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param volumeRef  (required)
    * @return PITCGMember
@@ -1231,7 +1231,7 @@ public class CopyServicesApi {
   /**
    * Get a Snapshot view associated with the ConsistencyGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param viewId  (required)
    * @return PITConsistencyGroupView
@@ -1293,7 +1293,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the underlying SnapshotVolumes associated with the PITConsistencyGroupView
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param viewId  (required)
    * @return List<PitViewEx>
@@ -1355,7 +1355,7 @@ public class CopyServicesApi {
   /**
    * Get a set of Snapshots by sequenceNumber
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param sequenceNumber  (required)
    * @return List<Snapshot>
@@ -1417,7 +1417,7 @@ public class CopyServicesApi {
   /**
    * Get progress of a copy pair
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return VolumeCopyProgress
    * @throws ApiException if fails to make API call
@@ -1472,7 +1472,7 @@ public class CopyServicesApi {
   /**
    * Get Legacy Snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return LegacySnapshotEx
    * @throws ApiException if fails to make API call
@@ -1527,7 +1527,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the repository usage statistics for a single Legacy Snapshot.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return RepositoryUtilization
    * @throws ApiException if fails to make API call
@@ -1582,7 +1582,7 @@ public class CopyServicesApi {
   /**
    * Request the best ConcatVolumeCandidate for multiple base volumes.
    * Mode: Both Embedded and Proxy. If no candidate can be found for a particular base volume, a response with null Candidate will be returned in the list.
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return List<CVCandidateResponse>
    * @throws ApiException if fails to make API call
@@ -1630,8 +1630,8 @@ public class CopyServicesApi {
   
   /**
    * Get a Snapshot Volume
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return Snapshot
    * @throws ApiException if fails to make API call
@@ -1685,8 +1685,8 @@ public class CopyServicesApi {
   
   /**
    * Get a Snapshot Group
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return SnapshotGroup
    * @throws ApiException if fails to make API call
@@ -1740,8 +1740,8 @@ public class CopyServicesApi {
   
   /**
    * Retrieve the repository usage statistics for a single SnapshotGroup.
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return PITGroupRepositoryUtilization
    * @throws ApiException if fails to make API call
@@ -1796,7 +1796,7 @@ public class CopyServicesApi {
   /**
    * Get a Snapshot Schedule
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return ScheduleInstance
    * @throws ApiException if fails to make API call
@@ -1851,7 +1851,7 @@ public class CopyServicesApi {
   /**
    * Get a Snapshot Volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return PitViewEx
    * @throws ApiException if fails to make API call
@@ -1906,7 +1906,7 @@ public class CopyServicesApi {
   /**
    * Retrieve the repository usage statistics for a single SnapshotVolume.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return PITViewRepositoryUtilization
    * @throws ApiException if fails to make API call
@@ -1961,7 +1961,7 @@ public class CopyServicesApi {
   /**
    * Get a volume copy pair
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param vcId  (required)
    * @return VolumeCopyPair
    * @throws ApiException if fails to make API call
@@ -2016,7 +2016,7 @@ public class CopyServicesApi {
   /**
    * Create consistency group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return PITConsistencyGroup
    * @throws ApiException if fails to make API call
@@ -2065,7 +2065,7 @@ public class CopyServicesApi {
   /**
    * Add ConsistencyGroup member
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param body  (optional)
    * @return PITCGMember
@@ -2121,7 +2121,7 @@ public class CopyServicesApi {
   /**
    * Create ConsistencyGroup snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param body  (optional)
    * @return List<Snapshot>
@@ -2177,7 +2177,7 @@ public class CopyServicesApi {
   /**
    * Create Snapshot Views from a ConsistencyGroup Snapshot
    * Mode: Both Embedded and Proxy. A pitId or a pitSequenceNumber can be provided to this endpoint in order to create a snapshotView. If a pitId is provided, only a single view will be created. If a pitSequenceNumber is provided, a snapshotView will be created for each Snapshot associated with the sequenceNumber.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param body  (optional)
    * @return PITConsistencyGroupView
@@ -2233,7 +2233,7 @@ public class CopyServicesApi {
   /**
    * Create Snapshot Views from a ConsistencyGroup Snapshot
    * Mode: Both Embedded and Proxy. This endpoint provides more granularity and customization in creating a view than the non-batch endpoint. For each snapshot that you wish for a view to be created of, a CGSnapshotViewRequest must be provided that defines the parameters (including a repository candidate, if necessary [See repositories/concat]). Each Snapshot provided MUST be under the same pitSequenceNumber.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param body  (optional)
    * @return PITConsistencyGroupView
@@ -2289,7 +2289,7 @@ public class CopyServicesApi {
   /**
    * Create Legacy Snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return LegacySnapshotEx
    * @throws ApiException if fails to make API call
@@ -2338,7 +2338,7 @@ public class CopyServicesApi {
   /**
    * Add multiple ConsistencyGroup members at once
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param body  (optional)
    * @return List<PITCGMember>
@@ -2393,8 +2393,8 @@ public class CopyServicesApi {
   
   /**
    * Create a Snapshot
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return Snapshot
    * @throws ApiException if fails to make API call
@@ -2442,8 +2442,8 @@ public class CopyServicesApi {
   
   /**
    * Create a Snapshot Group
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return SnapshotGroup
    * @throws ApiException if fails to make API call
@@ -2492,7 +2492,7 @@ public class CopyServicesApi {
   /**
    * Create a Snapshot Volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return PitViewEx
    * @throws ApiException if fails to make API call
@@ -2541,7 +2541,7 @@ public class CopyServicesApi {
   /**
    * Create a new volume copy pair
    * Mode: Both Embedded and Proxy. Establish a new volume copy pair by providing a source and a target volume. The target volume must be of greater or equal size to the source.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return VolumeCopyPair
    * @throws ApiException if fails to make API call
@@ -2590,7 +2590,7 @@ public class CopyServicesApi {
   /**
    * Delete consistency group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -2643,7 +2643,7 @@ public class CopyServicesApi {
   /**
    * Remove ConsistencyGroup member
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param volumeRef  (required)
    * @param retainRepositories  (optional, default to false)
@@ -2706,7 +2706,7 @@ public class CopyServicesApi {
   /**
    * Remove ConsistencyGroup snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param sequenceNumber  (required)
    * @throws ApiException if fails to make API call
@@ -2766,7 +2766,7 @@ public class CopyServicesApi {
   /**
    * Delete an existing Snapshot View
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param viewId  (required)
    * @throws ApiException if fails to make API call
@@ -2826,7 +2826,7 @@ public class CopyServicesApi {
   /**
    * Delete a Legacy Snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -2878,8 +2878,8 @@ public class CopyServicesApi {
   
   /**
    * Delete a Snapshot Volume
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -2931,8 +2931,8 @@ public class CopyServicesApi {
   
   /**
    * Delete a Snapshot Group
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -2985,7 +2985,7 @@ public class CopyServicesApi {
   /**
    * Delete a Snapshot Volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @throws ApiException if fails to make API call
    */
@@ -3038,7 +3038,7 @@ public class CopyServicesApi {
   /**
    * Remove a volume copy pair
    * Mode: Both Embedded and Proxy. Online volume copies, or copies based on snapshots, require multiple operations to delete all repository volumes (if enabled). If there is a service interruption, it is possible that all repository volumes will not be deleted.These repository volumes can be retrieved using the volumes resource, and will be marked with a volumeUse of &#39;freeRepositoryVolume&#39;. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param vcId  (required)
    * @param retainRepositories  (optional, default to false)
    * @throws ApiException if fails to make API call
@@ -3094,7 +3094,7 @@ public class CopyServicesApi {
   /**
    * Rollback a ConsistencyGroup snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cgId  (required)
    * @param sequenceNumber  (required)
    * @throws ApiException if fails to make API call
@@ -3154,7 +3154,7 @@ public class CopyServicesApi {
   /**
    * Update consistency group
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return PITConsistencyGroup
@@ -3210,7 +3210,7 @@ public class CopyServicesApi {
   /**
    * Start/Stop a copy pair operation
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param ids A comma separated list of id&#39;s (required)
    * @param control control (required)
    * @return List<VolumeCopyProgress>
@@ -3273,7 +3273,7 @@ public class CopyServicesApi {
   /**
    * Update a Legacy Snapshot
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return LegacySnapshotEx
@@ -3328,8 +3328,8 @@ public class CopyServicesApi {
   
   /**
    * Update a Snapshot Group
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return SnapshotGroup
@@ -3385,7 +3385,7 @@ public class CopyServicesApi {
   /**
    * Update a Snapshot Volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @param body  (optional)
    * @return PitViewEx
@@ -3441,7 +3441,7 @@ public class CopyServicesApi {
   /**
    * Update parameters of a volume copy pair
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param vcId  (required)
    * @param body  (optional)
    * @return VolumeCopyPair

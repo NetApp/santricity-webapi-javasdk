@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class RApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class RApi {
   /**
    * This procedure reads a range of (i.e. one or more) MgmtClient Record objects.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The MgmtClientRecordReadDescriptor value. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class RApi {
   /**
    * This procedure returns a list of the known unreadable sectors for the system.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return UnreadableSectorTableInfo
@@ -175,7 +175,7 @@ public class RApi {
   /**
    * This procedure is used to recover a stopped or failed Async Mirror Group Member.
    * Documented return codes: arvmRecoveryPointDeletionRequired, arvmOnlyPrimaryMemberRemoved, arvmOnlySecondaryMemberRemoved, arvmOrphanGroup, volumeNotAvailable, volumeHasUnreadableSectors, remoteInternalError, arvmRemoteMirrorMemberDoesNotExist, remoteDatabaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes to recover an Asynchronous Mirror Group member. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +235,7 @@ public class RApi {
   /**
    * This procedure is used to recover a stopped or failed asynchronous mirror group member.
    * Documented return codes: ok, arvmRecoveryPointDeletionRequired, arvmOnlyPrimaryMemberRemoved, arvmOnlySecondaryMemberRemoved, arvmOrphanGroup, volumeNotAvailable, volumeHasUnreadableSectors, remoteInternalError, arvmRemoteMirrorMemberDoesNotExist, remoteDatabaseError, arvmThinVolInitError, arvmRemoteThinVolInitError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +295,7 @@ public class RApi {
   /**
    * This procedure is used to tell the controller that corrective action has been taken to recover from a mis-wire condition. The controller will re-enable any SAS Ports that were disabled when a mis-wire was detected.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -349,7 +349,7 @@ public class RApi {
   /**
    * This procedure creates a volume using the parameters of a volume that previously existed. Since no data or parity initialization is performed on the volume, the prior data is preserved resulting in a volume that is identical to the previous volume.
    * Documented return codes: maxVolumesExceeded, raid6FeatureUnsupported, raid6FeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information on how a recovered volume is to be created. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -409,7 +409,7 @@ public class RApi {
   /**
    * This procedure restarts a snapshot volume that was previously created. The snapshot must have been previously disabled for this procedure to succeed.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, invalidVolumeref, snapNotAvailable, notDisabled, snapshotFeatureDisabled, repositoryOffline, ghostVolume, repositoryMissing, repositoryFailed, baseVolumeFailed, baseVolumeOffline, basevolSizeChanged. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor object that specifies the various snapshot parameters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -469,7 +469,7 @@ public class RApi {
   /**
    * During snapshot recreation, all affected volumes (snapshots, base, and repository) will be appropriately quiesced; I/O will be resumed to all affected volumes once all snapshots have been successfully restarted.
    * Documented return codes: ok, illegalParam, noHeap, internalError, invalidVolumeref, snapNotAvailable, notDisabled, snapshotFeatureDisabled, repositoryOffline, ghostVolume, repositoryMissing, repositoryFailed, baseVolumeFailed, baseVolumeOffline, basevolSizeChanged. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SnapshotRefList structure identifying the snapshot volume that are to be restarted. The list may contain as few as one snapshot reference or up to MAX_SNAPSHOT_COLLECTION_SIZE references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -529,7 +529,7 @@ public class RApi {
   /**
    * This procedure performs a refresh of the DHCP parameters for the iSCSI interface specified by the input argument. The affected parameters are port IP address, subnet mask, and gateway IP address.
    * Documented return codes: ok, manualConfigModeSet. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An Interface reference that identifies the iSCSI interface on which the operation is to be performed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -589,7 +589,7 @@ public class RApi {
   /**
    * This procedure causes the storage array to refresh its idea of the network address information for the iSNS server
    * Documented return codes: background, manualConfigModeSet. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -643,7 +643,7 @@ public class RApi {
   /**
    * This procedure causes the referenced thin volume to be reinitialized to have no content.
    * Documented return codes: ok, illegalParam, tryAlternate, notImplemented, internalError, invalidVolumeref, repositoryTooSmall, invalidConcatVolMemberLabel, illegalVolume, invalidRepositoryCapacity, invalidProvisionedCapacityQuota, invalidReinitAction, invalidReinitCapacity. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes for reinitializing a thin volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -703,7 +703,7 @@ public class RApi {
   /**
    * This procedure attempts to release a previously acquired Customer Support Bundle (CSB) lock once the CSB retrieval is complete. If the provided lock key matches the current value of the lock, the lock is released and the procedure returns success. If the lock key does not match the current value of the lock or if the lock is not active, the procedure returns an error.
    * Documented return codes: ok, csbReleaseFailedNoLock, csbReleaseFailedInvalidKey. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The key returned by reserveSupportData. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -763,7 +763,7 @@ public class RApi {
   /**
    * This procedure will remove a member from an Async Mirror Group.
    * Documented return codes: ok, arvmGroupDoesNotExist, arvmMirrorMemberDoesNotExist, remoteInternalError, arvmRemoteMirrorMemberDoesNotExist, remoteDatabaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes to remove an Asynchronous Mirror Group member. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -823,7 +823,7 @@ public class RApi {
   /**
    * Removes all bundle keys that have been applied to change feature bundles.
    * Documented return codes: ok, error, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -877,7 +877,7 @@ public class RApi {
   /**
    * This procedure reconfigures the flash cache volume group to remove drives.
    * Documented return codes: ok, error, illegalParam, noHeap, internalError, invalidDriveref, duplicateDrives, invalidDriveState, notFlashcacheVol, flashcacheDeleted, flashcacheFailed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The flash cache reference and list of drive references to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -935,9 +935,69 @@ public class RApi {
   }
   
   /**
+   * This procedure will remove a specified installed KMS certificate from the storage array.
+   * Documented return codes: ok, embeddedExternalKeyManagementEnabled. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolRemoveInstalledKMSCertificateFiles(String systemId, String body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolRemoveInstalledKMSCertificateFiles");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolRemoveInstalledKMSCertificateFiles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/removeInstalledKMSCertificateFiles".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Deletes a mirror volume.
    * Documented return codes: ok, illegalParam, volumeNotExist, internalError, iconFailure, invalidVolumeref, ghostVolume, invalidMirrorvol, onlyLocalMirrorDeleted, rvmSpmError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A MirrorProxyRef object which identifies the Mirror Proxy Volume to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -997,7 +1057,7 @@ public class RApi {
   /**
    * This procedure will remove a member from a PiT consistency group.
    * Documented return codes: ok, invalidPitGroupRef. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the consistency group member to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1057,7 +1117,7 @@ public class RApi {
   /**
    * This procedure is used to remove a previous configured SNMP community from the list of known community strings.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1117,7 +1177,7 @@ public class RApi {
   /**
    * This procedure is used to remove a previously configured SNMP trap destination.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1177,7 +1237,7 @@ public class RApi {
   /**
    * Removes a volume copy.
    * Documented return codes: ok, illegalParam, noHeap, internalError, invalidVolumeref, ghostVolume. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeCopyRef object that identifies the volume copy to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1237,7 +1297,7 @@ public class RApi {
   /**
    * This procedure changes the user-assigned label for a Cluster object.
    * Documented return codes: ok, partDupId, partLabelInvalid, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbolRefWithUAL object whose ref field identifies the cluster to be renamed, and whose label field provides the new user-assigned label for the cluster. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1297,7 +1357,7 @@ public class RApi {
   /**
    * This procedure changes the user-assigned label for a Host object.
    * Documented return codes: ok, partDupId, partLabelInvalid, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbolRefWithUAL object whose ref field identifies the host to be renamed, and whose label field provides the new user-assigned label for the host. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1357,7 +1417,7 @@ public class RApi {
   /**
    * This procedure changes the user-assigned label for a HostPort object.
    * Documented return codes: ok, partDupId, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbolRefWithUAL object whose ref field identifies the host port to be renamed, and whose label field provides the new user-assigned label for the host port. This procedure does not apply to iSCSI. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1417,7 +1477,7 @@ public class RApi {
   /**
    * This procedure causes a drive, A, that is not part of a volume group to replace a drive, B, that is part of a volume group. The end result is that the volume group drive composition is redefined to include A, and exclude B. The only candidate drives for being replaced are those that belong to a volume group and are either not-present or are failed. The only candidate drives for replacing a drive are those that are either unassigned or are a fully-integrated hot spare.
    * Documented return codes: ok, driveTypeMismatch. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A DriveReplacementDescriptor structure that identifies the drive to replace and the replacement drive. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1477,7 +1537,7 @@ public class RApi {
   /**
    * This procedure resets each drive&#39;s lock key to a new, random value and disables each drive&#39;s security system.
    * Documented return codes: ok, illegalParam, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of drive reference values, which identifies the drives to be re-provisioned. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1537,7 +1597,7 @@ public class RApi {
   /**
    * This procedure turns the Ready to Remove indicator light on or off or puts the Ready to Remove indicator into automatic mode, for the component specified in the RTRUpdateDescriptor.
    * Documented return codes: ok, error, illegalParam, downloadInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An RTRUpdateDescription object that indicates the component to modify and the control to execute. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1597,7 +1657,7 @@ public class RApi {
   /**
    * This procedure turns the Ready to Remove indicator light on or off or puts the Ready to Remove indicator into automatic mode, for the component specified in the RTRUpdateDescriptor. This procedure is deprecated. The requestRemoval procedure should be used instead.
    * Documented return codes: ok, error, illegalParam, downloadInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An RTRUpdateDescriptor object that indicates the component to modify and the control to execute. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1657,7 +1717,7 @@ public class RApi {
   /**
    * This procedure attempts to acquire the Customer Support Bundle lock. If the lock is successfully acquired the procedure returns success and the lock key. If another client owns the lock a failure indication is returned along with an integer indicating the suggested number of seconds to wait before retrying the reservation.
    * Documented return codes: ok, csbReserveFailed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return ReserveSupportDataReturned
@@ -1711,7 +1771,7 @@ public class RApi {
   /**
    * This procedure will reset (clear) synchronization time statistics for a list of mirror members.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1771,7 +1831,7 @@ public class RApi {
   /**
    * This procedure requests a reboot of the given controller.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, invalidRequest, invalidControllerref, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller that is to be rebooted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1831,7 +1891,7 @@ public class RApi {
   /**
    * This procedure sets all cumulative statistics on each controller back to zero and sets a new base time equal to the current time.
    * Documented return codes: ok, error, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -1885,7 +1945,7 @@ public class RApi {
   /**
    * This procedure resets the related discrete time series statistical streams on both controller, i.e., it sets the number of observations for the series back to zero.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the discrete time series to reset. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1945,7 +2005,7 @@ public class RApi {
   /**
    * This procedure resets the related histograms both controllers, i.e., it sets the number of entries in each category and all observation tallies back to zero.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the histograms to reset. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2005,7 +2065,7 @@ public class RApi {
   /**
    * This procedure clears all entries from the Major Events Log.
    * Documented return codes: ok, tryAlternate. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2059,7 +2119,7 @@ public class RApi {
   /**
    * This procedure provides a way to clear the storage array configuration without bringing it all the way back to its initial state. Core security and identification may be retained, if desired.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A ResetConfigType object that indicates which parts of the array configuration are to be cleared. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2117,9 +2177,69 @@ public class RApi {
   }
   
   /**
+   * This procedure resets the super provisioning boundary for the requested devices.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body A ResetSuperProvisioningBoundaryDescriptor specifying details of the reset request. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolResetSuperProvisioningBoundary(String systemId, ResetSuperProvisioningBoundaryDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolResetSuperProvisioningBoundary");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolResetSuperProvisioningBoundary");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/resetSuperProvisioningBoundary".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure will restart a Consistency Group View (restart all of its associated member Views).
    * Documented return codes: ok, invalidPitForView. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to restart a Consistency Group View. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2179,7 +2299,7 @@ public class RApi {
   /**
    * This procedure will restart a PiT View.
    * Documented return codes: ok, invalidPitForView. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to restart a PiT View. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2239,7 +2359,7 @@ public class RApi {
   /**
    * Resume an Async Mirror Group.
    * Documented return codes: ok, arvmGroupDoesNotExist, arvmRecoveryPointDeletionRequired, arvmGroupNotPrimary, arvmGroupNotSuspended, arvmResumeFailure, arvmGroupHasIncompleteMember, remoteInternalError, arvmRemoteGroupDoesNotExist, remoteDatabaseError, arvmRemoteResumeFailure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor containing a reference to the Asynchronous Mirror Group to resume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2299,7 +2419,7 @@ public class RApi {
   /**
    * This procedure resumes the communication for all mirrors in a Write Consistency group with a specified group number.
    * Documented return codes: ok, noHeap, internalError, iconFailure, legacyRvmAsyncModeUnsupported. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information about the write consistency group object. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2359,7 +2479,7 @@ public class RApi {
   /**
    * This procedure resumes a previously suspended flash cache.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, internalError, invalidVolumeref, flashcacheNotSuspended, notFlashcacheVol, flashcacheDeleted, flashcacheFailed, flashcacheDegradedState. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the flash cache object. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2419,7 +2539,7 @@ public class RApi {
   /**
    * This procedure resumes the communication between a mirror pair.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, iconFailure, invalidVolumeref, ghostVolume, invalidMirrorvol, rvmVersionMismatch, rvmOperNotAllowedOnSec. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information identifying the Mirror Proxy Volume to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2479,7 +2599,7 @@ public class RApi {
   /**
    * This procedure resumes the communication between all mirrored pairs specified in the MirrorVolumeList.
    * Documented return codes: ok, noHeap, internalError, iconFailure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information identifying the list of mirrored pairs on which to perform the resume operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2539,7 +2659,7 @@ public class RApi {
   /**
    * This procedure will resume a paused rollback on the specified PiT.
    * Documented return codes: ok, repositoryOffline, invalidPitRef, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the PiT rollback to be resumed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2599,7 +2719,7 @@ public class RApi {
   /**
    * This procedure is used to resume suspended snapshot rollback operations.
    * Documented return codes: ok, rollbackStartFailure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the snapshot for which to resume the snapshot rollback operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2657,9 +2777,69 @@ public class RApi {
   }
   
   /**
+   * Retrieves a specified Key Management Server (KMS) ertificate currently installed on the storage array so that information about the certifiacte such as date of expiration can be extracted and displayed. This allows the storage administrator to know what is installed on the system and used for authentication with the KMIP server.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return KMSCertificateFileReturn
+   * @throws ApiException if fails to make API call
+   */
+  public KMSCertificateFileReturn symbolRetrieveKMSCertificateFile(String systemId, KMSCertificateFileRetrieveDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolRetrieveKMSCertificateFile");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolRetrieveKMSCertificateFile");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/retrieveKMSCertificateFile".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<KMSCertificateFileReturn> localVarReturnType = new GenericType<KMSCertificateFileReturn>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure revives a failed PiT Group.
    * Documented return codes: ok, repositoryOffline, rollbackInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the PiT Group you want to revive. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2719,7 +2899,7 @@ public class RApi {
   /**
    * This procedure revives a failed PiT View.
    * Documented return codes: ok, repositoryOffline. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the PiT View you want to revive. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2779,7 +2959,7 @@ public class RApi {
   /**
    * This procedure changes the role of the mirror volume.
    * Documented return codes: ok, illegalParam, noHeap, internalError, invalidVolumeref, ghostVolume, invalidMirrorvol, localRoleChangeFailed, remoteRoleChangeFailed, localRoleChangeSuccessful, localRoleChangedNotForced, remoteRoleChangedLocalFailed, rvmVersionMismatch, rvmRemoteArrayError, rvmCommunicationError, secNotPromoteable, priNotDemoteable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The MirrorRoleChangeDescriptor object. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

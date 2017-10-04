@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class StatisticsApi {
   private ApiClient apiClient;
 
@@ -60,8 +60,8 @@ public class StatisticsApi {
   
   /**
    * Get all analysed controller statistics
-   * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AnalysedControllerStatistics>
    * @throws ApiException if fails to make API call
    */
@@ -108,8 +108,8 @@ public class StatisticsApi {
   
   /**
    * Get all analysed disk statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AnalysedDiskStatistics>
    * @throws ApiException if fails to make API call
    */
@@ -155,9 +155,9 @@ public class StatisticsApi {
   }
   
   /**
-   * Get all analysed controller statistics
-   * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * Get all analysed interface statistics
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AnalyzedInterfaceStatistics>
    * @throws ApiException if fails to make API call
    */
@@ -203,9 +203,9 @@ public class StatisticsApi {
   }
   
   /**
-   * Get all analysed volume statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Get a subset of analysed volume statistics
+   * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of volume ids (required)
    * @return List<AnalysedVolumeStatistics>
    * @throws ApiException if fails to make API call
@@ -260,7 +260,7 @@ public class StatisticsApi {
   /**
    * Get historical performance raw statistics
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param type Statistics type (optional)
    * @param start start time in milliseconds since the epoch (optional)
    * @param end end time in milliseconds since the epoch (optional)
@@ -320,7 +320,7 @@ public class StatisticsApi {
   /**
    * Get Live performance statistics
    * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param type Statistics type (optional)
    * @return RawStatsResponse
    * @throws ApiException if fails to make API call
@@ -370,9 +370,9 @@ public class StatisticsApi {
   
   /**
    * Get raw disk statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param usecache  (optional, default to true)
+   * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<DiskIOStats>
    * @throws ApiException if fails to make API call
    */
@@ -420,10 +420,10 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw volume statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param usecache  (optional, default to true)
+   * Get all raw volume statistics
+   * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<VolumeIOStats>
    * @throws ApiException if fails to make API call
    */
@@ -471,9 +471,9 @@ public class StatisticsApi {
   }
   
   /**
-   * Get a subset of analysed controller statistics
-   * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * Get a subset of analysed controller statistics@deprecated NOTE: This method has been DEPRECATED
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of controller id&#39;s (required)
    * @return List<AnalysedControllerStatistics>
    * @throws ApiException if fails to make API call
@@ -527,8 +527,8 @@ public class StatisticsApi {
   
   /**
    * Get a subset of analysed disk statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of disk ids (required)
    * @return List<AnalysedDiskStatistics>
    * @throws ApiException if fails to make API call
@@ -581,9 +581,9 @@ public class StatisticsApi {
   }
   
   /**
-   * Get a subset of the analysed volume statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Get all analysed volume statistics
+   * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<AnalysedVolumeStatistics>
    * @throws ApiException if fails to make API call
    */
@@ -629,9 +629,9 @@ public class StatisticsApi {
   }
   
   /**
-   * Get a subset of analysed controller statistics
-   * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * Get a subset of analysed interface statistics
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of interface id&#39;s (required)
    * @return List<AnalyzedInterfaceStatistics>
    * @throws ApiException if fails to make API call
@@ -686,7 +686,7 @@ public class StatisticsApi {
   /**
    * Get the list supported average analyzed statistics types
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<String>
    * @throws ApiException if fails to make API call
    */
@@ -734,7 +734,7 @@ public class StatisticsApi {
   /**
    * Get historical performance statistics averaged over a time range.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param type Statistics type (optional)
    * @param length Length of time in ms. (optional)
    * @return AverageAnalysedStatsResponse
@@ -788,7 +788,7 @@ public class StatisticsApi {
   /**
    * Get historical performance statistics
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param type Statistics type (optional)
    * @param start start time in milliseconds since the epoch (optional)
    * @param end end time in milliseconds since the epoch (optional)
@@ -845,7 +845,7 @@ public class StatisticsApi {
   /**
    * Get selected historical performance raw statistics
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of object ids (required)
    * @param type Statistics type (optional)
    * @param start start time in milliseconds since the epoch (optional)
@@ -912,7 +912,7 @@ public class StatisticsApi {
   /**
    * Get selected Live performance statistics
    * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of object ids (required)
    * @param type Statistics type (optional)
    * @return RawStatsResponse
@@ -968,10 +968,10 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw controller statistics
-   * Mode: Embedded only. 
-   * @param systemId  (required)
-   * @param usecache  (optional, default to true)
+   * Get all raw controller statistics
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<ControllerStats>
    * @throws ApiException if fails to make API call
    */
@@ -1019,11 +1019,11 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw controller statistics
-   * Mode: Embedded only. 
-   * @param systemId  (required)
+   * Get a subset of raw controller statistics@deprecated NOTE: This method has been DEPRECATED
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of controller id&#39;s (required)
-   * @param usecache  (optional, default to true)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<ControllerStats>
    * @throws ApiException if fails to make API call
    */
@@ -1078,10 +1078,10 @@ public class StatisticsApi {
   
   /**
    * Get a subset of the raw disk statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of disk ids (required)
-   * @param usecache  (optional, default to true)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<DiskIOStats>
    * @throws ApiException if fails to make API call
    */
@@ -1135,10 +1135,10 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw interface statistics
-   * Mode: Embedded only. 
-   * @param systemId  (required)
-   * @param usecache  (optional, default to true)
+   * Get all raw interface statistics
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<InterfaceStats>
    * @throws ApiException if fails to make API call
    */
@@ -1186,11 +1186,11 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw controller statistics
-   * Mode: Embedded only. 
-   * @param systemId  (required)
-   * @param idlist A comma separated list of controller id&#39;s (required)
-   * @param usecache  (optional, default to true)
+   * Get a subset of raw interface statistics
+   * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param idlist A comma separated list of interface id&#39;s (required)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<InterfaceStats>
    * @throws ApiException if fails to make API call
    */
@@ -1246,7 +1246,7 @@ public class StatisticsApi {
   /**
    * Get the list supported raw statistics types
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<String>
    * @throws ApiException if fails to make API call
    */
@@ -1292,11 +1292,11 @@ public class StatisticsApi {
   }
   
   /**
-   * Get raw volume statistics
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Get a subset of raw volume statistics
+   * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of volume ids (required)
-   * @param usecache  (optional, default to true)
+   * @param usecache When true, the statistics data will be returned from the cache. If there is no data in the cache then the storage system will be queried directly for the statistics data. (optional, default to true)
    * @return List<VolumeIOStats>
    * @throws ApiException if fails to make API call
    */
@@ -1352,7 +1352,7 @@ public class StatisticsApi {
   /**
    * Get selected historical performance statistics
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param idlist A comma separated list of object ids (required)
    * @param type Statistics type (optional)
    * @param start start time in milliseconds since the epoch (optional)
@@ -1416,7 +1416,7 @@ public class StatisticsApi {
   /**
    * Get the list supported statistics types
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<String>
    * @throws ApiException if fails to make API call
    */

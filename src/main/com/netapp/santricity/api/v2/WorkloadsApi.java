@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class WorkloadsApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class WorkloadsApi {
   /**
    * Create a copy of an existing workload
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param workloadId  (required)
    * @param data Name for the new workload (required)
    * @return WorkloadModel
@@ -122,7 +122,7 @@ public class WorkloadsApi {
   /**
    * Get all defined workloads
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<WorkloadModel>
    * @throws ApiException if fails to make API call
    */
@@ -170,7 +170,7 @@ public class WorkloadsApi {
   /**
    * Get a given defined workload
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param workloadId  (required)
    * @return WorkloadModel
    * @throws ApiException if fails to make API call
@@ -225,7 +225,7 @@ public class WorkloadsApi {
   /**
    * Create a workload
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param data  (required)
    * @return WorkloadModel
    * @throws ApiException if fails to make API call
@@ -279,7 +279,7 @@ public class WorkloadsApi {
   /**
    * Delete a workload
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param workloadId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -332,7 +332,7 @@ public class WorkloadsApi {
   /**
    * Modify an existing workload
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param workloadId  (required)
    * @param data  (required)
    * @return WorkloadModel

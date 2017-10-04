@@ -426,7 +426,7 @@ public class StorageSystemsApiTest {
     /**
      * Add a storage-system
      *
-     * Mode: Both Embedded and Proxy. 
+     * This endpoint allows you to add additional storage-systems under management using their IP address[es].
      *
      * @throws ApiException
      *          if the Api call fails
@@ -447,7 +447,7 @@ public class StorageSystemsApiTest {
     /**
      * Remove all feature packs.
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Both Embedded and Proxy. \n\nWARNING: Removal of feature packs is an offline operation. Failure to quiesce IO prior to performing this operation may result in loss of access to data or loss of data. \n\nWhen used in embedded mode a client may not receive a response from this operation.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -510,9 +510,9 @@ public class StorageSystemsApiTest {
     }
     
     /**
-     * Remove one or more storage-systems. The path is a comma seperated list of IDs
+     * Remove one or more storage-systems
      *
-     * Mode: Both Embedded and Proxy. 
+     * The path is a comma-separated list of IDs. The identifiers of any storage-systems were failed to remove are provided in the response error response.
      *
      * @throws ApiException
      *          if the Api call fails

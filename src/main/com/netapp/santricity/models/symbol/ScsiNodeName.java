@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * ScsiNodeName
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class ScsiNodeName   {
   
 
@@ -57,6 +57,7 @@ public class ScsiNodeName   {
     iscsi("iscsi"),
     ib("ib"),
     fcoe("fcoe"),
+    nvmeof("nvmeof"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -77,6 +78,8 @@ public class ScsiNodeName   {
     private String iscsiNodeName;
 
     private String remoteNodeWWN;
+
+    private String nvmeNodeName;
 
   
   /**
@@ -136,6 +139,25 @@ public class ScsiNodeName   {
   }
 
   
+  /**
+   * Host NVMe Qualified Name (NQN)
+   **/
+  public ScsiNodeName nvmeNodeName(String nvmeNodeName) {
+    this.nvmeNodeName = nvmeNodeName;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "Host NVMe Qualified Name (NQN)")
+  @JsonProperty("nvmeNodeName")
+  public String getNvmeNodeName() {
+    return nvmeNodeName;
+  }
+  
+  public void setNvmeNodeName(String nvmeNodeName) {
+    this.nvmeNodeName = nvmeNodeName;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +170,13 @@ public class ScsiNodeName   {
     ScsiNodeName scsiNodeName = (ScsiNodeName) o;
     return Objects.equals(this.ioInterfaceType, scsiNodeName.ioInterfaceType) &&
         Objects.equals(this.iscsiNodeName, scsiNodeName.iscsiNodeName) &&
-        Objects.equals(this.remoteNodeWWN, scsiNodeName.remoteNodeWWN);
+        Objects.equals(this.remoteNodeWWN, scsiNodeName.remoteNodeWWN) &&
+        Objects.equals(this.nvmeNodeName, scsiNodeName.nvmeNodeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ioInterfaceType, iscsiNodeName, remoteNodeWWN);
+    return Objects.hash(ioInterfaceType, iscsiNodeName, remoteNodeWWN, nvmeNodeName);
   }
 
   @Override
@@ -164,6 +187,7 @@ public class ScsiNodeName   {
     sb.append("    ioInterfaceType: ").append(toIndentedString(ioInterfaceType)).append("\n");
     sb.append("    iscsiNodeName: ").append(toIndentedString(iscsiNodeName)).append("\n");
     sb.append("    remoteNodeWWN: ").append(toIndentedString(remoteNodeWWN)).append("\n");
+    sb.append("    nvmeNodeName: ").append(toIndentedString(nvmeNodeName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

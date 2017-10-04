@@ -42,7 +42,7 @@ import java.util.Objects;
  * Aggregation of volume statistics for a workload.
  */
 @ApiModel(description = "Aggregation of volume statistics for a workload.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class WorkloadStatistics   {
   
     private Date observedTime;
@@ -121,13 +121,14 @@ public class WorkloadStatistics   {
 
   
   /**
+   * End time for this collection as measured by the number of seconds since baseTime.
    **/
   public WorkloadStatistics observedTime(Date observedTime) {
     this.observedTime = observedTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "End time for this collection as measured by the number of seconds since baseTime.")
   @JsonProperty("observedTime")
   public Date getObservedTime() {
     return observedTime;
@@ -248,13 +249,14 @@ public class WorkloadStatistics   {
 
   
   /**
+   * Number of read operations
    **/
   public WorkloadStatistics readOps(Double readOps) {
     this.readOps = readOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Number of read operations")
   @JsonProperty("readOps")
   public Double getReadOps() {
     return readOps;
@@ -340,13 +342,14 @@ public class WorkloadStatistics   {
 
   
   /**
+   * Number of write operations
    **/
   public WorkloadStatistics writeOps(Double writeOps) {
     this.writeOps = writeOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Number of write operations")
   @JsonProperty("writeOps")
   public Double getWriteOps() {
     return writeOps;

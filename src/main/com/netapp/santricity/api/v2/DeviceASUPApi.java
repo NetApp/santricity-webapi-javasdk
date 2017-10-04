@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class DeviceASUPApi {
   private ApiClient apiClient;
 
@@ -60,7 +60,7 @@ public class DeviceASUPApi {
   
   /**
    * Retrieve the device ASUP configuration
-   * Mode: Both Embedded and Proxy.
+   * Mode: Embedded only.
    * @return DeviceAsupResponse
    * @throws ApiException if fails to make API call
    */
@@ -102,10 +102,10 @@ public class DeviceASUPApi {
   /**
    * Retrieve ASUP information for all storage devices
    * Mode: Embedded only. 
-   * @return DeviceAsupDevice
+   * @return List<DeviceAsupDevice>
    * @throws ApiException if fails to make API call
    */
-  public DeviceAsupDevice getASUPInformation() throws ApiException {
+  public List<DeviceAsupDevice> getASUPInformation() throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -135,7 +135,7 @@ public class DeviceASUPApi {
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
     
-    GenericType<DeviceAsupDevice> localVarReturnType = new GenericType<DeviceAsupDevice>() {};
+    GenericType<List<DeviceAsupDevice>> localVarReturnType = new GenericType<List<DeviceAsupDevice>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * ExtendedComponentLocation
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class ExtendedComponentLocation   {
   
 
@@ -59,6 +59,8 @@ public class ExtendedComponentLocation   {
     controller("controller"),
     ref("ref"),
     label("label"),
+    volumeGrp("volumeGrp"),
+    diskPool("diskPool"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -93,6 +95,10 @@ public class ExtendedComponentLocation   {
     private String controllerReference;
 
     private String locationLabel;
+
+    private String volumeGroupLabel;
+
+    private String diskPoolLabel;
 
   
   /**
@@ -285,6 +291,44 @@ public class ExtendedComponentLocation   {
   }
 
   
+  /**
+   * This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_VOLUME_GRP.
+   **/
+  public ExtendedComponentLocation volumeGroupLabel(String volumeGroupLabel) {
+    this.volumeGroupLabel = volumeGroupLabel;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_VOLUME_GRP.")
+  @JsonProperty("volumeGroupLabel")
+  public String getVolumeGroupLabel() {
+    return volumeGroupLabel;
+  }
+  
+  public void setVolumeGroupLabel(String volumeGroupLabel) {
+    this.volumeGroupLabel = volumeGroupLabel;
+  }
+
+  
+  /**
+   * This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_DISK_POOL.
+   **/
+  public ExtendedComponentLocation diskPoolLabel(String diskPoolLabel) {
+    this.diskPoolLabel = diskPoolLabel;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "This field is present only if the ExtendedComponentLocationType value is EXT_COMP_LOCTYPE_DISK_POOL.")
+  @JsonProperty("diskPoolLabel")
+  public String getDiskPoolLabel() {
+    return diskPoolLabel;
+  }
+  
+  public void setDiskPoolLabel(String diskPoolLabel) {
+    this.diskPoolLabel = diskPoolLabel;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -304,12 +348,14 @@ public class ExtendedComponentLocation   {
         Objects.equals(this.pitSequence, extendedComponentLocation.pitSequence) &&
         Objects.equals(this.compReference, extendedComponentLocation.compReference) &&
         Objects.equals(this.controllerReference, extendedComponentLocation.controllerReference) &&
-        Objects.equals(this.locationLabel, extendedComponentLocation.locationLabel);
+        Objects.equals(this.locationLabel, extendedComponentLocation.locationLabel) &&
+        Objects.equals(this.volumeGroupLabel, extendedComponentLocation.volumeGroupLabel) &&
+        Objects.equals(this.diskPoolLabel, extendedComponentLocation.diskPoolLabel);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(extLocType, compChannelLoc, compMinihubLoc, compTray, compTraySlot, compLabel, pitSequence, compReference, controllerReference, locationLabel);
+    return Objects.hash(extLocType, compChannelLoc, compMinihubLoc, compTray, compTraySlot, compLabel, pitSequence, compReference, controllerReference, locationLabel, volumeGroupLabel, diskPoolLabel);
   }
 
   @Override
@@ -327,6 +373,8 @@ public class ExtendedComponentLocation   {
     sb.append("    compReference: ").append(toIndentedString(compReference)).append("\n");
     sb.append("    controllerReference: ").append(toIndentedString(controllerReference)).append("\n");
     sb.append("    locationLabel: ").append(toIndentedString(locationLabel)).append("\n");
+    sb.append("    volumeGroupLabel: ").append(toIndentedString(volumeGroupLabel)).append("\n");
+    sb.append("    diskPoolLabel: ").append(toIndentedString(diskPoolLabel)).append("\n");
     sb.append("}");
     return sb.toString();
   }

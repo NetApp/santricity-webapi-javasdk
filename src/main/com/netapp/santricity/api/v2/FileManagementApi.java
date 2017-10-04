@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class FileManagementApi {
   private ApiClient apiClient;
 
@@ -60,7 +60,7 @@ public class FileManagementApi {
   
   /**
    * Retrieve the list of support artifacts by type
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Embedded only. 
    * @return List<SupportArtifacts>
    * @throws ApiException if fails to make API call
    */
@@ -151,6 +151,57 @@ public class FileManagementApi {
   }
   
   /**
+   * Gets a file from the private file directory
+   * The response type of this method is a file stream.
+   * @param id The ID of the file to be retrieved (required)
+   * @param autoDelete Automatically remove the file after the retrieval completes (optional)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public File getPrivateFile(String id, Boolean autoDelete) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPrivateFile");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/files/private/{id}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "auto-delete", autoDelete));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json", "application/octet-stream"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<File> localVarReturnType = new GenericType<File>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Retrieve a file from the scratch directory
    * Mode: Both Embedded and Proxy. 
    * @return List<FileInfo>
@@ -193,7 +244,7 @@ public class FileManagementApi {
   
   /**
    * Retrieve a specific support artifact.
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Embedded only. 
    * @param identifier  (required)
    * @return File
    * @throws ApiException if fails to make API call
@@ -236,6 +287,52 @@ public class FileManagementApi {
     
     GenericType<File> localVarReturnType = new GenericType<File>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Deletes a file from the private file directory
+   * 
+   * @param id The ID of the file to be deleted (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void removePrivateFile(String id) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling removePrivateFile");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/files/private/{id}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
     
   }
   
@@ -287,7 +384,7 @@ public class FileManagementApi {
   
   /**
    * Deletes a specific support artifact.
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Embedded only. 
    * @param identifier  (required)
    * @throws ApiException if fails to make API call
    */
@@ -371,6 +468,50 @@ public class FileManagementApi {
 
     
     GenericType<List<FileInfo>> localVarReturnType = new GenericType<List<FileInfo>>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Upload a private file for later reference in an API call.
+   * If the provided multipart form has non-file data, that data will be ignored and only the files will be handled.
+   * @param file file (optional)
+   * @return PrivateFileInfo
+   * @throws ApiException if fails to make API call
+   */
+  public PrivateFileInfo uploadPrivateFile(File file) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/files/private".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    if (file != null)
+      localVarFormParams.put("file", file);
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "multipart/form-data"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<PrivateFileInfo> localVarReturnType = new GenericType<PrivateFileInfo>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * IbInterface
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class IbInterface   {
   
     private String interfaceRef;
@@ -136,6 +136,9 @@ public class IbInterface   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -178,6 +181,9 @@ public class IbInterface   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -292,6 +298,8 @@ public class IbInterface   {
     private Long oneWayMaxRate;
 
     private Long bidirectionalMaxRate;
+
+    private Boolean isNVMeSupported;
 
     private String id;
 
@@ -696,6 +704,25 @@ public class IbInterface   {
 
   
   /**
+   * Indicates if the interface is configured to support NVMe over Fabrics protocol
+   **/
+  public IbInterface isNVMeSupported(Boolean isNVMeSupported) {
+    this.isNVMeSupported = isNVMeSupported;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Indicates if the interface is configured to support NVMe over Fabrics protocol")
+  @JsonProperty("isNVMeSupported")
+  public Boolean getIsNVMeSupported() {
+    return isNVMeSupported;
+  }
+  
+  public void setIsNVMeSupported(Boolean isNVMeSupported) {
+    this.isNVMeSupported = isNVMeSupported;
+  }
+
+  
+  /**
    **/
   public IbInterface id(String id) {
     this.id = id;
@@ -744,12 +771,13 @@ public class IbInterface   {
         Objects.equals(this.physPortState, ibInterface.physPortState) &&
         Objects.equals(this.oneWayMaxRate, ibInterface.oneWayMaxRate) &&
         Objects.equals(this.bidirectionalMaxRate, ibInterface.bidirectionalMaxRate) &&
+        Objects.equals(this.isNVMeSupported, ibInterface.isNVMeSupported) &&
         Objects.equals(this.id, ibInterface.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interfaceRef, channel, channelPortRef, localIdentifier, globalIdentifier, linkState, portState, maximumTransmissionUnit, currentSpeed, supportedSpeed, currentLinkWidth, supportedLinkWidth, currentDataVirtualLanes, maximumDataVirtualLanes, physicalLocation, protectionInformationCapable, isSRPSupported, isISERSupported, physPortState, oneWayMaxRate, bidirectionalMaxRate, id);
+    return Objects.hash(interfaceRef, channel, channelPortRef, localIdentifier, globalIdentifier, linkState, portState, maximumTransmissionUnit, currentSpeed, supportedSpeed, currentLinkWidth, supportedLinkWidth, currentDataVirtualLanes, maximumDataVirtualLanes, physicalLocation, protectionInformationCapable, isSRPSupported, isISERSupported, physPortState, oneWayMaxRate, bidirectionalMaxRate, isNVMeSupported, id);
   }
 
   @Override
@@ -778,6 +806,7 @@ public class IbInterface   {
     sb.append("    physPortState: ").append(toIndentedString(physPortState)).append("\n");
     sb.append("    oneWayMaxRate: ").append(toIndentedString(oneWayMaxRate)).append("\n");
     sb.append("    bidirectionalMaxRate: ").append(toIndentedString(bidirectionalMaxRate)).append("\n");
+    sb.append("    isNVMeSupported: ").append(toIndentedString(isNVMeSupported)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

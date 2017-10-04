@@ -42,7 +42,7 @@ import java.util.Objects;
  * Creates a Volume.
  */
 @ApiModel(description = "Creates a Volume.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumeCreateRequest   {
   
     private String poolId;
@@ -137,7 +137,7 @@ public class VolumeCreateRequest   {
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Unit for \"size\"")
+  @ApiModelProperty(example = "gb", value = "Unit for \"size\"")
   @JsonProperty("sizeUnit")
   public SizeUnitEnum getSizeUnit() {
     return sizeUnit;
@@ -168,14 +168,14 @@ public class VolumeCreateRequest   {
 
   
   /**
-   * The segment size of the volume.
+   * The segment size (KB) of the volume. A zero value will set a system-specific default value.
    **/
   public VolumeCreateRequest segSize(Integer segSize) {
     this.segSize = segSize;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "The segment size of the volume.")
+  @ApiModelProperty(example = "null", required = true, value = "The segment size (KB) of the volume. A zero value will set a system-specific default value.")
   @JsonProperty("segSize")
   public Integer getSegSize() {
     return segSize;

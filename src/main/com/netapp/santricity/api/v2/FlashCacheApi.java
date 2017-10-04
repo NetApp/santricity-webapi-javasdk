@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class FlashCacheApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class FlashCacheApi {
   /**
    * Retrieve the FlashCache, if it exists.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
    */
@@ -109,11 +109,11 @@ public class FlashCacheApi {
   /**
    * Retrieve a list of volumes that are compatible with the defined flashCache
    * Mode: Both Embedded and Proxy. Volumes must be compatible with the security and DataAssurance settings of the FlashCache to be added.
-   * @param systemId The id of the storage-system (required)
-   * @return FlashCacheEx
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return List<String>
    * @throws ApiException if fails to make API call
    */
-  public FlashCacheEx getFlashCacheCompatibleVolumes(String systemId) throws ApiException {
+  public List<String> getFlashCacheCompatibleVolumes(String systemId) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'systemId' is set
@@ -149,7 +149,7 @@ public class FlashCacheApi {
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
     
-    GenericType<FlashCacheEx> localVarReturnType = new GenericType<FlashCacheEx>() {};
+    GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }
@@ -157,7 +157,7 @@ public class FlashCacheApi {
   /**
    * Modify FlashCache parameters
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
@@ -206,7 +206,7 @@ public class FlashCacheApi {
   /**
    * Define a new FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
@@ -255,7 +255,7 @@ public class FlashCacheApi {
   /**
    * Add drives to an existing FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
@@ -304,7 +304,7 @@ public class FlashCacheApi {
   /**
    * Delete the defined FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void removeFlashCache(String systemId) throws ApiException {
@@ -350,7 +350,7 @@ public class FlashCacheApi {
   /**
    * Remove drives currently being used by the FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
@@ -399,7 +399,7 @@ public class FlashCacheApi {
   /**
    * Resume a suspended FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
    */
@@ -447,7 +447,7 @@ public class FlashCacheApi {
   /**
    * Suspend the FlashCache
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return FlashCacheEx
    * @throws ApiException if fails to make API call
    */

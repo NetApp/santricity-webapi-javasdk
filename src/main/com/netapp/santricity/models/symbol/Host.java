@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * Host
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class Host   {
   
     private String hostRef;
@@ -59,6 +59,8 @@ public class Host   {
     private Boolean protectionInformationCapableAccessMethod;
 
     private Boolean isLargeBlockFormatHost;
+
+    private Boolean isLun0Restricted;
 
     private String name;
 
@@ -218,6 +220,25 @@ public class Host   {
 
   
   /**
+   * Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.
+   **/
+  public Host isLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.")
+  @JsonProperty("isLun0Restricted")
+  public Boolean getIsLun0Restricted() {
+    return isLun0Restricted;
+  }
+  
+  public void setIsLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+  }
+
+  
+  /**
    **/
   public Host name(String name) {
     this.name = name;
@@ -271,13 +292,14 @@ public class Host   {
         Objects.equals(this.hostTypeIndex, host.hostTypeIndex) &&
         Objects.equals(this.protectionInformationCapableAccessMethod, host.protectionInformationCapableAccessMethod) &&
         Objects.equals(this.isLargeBlockFormatHost, host.isLargeBlockFormatHost) &&
+        Objects.equals(this.isLun0Restricted, host.isLun0Restricted) &&
         Objects.equals(this.name, host.name) &&
         Objects.equals(this.id, host.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostRef, clusterRef, label, isSAControlled, confirmLUNMappingCreation, hostTypeIndex, protectionInformationCapableAccessMethod, isLargeBlockFormatHost, name, id);
+    return Objects.hash(hostRef, clusterRef, label, isSAControlled, confirmLUNMappingCreation, hostTypeIndex, protectionInformationCapableAccessMethod, isLargeBlockFormatHost, isLun0Restricted, name, id);
   }
 
   @Override
@@ -293,6 +315,7 @@ public class Host   {
     sb.append("    hostTypeIndex: ").append(toIndentedString(hostTypeIndex)).append("\n");
     sb.append("    protectionInformationCapableAccessMethod: ").append(toIndentedString(protectionInformationCapableAccessMethod)).append("\n");
     sb.append("    isLargeBlockFormatHost: ").append(toIndentedString(isLargeBlockFormatHost)).append("\n");
+    sb.append("    isLun0Restricted: ").append(toIndentedString(isLun0Restricted)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class DiagnosticsApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class DiagnosticsApi {
   /**
    * Retrieve the device Alerts configuration
    * Mode: Embedded only. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return DeviceAlertConfiguration
    * @throws ApiException if fails to make API call
    */
@@ -109,7 +109,7 @@ public class DiagnosticsApi {
   /**
    * Get the core dump information
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return DPLCoreDumpData
    * @throws ApiException if fails to make API call
    */
@@ -157,7 +157,7 @@ public class DiagnosticsApi {
   /**
    * Return various data about the managed device for diagnostic or display purposes.
    * Mode: Embedded only. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param dataRequest Diagnostic data request (required)
    * @return DeviceDataResponse
    * @throws ApiException if fails to make API call
@@ -211,7 +211,7 @@ public class DiagnosticsApi {
   /**
    * Get list of failures
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param details Whether or not to fetch object data and extra data (optional, default to false)
    * @return List<FailureData>
    * @throws ApiException if fails to make API call
@@ -261,8 +261,8 @@ public class DiagnosticsApi {
   
   /**
    * Retrieve the status of a pending data retrieval request
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * Mode: Embedded only. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param requestId  (required)
    * @return SupportDataResponse
    * @throws ApiException if fails to make API call
@@ -316,8 +316,8 @@ public class DiagnosticsApi {
   
   /**
    * Retrieve the syslog configuration
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * Mode: Embedded only. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return AlertSyslogConfiguration
    * @throws ApiException if fails to make API call
    */
@@ -364,8 +364,8 @@ public class DiagnosticsApi {
   
   /**
    * Update the syslog configuration
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * Mode: Embedded only. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return AlertSyslogConfiguration
    * @throws ApiException if fails to make API call
@@ -413,8 +413,8 @@ public class DiagnosticsApi {
   
   /**
    * Initiate a support data retrieval request
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * Mode: Embedded only. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return InitialAsyncResponse
    * @throws ApiException if fails to make API call
@@ -463,7 +463,7 @@ public class DiagnosticsApi {
   /**
    * Initiate a test email using the array alert settings
    * Mode: Embedded only. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return DeviceAlertTestResponse
    * @throws ApiException if fails to make API call
    */
@@ -510,8 +510,8 @@ public class DiagnosticsApi {
   
   /**
    * Initiate sending test syslog messages using the syslog settings
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * Mode: Embedded only. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return AlertSyslogResponse
    * @throws ApiException if fails to make API call
    */
@@ -559,7 +559,7 @@ public class DiagnosticsApi {
   /**
    * Update the device Alerts configuration
    * Mode: Embedded only. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param updateRequest Alert configuration request (required)
    * @return DeviceAlertConfiguration
    * @throws ApiException if fails to make API call

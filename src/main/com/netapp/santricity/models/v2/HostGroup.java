@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * HostGroup
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class HostGroup   {
   
     private String clusterRef;
@@ -53,6 +53,8 @@ public class HostGroup   {
     private Boolean confirmLUNMappingCreation;
 
     private Boolean protectionInformationCapableAccessMethod;
+
+    private Boolean isLun0Restricted;
 
     private String id;
 
@@ -155,6 +157,25 @@ public class HostGroup   {
 
   
   /**
+   * Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.
+   **/
+  public HostGroup isLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated cluster.")
+  @JsonProperty("isLun0Restricted")
+  public Boolean getIsLun0Restricted() {
+    return isLun0Restricted;
+  }
+  
+  public void setIsLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+  }
+
+  
+  /**
    **/
   public HostGroup id(String id) {
     this.id = id;
@@ -205,13 +226,14 @@ public class HostGroup   {
         Objects.equals(this.isSAControlled, hostGroup.isSAControlled) &&
         Objects.equals(this.confirmLUNMappingCreation, hostGroup.confirmLUNMappingCreation) &&
         Objects.equals(this.protectionInformationCapableAccessMethod, hostGroup.protectionInformationCapableAccessMethod) &&
+        Objects.equals(this.isLun0Restricted, hostGroup.isLun0Restricted) &&
         Objects.equals(this.id, hostGroup.id) &&
         Objects.equals(this.name, hostGroup.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterRef, label, isSAControlled, confirmLUNMappingCreation, protectionInformationCapableAccessMethod, id, name);
+    return Objects.hash(clusterRef, label, isSAControlled, confirmLUNMappingCreation, protectionInformationCapableAccessMethod, isLun0Restricted, id, name);
   }
 
   @Override
@@ -224,6 +246,7 @@ public class HostGroup   {
     sb.append("    isSAControlled: ").append(toIndentedString(isSAControlled)).append("\n");
     sb.append("    confirmLUNMappingCreation: ").append(toIndentedString(confirmLUNMappingCreation)).append("\n");
     sb.append("    protectionInformationCapableAccessMethod: ").append(toIndentedString(protectionInformationCapableAccessMethod)).append("\n");
+    sb.append("    isLun0Restricted: ").append(toIndentedString(isLun0Restricted)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

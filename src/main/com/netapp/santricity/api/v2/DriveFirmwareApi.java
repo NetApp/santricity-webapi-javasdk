@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class DriveFirmwareApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class DriveFirmwareApi {
   /**
    * Cancel the on going update operations.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void cancelDriveFirmwareUpdate(String systemId) throws ApiException {
@@ -148,7 +148,7 @@ public class DriveFirmwareApi {
   /**
    * Performs a mini health check and fetchs firmware to drive associations
    * Mode: Both Embedded and Proxy. This is used to determine which drives are compatible with with firmware files that have been previously uploaded.The information returned about the drives also indicates if it can be updated online.This action also performs a mini health check to help determine if there are any storage system conditions that would prevent a firmware update to proceed.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return DriveFirmwareCompatibilityResponse
    * @throws ApiException if fails to make API call
    */
@@ -247,7 +247,7 @@ public class DriveFirmwareApi {
   /**
    * Get the status of the on going update operations.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return DriveFirmwareStatus
    * @throws ApiException if fails to make API call
    */
@@ -341,7 +341,7 @@ public class DriveFirmwareApi {
   /**
    * Initiate a drive firmware update
    * Mode: Both Embedded and Proxy. The firmware files to be used for the update should be uploaded previously.When the update has been successfully initiated, the firmware files that were uploaded and used in the update will be automatically removedIf there are files uploaded but not used by the update, they not be immediately removed but may be culled later if they remain unused.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Data for which drives to update. (required)
    * @param onlineUpdate Perform the update with the drives online. (required)
    * @return String

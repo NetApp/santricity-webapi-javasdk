@@ -41,28 +41,18 @@ import java.util.Objects;
 /**
  * UserVolume
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class UserVolume   {
   
     private List<VolumeMetadataItem> metadata;
 
     private String volumeGroupRef;
 
-    private Boolean diskPool;
-
-    private VolumeCache cacheSettings;
-
-    private Boolean flashCached;
-
-    private Boolean thinProvisioned;
-
-    private Boolean dataAssurance;
-
-    private Integer blkSize;
-
     private Integer segmentSize;
 
     private VolumeMediaScanParams mediaScan;
+
+    private Integer blkSize;
 
 
   /**
@@ -90,11 +80,22 @@ public class UserVolume   {
 
     private ProtectionTypeEnum protectionType;
 
+    private Boolean diskPool;
+
+    private VolumeCache cacheSettings;
+
+    private Boolean flashCached;
+
+    private Boolean thinProvisioned;
+
+    private Boolean dataAssurance;
+
 
   /**
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -168,21 +169,21 @@ public class UserVolume   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private Long totalSizeInBytes;
+
+    private String currentControllerId;
 
     private List<LUNMapping> listOfMappings;
 
     private Boolean mapped;
 
-    private String currentControllerId;
-
     private String preferredControllerId;
 
-    private Long totalSizeInBytes;
+    private String name;
+
+    private String id;
 
   
   /**
@@ -218,6 +219,78 @@ public class UserVolume   {
   
   public void setVolumeGroupRef(String volumeGroupRef) {
     this.volumeGroupRef = volumeGroupRef;
+  }
+
+  
+  /**
+   **/
+  public UserVolume segmentSize(Integer segmentSize) {
+    this.segmentSize = segmentSize;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("segmentSize")
+  public Integer getSegmentSize() {
+    return segmentSize;
+  }
+  
+  public void setSegmentSize(Integer segmentSize) {
+    this.segmentSize = segmentSize;
+  }
+
+  
+  /**
+   **/
+  public UserVolume mediaScan(VolumeMediaScanParams mediaScan) {
+    this.mediaScan = mediaScan;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("mediaScan")
+  public VolumeMediaScanParams getMediaScan() {
+    return mediaScan;
+  }
+  
+  public void setMediaScan(VolumeMediaScanParams mediaScan) {
+    this.mediaScan = mediaScan;
+  }
+
+  
+  /**
+   **/
+  public UserVolume blkSize(Integer blkSize) {
+    this.blkSize = blkSize;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("blkSize")
+  public Integer getBlkSize() {
+    return blkSize;
+  }
+  
+  public void setBlkSize(Integer blkSize) {
+    this.blkSize = blkSize;
+  }
+
+  
+  /**
+   **/
+  public UserVolume protectionType(ProtectionTypeEnum protectionType) {
+    this.protectionType = protectionType;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("protectionType")
+  public ProtectionTypeEnum getProtectionType() {
+    return protectionType;
+  }
+  
+  public void setProtectionType(ProtectionTypeEnum protectionType) {
+    this.protectionType = protectionType;
   }
 
   
@@ -314,78 +387,6 @@ public class UserVolume   {
   
   /**
    **/
-  public UserVolume blkSize(Integer blkSize) {
-    this.blkSize = blkSize;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("blkSize")
-  public Integer getBlkSize() {
-    return blkSize;
-  }
-  
-  public void setBlkSize(Integer blkSize) {
-    this.blkSize = blkSize;
-  }
-
-  
-  /**
-   **/
-  public UserVolume segmentSize(Integer segmentSize) {
-    this.segmentSize = segmentSize;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("segmentSize")
-  public Integer getSegmentSize() {
-    return segmentSize;
-  }
-  
-  public void setSegmentSize(Integer segmentSize) {
-    this.segmentSize = segmentSize;
-  }
-
-  
-  /**
-   **/
-  public UserVolume mediaScan(VolumeMediaScanParams mediaScan) {
-    this.mediaScan = mediaScan;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("mediaScan")
-  public VolumeMediaScanParams getMediaScan() {
-    return mediaScan;
-  }
-  
-  public void setMediaScan(VolumeMediaScanParams mediaScan) {
-    this.mediaScan = mediaScan;
-  }
-
-  
-  /**
-   **/
-  public UserVolume protectionType(ProtectionTypeEnum protectionType) {
-    this.protectionType = protectionType;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("protectionType")
-  public ProtectionTypeEnum getProtectionType() {
-    return protectionType;
-  }
-  
-  public void setProtectionType(ProtectionTypeEnum protectionType) {
-    this.protectionType = protectionType;
-  }
-
-  
-  /**
-   **/
   public UserVolume objectType(ObjectTypeEnum objectType) {
     this.objectType = objectType;
     return this;
@@ -404,42 +405,6 @@ public class UserVolume   {
   
   /**
    **/
-  public UserVolume name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public UserVolume id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public UserVolume wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -453,6 +418,42 @@ public class UserVolume   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public UserVolume totalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("totalSizeInBytes")
+  public Long getTotalSizeInBytes() {
+    return totalSizeInBytes;
+  }
+  
+  public void setTotalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+  }
+
+  
+  /**
+   **/
+  public UserVolume currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -494,24 +495,6 @@ public class UserVolume   {
   
   /**
    **/
-  public UserVolume currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-  }
-
-  
-  /**
-   **/
   public UserVolume preferredControllerId(String preferredControllerId) {
     this.preferredControllerId = preferredControllerId;
     return this;
@@ -530,19 +513,37 @@ public class UserVolume   {
   
   /**
    **/
-  public UserVolume totalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public UserVolume name(String name) {
+    this.name = name;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("totalSizeInBytes")
-  public Long getTotalSizeInBytes() {
-    return totalSizeInBytes;
+  @JsonProperty("name")
+  public String getName() {
+    return name;
   }
   
-  public void setTotalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public UserVolume id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -558,29 +559,29 @@ public class UserVolume   {
     UserVolume userVolume = (UserVolume) o;
     return Objects.equals(this.metadata, userVolume.metadata) &&
         Objects.equals(this.volumeGroupRef, userVolume.volumeGroupRef) &&
+        Objects.equals(this.segmentSize, userVolume.segmentSize) &&
+        Objects.equals(this.mediaScan, userVolume.mediaScan) &&
+        Objects.equals(this.blkSize, userVolume.blkSize) &&
+        Objects.equals(this.protectionType, userVolume.protectionType) &&
         Objects.equals(this.diskPool, userVolume.diskPool) &&
         Objects.equals(this.cacheSettings, userVolume.cacheSettings) &&
         Objects.equals(this.flashCached, userVolume.flashCached) &&
         Objects.equals(this.thinProvisioned, userVolume.thinProvisioned) &&
         Objects.equals(this.dataAssurance, userVolume.dataAssurance) &&
-        Objects.equals(this.blkSize, userVolume.blkSize) &&
-        Objects.equals(this.segmentSize, userVolume.segmentSize) &&
-        Objects.equals(this.mediaScan, userVolume.mediaScan) &&
-        Objects.equals(this.protectionType, userVolume.protectionType) &&
         Objects.equals(this.objectType, userVolume.objectType) &&
-        Objects.equals(this.name, userVolume.name) &&
-        Objects.equals(this.id, userVolume.id) &&
         Objects.equals(this.wwn, userVolume.wwn) &&
+        Objects.equals(this.totalSizeInBytes, userVolume.totalSizeInBytes) &&
+        Objects.equals(this.currentControllerId, userVolume.currentControllerId) &&
         Objects.equals(this.listOfMappings, userVolume.listOfMappings) &&
         Objects.equals(this.mapped, userVolume.mapped) &&
-        Objects.equals(this.currentControllerId, userVolume.currentControllerId) &&
         Objects.equals(this.preferredControllerId, userVolume.preferredControllerId) &&
-        Objects.equals(this.totalSizeInBytes, userVolume.totalSizeInBytes);
+        Objects.equals(this.name, userVolume.name) &&
+        Objects.equals(this.id, userVolume.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, volumeGroupRef, diskPool, cacheSettings, flashCached, thinProvisioned, dataAssurance, blkSize, segmentSize, mediaScan, protectionType, objectType, name, id, wwn, listOfMappings, mapped, currentControllerId, preferredControllerId, totalSizeInBytes);
+    return Objects.hash(metadata, volumeGroupRef, segmentSize, mediaScan, blkSize, protectionType, diskPool, cacheSettings, flashCached, thinProvisioned, dataAssurance, objectType, wwn, totalSizeInBytes, currentControllerId, listOfMappings, mapped, preferredControllerId, name, id);
   }
 
   @Override
@@ -590,24 +591,24 @@ public class UserVolume   {
     
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    volumeGroupRef: ").append(toIndentedString(volumeGroupRef)).append("\n");
+    sb.append("    segmentSize: ").append(toIndentedString(segmentSize)).append("\n");
+    sb.append("    mediaScan: ").append(toIndentedString(mediaScan)).append("\n");
+    sb.append("    blkSize: ").append(toIndentedString(blkSize)).append("\n");
+    sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
     sb.append("    diskPool: ").append(toIndentedString(diskPool)).append("\n");
     sb.append("    cacheSettings: ").append(toIndentedString(cacheSettings)).append("\n");
     sb.append("    flashCached: ").append(toIndentedString(flashCached)).append("\n");
     sb.append("    thinProvisioned: ").append(toIndentedString(thinProvisioned)).append("\n");
     sb.append("    dataAssurance: ").append(toIndentedString(dataAssurance)).append("\n");
-    sb.append("    blkSize: ").append(toIndentedString(blkSize)).append("\n");
-    sb.append("    segmentSize: ").append(toIndentedString(segmentSize)).append("\n");
-    sb.append("    mediaScan: ").append(toIndentedString(mediaScan)).append("\n");
-    sb.append("    protectionType: ").append(toIndentedString(protectionType)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    preferredControllerId: ").append(toIndentedString(preferredControllerId)).append("\n");
-    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

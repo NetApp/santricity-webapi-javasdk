@@ -125,6 +125,33 @@ public class IApiTest {
     }
     
     /**
+     * Installs a Key Management Server (KMS) Certificate File on the storage array. In addition to the contents of the certificate file, the type of certificate must be specified. If a certificate of the type specified already exists on the storage array, it will be overwritten by the new certificate.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolInstallKMSCertificateFileTest() throws ApiException {
+        
+        String systemId = null;
+        
+        KMSCertificateFileInstallDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolInstallKMSCertificateFile(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Passes an existing lock key for the array and unlocks the disks.
      *
      * Documented return codes: ok, invalidBlob. 

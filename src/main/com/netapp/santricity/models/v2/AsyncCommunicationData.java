@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * AsyncCommunicationData
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AsyncCommunicationData   {
   
     private Integer timeout;
@@ -751,6 +751,24 @@ public class AsyncCommunicationData   {
     workloadInvalidDuplicate("workloadInvalidDuplicate"),
     mappingInvalidRef("mappingInvalidRef"),
     workloadInUse("workloadInUse"),
+    embeddedExternalKeyManagementEnabled("embeddedExternalKeyManagementEnabled"),
+    embeddedExternalKeyManagementCertificatesNotInstalled("embeddedExternalKeyManagementCertificatesNotInstalled"),
+    illegalOperationOnAllConfigDrives("illegalOperationOnAllConfigDrives"),
+    databaseResyncInProgress("databaseResyncInProgress"),
+    embeddedEkmsKeyserverInfoMissing("embeddedEkmsKeyserverInfoMissing"),
+    embeddedEkmsClientKeyMissing("embeddedEkmsClientKeyMissing"),
+    embeddedEkmsClientCertMissing("embeddedEkmsClientCertMissing"),
+    embeddedEkmsClientCertMismatch("embeddedEkmsClientCertMismatch"),
+    embeddedEkmsCertExpired("embeddedEkmsCertExpired"),
+    embeddedEkmsProxyNotResponding("embeddedEkmsProxyNotResponding"),
+    embeddedEkmsAuthenticationFailure("embeddedEkmsAuthenticationFailure"),
+    embeddedEkmsKeyOwnerRequired("embeddedEkmsKeyOwnerRequired"),
+    embeddedEkmsServerError("embeddedEkmsServerError"),
+    embeddedEkmsServerCertMissing("embeddedEkmsServerCertMissing"),
+    embeddedEkmsCertDuplicate("embeddedEkmsCertDuplicate"),
+    embeddedEkmsCertInvalid("embeddedEkmsCertInvalid"),
+    embeddedEkmsConnectionFailure("embeddedEkmsConnectionFailure"),
+    invalidPasswordLength("invalidPasswordLength"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

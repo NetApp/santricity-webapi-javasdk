@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * IdentificationRequest
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class IdentificationRequest   {
   
     private List<Integer> channels;
@@ -58,14 +58,14 @@ public class IdentificationRequest   {
 
   
   /**
-   * A list of channel ids.
+   * A list of channel ids. There must be an expansion drive tray attached to identify a channel.
    **/
   public IdentificationRequest channels(List<Integer> channels) {
     this.channels = channels;
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "A list of channel ids.")
+  @ApiModelProperty(example = "null", value = "A list of channel ids. There must be an expansion drive tray attached to identify a channel.")
   @JsonProperty("channels")
   public List<Integer> getChannels() {
     return channels;

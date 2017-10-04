@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * ComponentLocation
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class ComponentLocation   {
   
 
@@ -95,8 +95,11 @@ public class ComponentLocation   {
     snmpCommunity("snmpCommunity"),
     snmpTrapDestination("snmpTrapDestination"),
     fcTarget("fcTarget"),
+    blankOne("blankOne"),
+    blankTwo("blankTwo"),
     fanOnlyCru("fanOnlyCru"),
     psuCru("psuCru"),
+    nvmeInitiator("nvmeInitiator"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -201,6 +204,8 @@ public class ComponentLocation   {
     private TraySlot fanCruLocation;
 
     private TraySlot powerSupplyCruLocation;
+
+    private InitiatorLocation nvmeInitiatorLocation;
 
   
   /**
@@ -1058,6 +1063,25 @@ public class ComponentLocation   {
   }
 
   
+  /**
+   * This field is valid only when the eventComponentType value is equal to EVENT_COMP_TYPE_NVME_INITIATOR. It identifies the NVMe initiator to which the event applies.
+   **/
+  public ComponentLocation nvmeInitiatorLocation(InitiatorLocation nvmeInitiatorLocation) {
+    this.nvmeInitiatorLocation = nvmeInitiatorLocation;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "This field is valid only when the eventComponentType value is equal to EVENT_COMP_TYPE_NVME_INITIATOR. It identifies the NVMe initiator to which the event applies.")
+  @JsonProperty("nvmeInitiatorLocation")
+  public InitiatorLocation getNvmeInitiatorLocation() {
+    return nvmeInitiatorLocation;
+  }
+  
+  public void setNvmeInitiatorLocation(InitiatorLocation nvmeInitiatorLocation) {
+    this.nvmeInitiatorLocation = nvmeInitiatorLocation;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1112,12 +1136,13 @@ public class ComponentLocation   {
         Objects.equals(this.destinationIpAddress, componentLocation.destinationIpAddress) &&
         Objects.equals(this.fcTargetLocation, componentLocation.fcTargetLocation) &&
         Objects.equals(this.fanCruLocation, componentLocation.fanCruLocation) &&
-        Objects.equals(this.powerSupplyCruLocation, componentLocation.powerSupplyCruLocation);
+        Objects.equals(this.powerSupplyCruLocation, componentLocation.powerSupplyCruLocation) &&
+        Objects.equals(this.nvmeInitiatorLocation, componentLocation.nvmeInitiatorLocation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventComponentType, alarmLocation, batteryTray, cacheBackupDeviceLocation, cacheMemoryDimmLocation, channelLoc, channelPort, chipLoc, controllerLoc, ctlrSfpLocation, socLocation, driveLoc, enclosureTray, esmTray, fanTray, hostIoCardLocation, initiatorLocation, interconnectCruLocation, isnsServerLocation, minihubLoc, portCruTray, powerSupplyTray, sfpLocation, supportCruLocation, targetLocation, tempSensorTray, label, groupNumber, hostLocation, hostPortLocation, drawerLocation, componentRelativeLocation, schedule, diskPool, asyncMirrorGroup, pitLabel, cgLabel, cgPitLabel, cgViewLabel, flashCacheLabel, communityNameString, destinationIpAddress, fcTargetLocation, fanCruLocation, powerSupplyCruLocation);
+    return Objects.hash(eventComponentType, alarmLocation, batteryTray, cacheBackupDeviceLocation, cacheMemoryDimmLocation, channelLoc, channelPort, chipLoc, controllerLoc, ctlrSfpLocation, socLocation, driveLoc, enclosureTray, esmTray, fanTray, hostIoCardLocation, initiatorLocation, interconnectCruLocation, isnsServerLocation, minihubLoc, portCruTray, powerSupplyTray, sfpLocation, supportCruLocation, targetLocation, tempSensorTray, label, groupNumber, hostLocation, hostPortLocation, drawerLocation, componentRelativeLocation, schedule, diskPool, asyncMirrorGroup, pitLabel, cgLabel, cgPitLabel, cgViewLabel, flashCacheLabel, communityNameString, destinationIpAddress, fcTargetLocation, fanCruLocation, powerSupplyCruLocation, nvmeInitiatorLocation);
   }
 
   @Override
@@ -1170,6 +1195,7 @@ public class ComponentLocation   {
     sb.append("    fcTargetLocation: ").append(toIndentedString(fcTargetLocation)).append("\n");
     sb.append("    fanCruLocation: ").append(toIndentedString(fanCruLocation)).append("\n");
     sb.append("    powerSupplyCruLocation: ").append(toIndentedString(powerSupplyCruLocation)).append("\n");
+    sb.append("    nvmeInitiatorLocation: ").append(toIndentedString(nvmeInitiatorLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * HostBoardTypeData
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class HostBoardTypeData   {
   
 
@@ -71,6 +71,10 @@ public class HostBoardTypeData   {
     type4portFcSamoa("type4portFcSamoa"),
     type2portIscsiSamoa("type2portIscsiSamoa"),
     type4portIscsiSamoa("type4portIscsiSamoa"),
+    type4portSas3("type4portSas3"),
+    type2portIb100gb("type2portIb100gb"),
+    type4portEthernet25gb("type4portEthernet25gb"),
+    type4portFc32gb("type4portFc32gb"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

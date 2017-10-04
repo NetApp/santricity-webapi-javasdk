@@ -67,9 +67,9 @@ public class FirmwareApiTest {
     }
     
     /**
-     * Activates a previously staged Firmware
+     * Activates previously staged firmware.
      *
-     * Mode: Embedded only. 
+     * Mode: Embedded only. A successful activation will shut the web server down which may result in the request to timeout, be canceled, or return with a 503 Service Unavailable before the success response could be returned.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -160,7 +160,7 @@ public class FirmwareApiTest {
         File file = null;
         
         try{
-        api.checkEmbeddedFirmwareBundleCompatibility(systemId, file);
+        EmbeddedCompatibilityCheckResponse response = api.checkEmbeddedFirmwareBundleCompatibility(systemId, file);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -183,7 +183,7 @@ public class FirmwareApiTest {
         File file = null;
         
         try{
-        api.checkEmbeddedNVSRAMCompatibility(systemId, file);
+        EmbeddedCompatibilityCheckResponse response = api.checkEmbeddedNVSRAMCompatibility(systemId, file);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -273,7 +273,7 @@ public class FirmwareApiTest {
     }
     
     /**
-     * Get last successful firmware updgrade timestamps and firmware upgrade logs
+     * Get last successful firmware upgrade timestamps and firmware upgrade logs
      *
      * Mode: Embedded only. 
      *
@@ -289,10 +289,12 @@ public class FirmwareApiTest {
         
         Boolean driveUpgrade = null;
         
+        Boolean nvsramUpgrade = null;
+        
         Boolean includeLogs = null;
         
         try{
-        EmbeddedFirmwareResponse response = api.getEmbeddedFirmwareInformation(cfwUpgrade, iomUpgrade, driveUpgrade, includeLogs);
+        EmbeddedFirmwareResponse response = api.getEmbeddedFirmwareInformation(cfwUpgrade, iomUpgrade, driveUpgrade, nvsramUpgrade, includeLogs);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -344,7 +346,7 @@ public class FirmwareApiTest {
     /**
      * Get health check status
      *
-     * Mode: Both Embedded and Proxy. 
+     * This endpoint should be utilized to retrieve the results of the health check. There are multiple parts to the health check process. If a critical portion fails, the entire check will be set to failed. If an invalid password is detected or a controller cannot be contacted, the check will return without completing additional unnecessary steps.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -583,7 +585,7 @@ public class FirmwareApiTest {
     /**
      * Upload a nvsram file.
      *
-     * Mode: Embedded only. Upload endpoint for nvsram to download to the controller.
+     * Mode: Embedded only. Upload endpoint for nvsram to download to the controller. Controllers will reboot when operation completes
      *
      * @throws ApiException
      *          if the Api call fails

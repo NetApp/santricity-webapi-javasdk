@@ -42,7 +42,7 @@ import java.util.Objects;
  * This class identifies an object in the system.  It is an Object Type and an Object Key.  The get is usually the fields named \&quot;id\&quot; or xxxRef in the object.  The type field indicates the type of object
  */
 @ApiModel(description = "This class identifies an object in the system.  It is an Object Type and an Object Key.  The get is usually the fields named \"id\" or xxxRef in the object.  The type field indicates the type of object")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class EventObjectIdentifier   {
   
 
@@ -50,6 +50,7 @@ public class EventObjectIdentifier   {
    * Gets or Sets type
    */
   public enum TypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),

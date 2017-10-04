@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * PasswordStatusEvent
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class PasswordStatusEvent extends Event  {
   
     private Date timestamp;
@@ -68,7 +68,14 @@ public class PasswordStatusEvent extends Event  {
     criticalMelChangeEvent("criticalMelChangeEvent"),
     statisticsCollectionEvent("statisticsCollectionEvent"),
     melClearEvent("melClearEvent"),
-    workload("workload");
+    workload("workload"),
+    ldapConfigChangeEvent("ldapConfigChangeEvent"),
+    symbolPortChangeEvent("symbolPortChangeEvent"),
+    keyStoreChangeEvent("keyStoreChangeEvent"),
+    trustStoreChangeEvent("trustStoreChangeEvent"),
+    externalCertChangeEvent("externalCertChangeEvent"),
+    sslReloadCompleteEvent("sslReloadCompleteEvent"),
+    sessionTimeoutChangeEvent("sessionTimeoutChangeEvent");
 ;
     private String value;
 
@@ -92,7 +99,8 @@ public class PasswordStatusEvent extends Event  {
   public enum PreviousStatusEnum {
     unknown("unknown"),
     invalid("invalid"),
-    valid("valid");
+    valid("valid"),
+    securityLockout("securityLockout");
 ;
     private String value;
 
@@ -116,7 +124,8 @@ public class PasswordStatusEvent extends Event  {
   public enum CurrentStatusEnum {
     unknown("unknown"),
     invalid("invalid"),
-    valid("valid");
+    valid("valid"),
+    securityLockout("securityLockout");
 ;
     private String value;
 

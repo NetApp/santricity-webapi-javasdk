@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class VApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class VApi {
   /**
    * Used to validate the supplied key with one currently on the controller.
    * Documented return codes: ok, invalidBlob, noMatchingLockKeyIdFound, lockKeyValidationFailed, lockKeyValidationDisabled, externalKeyNotInMemory. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A LockKeyBlob structure that contains the wrapped lock key and the pass phrase used to encrypt the lock key. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class VApi {
   /**
    * This procedure validates the clients storage array password and reports a return code indicating whether or not the password is valid. Even though it does not modify the state of the array, this procedure behaves the same and has the same setup requirements as a procedure that does modify the state of the array.
    * Documented return codes: ok, authFailPassword, authFailReadpassword. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -137,6 +137,60 @@ public class VApi {
     
     // create path and map variables
     String localVarPath = "/storage-systems/{system-id}/symbol/validatePassword".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Uses the credentials (certificates, address of the KMIP server, and the KMIP port number) provided to verify that the storage array is able to communicate with the external KMIP server.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolVerifyExternalKMSCommunication(String systemId, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolVerifyExternalKMSCommunication");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/verifyExternalKMSCommunication".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
 
     // query params

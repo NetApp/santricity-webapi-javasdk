@@ -42,7 +42,7 @@ import java.util.Objects;
  * A workload is a tag that can be assigned to a volume. It is completely arbitrary and can be used for any purpose by the user..
  */
 @ApiModel(description = "A workload is a tag that can be assigned to a volume. It is completely arbitrary and can be used for any purpose by the user..")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class WorkloadModel   {
   
     private String id;

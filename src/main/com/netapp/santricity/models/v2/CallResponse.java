@@ -42,7 +42,7 @@ import java.util.Objects;
  * API response object that includes a Return Code that is dependent on the included API Error Code type.  It also includes invalid fields if they can be determined.
  */
 @ApiModel(description = "API response object that includes a Return Code that is dependent on the included API Error Code type.  It also includes invalid fields if they can be determined.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class CallResponse   {
   
     private String errorMessage;
@@ -57,7 +57,6 @@ public class CallResponse   {
    */
   public enum CodeTypeEnum {
     symbol("symbol"),
-    webservice("webservice"),
     systemerror("systemerror"),
     devicemgrerror("devicemgrerror");
 ;

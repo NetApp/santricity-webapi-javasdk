@@ -46,7 +46,7 @@ public class ConfigurationApiTest {
     /**
      * Dispatch the ASUP bundle
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -67,7 +67,7 @@ public class ConfigurationApiTest {
     /**
      * Retrieve ASUP configuration info
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -86,7 +86,7 @@ public class ConfigurationApiTest {
     /**
      * Get the current result data for the last operation, if no operation has been done, an empty body is returned
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Proxy only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -105,7 +105,7 @@ public class ConfigurationApiTest {
     /**
      * Returns a list of known configuration items that can be used by this server
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Proxy only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -124,7 +124,7 @@ public class ConfigurationApiTest {
     /**
      * Register the ASUP bundle
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -145,7 +145,7 @@ public class ConfigurationApiTest {
     /**
      * Starts a new bulk configuration operation. If an operation is already running a 200 is returned. If a new operation is started, a 201 is returned
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Proxy only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -166,7 +166,7 @@ public class ConfigurationApiTest {
     /**
      * Interrupts any current configuration process
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Proxy only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -185,7 +185,7 @@ public class ConfigurationApiTest {
     /**
      * Update ASUP configuration info
      *
-     * Mode: Both Embedded and Proxy. 
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -206,7 +206,7 @@ public class ConfigurationApiTest {
     /**
      * Used to validate an input CSV file previously uploaded
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Proxy only. 
      *
      * @throws ApiException
      *          if the Api call fails

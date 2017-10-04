@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * MgmtClientRecordId
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class MgmtClientRecordId   {
   
     private Integer reserved;
@@ -64,6 +64,7 @@ public class MgmtClientRecordId   {
     prefStoreArray("prefStoreArray"),
     persistentMonitor("persistentMonitor"),
     ssdWearLevelData("ssdWearLevelData"),
+    ldapConfiguration("ldapConfiguration"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

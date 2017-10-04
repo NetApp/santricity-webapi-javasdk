@@ -42,7 +42,7 @@ import java.util.Objects;
  * Response to a successful login
  */
 @ApiModel(description = "Response to a successful login")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:52.213-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:06:02.675-05:00")
 public class LoginResponse   {
   
     private String userId;
@@ -52,6 +52,8 @@ public class LoginResponse   {
     private Long lastKnownEvent;
 
     private Long globalInventoryChangeCount;
+
+    private Integer sessionInactivePeriod;
 
   
   /**
@@ -128,6 +130,25 @@ public class LoginResponse   {
   }
 
   
+  /**
+   * Current session inactive period
+   **/
+  public LoginResponse sessionInactivePeriod(Integer sessionInactivePeriod) {
+    this.sessionInactivePeriod = sessionInactivePeriod;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Current session inactive period")
+  @JsonProperty("sessionInactivePeriod")
+  public Integer getSessionInactivePeriod() {
+    return sessionInactivePeriod;
+  }
+  
+  public void setSessionInactivePeriod(Integer sessionInactivePeriod) {
+    this.sessionInactivePeriod = sessionInactivePeriod;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -141,12 +162,13 @@ public class LoginResponse   {
     return Objects.equals(this.userId, loginResponse.userId) &&
         Objects.equals(this.roles, loginResponse.roles) &&
         Objects.equals(this.lastKnownEvent, loginResponse.lastKnownEvent) &&
-        Objects.equals(this.globalInventoryChangeCount, loginResponse.globalInventoryChangeCount);
+        Objects.equals(this.globalInventoryChangeCount, loginResponse.globalInventoryChangeCount) &&
+        Objects.equals(this.sessionInactivePeriod, loginResponse.sessionInactivePeriod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, roles, lastKnownEvent, globalInventoryChangeCount);
+    return Objects.hash(userId, roles, lastKnownEvent, globalInventoryChangeCount, sessionInactivePeriod);
   }
 
   @Override
@@ -158,6 +180,7 @@ public class LoginResponse   {
     sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    lastKnownEvent: ").append(toIndentedString(lastKnownEvent)).append("\n");
     sb.append("    globalInventoryChangeCount: ").append(toIndentedString(globalInventoryChangeCount)).append("\n");
+    sb.append("    sessionInactivePeriod: ").append(toIndentedString(sessionInactivePeriod)).append("\n");
     sb.append("}");
     return sb.toString();
   }
