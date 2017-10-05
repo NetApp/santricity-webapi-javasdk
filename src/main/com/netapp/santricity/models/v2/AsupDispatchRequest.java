@@ -42,7 +42,7 @@ import java.util.Objects;
  * Used to dispatch the asup bundle.
  */
 @ApiModel(description = "Used to dispatch the asup bundle.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AsupDispatchRequest   {
   
     private String id;
@@ -70,14 +70,14 @@ public class AsupDispatchRequest   {
 
   
   /**
-   * The type of dispatch to be executed
+   * The type of dispatch to be executed = ['0' is daily, '1' is weekly, '2' is monthly, '3' is manual (default), '4' is test]
    **/
   public AsupDispatchRequest dispatchType(Integer dispatchType) {
     this.dispatchType = dispatchType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "The type of dispatch to be executed")
+  @ApiModelProperty(example = "null", value = "The type of dispatch to be executed = ['0' is daily, '1' is weekly, '2' is monthly, '3' is manual (default), '4' is test]")
   @JsonProperty("dispatchType")
   public Integer getDispatchType() {
     return dispatchType;

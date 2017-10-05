@@ -78,7 +78,7 @@ public class FlashCacheApiTest {
         String systemId = null;
         
         try{
-        FlashCacheEx response = api.getFlashCacheCompatibleVolumes(systemId);
+        List<String> response = api.getFlashCacheCompatibleVolumes(systemId);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

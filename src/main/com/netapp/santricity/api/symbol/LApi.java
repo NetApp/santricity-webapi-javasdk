@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class LApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class LApi {
   /**
    * To indicate the end of the iterative download sequence, call this procedure with a zero-length segment size. When the controller receives this end indicator, the controller writes the accumulated firmware image to stable storage (typically flash memory). The controller responds to this procedure call with the appropriate return code, delays for a short period, and then reboots to load and execute the new firmware.
    * Documented return codes: ok, error, busy, illegalParam, noHeap, invalidFile, imageTransferred, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, downloadNotPermitted, spawnError, voltransferError, invalidDlstate, cacheconfigError, downloadInProgress, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A FirmwareUpdateDescriptor object that indicates, among other things, the offset and size of the firmware segment being transferred. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class LApi {
   /**
    * Used to download some or all of a new firmware image file to a controller when the authentication password is unavailable.
    * Documented return codes: ok, error, busy, illegalParam, noHeap, invalidFile, imageTransferred, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, downloadNotPermitted, spawnError, voltransferError, invalidDlstate, cacheconfigError, downloadInProgress, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class LApi {
   /**
    * To indicate the end of the iterative download sequence, call this procedure with a zero-length segment size. When the controller receives this end indicator, the controller writes the accumulated firmware image to stable storage (typically flash memory). The controller responds to this procedure call with the appropriate return code, delays for a short period, and then reboots to load and execute the new firmware.
    * Documented return codes: ok, error, busy, illegalParam, noHeap, invalidFile, imageTransferred, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, downloadNotPermitted, spawnError, voltransferError, invalidDlstate, cacheconfigError, downloadInProgress, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A FirmwareUpdateDescriptor object that indicates, among other things, the offset and size of the firmware segment being transferred. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -241,7 +241,7 @@ public class LApi {
   /**
    * To indicate the end of the iterative download sequence, call this procedure with a zero-length segment size. When the controller receives this end indicator, the controller writes the accumulated NVSRAM image to stable storage (typically flash memory). The controller responds to this procedure call with the appropriate return code, delays for a short period, and then reboots to load and execute the new NVSRAM.
    * Documented return codes: ok, error, busy, illegalParam, noHeap, invalidFile, flashError, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, downloadNotPermitted, spawnError, downloadInProgress, utmConflict, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A FirmwareUpdateDescriptor object that specifies the size and content of the NVSRAM data to be loaded by the controller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -301,7 +301,7 @@ public class LApi {
   /**
    * This procedure is used to download a NVSRAM image file to a controller when the duplex setting gets erroneously inserted into a Native SATA array. In such a situation, none of the native SATA drives will be recognized by the firmware since the IOC will be set to enable the STP (SATA) layer only if the setting is Simplex. The Recovery Action in such a scenario is to download new NVSRAM using this command and boot with it.
    * Documented return codes: ok, error, illegalParam, imageTransferred, fileTooLarge, invalidChunksize, downloadInProgress, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -361,7 +361,7 @@ public class LApi {
   /**
    * Downloads a portion of a new firmware image to a drive in the SYMbol Server. loadDriveFirmware OBSOLETED by implementation of parallel drive firmware download
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -421,7 +421,7 @@ public class LApi {
   /**
    * This procedure is used to download some or all of a new firmware image to the ESM cards in a tray. The argument object specifies tray where the ESMs are located, the size of the firmware segment being downloaded, and the offset of the segment within the overall firmware image. Downloads are accomplished using an iterative approach, where the overall image is segmented and each segment transferred to the controller via a call to this procedure. To indicate the end of the iterative download sequence, this procedure should be called with a zero-length segment size. When this end indicator is received by the controller, the accumulated firmware image will be written to the ESM cards.
    * Documented return codes: ok, error, busy, noHeap, tryAlternate, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, spawnError, cacheconfigError, downloadInProgress, esmDownloadFailed, esmPartialUpdate, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An ESMFirmwareUpdateDescriptor object that indicates the tray to receive the firmware, the offset and size of the firmware segment being transferred. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -481,7 +481,7 @@ public class LApi {
   /**
    * This procedure is used to download a new firmware image to the ESM cards in a tray. This procedure is identical in behavior to loadESMFirmware. with respect to interpretation of the argument and performing the download process. It differs from that command with respect to certain pre-validation checks it performs. In particular, it requires that an ESM firmware mismatch condition exist on the indicated tray before it will proceed with the download.
    * Documented return codes: ok, error, busy, noHeap, tryAlternate, fileTooLarge, invalidOffset, overrun, invalidChunksize, invalidTotalsize, spawnError, cacheconfigError, downloadInProgress, esmDownloadFailed, esmPartialUpdate, controllerInServiceMode, requiredConditionNotPresent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An ESMFirmwareUpdateDescriptor object that indicates the tray to receive the firmware, the offset and size of the firmware segment being transferred. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -541,7 +541,7 @@ public class LApi {
   /**
    * This procedure is used to download factory default information to a controller or expansion enclosure.
    * Documented return codes: ok, error, factoryDefaultDownloadFailed, errorWritingToEeprom, factoryDefaultPartialUpdate. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The factory default data. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

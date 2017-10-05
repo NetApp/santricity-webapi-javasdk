@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class PApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class PApi {
   /**
    * This procedure simply verifies that the controller is responsive and is operating properly.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -115,7 +115,7 @@ public class PApi {
   /**
    * This procedure is used to power cycle an individual physical drive.
    * Documented return codes: ok, driveNotUnassigned, volumeReconfiguring, volumeNotOptimal, downloadInProgress, parityScanInProgress, volumeGroupNotComplete, dpcVolumeGroupNotRedundant, dpcVolumeNotInitialized, dpcExclusiveOperationActive, dpcFormatActive, dpcUnreadableSectorsPresent, dpcPowerCycleAlreadyInProgress, dpcEnclosureHardwareUnsupported, dpcEnclosureFwDownlevel. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The descriptor for the drive to be power cycled. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -175,7 +175,7 @@ public class PApi {
   /**
    * This command provides a programmatic means of powering off a storage array The operation is performed as gracefully as possible. Once this command is received, all open sockets, except for those that have in-process commands, are closed, meaning that any new SYMbol commands attempted will receive an RPC error. SYMbol commands that are in-process when this command is received are allowed to continue execution. In-process SYMbol commands in the \&quot;active\&quot; category are guaranteed to complete; In-process commands in the \&quot;passive\&quot; category may complete, but there is no guarantee. This command returns and reports status just prior to the actual power down event. Authentication is required for this command.
    * Documented return codes: ok, noHeap, background, cacheSyncFailure, quiescenceFailed, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String

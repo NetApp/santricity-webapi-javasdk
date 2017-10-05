@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * VolumeCopyPair
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumeCopyPair   {
   
     private String worldWideName;
@@ -124,9 +124,9 @@ public class VolumeCopyPair   {
 
     private String baseSourceVolumeId;
 
-    private String id;
-
     private Boolean onlineCopy;
+
+    private String id;
 
   
   /**
@@ -415,24 +415,6 @@ public class VolumeCopyPair   {
   
   /**
    **/
-  public VolumeCopyPair id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public VolumeCopyPair onlineCopy(Boolean onlineCopy) {
     this.onlineCopy = onlineCopy;
     return this;
@@ -446,6 +428,24 @@ public class VolumeCopyPair   {
   
   public void setOnlineCopy(Boolean onlineCopy) {
     this.onlineCopy = onlineCopy;
+  }
+
+  
+  /**
+   **/
+  public VolumeCopyPair id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -474,13 +474,13 @@ public class VolumeCopyPair   {
         Objects.equals(this.cloneCopy, volumeCopyPair.cloneCopy) &&
         Objects.equals(this.pgRef, volumeCopyPair.pgRef) &&
         Objects.equals(this.baseSourceVolumeId, volumeCopyPair.baseSourceVolumeId) &&
-        Objects.equals(this.id, volumeCopyPair.id) &&
-        Objects.equals(this.onlineCopy, volumeCopyPair.onlineCopy);
+        Objects.equals(this.onlineCopy, volumeCopyPair.onlineCopy) &&
+        Objects.equals(this.id, volumeCopyPair.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(worldWideName, volcopyHandle, volcopyRef, status, sourceVolume, targetVolume, currentManager, idleTargetWriteProt, copyCompleteTime, copyStartTime, copyPriority, reserved1, cloneCopy, pgRef, baseSourceVolumeId, id, onlineCopy);
+    return Objects.hash(worldWideName, volcopyHandle, volcopyRef, status, sourceVolume, targetVolume, currentManager, idleTargetWriteProt, copyCompleteTime, copyStartTime, copyPriority, reserved1, cloneCopy, pgRef, baseSourceVolumeId, onlineCopy, id);
   }
 
   @Override
@@ -503,8 +503,8 @@ public class VolumeCopyPair   {
     sb.append("    cloneCopy: ").append(toIndentedString(cloneCopy)).append("\n");
     sb.append("    pgRef: ").append(toIndentedString(pgRef)).append("\n");
     sb.append("    baseSourceVolumeId: ").append(toIndentedString(baseSourceVolumeId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    onlineCopy: ").append(toIndentedString(onlineCopy)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

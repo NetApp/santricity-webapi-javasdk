@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class MonitoringApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class MonitoringApi {
   /**
    * Clear MelEvents
    * Mode: Both Embedded and Proxy. Gives the user the ability to clear the event cache and the EventLog directly on the StorageDevice.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param clearCache  (optional, default to false)
    * @param resetMel Reset the EventLog on the StorageDevice (optional, default to true)
    * @throws ApiException if fails to make API call
@@ -107,6 +107,63 @@ public class MonitoringApi {
 
     
     apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    
+  }
+  
+  /**
+   * Delete specified subset or all audit log messages.
+   * Mode: Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param retentionCount Number of records to preserve within the log (optional)
+   * @param endDate Ending record date to delete (optional)
+   * @param clearAll Clear all records (optional)
+   * @return AuditLogDeleteResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AuditLogDeleteResponse deleteAuditLogMessages(String systemId, Integer retentionCount, Long endDate, Boolean clearAll) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling deleteAuditLogMessages");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/audit-log".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "retentionCount", retentionCount));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "clearAll", clearAll));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<AuditLogDeleteResponse> localVarReturnType = new GenericType<AuditLogDeleteResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }
   
@@ -160,7 +217,7 @@ public class MonitoringApi {
   /**
    * Get the list of status Events for the StorageDevice
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param lastKnown  (optional, default to -1)
    * @param wait Amount of time to wait for a new event (optional, default to 30)
    * @return List<Event>
@@ -212,9 +269,168 @@ public class MonitoringApi {
   }
   
   /**
+   * Get the current audit log configuration.
+   * Mode: Both Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return AuditLogConfiguration
+   * @throws ApiException if fails to make API call
+   */
+  public AuditLogConfiguration getAuditLogConfig(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getAuditLogConfig");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/audit-log/config".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<AuditLogConfiguration> localVarReturnType = new GenericType<AuditLogConfiguration>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Get audit log metadata.
+   * Mode: Both Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return AuditLogInfoResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AuditLogInfoResponse getAuditLogInfo(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getAuditLogInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/audit-log/info".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<AuditLogInfoResponse> localVarReturnType = new GenericType<AuditLogInfoResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Get a list of audit log messages.
+   * Mode: Both Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param startRecordOrdinal Starting record ordinal (optional)
+   * @param endingRecordOrdinal Ending record ordinal (optional)
+   * @param beginDate Beginning date (optional)
+   * @param endDate Ending date (optional)
+   * @param file Return CSV file (optional, default to false)
+   * @return AuditLogGetResponse
+   * @throws ApiException if fails to make API call
+   */
+  public AuditLogGetResponse getAuditLogMessages(String systemId, Integer startRecordOrdinal, Integer endingRecordOrdinal, Long beginDate, Long endDate, Boolean file) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getAuditLogMessages");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/audit-log".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "startRecordOrdinal", startRecordOrdinal));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endingRecordOrdinal", endingRecordOrdinal));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "beginDate", beginDate));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "endDate", endDate));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "file", file));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/octet-stream", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<AuditLogGetResponse> localVarReturnType = new GenericType<AuditLogGetResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Check the oldest and newest available events
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param cacheOnly Only retrieve events currently in the cache (optional, default to false)
    * @return MelExtent
    * @throws ApiException if fails to make API call
@@ -263,10 +479,10 @@ public class MonitoringApi {
   }
   
   /**
-   * Get a list of log messages for based on input values.
-   * Mode: Embedded only. 
-   * @param systemId The id of the storage-system (required)
-   * @param loggerType LoggerType to retrieve records for (optional)
+   * Get a list of log messages for a component.
+   * Mode: Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param loggerType LoggerType to retrieve records for (optional, default to cfwUpgradeLogger)
    * @param startRecord Starting record number (optional, default to 0)
    * @param endingRecord Ending record number (optional, default to 50)
    * @return LoggerRecordResponse
@@ -290,7 +506,7 @@ public class MonitoringApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "LoggerType", loggerType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "loggerType", loggerType));
     
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startRecord", startRecord));
     
@@ -321,8 +537,8 @@ public class MonitoringApi {
   
   /**
    * Retrieve MelEvents
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Mode: Both Embedded and Proxy. This operation may take a substantial amount of time to return large numbers of events. In this case, the client may timeout. In this case, either the number of events to be retrieved should be reduced and multiple requests made, or the client-side timeout should be increased.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param startSequenceNumber  (optional, default to -1)
    * @param count Maximum number to retrieve (optional, default to 100)
    * @param critical Only retrieve events classified as critical (optional, default to false)
@@ -376,6 +592,55 @@ public class MonitoringApi {
     
     GenericType<List<MelEntryEx>> localVarReturnType = new GenericType<List<MelEntryEx>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Updates the audit long configuration.
+   * Mode: Both Embedded only.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (optional)
+   * @return AuditLogConfiguration
+   * @throws ApiException if fails to make API call
+   */
+  public AuditLogConfiguration updateAuditLogConfig(String systemId, AuditLogConfiguration body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling updateAuditLogConfig");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/audit-log/config".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<AuditLogConfiguration> localVarReturnType = new GenericType<AuditLogConfiguration>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }
   

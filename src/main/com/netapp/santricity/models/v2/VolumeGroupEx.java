@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * VolumeGroupEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumeGroupEx   {
   
     private Integer sequenceNum;
@@ -361,9 +361,9 @@ public class VolumeGroupEx   {
 
     private NormalizedSpindleSpeedEnum normalizedSpindleSpeed;
 
-    private String id;
-
     private Boolean diskPool;
+
+    private String id;
 
     private String name;
 
@@ -952,24 +952,6 @@ public class VolumeGroupEx   {
 
   
   /**
-   **/
-  public VolumeGroupEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
    * True if the RAID Level is defined as raidDiskPool.
    **/
   public VolumeGroupEx diskPool(Boolean diskPool) {
@@ -985,6 +967,24 @@ public class VolumeGroupEx   {
   
   public void setDiskPool(Boolean diskPool) {
     this.diskPool = diskPool;
+  }
+
+  
+  /**
+   **/
+  public VolumeGroupEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -1047,14 +1047,14 @@ public class VolumeGroupEx   {
         Objects.equals(this.drivePhysicalType, volumeGroupEx.drivePhysicalType) &&
         Objects.equals(this.driveMediaType, volumeGroupEx.driveMediaType) &&
         Objects.equals(this.normalizedSpindleSpeed, volumeGroupEx.normalizedSpindleSpeed) &&
-        Objects.equals(this.id, volumeGroupEx.id) &&
         Objects.equals(this.diskPool, volumeGroupEx.diskPool) &&
+        Objects.equals(this.id, volumeGroupEx.id) &&
         Objects.equals(this.name, volumeGroupEx.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sequenceNum, offline, raidLevel, worldWideName, volumeGroupRef, reserved1, reserved2, trayLossProtection, label, state, spindleSpeedMatch, spindleSpeed, isInaccessible, securityType, drawerLossProtection, protectionInformationCapable, protectionInformationCapabilities, volumeGroupData, usage, driveBlockFormat, reservedSpaceAllocated, securityLevel, usedSpace, totalRaidedSpace, extents, largestFreeExtentSize, raidStatus, freeSpace, drivePhysicalType, driveMediaType, normalizedSpindleSpeed, id, diskPool, name);
+    return Objects.hash(sequenceNum, offline, raidLevel, worldWideName, volumeGroupRef, reserved1, reserved2, trayLossProtection, label, state, spindleSpeedMatch, spindleSpeed, isInaccessible, securityType, drawerLossProtection, protectionInformationCapable, protectionInformationCapabilities, volumeGroupData, usage, driveBlockFormat, reservedSpaceAllocated, securityLevel, usedSpace, totalRaidedSpace, extents, largestFreeExtentSize, raidStatus, freeSpace, drivePhysicalType, driveMediaType, normalizedSpindleSpeed, diskPool, id, name);
   }
 
   @Override
@@ -1093,8 +1093,8 @@ public class VolumeGroupEx   {
     sb.append("    drivePhysicalType: ").append(toIndentedString(drivePhysicalType)).append("\n");
     sb.append("    driveMediaType: ").append(toIndentedString(driveMediaType)).append("\n");
     sb.append("    normalizedSpindleSpeed: ").append(toIndentedString(normalizedSpindleSpeed)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    diskPool: ").append(toIndentedString(diskPool)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();

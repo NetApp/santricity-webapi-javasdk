@@ -95,4 +95,29 @@ public class VApiTest {
         }
     }
     
+    /**
+     * Uses the credentials (certificates, address of the KMIP server, and the KMIP port number) provided to verify that the storage array is able to communicate with the external KMIP server.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolVerifyExternalKMSCommunicationTest() throws ApiException {
+        
+        String systemId = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolVerifyExternalKMSCommunication(systemId, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
 }

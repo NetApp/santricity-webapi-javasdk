@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * AsyncMirrorGroupMemberFaultIndicationClearDescriptor
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class AsyncMirrorGroupMemberFaultIndicationClearDescriptor   {
   
     private String member;
@@ -333,6 +333,17 @@ public class AsyncMirrorGroupMemberFaultIndicationClearDescriptor   {
     hostRedundancyLost("hostRedundancyLost"),
     excessiveRebootsDetected("excessiveRebootsDetected"),
     cacheNotFlushedOnOnlyCtlr("cacheNotFlushedOnOnlyCtlr"),
+    securityAuditLogFull("securityAuditLogFull"),
+    securityAuditLogWarnThresh("securityAuditLogWarnThresh"),
+    directoryServicesConfigError("directoryServicesConfigError"),
+    kmipServerCertificateNearingExpiration("kmipServerCertificateNearingExpiration"),
+    kmipServerCertificateExpired("kmipServerCertificateExpired"),
+    kmipServerDnsError("kmipServerDnsError"),
+    kmipServerCertificateError("kmipServerCertificateError"),
+    kmipServerAuthenticationFailure("kmipServerAuthenticationFailure"),
+    kmipServerConnectionFailure("kmipServerConnectionFailure"),
+    kmipServerError("kmipServerError"),
+    kmipServerKeyRequirementNotMet("kmipServerKeyRequirementNotMet"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

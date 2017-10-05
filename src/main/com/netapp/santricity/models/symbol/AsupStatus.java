@@ -41,32 +41,14 @@ import java.util.Objects;
 /**
  * AsupStatus
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class AsupStatus   {
   
-    private Boolean remoteDiags;
-
     private Boolean asup;
 
     private Boolean onDemand;
 
-  
-  /**
-   **/
-  public AsupStatus remoteDiags(Boolean remoteDiags) {
-    this.remoteDiags = remoteDiags;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("remoteDiags")
-  public Boolean getRemoteDiags() {
-    return remoteDiags;
-  }
-  
-  public void setRemoteDiags(Boolean remoteDiags) {
-    this.remoteDiags = remoteDiags;
-  }
+    private Boolean remoteDiags;
 
   
   /**
@@ -105,6 +87,24 @@ public class AsupStatus   {
   }
 
   
+  /**
+   **/
+  public AsupStatus remoteDiags(Boolean remoteDiags) {
+    this.remoteDiags = remoteDiags;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("remoteDiags")
+  public Boolean getRemoteDiags() {
+    return remoteDiags;
+  }
+  
+  public void setRemoteDiags(Boolean remoteDiags) {
+    this.remoteDiags = remoteDiags;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,14 +115,14 @@ public class AsupStatus   {
       return false;
     }
     AsupStatus asupStatus = (AsupStatus) o;
-    return Objects.equals(this.remoteDiags, asupStatus.remoteDiags) &&
-        Objects.equals(this.asup, asupStatus.asup) &&
-        Objects.equals(this.onDemand, asupStatus.onDemand);
+    return Objects.equals(this.asup, asupStatus.asup) &&
+        Objects.equals(this.onDemand, asupStatus.onDemand) &&
+        Objects.equals(this.remoteDiags, asupStatus.remoteDiags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(remoteDiags, asup, onDemand);
+    return Objects.hash(asup, onDemand, remoteDiags);
   }
 
   @Override
@@ -130,9 +130,9 @@ public class AsupStatus   {
     StringBuilder sb = new StringBuilder();
     sb.append("class AsupStatus {\n");
     
-    sb.append("    remoteDiags: ").append(toIndentedString(remoteDiags)).append("\n");
     sb.append("    asup: ").append(toIndentedString(asup)).append("\n");
     sb.append("    onDemand: ").append(toIndentedString(onDemand)).append("\n");
+    sb.append("    remoteDiags: ").append(toIndentedString(remoteDiags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

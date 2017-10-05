@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * HostEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class HostEx   {
   
     private String hostRef;
@@ -59,6 +59,8 @@ public class HostEx   {
     private Boolean protectionInformationCapableAccessMethod;
 
     private Boolean isLargeBlockFormatHost;
+
+    private Boolean isLun0Restricted;
 
     private List<HostPort> ports;
 
@@ -224,6 +226,25 @@ public class HostEx   {
 
   
   /**
+   * Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.
+   **/
+  public HostEx isLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Provides an indication as to whether LUN 0 is restricted (i.e., disallowed) for the associated host.")
+  @JsonProperty("isLun0Restricted")
+  public Boolean getIsLun0Restricted() {
+    return isLun0Restricted;
+  }
+  
+  public void setIsLun0Restricted(Boolean isLun0Restricted) {
+    this.isLun0Restricted = isLun0Restricted;
+  }
+
+  
+  /**
    **/
   public HostEx ports(List<HostPort> ports) {
     this.ports = ports;
@@ -331,6 +352,7 @@ public class HostEx   {
         Objects.equals(this.hostTypeIndex, hostEx.hostTypeIndex) &&
         Objects.equals(this.protectionInformationCapableAccessMethod, hostEx.protectionInformationCapableAccessMethod) &&
         Objects.equals(this.isLargeBlockFormatHost, hostEx.isLargeBlockFormatHost) &&
+        Objects.equals(this.isLun0Restricted, hostEx.isLun0Restricted) &&
         Objects.equals(this.ports, hostEx.ports) &&
         Objects.equals(this.initiators, hostEx.initiators) &&
         Objects.equals(this.hostSidePorts, hostEx.hostSidePorts) &&
@@ -340,7 +362,7 @@ public class HostEx   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostRef, clusterRef, label, isSAControlled, confirmLUNMappingCreation, hostTypeIndex, protectionInformationCapableAccessMethod, isLargeBlockFormatHost, ports, initiators, hostSidePorts, id, name);
+    return Objects.hash(hostRef, clusterRef, label, isSAControlled, confirmLUNMappingCreation, hostTypeIndex, protectionInformationCapableAccessMethod, isLargeBlockFormatHost, isLun0Restricted, ports, initiators, hostSidePorts, id, name);
   }
 
   @Override
@@ -356,6 +378,7 @@ public class HostEx   {
     sb.append("    hostTypeIndex: ").append(toIndentedString(hostTypeIndex)).append("\n");
     sb.append("    protectionInformationCapableAccessMethod: ").append(toIndentedString(protectionInformationCapableAccessMethod)).append("\n");
     sb.append("    isLargeBlockFormatHost: ").append(toIndentedString(isLargeBlockFormatHost)).append("\n");
+    sb.append("    isLun0Restricted: ").append(toIndentedString(isLun0Restricted)).append("\n");
     sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
     sb.append("    initiators: ").append(toIndentedString(initiators)).append("\n");
     sb.append("    hostSidePorts: ").append(toIndentedString(hostSidePorts)).append("\n");

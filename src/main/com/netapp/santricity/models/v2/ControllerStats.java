@@ -42,7 +42,7 @@ import java.util.Objects;
  * Controller I/O performance statistics.
  */
 @ApiModel(description = "Controller I/O performance statistics.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ControllerStats   {
   
     private Date observedTime;
@@ -103,13 +103,14 @@ public class ControllerStats   {
 
   
   /**
+   * End time for this collection as measured by the number of seconds since baseTime.
    **/
   public ControllerStats observedTime(Date observedTime) {
     this.observedTime = observedTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "End time for this collection as measured by the number of seconds since baseTime.")
   @JsonProperty("observedTime")
   public Date getObservedTime() {
     return observedTime;

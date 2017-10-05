@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class FApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class FApi {
   /**
    * This procedure will perform an immediate fail-back of volume current ownership to the preferred owner.
    * Documented return codes: ok, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor containing input parameters for fail back request operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class FApi {
   /**
    * This procedure attempts to revive the given disk pool.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes to revive the given disk pool. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class FApi {
   /**
    * This procedure applies to a volume group for which successful migration of drives from the source array to the target array could not be completed due to hardware errors. It causes the identified volume group to move to a state called the \&quot;forced\&quot; state, from which it is still permissible to perform an import operation on the volume group.
    * Documented return codes: ok, volumeGroupHasHotspare, volumeGroupReconfiguring, volumeGroupReconstructing, volumeGroupHasFailedDrives, volumeGroupHasNonOptimalVols, volumeGroupHasMirrorRelationship, volumeGroupHasVolcopyRelationship, volumeGroupHasMirroringMetadata, volumeGroupHasMappedVols, volumeGroupHasReservations, volumeGroupHasIncompatibleDacstores, volumeLimitExceeded, volumeGroupHasUnknownRaidLevel, volumeGroupHasUnsupportedRaidLevel, volumeGroupHasCloneOpportunity, volumeGroupHasInsufficientDrives, volumeGroupHasFailedVols, volumeGroupNotContingent, legacyVg, vgNotForceable, driveSpinUpError, volumeGroupHasIncompatibleDrive. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol VolumeGroupRef identifying the volume group to export. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -241,7 +241,7 @@ public class FApi {
   /**
    * This is a potentially dangerous operation, since it causes data to be made available to the I/O host even though that data may have become corrupted due to device failures that occurred in the past.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeReconfiguring, tryAlternate, background, invalidVolumegroupref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the VolumeGroupRef for the volume group that is being restored to the optimal state. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

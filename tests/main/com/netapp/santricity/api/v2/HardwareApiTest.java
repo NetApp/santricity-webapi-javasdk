@@ -237,6 +237,48 @@ public class HardwareApiTest {
     }
     
     /**
+     * Get NVMeoF entity
+     *
+     * Mode: Both Embedded and Proxy.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNvmeofEntityTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        List<IoInterface> response = api.getNvmeofEntity(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Get NVMeoF initiator settings
+     *
+     * Mode: Both Embedded and Proxy.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getNvmeofInitiatorSettingsTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        Target response = api.getNvmeofInitiatorSettings(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Get the list of unreadable sectors
      *
      * Mode: Both Embedded and Proxy. 
@@ -260,7 +302,7 @@ public class HardwareApiTest {
     /**
      * Select drives for storage-pool creation
      *
-     * Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, an empty list is returned.
+     * Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, then a 204 is returned.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -274,6 +316,29 @@ public class HardwareApiTest {
         
         try{
         List<DriveEx> response = api.selectDrives(systemId, body);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Update NVMeoF entity
+     *
+     * Mode: Both Embedded and Proxy.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setNvmeofEntityTest() throws ApiException {
+        
+        String systemId = null;
+        
+        NVMeoFEntityUpdateRequest body = null;
+        
+        try{
+        List<IoInterface> response = api.setNvmeofEntity(systemId, body);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

@@ -42,7 +42,7 @@ import java.util.Objects;
  * Creates a Thin Volume.
  */
 @ApiModel(description = "Creates a Thin Volume.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ThinVolumeCreateRequest   {
   
     private String poolId;
@@ -315,14 +315,14 @@ public class ThinVolumeCreateRequest   {
 
   
   /**
-   * Enable/Disable automatic cache read-ahead
+   * Deprecated(This field is no longer valid for thin volumes): Enable/Disable automatic cache read-ahead
    **/
   public ThinVolumeCreateRequest cacheReadAhead(Boolean cacheReadAhead) {
     this.cacheReadAhead = cacheReadAhead;
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "Enable/Disable automatic cache read-ahead")
+  @ApiModelProperty(example = "null", value = "Deprecated(This field is no longer valid for thin volumes): Enable/Disable automatic cache read-ahead")
   @JsonProperty("cacheReadAhead")
   public Boolean getCacheReadAhead() {
     return cacheReadAhead;

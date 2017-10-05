@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * LegacySnapshotEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class LegacySnapshotEx   {
   
     private String worldWideName;
@@ -231,6 +231,7 @@ public class LegacySnapshotEx   {
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -304,19 +305,19 @@ public class LegacySnapshotEx   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private String currentControllerId;
 
     private List<LUNMapping> listOfMappings;
 
     private Boolean mapped;
 
-    private String currentControllerId;
-
     private Boolean onlineVolumeCopy;
+
+    private String name;
+
+    private String id;
 
   
   /**
@@ -958,42 +959,6 @@ public class LegacySnapshotEx   {
   
   /**
    **/
-  public LegacySnapshotEx name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public LegacySnapshotEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public LegacySnapshotEx wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -1007,6 +972,24 @@ public class LegacySnapshotEx   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public LegacySnapshotEx currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -1048,24 +1031,6 @@ public class LegacySnapshotEx   {
   
   /**
    **/
-  public LegacySnapshotEx currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-  }
-
-  
-  /**
-   **/
   public LegacySnapshotEx onlineVolumeCopy(Boolean onlineVolumeCopy) {
     this.onlineVolumeCopy = onlineVolumeCopy;
     return this;
@@ -1079,6 +1044,42 @@ public class LegacySnapshotEx   {
   
   public void setOnlineVolumeCopy(Boolean onlineVolumeCopy) {
     this.onlineVolumeCopy = onlineVolumeCopy;
+  }
+
+  
+  /**
+   **/
+  public LegacySnapshotEx name(String name) {
+    this.name = name;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+  
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public LegacySnapshotEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -1126,18 +1127,18 @@ public class LegacySnapshotEx   {
         Objects.equals(this.remoteMirrorSource, legacySnapshotEx.remoteMirrorSource) &&
         Objects.equals(this.remoteMirrorTarget, legacySnapshotEx.remoteMirrorTarget) &&
         Objects.equals(this.objectType, legacySnapshotEx.objectType) &&
-        Objects.equals(this.name, legacySnapshotEx.name) &&
-        Objects.equals(this.id, legacySnapshotEx.id) &&
         Objects.equals(this.wwn, legacySnapshotEx.wwn) &&
+        Objects.equals(this.currentControllerId, legacySnapshotEx.currentControllerId) &&
         Objects.equals(this.listOfMappings, legacySnapshotEx.listOfMappings) &&
         Objects.equals(this.mapped, legacySnapshotEx.mapped) &&
-        Objects.equals(this.currentControllerId, legacySnapshotEx.currentControllerId) &&
-        Objects.equals(this.onlineVolumeCopy, legacySnapshotEx.onlineVolumeCopy);
+        Objects.equals(this.onlineVolumeCopy, legacySnapshotEx.onlineVolumeCopy) &&
+        Objects.equals(this.name, legacySnapshotEx.name) &&
+        Objects.equals(this.id, legacySnapshotEx.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(worldWideName, snapshotRef, label, status, action, currentManager, baseVolume, repositoryVolume, fullWarnThreshold, overWarnThreshold, repositoryFull, repFullPolicy, rollbackPriority, extentStart, extentSize, snapshotTime, perms, childrenInactive, volumeHandle, mgmtClientAttribute, rollbackStatus, baseVolumeSizeInBytes, totalSizeInBytes, preferredControllerId, repositoryCapacity, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, protectionType, remoteMirrorSource, remoteMirrorTarget, objectType, name, id, wwn, listOfMappings, mapped, currentControllerId, onlineVolumeCopy);
+    return Objects.hash(worldWideName, snapshotRef, label, status, action, currentManager, baseVolume, repositoryVolume, fullWarnThreshold, overWarnThreshold, repositoryFull, repFullPolicy, rollbackPriority, extentStart, extentSize, snapshotTime, perms, childrenInactive, volumeHandle, mgmtClientAttribute, rollbackStatus, baseVolumeSizeInBytes, totalSizeInBytes, preferredControllerId, repositoryCapacity, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, protectionType, remoteMirrorSource, remoteMirrorTarget, objectType, wwn, currentControllerId, listOfMappings, mapped, onlineVolumeCopy, name, id);
   }
 
   @Override
@@ -1179,13 +1180,13 @@ public class LegacySnapshotEx   {
     sb.append("    remoteMirrorSource: ").append(toIndentedString(remoteMirrorSource)).append("\n");
     sb.append("    remoteMirrorTarget: ").append(toIndentedString(remoteMirrorTarget)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    onlineVolumeCopy: ").append(toIndentedString(onlineVolumeCopy)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

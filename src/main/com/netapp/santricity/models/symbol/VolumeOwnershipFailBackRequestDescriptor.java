@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * VolumeOwnershipFailBackRequestDescriptor
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class VolumeOwnershipFailBackRequestDescriptor   {
   
     private Boolean ignoreConnectivity;
@@ -69,14 +69,14 @@ public class VolumeOwnershipFailBackRequestDescriptor   {
 
   
   /**
-   * If true, the fail back operation will apply to volumes whose preferred owner is either controller, othewise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
+   * If true, the fail back operation will apply to volumes whose preferred owner is either controller, otherwise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.
    **/
   public VolumeOwnershipFailBackRequestDescriptor bothControllers(Boolean bothControllers) {
     this.bothControllers = bothControllers;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "If true, the fail back operation will apply to volumes whose preferred owner is either controller, othewise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.")
+  @ApiModelProperty(example = "null", required = true, value = "If true, the fail back operation will apply to volumes whose preferred owner is either controller, otherwise the fail-back operation will apply only to those volumes with a preferred owner on the controller receiving the request.")
   @JsonProperty("bothControllers")
   public Boolean getBothControllers() {
     return bothControllers;

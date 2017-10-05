@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class AApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class AApi {
   /**
    * This procedure activates the collection of a set of statistics known as a \&quot;discrete time series\&quot; (discrete time) on each control of the array. A discrete time is a time-ordered sequence of observations of a single statistic, sampled at regular intervals.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A DiscreteTimeSeriesDescriptor structure containing the arguments for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class AApi {
   /**
    * This procedure will enable mirroring over Fibre Channel (setup dedicated channel).
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -175,7 +175,7 @@ public class AApi {
   /**
    * This procedure activates a type of statistics stream known as a histogram on each controller of the array. A histogram is a set of observations of a single statistic, organized into categories based on user criteria, with observation counts per category identified.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A HistogramDescriptor structure containing the arguments for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +235,7 @@ public class AApi {
   /**
    * Activates an inactive host port.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +295,7 @@ public class AApi {
   /**
    * Activates inactive iSCSI initiator.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -355,7 +355,7 @@ public class AApi {
   /**
    * Activate Remote Mirroring
    * Documented return codes: ok, illegalParam, noHeap, internalError, iconFailure, metadataVolNonexistent, rvmFeatureDisabled, maxMirrorsExceeded, rvmFibreError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -409,7 +409,7 @@ public class AApi {
   /**
    * Activate staged controller firmware
    * Documented return codes: ok, error, busy, illegalParam, invalidRequest, voltransferError, downloadInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -463,7 +463,7 @@ public class AApi {
   /**
    * This procedure will add a member to an Async Mirror Group on the primary array. This is step 1 of the add member process.
    * Documented return codes: ok, invalidProtection, arvmGroupDoesNotExist, arvmGroupNotPrimary, arvmVolumeAlreadyInMirrorRelationship, arvmMemberLimitExceeded, incompatibleRepositorySecurity, arvmOrphanGroup, arvmRemoteMaxMirrorsPerArrayExceeded, remoteMaxTotalMirrorsPerArrayExceeded, remoteNoHeap, remoteInternalError, arvmRemoteGroupNotSecondary, arvmRemoteGroupDoesNotExist, remoteInvalidProtection, remoteDatabaseError, arvmRemoteThinNotSupported. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to add a member to an Asynchronous Mirror Group on the primary array. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -523,7 +523,7 @@ public class AApi {
   /**
    * This procedure will add a member to an Async Mirror Group on the secondary array. This is step 2 of the add member process.
    * Documented return codes: ok, invalidProtection, invalidIncompleteMemberRef, arvmGroupNotSecondary, arvmInvalidMirrorState, arvmVolumeAlreadyInMirrorRelationship, incompatibleRepositorySecurity, incompatibleSecondarySecurity, arvmInvalidSecondaryCapacity, arvmOrphanGroup, remoteInternalError, remoteRvmSpmError, arvmRemoteMirrorMemberDoesNotExist, arvmRemoteGroupDoesNotExist, remoteDatabaseError, arvmIncorrectVolumeType, arvmThinVolInitError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to add a member to an Asynchronous Mirror Group on the secondary array. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -583,7 +583,7 @@ public class AApi {
   /**
    * This procedure reconfigures the flash cache volume group to add additional drives.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, internalError, invalidVolumegroupref, invalidDriveref, invalidExpansionList, driveNotOptimal, duplicateDrives, numdrivesGroup, capacityConstrained, invalidDriveState, notFlashcacheVol, flashcacheDeleted, flashcacheMaxCapacityExceeded, flashcacheFailed, flashcacheDegradedState. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A FlashCacheReconfigureDrivesDescriptor object that identifies the volume group to be expanded, plus the drive or drives to be added to the volume group. All drives specified for this operation must be in the unassigned state initially. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -643,7 +643,7 @@ public class AApi {
   /**
    * This procedure will add a new member to a PiT consistency group (create a new PiT group for the member volume to add and add that PiT group to the consistency group). Returns the ref of the new PiT group created and added to the PCG.
    * Documented return codes: ok, invalidProtection, invalidConcatVolMemberLabel, concatVolMemberTooSmall, maxConsistencyGroupMembersExceeded, consistencyGroupArvmBindingConflict, incompatibleRepositorySecurity, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the consistency group member to be added. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -703,7 +703,7 @@ public class AApi {
   /**
    * This procedure causes the controller to store some or all of the information contained in the PendingHost argument. The information is simply stored and made available for later retrieval (see getPendingHosts procedure); it is not incorporated into the configured topology, and it is not persisted to disk. If the controller determines that the pending definition is an exact match of configured topology elements, it does not store it. It bears pointing out that, for iSCSI, multiple ports belonging to the same initiator may be present in the pending host information - when this happens, the controller creates only a single initiator, no matter how many ports for that initiator are presented. No authentication is performed on this command.
    * Documented return codes: ok, noHeap, internalError, invalidHosttypeString, invalidProtocol. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A PendingHost structure that describes the host to be added to the pending topology. It is not considered an error for the PendingHost structure to have a zero-length host label. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -763,7 +763,7 @@ public class AApi {
   /**
    * This procedure is used to add a known SNMP community string. SNMP GET/SET requests are only allowed for known communities.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -823,7 +823,7 @@ public class AApi {
   /**
    * This procedure is used to add an SNMP trap destination.
    * Documented return codes: ok, snmpIncompatibleIpv4Address, snmpIncompatibleIpv6Address. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -883,7 +883,7 @@ public class AApi {
   /**
    * This procedure caused the storage array to \&quot;adopt\&quot; all foreign drives that are eligible to be adopted. Adoption means accepting or incorporating elements of a foreign drive&#39;s configuration database into that of the recipient array. It must be possible for the storage array to match the adoption-candidate drives with ones that are currently being tracked as \&quot;not present.\&quot; In addition, several other technical criteria must be met in order for the adoption to succeed.
    * Documented return codes: ok, error, noDrivesAdopted, someDrivesAdopted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -937,7 +937,7 @@ public class AApi {
   /**
    * This procedure caused the storage array to \&quot;adopt\&quot; a foreign drive that is eligible to be adopted. Adoption means accepting or incorporating elements of a foreign drive&#39;s configuration database into that of the recipient array. It must be possible for the storage array to match the adoption-candidate drive with one that is currently being tracked as \&quot;not present.\&quot; In addition, several other technical criteria must be met in order for the adoption to succeed.
    * Documented return codes: ok, error. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol reference to the drive that is to be adopted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -997,7 +997,7 @@ public class AApi {
   /**
    * This procedure will run an analysis on the metadata contained in a copy-on-write repository to identify possible causes for failure.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1057,7 +1057,7 @@ public class AApi {
   /**
    * This procedure causes the storage array to be migrated from one feature bundle definition to another, as specified in the BundleKey argument.
    * Documented return codes: error, illegalParam, tryAlternate, internalError, invalidSafeId, controllerInServiceMode, databaseError, invalidBundleKey. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A key that defines and enables the bundle migration. This key must be obtained from an authorized source in order to be accepted by the array controller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1117,7 +1117,7 @@ public class AApi {
   /**
    * This procedure is used to instruct the controller to transfer ownership of a disk pool and its associated volumes to another controller.
    * Documented return codes: ok, noHeap, notDualActive, tryAlternate, internalError, invalidRequest, iconFailure, cacheSyncFailure, invalidControllerref, invalidVolumegroupref, modesenseError, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor that specifies the volume group being modified, and the controller that is to take ownership of the volume group, and thus all volumes defined on the volume group. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1177,7 +1177,7 @@ public class AApi {
   /**
    * This procedure causes the controller to automatically assign the specified number of drives as hot spares, in addition to any previously assigned hot spares.
    * Documented return codes: ok, illegalParam, noHeap, noSparesAssigned, someSparesAssigned, tryAlternate. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The number of new hot spare drives to be added to the array&#39;s pool of hot spares. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1237,7 +1237,7 @@ public class AApi {
   /**
    * Instructs the SYMbol Server&#39;s controller to create hot spare drives out of the given drives.
    * Documented return codes: ok, illegalParam, noHeap, noSparesAssigned, someSparesAssigned, tryAlternate, sparesSmallUnassigned. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of drive reference values, which identifies the drives to be assigned as hot spares. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1297,7 +1297,7 @@ public class AApi {
   /**
    * Instructs the SYMbol Server&#39;s controller to transfer ownership of a volume group and its associated volumes to another controller.
    * Documented return codes: ok, noHeap, notDualActive, tryAlternate, internalError, invalidRequest, iconFailure, cacheSyncFailure, invalidControllerref, invalidVolumegroupref, modesenseError, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor that specifies the volume group being modified, and the controller that is to take ownership of the volume group, and thus all volumes defined on the volume group. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1357,7 +1357,7 @@ public class AApi {
   /**
    * Instructs the SYMbol Server&#39;s controller to transfer ownership of a volume to another controller.
    * Documented return codes: ok, illegalParam, noHeap, notDualActive, tryAlternate, internalError, invalidControllerref, invalidVolumeref, modesenseError, ghostVolume, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor that specifies the volume being modified and the controller that is to take ownership of the volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1417,7 +1417,7 @@ public class AApi {
   /**
    * Automatically assign hot spares
    * Documented return codes: ok, noHeap, noSparesAssigned, someSparesAssigned, noSparesNeeded. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -1471,7 +1471,7 @@ public class AApi {
   /**
    * This procedure requests an on-demand volume ownership redistribution for load balancing purposes.
    * Documented return codes: ok, autoLoadBalanceUserDisabled, autoLoadBalanceInsufficientStatistics. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Request descriptor specifying details of the load balance request. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1531,7 +1531,7 @@ public class AApi {
   /**
    * Tells the controller to automatically configure the Storage Array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String

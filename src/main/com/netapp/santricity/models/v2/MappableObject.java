@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * MappableObject
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class MappableObject   {
   
 
@@ -49,6 +49,7 @@ public class MappableObject   {
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -122,21 +123,21 @@ public class MappableObject   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private Long totalSizeInBytes;
+
+    private String currentControllerId;
 
     private List<LUNMapping> listOfMappings;
 
     private Boolean mapped;
 
-    private String currentControllerId;
-
     private String preferredControllerId;
 
-    private Long totalSizeInBytes;
+    private String name;
+
+    private String id;
 
   
   /**
@@ -159,42 +160,6 @@ public class MappableObject   {
   
   /**
    **/
-  public MappableObject name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public MappableObject id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public MappableObject wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -208,6 +173,42 @@ public class MappableObject   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public MappableObject totalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("totalSizeInBytes")
+  public Long getTotalSizeInBytes() {
+    return totalSizeInBytes;
+  }
+  
+  public void setTotalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+  }
+
+  
+  /**
+   **/
+  public MappableObject currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -249,24 +250,6 @@ public class MappableObject   {
   
   /**
    **/
-  public MappableObject currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-  }
-
-  
-  /**
-   **/
   public MappableObject preferredControllerId(String preferredControllerId) {
     this.preferredControllerId = preferredControllerId;
     return this;
@@ -285,19 +268,37 @@ public class MappableObject   {
   
   /**
    **/
-  public MappableObject totalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public MappableObject name(String name) {
+    this.name = name;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("totalSizeInBytes")
-  public Long getTotalSizeInBytes() {
-    return totalSizeInBytes;
+  @JsonProperty("name")
+  public String getName() {
+    return name;
   }
   
-  public void setTotalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public MappableObject id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -312,19 +313,19 @@ public class MappableObject   {
     }
     MappableObject mappableObject = (MappableObject) o;
     return Objects.equals(this.objectType, mappableObject.objectType) &&
-        Objects.equals(this.name, mappableObject.name) &&
-        Objects.equals(this.id, mappableObject.id) &&
         Objects.equals(this.wwn, mappableObject.wwn) &&
+        Objects.equals(this.totalSizeInBytes, mappableObject.totalSizeInBytes) &&
+        Objects.equals(this.currentControllerId, mappableObject.currentControllerId) &&
         Objects.equals(this.listOfMappings, mappableObject.listOfMappings) &&
         Objects.equals(this.mapped, mappableObject.mapped) &&
-        Objects.equals(this.currentControllerId, mappableObject.currentControllerId) &&
         Objects.equals(this.preferredControllerId, mappableObject.preferredControllerId) &&
-        Objects.equals(this.totalSizeInBytes, mappableObject.totalSizeInBytes);
+        Objects.equals(this.name, mappableObject.name) &&
+        Objects.equals(this.id, mappableObject.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(objectType, name, id, wwn, listOfMappings, mapped, currentControllerId, preferredControllerId, totalSizeInBytes);
+    return Objects.hash(objectType, wwn, totalSizeInBytes, currentControllerId, listOfMappings, mapped, preferredControllerId, name, id);
   }
 
   @Override
@@ -333,14 +334,14 @@ public class MappableObject   {
     sb.append("class MappableObject {\n");
     
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    preferredControllerId: ").append(toIndentedString(preferredControllerId)).append("\n");
-    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -441,6 +441,33 @@ public class RApiTest {
     }
     
     /**
+     * This procedure will remove a specified installed KMS certificate from the storage array.
+     *
+     * Documented return codes: ok, embeddedExternalKeyManagementEnabled. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolRemoveInstalledKMSCertificateFilesTest() throws ApiException {
+        
+        String systemId = null;
+        
+        String body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolRemoveInstalledKMSCertificateFiles(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Deletes a mirror volume.
      *
      * Documented return codes: ok, illegalParam, volumeNotExist, internalError, iconFailure, invalidVolumeref, ghostVolume, invalidMirrorvol, onlyLocalMirrorDeleted, rvmSpmError. 
@@ -975,6 +1002,33 @@ public class RApiTest {
     }
     
     /**
+     * This procedure resets the super provisioning boundary for the requested devices.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolResetSuperProvisioningBoundaryTest() throws ApiException {
+        
+        String systemId = null;
+        
+        ResetSuperProvisioningBoundaryDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolResetSuperProvisioningBoundary(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * This procedure will restart a Consistency Group View (restart all of its associated member Views).
      *
      * Documented return codes: ok, invalidPitForView. 
@@ -1211,6 +1265,33 @@ public class RApiTest {
         
         try{
         String response = api.symbolResumeSnapshotRollback(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Retrieves a specified Key Management Server (KMS) ertificate currently installed on the storage array so that information about the certifiacte such as date of expiration can be extracted and displayed. This allows the storage administrator to know what is installed on the system and used for authentication with the KMIP server.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolRetrieveKMSCertificateFileTest() throws ApiException {
+        
+        String systemId = null;
+        
+        KMSCertificateFileRetrieveDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        KMSCertificateFileReturn response = api.symbolRetrieveKMSCertificateFile(systemId, body, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

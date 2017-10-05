@@ -119,56 +119,6 @@ public class VolumesApiTest {
     }
     
     /**
-     * @deprecated NOTE: This method has been DEPRECATED
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void expandThinVolumeCapacityOldTest() throws ApiException {
-        
-        String systemId = null;
-        
-        String id = null;
-        
-        ThinVolumeExpansionRequest body = null;
-        
-        try{
-        api.expandThinVolumeCapacityOld(systemId, id, body);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Export a full disk encryption key 
-     *
-     * Mode: Both Embedded and Proxy. The response type of this method is a file stream. Use secure pass phrase for additional security instead of pass phrase.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void exportFDEKeyTest() throws ApiException {
-        
-        String systemId = null;
-        
-        String passPhrase = null;
-        
-        String fileName = null;
-        
-        try{
-        File response = api.exportFDEKey(systemId, passPhrase, fileName);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * Get the access volume
      *
      * Mode: Both Embedded and Proxy. 
@@ -456,50 +406,6 @@ public class VolumesApiTest {
     }
     
     /**
-     * @deprecated NOTE: This method has been DEPRECATED
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getThinVolume2Test() throws ApiException {
-        
-        String systemId = null;
-        
-        String id = null;
-        
-        try{
-        api.getThinVolume2(systemId, id);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * @deprecated NOTE: This method has been DEPRECATED
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getThinVolumes2Test() throws ApiException {
-        
-        String systemId = null;
-        
-        try{
-        api.getThinVolumes2(systemId);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * Get a specific volume
      *
      * Mode: Both Embedded and Proxy. 
@@ -539,56 +445,6 @@ public class VolumesApiTest {
         
         try{
         VolumeActionProgressResponse response = api.getVolumeExpansionProgress(systemId, id);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * @deprecated NOTE: This method has been DEPRECATED
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getVolumeExpansionProgress2Test() throws ApiException {
-        
-        String systemId = null;
-        
-        String id = null;
-        
-        try{
-        api.getVolumeExpansionProgress2(systemId, id);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Import a full disk encryption key
-     *
-     * Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void importFDEKeyTest() throws ApiException {
-        
-        String systemId = null;
-        
-        String passPhrase = null;
-        
-        File keyfile = null;
-        
-        String securePassPhrase = null;
-        
-        try{
-        api.importFDEKey(systemId, passPhrase, keyfile, securePassPhrase);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -660,29 +516,6 @@ public class VolumesApiTest {
         
         try{
         LUNMapping response = api.moveLunMapping(systemId, mappingId, body);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Create or change a full disk encryption key
-     *
-     * Mode: Both Embedded and Proxy. The result of this method is the creation of a new key file. Retrieve with the /file/{filename} endpoint.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void newFDEKeyTest() throws ApiException {
-        
-        String systemId = null;
-        
-        SecureVolumeKeyRequest body = null;
-        
-        try{
-        SecureVolumeKeyResponse response = api.newFDEKey(systemId, body);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -926,31 +759,6 @@ public class VolumesApiTest {
     }
     
     /**
-     * @deprecated NOTE: This method has been DEPRECATED
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void startVolumeExpansion2Test() throws ApiException {
-        
-        String systemId = null;
-        
-        String id = null;
-        
-        VolumeExpansionRequest body = null;
-        
-        try{
-        api.startVolumeExpansion2(systemId, id, body);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * Update a storage pool
      *
      * Mode: Both Embedded and Proxy. 
@@ -1019,33 +827,6 @@ public class VolumesApiTest {
         
         try{
         VolumeEx response = api.updateVolume(systemId, id, body);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
-     * Validate a full disk encryption key
-     *
-     * Mode: Both Embedded and Proxy. Use secure pass phrase for additional security instead of pass phrase.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void validateFDEKeyTest() throws ApiException {
-        
-        String systemId = null;
-        
-        File keyfile = null;
-        
-        String passPhrase = null;
-        
-        String securePassPhrase = null;
-        
-        try{
-        api.validateFDEKey(systemId, keyfile, passPhrase, securePassPhrase);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

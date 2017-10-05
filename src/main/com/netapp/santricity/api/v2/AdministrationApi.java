@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AdministrationApi {
   private ApiClient apiClient;
 
@@ -103,6 +103,143 @@ public class AdministrationApi {
   }
   
   /**
+   * Return a secure random token of 16 bytes
+   * Mode: Both Embedded and Proxy. 
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String getClientToken() throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/client-token".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Retrieve the local users and if their password is set
+   * Mode: Embedded only
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return List<EmbeddedLocalUserResponse>
+   * @throws ApiException if fails to make API call
+   */
+  public List<EmbeddedLocalUserResponse> getEmbeddedLocalUsers(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getEmbeddedLocalUsers");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/local-users".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<List<EmbeddedLocalUserResponse>> localVarReturnType = new GenericType<List<EmbeddedLocalUserResponse>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Retrieve local users information.
+   * Mode: Embedded only
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return EmbeddedLocalUserInfoResponse
+   * @throws ApiException if fails to make API call
+   */
+  public EmbeddedLocalUserInfoResponse getEmbeddedLocalUsersInfo(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getEmbeddedLocalUsersInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/local-users/info".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<EmbeddedLocalUserInfoResponse> localVarReturnType = new GenericType<EmbeddedLocalUserInfoResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * GET the SSL Configuration 
    * Mode: Both Embedded and Proxy. 
    * @return SSLCertConfiguration
@@ -144,12 +281,61 @@ public class AdministrationApi {
   }
   
   /**
+   * Retrieve if the SYMbol port is enabled
+   * Mode: Embedded.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return SymbolPortResponse
+   * @throws ApiException if fails to make API call
+   */
+  public SymbolPortResponse getSymbolPortEnabled(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getSymbolPortEnabled");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol-port".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<SymbolPortResponse> localVarReturnType = new GenericType<SymbolPortResponse>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Gets the list of known trusted certificate authorities
    * Mode: Both Embedded and Proxy. 
+   * @param useTruststore True to see CA certificates in the truststore, false to see certificates in the keystore. (optional)
    * @return List<X509CertInfo>
    * @throws ApiException if fails to make API call
    */
-  public List<X509CertInfo> getTrustedCertificateAuthorities() throws ApiException {
+  public List<X509CertInfo> getTrustedCertificateAuthorities(Boolean useTruststore) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -160,6 +346,8 @@ public class AdministrationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useTruststore", useTruststore));
     
 
     
@@ -187,9 +375,10 @@ public class AdministrationApi {
   /**
    * Asynchonously Reloads SSL Configuration. When this call returns, the reload has been requested
    * Mode: Both Embedded and Proxy. 
+   * @param reloadBoth True if wanting to restart both controllers SSL Configuration; only applies to embedded systems. (optional)
    * @throws ApiException if fails to make API call
    */
-  public void reloadSSLConfiguration() throws ApiException {
+  public void reloadSSLConfiguration(Boolean reloadBoth) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -200,6 +389,8 @@ public class AdministrationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reloadBoth", reloadBoth));
     
 
     
@@ -227,9 +418,10 @@ public class AdministrationApi {
    * Deletes the CA with the given aliass
    * Mode: Both Embedded and Proxy. 
    * @param alias  (required)
+   * @param useTruststore True if this CA certificate needs to be deleted from the truststore, false otherwise. (optional)
    * @throws ApiException if fails to make API call
    */
-  public void removeCA(String alias) throws ApiException {
+  public void removeCA(String alias, Boolean useTruststore) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'alias' is set
@@ -240,6 +432,97 @@ public class AdministrationApi {
     // create path and map variables
     String localVarPath = "/sslconfig/ca/{alias}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "alias" + "\\}", apiClient.escapeString(alias.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useTruststore", useTruststore));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    
+  }
+  
+  /**
+   * Resets the webserver back to a self-singed certificate, removes all previously uploaded certificates from the keystore and Asynchronously reloads the SSL configuration.
+   * Mode: Both Embedded and Proxy. 
+   * @param reloadSSL Set to to false if you don&#39;t want to reload the SSL Context immediately; default value is true. (optional, default to true)
+   * @throws ApiException if fails to make API call
+   */
+  public void resetsSSLConfiguration(Boolean reloadSSL) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // create path and map variables
+    String localVarPath = "/sslconfig/reset".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reloadSSL", reloadSSL));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    
+  }
+  
+  /**
+   * Set the password for local users
+   * Mode: Embedded only
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void setEmbeddedLocalUsers(String systemId, EmbeddedLocalUserRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling setEmbeddedLocalUsers");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/local-users".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -265,7 +548,7 @@ public class AdministrationApi {
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
     
-    apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
     
   }
   
@@ -310,12 +593,61 @@ public class AdministrationApi {
   }
   
   /**
-   * Upload a the CA that signed the certificate used for this server
+   * Set if the SYMbol port is enabled
+   * Mode: Embedded.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (optional)
+   * @throws ApiException if fails to make API call
+   */
+  public void setSymbolPortEnabled(String systemId, SymbolPortRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling setSymbolPortEnabled");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol-port".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, null);
+    
+  }
+  
+  /**
+   * Upload the root/intermediate certificates from a certificate authority that signed the certificate used for this server
    * Mode: Both Embedded and Proxy. 
+   * @param useTruststore True if this CA certificate needs to be stored in the truststore, false otherwise. (optional)
+   * @param alias The user specified alias for this CA certificate (optional)
    * @param file certificate file (optional)
    * @throws ApiException if fails to make API call
    */
-  public void uploadCACertificate(File file) throws ApiException {
+  public void uploadCACertificate(Boolean useTruststore, String alias, File file) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -326,6 +658,10 @@ public class AdministrationApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useTruststore", useTruststore));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "alias", alias));
     
 
     

@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class EApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class EApi {
   /**
    * This procedure is used to enable Autosupport.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -115,7 +115,7 @@ public class EApi {
   /**
    * Enables external KMS.
    * Documented return codes: ok, externalKmsEnabled, externalKmsFailed, externalKmsNotCompliant, externalKmsTimeout. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -175,7 +175,7 @@ public class EApi {
   /**
    * This procedure causes the \&quot;premium\&quot; features identified in the feature keys of the argument to be enabled.
    * Documented return codes: ok, error, invalidSafeId, invalidSafeKey, invalidSafeCapability, invalidSafeVersion, perfTierSafeUpgradeDisabled, safeControllerNotSubjectToRaid6, premiumFeatureLimitExceedsMaximum, previouslyEnabledForEval, featureNotKeyable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A key for the \&quot;premium\&quot; feature to be enabled. This key must be obtained from an authorized source in order to be accepted by the array controller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +235,7 @@ public class EApi {
   /**
    * Used to start an evaluation of a specified feature using the duration specified for the sub-model ID in the FBDT.
    * Documented return codes: ok, noHeap, invalidSafeCapability, previouslyEnabledForEval, evalNotSupported, invalidCapability. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +295,7 @@ public class EApi {
   /**
    * This procedure creates a flash cache proxy linked to the referenced user RAID Volume and the flash cache High Level Volume. The flash cache attribute on the RAID Volume will be turned on.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, volumeReconfiguring, tryAlternate, internalError, volumeFormatting, invalidVolumeref, volumeOffline, notFlashcacheVol, flashcacheDeleted, flashCacheInvalidBaseVol. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the user volume to link to the flash cache proxy, and a reference to the flash cache volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -355,7 +355,7 @@ public class EApi {
   /**
    * This procedure establishes a volume copy.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, iconFailure, invalidCopyPriority, copyIncompatibleSource, copyIncompatibleTarget, copyGhostSource, copyGhostTarget, copyInvalidSourceRef, copyInvalidTargetRef, copyInvalidSourceState, copyInvalidTargetState, copySourceReconfig, copyTargetReconfig, copyTargetTooSmall, copyTargetLimit, maxVolumeCopysExceeded, copySourceReservation, copySourceFormat, copyTargetFormat, volcopyFeatureDisabled, copySourceZeroCapacity, copyApptagMismatch. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The VolumeCopyCreationDescriptor for the volume copy. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -415,7 +415,7 @@ public class EApi {
   /**
    * This procedure will return the amount of repository capacity necessary to perform a rollback operation.
    * Documented return codes: ok, invalidPitRef. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to a PiT (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -475,7 +475,7 @@ public class EApi {
   /**
    * This procedure will expand a concatenated volume by adding another member RAID volume. Returns the ref for the new ConcatVolMember added.
    * Documented return codes: ok, invalidProtection, invalidConcatVolMemberLabel, concatVolMemberTooSmall, concatMemberLimitExceeded, invalidMemberVol, memberVolMapped, invalidMemberVolState, incompatibleMemberVol, concatVolumeFailed, cannotExpandConcatMember, repositoryFull, insufficientExpansionSpace, invalidExpansionSize, incompatibleRepositorySecurity. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor of the concat volume to be expanded. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -535,7 +535,7 @@ public class EApi {
   /**
    * This procedure will expand a thin volume&#39;s virtual capacity. It does not affect the repository volume&#39;s capacity.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, internalError, invalidVolumeref, illegalVolume, invalidVirtualCapacity. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes necessary to expand a thin volume&#39;s virtual capacity. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -595,7 +595,7 @@ public class EApi {
   /**
    * This procedure returns the WrappedLockKeyReturn union for the array.The WrappedLockKeyReturn contains the WrappedLockKey structure for the array it was exported from.
    * No return codes have been documented for this API!
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The wrapped pass phrase used to encrypt the lock key. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -655,7 +655,7 @@ public class EApi {
   /**
    * This procedure places the identified volume group in an \&quot;exported\&quot; state so that its drives may be removed and installed into another array.
    * Documented return codes: ok, volumeGroupHasHotspare, volumeGroupReconfiguring, volumeGroupReconstructing, volumeGroupNotComplete, volumeGroupHasFailedDrives, volumeGroupHasNonOptimalVols, volumeGroupHasMirrorRelationship, volumeGroupHasVolcopyRelationship, volumeGroupHasMirroringMetadata, volumeGroupHasMappedVols, volumeGroupHasReservations, volumeGroupHasIncompatibleDacstores, volumeLimitExceeded, volumeGroupHasUnknownRaidLevel, volumeGroupHasUnsupportedRaidLevel, volumeGroupHasCloneOpportunity, volumeGroupHasInsufficientDrives, volumeGroupHasFailedVols, volumeGroupHasSnapshotRelationship, noNativeSstor, volumeInitializing, exportingDrivesDatabaseResynchronizing, exportingDrivesDatabaseFailed, volumeGroupHasArvmRelationship, volumeGroupHasPitgroupRelationship, volumeGroupHasPitviewRelationship, volumeGroupHasConcatRelationship. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol VolumeGroupRef identifying the volume group to export. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -715,7 +715,7 @@ public class EApi {
   /**
    * Used to re-key the array with a new lock key.
    * Documented return codes: ok, externalKmsFailed, externalKmsNotEnabled, externalKmsNotCompliant, externalKmsTimeout. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The wrapped pass phrase used to encrypt the lock key. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

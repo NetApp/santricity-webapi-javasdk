@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class TApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class TApi {
   /**
    * This procedure is used to initiate an Async Mirror Group link connectivity test.
    * Documented return codes: ok, arvmConnectivityTestNetworkError, arvmConnectivityTestRemoteTimeout, arvmConnectivityTestLoginFailure, arvmConnectivityTestNameServiceError, arvmConnectivityTestTurError, arvmConnectivityTestMissingRemoteAmg, arvmConnectivityTestAmgMemberMismatch, arvmConnectivityTestTimeoutExceeded, remoteNoHeap, arvmRemoteGroupDoesNotExist. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class TApi {
   /**
    * This procedure is used to test SNMP trap destinations (generate test trap).
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class TApi {
   /**
    * This procedure is used to manually trigger a DPL Core Dump.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DPLCoreDumpOnDemandReturn
@@ -235,7 +235,7 @@ public class TApi {
   /**
    * This procedure is used to manually trigger an IOC Dump on the specified channel.
    * Documented return codes: ok, iocDumpInProgress, iocRestoreInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +295,7 @@ public class TApi {
   /**
    * This procedure will trim a concatenated volume by removing one or more member RAID volumes. Note this can only be done in cases where the ConcatVolume is not being used (definition of \&quot;used\&quot; depends on parent object usage).
    * Documented return codes: ok, invalidTrimCount, volumeInUse. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor of the concat volume to be trimmed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -348,6 +348,66 @@ public class TApi {
 
     
     GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * A procedure that provides a means to tunnel HTTP calls through the UTM Lun. The HTTP call is executed against the embedded web server.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body A SymbolTunnelRequest structure that provides the input data for an HTTP call against an embedded web server. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return SymbolTunnelReply
+   * @throws ApiException if fails to make API call
+   */
+  public SymbolTunnelReply symbolTunnelHttpCall(String systemId, SymbolTunnelRequest body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolTunnelHttpCall");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolTunnelHttpCall");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/tunnelHttpCall".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<SymbolTunnelReply> localVarReturnType = new GenericType<SymbolTunnelReply>() {};
     return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     
   }

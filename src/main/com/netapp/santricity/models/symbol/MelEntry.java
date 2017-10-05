@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * MelEntry
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class MelEntry   {
   
     private Long sequenceNumber;
@@ -130,8 +130,11 @@ public class MelEntry   {
     snmpCommunity("snmpCommunity"),
     snmpTrapDestination("snmpTrapDestination"),
     fcTarget("fcTarget"),
+    blankOne("blankOne"),
+    blankTwo("blankTwo"),
     fanOnlyCru("fanOnlyCru"),
     psuCru("psuCru"),
+    nvmeInitiator("nvmeInitiator"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

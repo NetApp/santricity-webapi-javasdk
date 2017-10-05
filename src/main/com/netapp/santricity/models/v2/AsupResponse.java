@@ -42,7 +42,7 @@ import java.util.Objects;
  * API response object that includes basic information about asup.
  */
 @ApiModel(description = "API response object that includes basic information about asup.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AsupResponse   {
   
     private Boolean enabled;
@@ -85,6 +85,8 @@ public class AsupResponse   {
 
     private Long sequence;
 
+    private Boolean _default;
+
   
   /**
    * AutoSupport is enabled or disabled
@@ -106,14 +108,14 @@ public class AsupResponse   {
 
   
   /**
-   * The schedule frequency
+   * The schedule frequency = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
    **/
   public AsupResponse scheduleType(Integer scheduleType) {
     this.scheduleType = scheduleType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "The schedule frequency")
+  @ApiModelProperty(example = "null", required = true, value = "The schedule frequency = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]")
   @JsonProperty("scheduleType")
   public Integer getScheduleType() {
     return scheduleType;
@@ -182,14 +184,14 @@ public class AsupResponse   {
 
   
   /**
-   * Delivery method
+   * The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
    **/
   public AsupResponse deliveryType(Integer deliveryType) {
     this.deliveryType = deliveryType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Delivery method")
+  @ApiModelProperty(example = "null", required = true, value = "The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]")
   @JsonProperty("deliveryType")
   public Integer getDeliveryType() {
     return deliveryType;
@@ -239,14 +241,14 @@ public class AsupResponse   {
 
   
   /**
-   * Http delivery method
+   * Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
    **/
   public AsupResponse httpDeliveryType(Integer httpDeliveryType) {
     this.httpDeliveryType = httpDeliveryType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Http delivery method")
+  @ApiModelProperty(example = "null", required = true, value = "Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]")
   @JsonProperty("httpDeliveryType")
   public Integer getHttpDeliveryType() {
     return httpDeliveryType;
@@ -466,6 +468,24 @@ public class AsupResponse   {
   }
 
   
+  /**
+   **/
+  public AsupResponse _default(Boolean _default) {
+    this._default = _default;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("default")
+  public Boolean getDefault() {
+    return _default;
+  }
+  
+  public void setDefault(Boolean _default) {
+    this._default = _default;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -495,12 +515,13 @@ public class AsupResponse   {
         Objects.equals(this.mailSenderAddr, asupResponse.mailSenderAddr) &&
         Objects.equals(this.mailReplyAddr, asupResponse.mailReplyAddr) &&
         Objects.equals(this.log, asupResponse.log) &&
-        Objects.equals(this.sequence, asupResponse.sequence);
+        Objects.equals(this.sequence, asupResponse.sequence) &&
+        Objects.equals(this._default, asupResponse._default);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, scheduleType, weekdays, months, scheduledDays, deliveryType, destinationHttpAddr, destinationSmtpAddr, httpDeliveryType, proxyHostAddr, proxyHostPort, authRequired, authUserName, authPassword, proxyScript, mailServer, mailSenderAddr, mailReplyAddr, log, sequence);
+    return Objects.hash(enabled, scheduleType, weekdays, months, scheduledDays, deliveryType, destinationHttpAddr, destinationSmtpAddr, httpDeliveryType, proxyHostAddr, proxyHostPort, authRequired, authUserName, authPassword, proxyScript, mailServer, mailSenderAddr, mailReplyAddr, log, sequence, _default);
   }
 
   @Override
@@ -528,6 +549,7 @@ public class AsupResponse   {
     sb.append("    mailReplyAddr: ").append(toIndentedString(mailReplyAddr)).append("\n");
     sb.append("    log: ").append(toIndentedString(log)).append("\n");
     sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("}");
     return sb.toString();
   }

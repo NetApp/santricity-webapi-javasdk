@@ -42,7 +42,7 @@ import java.util.Objects;
  * API response object that includes basic information about the system.
  */
 @ApiModel(description = "API response object that includes basic information about the system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:52.213-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:06:02.675-05:00")
 public class AboutResponse   {
   
     private Boolean runningAsProxy;
@@ -52,6 +52,8 @@ public class AboutResponse   {
     private String systemId;
 
     private Integer controllerPosition;
+
+    private Long startTimestamp;
 
   
   /**
@@ -130,6 +132,25 @@ public class AboutResponse   {
   }
 
   
+  /**
+   * REST API start timestamp in seconds
+   **/
+  public AboutResponse startTimestamp(Long startTimestamp) {
+    this.startTimestamp = startTimestamp;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "REST API start timestamp in seconds")
+  @JsonProperty("startTimestamp")
+  public Long getStartTimestamp() {
+    return startTimestamp;
+  }
+  
+  public void setStartTimestamp(Long startTimestamp) {
+    this.startTimestamp = startTimestamp;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -143,12 +164,13 @@ public class AboutResponse   {
     return Objects.equals(this.runningAsProxy, aboutResponse.runningAsProxy) &&
         Objects.equals(this.version, aboutResponse.version) &&
         Objects.equals(this.systemId, aboutResponse.systemId) &&
-        Objects.equals(this.controllerPosition, aboutResponse.controllerPosition);
+        Objects.equals(this.controllerPosition, aboutResponse.controllerPosition) &&
+        Objects.equals(this.startTimestamp, aboutResponse.startTimestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(runningAsProxy, version, systemId, controllerPosition);
+    return Objects.hash(runningAsProxy, version, systemId, controllerPosition, startTimestamp);
   }
 
   @Override
@@ -160,6 +182,7 @@ public class AboutResponse   {
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    controllerPosition: ").append(toIndentedString(controllerPosition)).append("\n");
+    sb.append("    startTimestamp: ").append(toIndentedString(startTimestamp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -256,33 +256,6 @@ public class DApiTest {
     }
     
     /**
-     * This procedure deletes a range of (i.e. one or more) specified MgmtClientRecords.
-     *
-     * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void symbolDeleteClientMgmtRecordsNoPasswordTest() throws ApiException {
-        
-        String systemId = null;
-        
-        MgmtClientRecordDeleteDescriptor body = null;
-        
-        String controller = null;
-        
-        Boolean verboseErrorResponse = null;
-        
-        try{
-        String response = api.symbolDeleteClientMgmtRecordsNoPassword(systemId, body, controller, verboseErrorResponse);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * This procedure causes the Cluster object identified by the argument value to be deleted from the Storage Partitions configuration.
      *
      * Documented return codes: ok, partNodeNonexistent. 

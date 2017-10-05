@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * DiskPoolDefaultAttributes
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class DiskPoolDefaultAttributes   {
   
     private Integer poolUtilizationWarningThreshold;
@@ -144,6 +144,10 @@ public class DiskPoolDefaultAttributes   {
     private Long maxTotalDiskPoolSupportInMegabytes;
 
     private Long maxVolumeSynchronousCreationInMegabytes;
+
+    private Integer maxDCRDriveCount;
+
+    private Integer minimumDriveCount;
 
   
   /**
@@ -336,6 +340,44 @@ public class DiskPoolDefaultAttributes   {
   }
 
   
+  /**
+   * This element contains the maximum number of drives that can be removed in a Disk Capacity Reduction (DCR) operation.
+   **/
+  public DiskPoolDefaultAttributes maxDCRDriveCount(Integer maxDCRDriveCount) {
+    this.maxDCRDriveCount = maxDCRDriveCount;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "This element contains the maximum number of drives that can be removed in a Disk Capacity Reduction (DCR) operation.")
+  @JsonProperty("maxDCRDriveCount")
+  public Integer getMaxDCRDriveCount() {
+    return maxDCRDriveCount;
+  }
+  
+  public void setMaxDCRDriveCount(Integer maxDCRDriveCount) {
+    this.maxDCRDriveCount = maxDCRDriveCount;
+  }
+
+  
+  /**
+   * Minimum drive count required for defining a disk pool
+   **/
+  public DiskPoolDefaultAttributes minimumDriveCount(Integer minimumDriveCount) {
+    this.minimumDriveCount = minimumDriveCount;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Minimum drive count required for defining a disk pool")
+  @JsonProperty("minimumDriveCount")
+  public Integer getMinimumDriveCount() {
+    return minimumDriveCount;
+  }
+  
+  public void setMinimumDriveCount(Integer minimumDriveCount) {
+    this.minimumDriveCount = minimumDriveCount;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -355,12 +397,14 @@ public class DiskPoolDefaultAttributes   {
         Objects.equals(this.maxDCEDriveCount, diskPoolDefaultAttributes.maxDCEDriveCount) &&
         Objects.equals(this.reposGranularity, diskPoolDefaultAttributes.reposGranularity) &&
         Objects.equals(this.maxTotalDiskPoolSupportInMegabytes, diskPoolDefaultAttributes.maxTotalDiskPoolSupportInMegabytes) &&
-        Objects.equals(this.maxVolumeSynchronousCreationInMegabytes, diskPoolDefaultAttributes.maxVolumeSynchronousCreationInMegabytes);
+        Objects.equals(this.maxVolumeSynchronousCreationInMegabytes, diskPoolDefaultAttributes.maxVolumeSynchronousCreationInMegabytes) &&
+        Objects.equals(this.maxDCRDriveCount, diskPoolDefaultAttributes.maxDCRDriveCount) &&
+        Objects.equals(this.minimumDriveCount, diskPoolDefaultAttributes.minimumDriveCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolUtilizationWarningThreshold, poolUtilizationCriticalThreshold, degradedReconstructPriority, criticalReconstructPriority, backgroundOperationPriority, maxVolumeSizeInMegabytes, maxDCEDriveCount, reposGranularity, maxTotalDiskPoolSupportInMegabytes, maxVolumeSynchronousCreationInMegabytes);
+    return Objects.hash(poolUtilizationWarningThreshold, poolUtilizationCriticalThreshold, degradedReconstructPriority, criticalReconstructPriority, backgroundOperationPriority, maxVolumeSizeInMegabytes, maxDCEDriveCount, reposGranularity, maxTotalDiskPoolSupportInMegabytes, maxVolumeSynchronousCreationInMegabytes, maxDCRDriveCount, minimumDriveCount);
   }
 
   @Override
@@ -378,6 +422,8 @@ public class DiskPoolDefaultAttributes   {
     sb.append("    reposGranularity: ").append(toIndentedString(reposGranularity)).append("\n");
     sb.append("    maxTotalDiskPoolSupportInMegabytes: ").append(toIndentedString(maxTotalDiskPoolSupportInMegabytes)).append("\n");
     sb.append("    maxVolumeSynchronousCreationInMegabytes: ").append(toIndentedString(maxVolumeSynchronousCreationInMegabytes)).append("\n");
+    sb.append("    maxDCRDriveCount: ").append(toIndentedString(maxDCRDriveCount)).append("\n");
+    sb.append("    minimumDriveCount: ").append(toIndentedString(minimumDriveCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

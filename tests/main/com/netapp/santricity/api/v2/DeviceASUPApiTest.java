@@ -46,7 +46,7 @@ public class DeviceASUPApiTest {
     /**
      * Retrieve the device ASUP configuration
      *
-     * Mode: Both Embedded and Proxy.
+     * Mode: Embedded only.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -74,7 +74,7 @@ public class DeviceASUPApiTest {
     public void getASUPInformationTest() throws ApiException {
         
         try{
-        DeviceAsupDevice response = api.getASUPInformation();
+        List<DeviceAsupDevice> response = api.getASUPInformation();
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

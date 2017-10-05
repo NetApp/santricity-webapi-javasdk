@@ -42,7 +42,7 @@ import java.util.Objects;
  * This response contains the correlation Id that can be used to correlate software download events from the global event channel to this request
  */
 @ApiModel(description = "This response contains the correlation Id that can be used to correlate software download events from the global event channel to this request")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class UpgradeManagerResponse   {
   
     private String correlationId;

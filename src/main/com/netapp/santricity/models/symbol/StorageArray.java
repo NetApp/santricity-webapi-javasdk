@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * StorageArray
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class StorageArray   {
   
     private SAData saData;
@@ -225,6 +225,7 @@ public class StorageArray   {
     ok("ok"),
     keyNeeded("keyNeeded"),
     newKeyNeeded("newKeyNeeded"),
+    validationNeeded("validationNeeded"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -288,6 +289,12 @@ public class StorageArray   {
     private Boolean highResolutionStatisticsEnabled;
 
     private Boolean autoLoadBalancingEnabled;
+
+    private String reserved3;
+
+    private EmbeddedExternalKMSInformation embeddedExternalKMSInformation;
+
+    private Boolean isLun0RestrictedForDefaultPartition;
 
     private Boolean vaaienabled;
 
@@ -1262,6 +1269,63 @@ public class StorageArray   {
 
   
   /**
+   * This reserved field is needed to maintain compatibility with host applications.
+   **/
+  public StorageArray reserved3(String reserved3) {
+    this.reserved3 = reserved3;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "This reserved field is needed to maintain compatibility with host applications.")
+  @JsonProperty("reserved3")
+  public String getReserved3() {
+    return reserved3;
+  }
+  
+  public void setReserved3(String reserved3) {
+    this.reserved3 = reserved3;
+  }
+
+  
+  /**
+   * This structure contains the external key management information. See the structure definition for details.
+   **/
+  public StorageArray embeddedExternalKMSInformation(EmbeddedExternalKMSInformation embeddedExternalKMSInformation) {
+    this.embeddedExternalKMSInformation = embeddedExternalKMSInformation;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "This structure contains the external key management information. See the structure definition for details.")
+  @JsonProperty("embeddedExternalKMSInformation")
+  public EmbeddedExternalKMSInformation getEmbeddedExternalKMSInformation() {
+    return embeddedExternalKMSInformation;
+  }
+  
+  public void setEmbeddedExternalKMSInformation(EmbeddedExternalKMSInformation embeddedExternalKMSInformation) {
+    this.embeddedExternalKMSInformation = embeddedExternalKMSInformation;
+  }
+
+  
+  /**
+   * Provides an indication of whether LUN 0 is restricted (disallowed) for the default storage partition.
+   **/
+  public StorageArray isLun0RestrictedForDefaultPartition(Boolean isLun0RestrictedForDefaultPartition) {
+    this.isLun0RestrictedForDefaultPartition = isLun0RestrictedForDefaultPartition;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Provides an indication of whether LUN 0 is restricted (disallowed) for the default storage partition.")
+  @JsonProperty("isLun0RestrictedForDefaultPartition")
+  public Boolean getIsLun0RestrictedForDefaultPartition() {
+    return isLun0RestrictedForDefaultPartition;
+  }
+  
+  public void setIsLun0RestrictedForDefaultPartition(Boolean isLun0RestrictedForDefaultPartition) {
+    this.isLun0RestrictedForDefaultPartition = isLun0RestrictedForDefaultPartition;
+  }
+
+  
+  /**
    **/
   public StorageArray vaaienabled(Boolean vaaienabled) {
     this.vaaienabled = vaaienabled;
@@ -1358,13 +1422,16 @@ public class StorageArray   {
         Objects.equals(this.directExpansionPortInUse, storageArray.directExpansionPortInUse) &&
         Objects.equals(this.highResolutionStatisticsEnabled, storageArray.highResolutionStatisticsEnabled) &&
         Objects.equals(this.autoLoadBalancingEnabled, storageArray.autoLoadBalancingEnabled) &&
+        Objects.equals(this.reserved3, storageArray.reserved3) &&
+        Objects.equals(this.embeddedExternalKMSInformation, storageArray.embeddedExternalKMSInformation) &&
+        Objects.equals(this.isLun0RestrictedForDefaultPartition, storageArray.isLun0RestrictedForDefaultPartition) &&
         Objects.equals(this.vaaienabled, storageArray.vaaienabled) &&
         Objects.equals(this.odxenabled, storageArray.odxenabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(saData, safeId, cache, accessVolume, featureParameters, mediaScanPeriod, capabilities, premiumFeatures, trayPositionList, hostPortType, hostSpecificVals, compatibility, usageHints, definedPartitionCount, defaultHostPortTypeIndex, remoteAccessID, remoteMirroringActive, volXferAlertDelayPeriod, reserved1, reserved2, stagedFirmware, unreadableSectors, driveChannels, portLocations, ddcTag, featureBundle, featureState, channelPortLocations, iscsiEntityData, hostType, defaultHostTypeIndex, rvmControllerHostChannel, smartBatteryData, invalidSystemConfig, securityLockKey, lockKeyIDRef, syslogConfiguration, securityExternalKmsEnable, newKeySequence, securityExternalKmsKeyStatus, lockKeyNeededList, dplCoreDumpData, fcRVMState, asupEnabled, asupOnDemandEnabled, asupRemoteDiagsEnabled, iocDumpData, driveChannelPortDisabled, directExpansionPortInUse, highResolutionStatisticsEnabled, autoLoadBalancingEnabled, vaaienabled, odxenabled);
+    return Objects.hash(saData, safeId, cache, accessVolume, featureParameters, mediaScanPeriod, capabilities, premiumFeatures, trayPositionList, hostPortType, hostSpecificVals, compatibility, usageHints, definedPartitionCount, defaultHostPortTypeIndex, remoteAccessID, remoteMirroringActive, volXferAlertDelayPeriod, reserved1, reserved2, stagedFirmware, unreadableSectors, driveChannels, portLocations, ddcTag, featureBundle, featureState, channelPortLocations, iscsiEntityData, hostType, defaultHostTypeIndex, rvmControllerHostChannel, smartBatteryData, invalidSystemConfig, securityLockKey, lockKeyIDRef, syslogConfiguration, securityExternalKmsEnable, newKeySequence, securityExternalKmsKeyStatus, lockKeyNeededList, dplCoreDumpData, fcRVMState, asupEnabled, asupOnDemandEnabled, asupRemoteDiagsEnabled, iocDumpData, driveChannelPortDisabled, directExpansionPortInUse, highResolutionStatisticsEnabled, autoLoadBalancingEnabled, reserved3, embeddedExternalKMSInformation, isLun0RestrictedForDefaultPartition, vaaienabled, odxenabled);
   }
 
   @Override
@@ -1423,6 +1490,9 @@ public class StorageArray   {
     sb.append("    directExpansionPortInUse: ").append(toIndentedString(directExpansionPortInUse)).append("\n");
     sb.append("    highResolutionStatisticsEnabled: ").append(toIndentedString(highResolutionStatisticsEnabled)).append("\n");
     sb.append("    autoLoadBalancingEnabled: ").append(toIndentedString(autoLoadBalancingEnabled)).append("\n");
+    sb.append("    reserved3: ").append(toIndentedString(reserved3)).append("\n");
+    sb.append("    embeddedExternalKMSInformation: ").append(toIndentedString(embeddedExternalKMSInformation)).append("\n");
+    sb.append("    isLun0RestrictedForDefaultPartition: ").append(toIndentedString(isLun0RestrictedForDefaultPartition)).append("\n");
     sb.append("    vaaienabled: ").append(toIndentedString(vaaienabled)).append("\n");
     sb.append("    odxenabled: ").append(toIndentedString(odxenabled)).append("\n");
     sb.append("}");

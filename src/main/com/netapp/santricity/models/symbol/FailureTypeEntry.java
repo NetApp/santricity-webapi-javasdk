@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * FailureTypeEntry
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class FailureTypeEntry   {
   
 
@@ -331,6 +331,17 @@ public class FailureTypeEntry   {
     hostRedundancyLost("hostRedundancyLost"),
     excessiveRebootsDetected("excessiveRebootsDetected"),
     cacheNotFlushedOnOnlyCtlr("cacheNotFlushedOnOnlyCtlr"),
+    securityAuditLogFull("securityAuditLogFull"),
+    securityAuditLogWarnThresh("securityAuditLogWarnThresh"),
+    directoryServicesConfigError("directoryServicesConfigError"),
+    kmipServerCertificateNearingExpiration("kmipServerCertificateNearingExpiration"),
+    kmipServerCertificateExpired("kmipServerCertificateExpired"),
+    kmipServerDnsError("kmipServerDnsError"),
+    kmipServerCertificateError("kmipServerCertificateError"),
+    kmipServerAuthenticationFailure("kmipServerAuthenticationFailure"),
+    kmipServerConnectionFailure("kmipServerConnectionFailure"),
+    kmipServerError("kmipServerError"),
+    kmipServerKeyRequirementNotMet("kmipServerKeyRequirementNotMet"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -875,6 +886,18 @@ public class FailureTypeEntry   {
     private ExcessiveRebootsDetected excessiveRebootsDetected;
 
     private ControllerWithDirtyCacheDetails ctlrWithDirtyCacheNotFlushed;
+
+    private KMSCertificateExpirationDetails kmsExpiringCertificate;
+
+    private KMSCertificateExpirationDetails kmsExpiredCertificate;
+
+    private ExternalKMSEndpoint kmsConnFailureEndpoint;
+
+    private ExternalKMSEndpoint kmsServerErrorEndpoint;
+
+    private DirectoryServicesDomain directoryServicesDomain;
+
+    private ExternalKMSEndpoint kmsKeyReqEndpoint;
 
   
   /**
@@ -2170,14 +2193,14 @@ public class FailureTypeEntry   {
 
   
   /**
-   * This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect cannister, which caused the other controller to lock down.
+   * This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect canister, which caused the other controller to lock down.
    **/
   public FailureTypeEntry iccMissing(String iccMissing) {
     this.iccMissing = iccMissing;
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect cannister, which caused the other controller to lock down.")
+  @ApiModelProperty(example = "null", value = "This field is present only if the recFailureType is equal to REC_ICC_MISSING. It identifies a controller enclosure having a missing interconnect canister, which caused the other controller to lock down.")
   @JsonProperty("iccMissing")
   public String getIccMissing() {
     return iccMissing;
@@ -5911,6 +5934,120 @@ public class FailureTypeEntry   {
   }
 
   
+  /**
+   * A KMS certificate is nearing its expiration and should be updated prior to expiration to prevent a potential loss of data access.
+   **/
+  public FailureTypeEntry kmsExpiringCertificate(KMSCertificateExpirationDetails kmsExpiringCertificate) {
+    this.kmsExpiringCertificate = kmsExpiringCertificate;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "A KMS certificate is nearing its expiration and should be updated prior to expiration to prevent a potential loss of data access.")
+  @JsonProperty("kmsExpiringCertificate")
+  public KMSCertificateExpirationDetails getKmsExpiringCertificate() {
+    return kmsExpiringCertificate;
+  }
+  
+  public void setKmsExpiringCertificate(KMSCertificateExpirationDetails kmsExpiringCertificate) {
+    this.kmsExpiringCertificate = kmsExpiringCertificate;
+  }
+
+  
+  /**
+   * A KMS certificate has expired resulting in a loss of access with the KMIP server.
+   **/
+  public FailureTypeEntry kmsExpiredCertificate(KMSCertificateExpirationDetails kmsExpiredCertificate) {
+    this.kmsExpiredCertificate = kmsExpiredCertificate;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "A KMS certificate has expired resulting in a loss of access with the KMIP server.")
+  @JsonProperty("kmsExpiredCertificate")
+  public KMSCertificateExpirationDetails getKmsExpiredCertificate() {
+    return kmsExpiredCertificate;
+  }
+  
+  public void setKmsExpiredCertificate(KMSCertificateExpirationDetails kmsExpiredCertificate) {
+    this.kmsExpiredCertificate = kmsExpiredCertificate;
+  }
+
+  
+  /**
+   * A connection failure occurred while attempting to communicate with the KMIP server.
+   **/
+  public FailureTypeEntry kmsConnFailureEndpoint(ExternalKMSEndpoint kmsConnFailureEndpoint) {
+    this.kmsConnFailureEndpoint = kmsConnFailureEndpoint;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "A connection failure occurred while attempting to communicate with the KMIP server.")
+  @JsonProperty("kmsConnFailureEndpoint")
+  public ExternalKMSEndpoint getKmsConnFailureEndpoint() {
+    return kmsConnFailureEndpoint;
+  }
+  
+  public void setKmsConnFailureEndpoint(ExternalKMSEndpoint kmsConnFailureEndpoint) {
+    this.kmsConnFailureEndpoint = kmsConnFailureEndpoint;
+  }
+
+  
+  /**
+   * An error occurred while communicating with the KMIP server.
+   **/
+  public FailureTypeEntry kmsServerErrorEndpoint(ExternalKMSEndpoint kmsServerErrorEndpoint) {
+    this.kmsServerErrorEndpoint = kmsServerErrorEndpoint;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "An error occurred while communicating with the KMIP server.")
+  @JsonProperty("kmsServerErrorEndpoint")
+  public ExternalKMSEndpoint getKmsServerErrorEndpoint() {
+    return kmsServerErrorEndpoint;
+  }
+  
+  public void setKmsServerErrorEndpoint(ExternalKMSEndpoint kmsServerErrorEndpoint) {
+    this.kmsServerErrorEndpoint = kmsServerErrorEndpoint;
+  }
+
+  
+  /**
+   * The Directory Services Server is misconfigured or unreachable.
+   **/
+  public FailureTypeEntry directoryServicesDomain(DirectoryServicesDomain directoryServicesDomain) {
+    this.directoryServicesDomain = directoryServicesDomain;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "The Directory Services Server is misconfigured or unreachable.")
+  @JsonProperty("directoryServicesDomain")
+  public DirectoryServicesDomain getDirectoryServicesDomain() {
+    return directoryServicesDomain;
+  }
+  
+  public void setDirectoryServicesDomain(DirectoryServicesDomain directoryServicesDomain) {
+    this.directoryServicesDomain = directoryServicesDomain;
+  }
+
+  
+  /**
+   * A requirement of the key has not been satisfied on the KMIP server (e.g., key owner has not been set.)
+   **/
+  public FailureTypeEntry kmsKeyReqEndpoint(ExternalKMSEndpoint kmsKeyReqEndpoint) {
+    this.kmsKeyReqEndpoint = kmsKeyReqEndpoint;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "A requirement of the key has not been satisfied on the KMIP server (e.g., key owner has not been set.)")
+  @JsonProperty("kmsKeyReqEndpoint")
+  public ExternalKMSEndpoint getKmsKeyReqEndpoint() {
+    return kmsKeyReqEndpoint;
+  }
+  
+  public void setKmsKeyReqEndpoint(ExternalKMSEndpoint kmsKeyReqEndpoint) {
+    this.kmsKeyReqEndpoint = kmsKeyReqEndpoint;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -6185,12 +6322,18 @@ public class FailureTypeEntry   {
         Objects.equals(this.misconfiguredHost, failureTypeEntry.misconfiguredHost) &&
         Objects.equals(this.hostRedundancyLossDetails, failureTypeEntry.hostRedundancyLossDetails) &&
         Objects.equals(this.excessiveRebootsDetected, failureTypeEntry.excessiveRebootsDetected) &&
-        Objects.equals(this.ctlrWithDirtyCacheNotFlushed, failureTypeEntry.ctlrWithDirtyCacheNotFlushed);
+        Objects.equals(this.ctlrWithDirtyCacheNotFlushed, failureTypeEntry.ctlrWithDirtyCacheNotFlushed) &&
+        Objects.equals(this.kmsExpiringCertificate, failureTypeEntry.kmsExpiringCertificate) &&
+        Objects.equals(this.kmsExpiredCertificate, failureTypeEntry.kmsExpiredCertificate) &&
+        Objects.equals(this.kmsConnFailureEndpoint, failureTypeEntry.kmsConnFailureEndpoint) &&
+        Objects.equals(this.kmsServerErrorEndpoint, failureTypeEntry.kmsServerErrorEndpoint) &&
+        Objects.equals(this.directoryServicesDomain, failureTypeEntry.directoryServicesDomain) &&
+        Objects.equals(this.kmsKeyReqEndpoint, failureTypeEntry.kmsKeyReqEndpoint);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recFailureType, altCtlrBoardIdUnreadable, baseControllerDiagFailed, batteryConfigMismatch, batteryWarn, batteryTempWarn, batteryStatUnknown, batteryCapacityWarn, failedCacheBackupDevice, insufficientCacheBackupDeviceCapacity, writeProtectedCacheBackupDevice, channelDegradedFailure, channelFailedFailure, chanMiswire, vpdEepromCorrupted, ctlMismatch, ctlMiswire, ddfDriveOtherVendor, failedDedicatedMirrorChannel, degradedHostBoard, volDegraded, drvBypassCauseUnknown, driveBypassedSinglePort, speedMismatchDrive, incompatibleDownRevDacstoreDriveRef, mixedDriveEnclosureMiswire, incompatibleSectorSizeDriveRef, incompatibleUpRevDacstoreDriveRef, driveTrayExpansionFeature, driveTraysNotGroupedTogether, misconfiguredEnclosure, trayCodeMismatch, esmFactoryDefaultsMismatch, trayHardwareMismatch, esmMiswire, esmStatUnknown, batteryExpired, integratedBatteryExpired, batteryFail, batterySystemFail, discreteLineFail, driveFail, chFail, esmFail, fanFail, vpdI2cFailure, iccCruFail, miniHubFail, volFailDuringModifyMultiRaid, volFailDuringModify, powerSupplyFail, supportCruFail, transceiverModuleFailed, volFail, volFailAwaitingInit, volFailInterruptedWrite, volFailMultiRaid, fanStatUnknown, foreignDriveHasInconsistentRole, foreignDriveInconsistent, foreignDriveRefersToNativeDrive, ghostVolume, goldkeyFeature, failedHostBoard, hostBoardIdMismatch, hostBoardStatUnknown, missingHotSpareDriveRef, iccCruStatUnknown, iccMissing, volImpaired, driveFailImpendingHigh, driveFailImpendingLow, driveFailImpendingMed, incompatibleFailedLegacyDrive, ldFwVersionMismatch, legacyVgNotOptimal, linkSpeedDetectionError, linkSpeedMismatch, driveRedundancyFailure, esmRedundancyFailure, trayRedundancyFailure, maxTempWarn, memParityError, metadataOffline, minihubRef, dualMirrorPrimary, dualMirrorSecondary, mirrorUnsynchronized, mixeddrivetypesFeature, nativeVgForeignDriveMutualRef, nativeVgRefersToForeignDrive, networkSetupError, nominalTempWarn, nonFruBatteryWarn, nonFruBatteryFail, nonFruBatteryRemoved, nonPreferredPath, offlineCtl, volGroupOffline, spmFeature, passiveCtl, pathDegradedFailure, performanceTierFeature, powerSupplyStatUnknown, procMemTooSmallForCache, raid6Feature, incorrectSupportCru, remoteVolNoArray, remoteVolNoFabric, remoteVolNoLUN, remoteVolWWNChangeFailed, alarmRemoved, batteryRemoved, batteryPackRemoved, esmRemoved, fanRemoved, iccCruRemoved, powerSupplyRemoved, supportCruRemoved, tempSensorRemoved, replacedDriveWrongType, repositoryFull, repositoryOverThreshold, rpaParityError, rvmFeature, degradedSasPort, failedSasPort, miswiredSasPort, snapFail, snapshotFeature, speedNegError, submodelMismatch, submodelNotSet, submodelNotSupported, supportCruNoInput, supportCruStatUnknown, tempSensorStatUnknown, transceiverModuleStatUnknown, trayIDConflicts, trayIDMismatch, driveUncertified, esmUncertified, cacheMemorySizeUnsupported, unsupportedHostBoard, miniHubUnsupported, unsupportedTray, upsOnBattery, usmDbFullError, usmExistError, vgCloned, vgDrivePartOfMultipleVgs, vgHasDrivePartOfMultipleVgs, failedVolumeCopy, volcopyFeature, incompleteVolumeGroupRef, missingVolumeGroupRef, partialPresentVolumeGroupRef, volHotSpareInUse, hostRef, securityKeyNeeded, fdeFeature, removedCtrl, driveUnsuccessIsolationRedunMismatch, driveThresExcdedMismatchCorrected, inactiveHostPort, inactiveInitiator, protectionInformationFeature, protectionInformationNotSupported, driveCapacityInsufficient, openDrawerRef, failedDrawerRef, driveRef, solidStateDisksFeature, fibreTrunkMiswire, fibreTrunkIncompatibleEsm, driveSlotLimitFeature, newKeySequence, fdeProxyKeyMgmtFeature, sbbValidationFailure, powerSupplyInvalid, enclosureThermalShutdown, unsupportedProtocolConnection, twiBusFailed, mismatchedEepromContents, unsupportedCapacityDrive, evalExpirationImminent, keyInvalid, multipleMismatchedKeys, keyValidationLock, cacheDataLoss, featureOutOfCompliance, driveIncompatiblePItype, degradedDrawerRef, ctlrIocDiagFailed, invalidSataFlashConfig, offlineCtlrIocDiagFailed, chanSasPhyDisabledLocalWidePortDegraded, chanSasPhyDisabledSharedWidePortDegraded, drawerInvalid, drawerRemoved, driveUnsupportedInterposerFwVersion, volumeOfflineDuringReconfig, snapRollbackPaused, pitRollbackPaused, pitGroupOverWarnThreshold, pitViewOverWarnThreshold, pitGroupRepositoryFull, pitViewRepositoryFull, pitGroupFailed, pitViewFailed, pitPurged, degradedAsyncMirrorGroup, syncIntervalTimeExceeded, failedAsyncMirror, asyncMirrorRepositoryOverWarnThreshold, roleConflictMirrorGroup, recoveryPointLostGroup, incompatibleVolumeGroupSecurity, orphanMirrorGroup, orphanMirrorMember, diskPoolStatePartial, diskPoolStateIncomplete, diskPoolStateMissing, diskPoolReconstruction, diskPoolUtilizationWarning, diskPoolUtilizationCritical, pitGroupPendingCreateFailed, cgPendingCreateFailed, thinVolumeOverThreshold, thinVolumeRepositoryFull, thinVolumeFailed, fullSecondaryRepositoryMirrorMember, suspendedMirrorGroup, databaseMetadata, fullPrimaryRepositoryMirrorMember, sataSCTCmndUnsupported, diskPoolCapacityDepleted, driveModelNumberUnsupported, flashCacheNonOptimalDrives, flashCacheHotSpareInUse, nativeSATAIncompatibleNVSRAM, diskPoolDriveFailure, diskPoolInsufficientMemory, orphanIncompleteMember, pausedAltStateMirrorGroup, pausedRoleChangeGroup, driveEmulationIncompatibleAlignment, redundancyFail, mirrorProxyRef, miswiredSasHost, miswiredSasCross, miswiredSasLoop, volGroupWaitingOnHotSpare, missingAssignedDrives, diskPoolWaitingOnHotSpare, controllerInServiceMode, controllerInLockdown, discoveryErrorSasPort, ntpResolutionFailure, ntpQueryFailure, ntpServiceFailureController, misconfiguredHost, hostRedundancyLossDetails, excessiveRebootsDetected, ctlrWithDirtyCacheNotFlushed);
+    return Objects.hash(recFailureType, altCtlrBoardIdUnreadable, baseControllerDiagFailed, batteryConfigMismatch, batteryWarn, batteryTempWarn, batteryStatUnknown, batteryCapacityWarn, failedCacheBackupDevice, insufficientCacheBackupDeviceCapacity, writeProtectedCacheBackupDevice, channelDegradedFailure, channelFailedFailure, chanMiswire, vpdEepromCorrupted, ctlMismatch, ctlMiswire, ddfDriveOtherVendor, failedDedicatedMirrorChannel, degradedHostBoard, volDegraded, drvBypassCauseUnknown, driveBypassedSinglePort, speedMismatchDrive, incompatibleDownRevDacstoreDriveRef, mixedDriveEnclosureMiswire, incompatibleSectorSizeDriveRef, incompatibleUpRevDacstoreDriveRef, driveTrayExpansionFeature, driveTraysNotGroupedTogether, misconfiguredEnclosure, trayCodeMismatch, esmFactoryDefaultsMismatch, trayHardwareMismatch, esmMiswire, esmStatUnknown, batteryExpired, integratedBatteryExpired, batteryFail, batterySystemFail, discreteLineFail, driveFail, chFail, esmFail, fanFail, vpdI2cFailure, iccCruFail, miniHubFail, volFailDuringModifyMultiRaid, volFailDuringModify, powerSupplyFail, supportCruFail, transceiverModuleFailed, volFail, volFailAwaitingInit, volFailInterruptedWrite, volFailMultiRaid, fanStatUnknown, foreignDriveHasInconsistentRole, foreignDriveInconsistent, foreignDriveRefersToNativeDrive, ghostVolume, goldkeyFeature, failedHostBoard, hostBoardIdMismatch, hostBoardStatUnknown, missingHotSpareDriveRef, iccCruStatUnknown, iccMissing, volImpaired, driveFailImpendingHigh, driveFailImpendingLow, driveFailImpendingMed, incompatibleFailedLegacyDrive, ldFwVersionMismatch, legacyVgNotOptimal, linkSpeedDetectionError, linkSpeedMismatch, driveRedundancyFailure, esmRedundancyFailure, trayRedundancyFailure, maxTempWarn, memParityError, metadataOffline, minihubRef, dualMirrorPrimary, dualMirrorSecondary, mirrorUnsynchronized, mixeddrivetypesFeature, nativeVgForeignDriveMutualRef, nativeVgRefersToForeignDrive, networkSetupError, nominalTempWarn, nonFruBatteryWarn, nonFruBatteryFail, nonFruBatteryRemoved, nonPreferredPath, offlineCtl, volGroupOffline, spmFeature, passiveCtl, pathDegradedFailure, performanceTierFeature, powerSupplyStatUnknown, procMemTooSmallForCache, raid6Feature, incorrectSupportCru, remoteVolNoArray, remoteVolNoFabric, remoteVolNoLUN, remoteVolWWNChangeFailed, alarmRemoved, batteryRemoved, batteryPackRemoved, esmRemoved, fanRemoved, iccCruRemoved, powerSupplyRemoved, supportCruRemoved, tempSensorRemoved, replacedDriveWrongType, repositoryFull, repositoryOverThreshold, rpaParityError, rvmFeature, degradedSasPort, failedSasPort, miswiredSasPort, snapFail, snapshotFeature, speedNegError, submodelMismatch, submodelNotSet, submodelNotSupported, supportCruNoInput, supportCruStatUnknown, tempSensorStatUnknown, transceiverModuleStatUnknown, trayIDConflicts, trayIDMismatch, driveUncertified, esmUncertified, cacheMemorySizeUnsupported, unsupportedHostBoard, miniHubUnsupported, unsupportedTray, upsOnBattery, usmDbFullError, usmExistError, vgCloned, vgDrivePartOfMultipleVgs, vgHasDrivePartOfMultipleVgs, failedVolumeCopy, volcopyFeature, incompleteVolumeGroupRef, missingVolumeGroupRef, partialPresentVolumeGroupRef, volHotSpareInUse, hostRef, securityKeyNeeded, fdeFeature, removedCtrl, driveUnsuccessIsolationRedunMismatch, driveThresExcdedMismatchCorrected, inactiveHostPort, inactiveInitiator, protectionInformationFeature, protectionInformationNotSupported, driveCapacityInsufficient, openDrawerRef, failedDrawerRef, driveRef, solidStateDisksFeature, fibreTrunkMiswire, fibreTrunkIncompatibleEsm, driveSlotLimitFeature, newKeySequence, fdeProxyKeyMgmtFeature, sbbValidationFailure, powerSupplyInvalid, enclosureThermalShutdown, unsupportedProtocolConnection, twiBusFailed, mismatchedEepromContents, unsupportedCapacityDrive, evalExpirationImminent, keyInvalid, multipleMismatchedKeys, keyValidationLock, cacheDataLoss, featureOutOfCompliance, driveIncompatiblePItype, degradedDrawerRef, ctlrIocDiagFailed, invalidSataFlashConfig, offlineCtlrIocDiagFailed, chanSasPhyDisabledLocalWidePortDegraded, chanSasPhyDisabledSharedWidePortDegraded, drawerInvalid, drawerRemoved, driveUnsupportedInterposerFwVersion, volumeOfflineDuringReconfig, snapRollbackPaused, pitRollbackPaused, pitGroupOverWarnThreshold, pitViewOverWarnThreshold, pitGroupRepositoryFull, pitViewRepositoryFull, pitGroupFailed, pitViewFailed, pitPurged, degradedAsyncMirrorGroup, syncIntervalTimeExceeded, failedAsyncMirror, asyncMirrorRepositoryOverWarnThreshold, roleConflictMirrorGroup, recoveryPointLostGroup, incompatibleVolumeGroupSecurity, orphanMirrorGroup, orphanMirrorMember, diskPoolStatePartial, diskPoolStateIncomplete, diskPoolStateMissing, diskPoolReconstruction, diskPoolUtilizationWarning, diskPoolUtilizationCritical, pitGroupPendingCreateFailed, cgPendingCreateFailed, thinVolumeOverThreshold, thinVolumeRepositoryFull, thinVolumeFailed, fullSecondaryRepositoryMirrorMember, suspendedMirrorGroup, databaseMetadata, fullPrimaryRepositoryMirrorMember, sataSCTCmndUnsupported, diskPoolCapacityDepleted, driveModelNumberUnsupported, flashCacheNonOptimalDrives, flashCacheHotSpareInUse, nativeSATAIncompatibleNVSRAM, diskPoolDriveFailure, diskPoolInsufficientMemory, orphanIncompleteMember, pausedAltStateMirrorGroup, pausedRoleChangeGroup, driveEmulationIncompatibleAlignment, redundancyFail, mirrorProxyRef, miswiredSasHost, miswiredSasCross, miswiredSasLoop, volGroupWaitingOnHotSpare, missingAssignedDrives, diskPoolWaitingOnHotSpare, controllerInServiceMode, controllerInLockdown, discoveryErrorSasPort, ntpResolutionFailure, ntpQueryFailure, ntpServiceFailureController, misconfiguredHost, hostRedundancyLossDetails, excessiveRebootsDetected, ctlrWithDirtyCacheNotFlushed, kmsExpiringCertificate, kmsExpiredCertificate, kmsConnFailureEndpoint, kmsServerErrorEndpoint, directoryServicesDomain, kmsKeyReqEndpoint);
   }
 
   @Override
@@ -6463,6 +6606,12 @@ public class FailureTypeEntry   {
     sb.append("    hostRedundancyLossDetails: ").append(toIndentedString(hostRedundancyLossDetails)).append("\n");
     sb.append("    excessiveRebootsDetected: ").append(toIndentedString(excessiveRebootsDetected)).append("\n");
     sb.append("    ctlrWithDirtyCacheNotFlushed: ").append(toIndentedString(ctlrWithDirtyCacheNotFlushed)).append("\n");
+    sb.append("    kmsExpiringCertificate: ").append(toIndentedString(kmsExpiringCertificate)).append("\n");
+    sb.append("    kmsExpiredCertificate: ").append(toIndentedString(kmsExpiredCertificate)).append("\n");
+    sb.append("    kmsConnFailureEndpoint: ").append(toIndentedString(kmsConnFailureEndpoint)).append("\n");
+    sb.append("    kmsServerErrorEndpoint: ").append(toIndentedString(kmsServerErrorEndpoint)).append("\n");
+    sb.append("    directoryServicesDomain: ").append(toIndentedString(directoryServicesDomain)).append("\n");
+    sb.append("    kmsKeyReqEndpoint: ").append(toIndentedString(kmsKeyReqEndpoint)).append("\n");
     sb.append("}");
     return sb.toString();
   }

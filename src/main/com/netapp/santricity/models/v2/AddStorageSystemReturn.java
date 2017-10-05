@@ -41,12 +41,10 @@ import java.util.Objects;
 /**
  * AddStorageSystemReturn
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AddStorageSystemReturn   {
   
     private String id;
-
-    private Boolean alreadyExits;
 
     private Boolean alreadyExists;
 
@@ -66,24 +64,6 @@ public class AddStorageSystemReturn   {
   
   public void setId(String id) {
     this.id = id;
-  }
-
-  
-  /**
-   **/
-  public AddStorageSystemReturn alreadyExits(Boolean alreadyExits) {
-    this.alreadyExits = alreadyExits;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", required = true, value = "")
-  @JsonProperty("alreadyExits")
-  public Boolean getAlreadyExits() {
-    return alreadyExits;
-  }
-  
-  public void setAlreadyExits(Boolean alreadyExits) {
-    this.alreadyExits = alreadyExits;
   }
 
   
@@ -116,13 +96,12 @@ public class AddStorageSystemReturn   {
     }
     AddStorageSystemReturn addStorageSystemReturn = (AddStorageSystemReturn) o;
     return Objects.equals(this.id, addStorageSystemReturn.id) &&
-        Objects.equals(this.alreadyExits, addStorageSystemReturn.alreadyExits) &&
         Objects.equals(this.alreadyExists, addStorageSystemReturn.alreadyExists);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, alreadyExits, alreadyExists);
+    return Objects.hash(id, alreadyExists);
   }
 
   @Override
@@ -131,7 +110,6 @@ public class AddStorageSystemReturn   {
     sb.append("class AddStorageSystemReturn {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    alreadyExits: ").append(toIndentedString(alreadyExits)).append("\n");
     sb.append("    alreadyExists: ").append(toIndentedString(alreadyExists)).append("\n");
     sb.append("}");
     return sb.toString();

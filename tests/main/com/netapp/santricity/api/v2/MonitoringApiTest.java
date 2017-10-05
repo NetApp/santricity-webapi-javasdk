@@ -69,6 +69,33 @@ public class MonitoringApiTest {
     }
     
     /**
+     * Delete specified subset or all audit log messages.
+     *
+     * Mode: Embedded only.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteAuditLogMessagesTest() throws ApiException {
+        
+        String systemId = null;
+        
+        Integer retentionCount = null;
+        
+        Long endDate = null;
+        
+        Boolean clearAll = null;
+        
+        try{
+        AuditLogDeleteResponse response = api.deleteAuditLogMessages(systemId, retentionCount, endDate, clearAll);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Get all global status events
      *
      * Mode: Both Embedded and Proxy. 
@@ -117,6 +144,79 @@ public class MonitoringApiTest {
     }
     
     /**
+     * Get the current audit log configuration.
+     *
+     * Mode: Both Embedded only.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAuditLogConfigTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        AuditLogConfiguration response = api.getAuditLogConfig(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Get audit log metadata.
+     *
+     * Mode: Both Embedded only.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAuditLogInfoTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        AuditLogInfoResponse response = api.getAuditLogInfo(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Get a list of audit log messages.
+     *
+     * Mode: Both Embedded only.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getAuditLogMessagesTest() throws ApiException {
+        
+        String systemId = null;
+        
+        Integer startRecordOrdinal = null;
+        
+        Integer endingRecordOrdinal = null;
+        
+        Long beginDate = null;
+        
+        Long endDate = null;
+        
+        Boolean file = null;
+        
+        try{
+        AuditLogGetResponse response = api.getAuditLogMessages(systemId, startRecordOrdinal, endingRecordOrdinal, beginDate, endDate, file);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Check the oldest and newest available events
      *
      * Mode: Both Embedded and Proxy. 
@@ -140,9 +240,9 @@ public class MonitoringApiTest {
     }
     
     /**
-     * Get a list of log messages for based on input values.
+     * Get a list of log messages for a component.
      *
-     * Mode: Embedded only. 
+     * Mode: Embedded only.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -169,7 +269,7 @@ public class MonitoringApiTest {
     /**
      * Retrieve MelEvents
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Both Embedded and Proxy. This operation may take a substantial amount of time to return large numbers of events. In this case, the client may timeout. In this case, either the number of events to be retrieved should be reduced and multiple requests made, or the client-side timeout should be increased.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -189,6 +289,29 @@ public class MonitoringApiTest {
         
         try{
         List<MelEntryEx> response = api.getMelEvents(systemId, startSequenceNumber, count, critical, includeDebug);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Updates the audit long configuration.
+     *
+     * Mode: Both Embedded only.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateAuditLogConfigTest() throws ApiException {
+        
+        String systemId = null;
+        
+        AuditLogConfiguration body = null;
+        
+        try{
+        AuditLogConfiguration response = api.updateAuditLogConfig(systemId, body);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

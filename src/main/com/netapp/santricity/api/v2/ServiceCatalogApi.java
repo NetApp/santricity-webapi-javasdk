@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ServiceCatalogApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class ServiceCatalogApi {
   /**
    * Retrieve the list of pools 
    * Mode: Both Embedded and Proxy. Retrieve the list of pools and their service quality features. The list is sorted in descending order by the largest block of freeSpace that each has available.
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<PoolQosResponse>
    * @throws ApiException if fails to make API call
    */
@@ -109,7 +109,7 @@ public class ServiceCatalogApi {
   /**
    * Retrieve the list of volumes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<UserVolume>
    * @throws ApiException if fails to make API call
    */
@@ -157,7 +157,7 @@ public class ServiceCatalogApi {
   /**
    * Retrieve a pool by name or ID
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param poolId  (required)
    * @return PoolQosResponse
    * @throws ApiException if fails to make API call
@@ -212,7 +212,7 @@ public class ServiceCatalogApi {
   /**
    * Retrieve a volume by id or label
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param volumeId  (required)
    * @return UserVolume
    * @throws ApiException if fails to make API call
@@ -267,7 +267,7 @@ public class ServiceCatalogApi {
   /**
    * Define a new volume and configure its QOS parameters 
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return UserVolume
    * @throws ApiException if fails to make API call
@@ -316,7 +316,7 @@ public class ServiceCatalogApi {
   /**
    * Delete a volume by id or label
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param volumeId  (required)
    * @throws ApiException if fails to make API call
    */
@@ -369,7 +369,7 @@ public class ServiceCatalogApi {
   /**
    * Update an existing volume
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param volumeId  (required)
    * @param body  (optional)
    * @return UserVolume

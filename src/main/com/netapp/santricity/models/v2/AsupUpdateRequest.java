@@ -42,7 +42,7 @@ import java.util.Objects;
  * Used to update asup settings.
  */
 @ApiModel(description = "Used to update asup settings.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AsupUpdateRequest   {
   
     private Boolean enable;
@@ -98,14 +98,14 @@ public class AsupUpdateRequest   {
 
   
   /**
-   * The schedule type
+   * The schedule type = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]
    **/
   public AsupUpdateRequest scheduleTypeReq(Integer scheduleTypeReq) {
     this.scheduleTypeReq = scheduleTypeReq;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "The schedule type")
+  @ApiModelProperty(example = "null", required = true, value = "The schedule type = ['0' is a daily schedule, '1' is a weekly schedule, '2' is a monthly schedule]")
   @JsonProperty("scheduleTypeReq")
   public Integer getScheduleTypeReq() {
     return scheduleTypeReq;
@@ -174,14 +174,14 @@ public class AsupUpdateRequest   {
 
   
   /**
-   * Delivery method
+   * The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]
    **/
   public AsupUpdateRequest deliveryType(Integer deliveryType) {
     this.deliveryType = deliveryType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Delivery method")
+  @ApiModelProperty(example = "null", required = true, value = "The Delivery method = ['0' is unknown, '1' is https (default), '2' is http, '3' is smtp]")
   @JsonProperty("deliveryType")
   public Integer getDeliveryType() {
     return deliveryType;
@@ -193,14 +193,14 @@ public class AsupUpdateRequest   {
 
   
   /**
-   * Http delivery method
+   * Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]
    **/
   public AsupUpdateRequest httpDeliveryType(Integer httpDeliveryType) {
     this.httpDeliveryType = httpDeliveryType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", value = "Http delivery method")
+  @ApiModelProperty(example = "null", value = "Http delivery method = ['0' is a unknown, '1' is direct (default), '2' is proxy server, '3' is proxy configuration script]")
   @JsonProperty("httpDeliveryType")
   public Integer getHttpDeliveryType() {
     return httpDeliveryType;

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * DiskPoolData
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class DiskPoolData   {
   
     private Integer reconstructionReservedDriveCount;
@@ -171,6 +171,8 @@ public class DiskPoolData   {
     private BackgroundOperationPriorityEnum backgroundOperationPriority;
 
     private Long allocGranularity;
+
+    private Integer minimumDriveCount;
 
   
   /**
@@ -382,6 +384,25 @@ public class DiskPoolData   {
   }
 
   
+  /**
+   * Minimum number of drives required for this disk pool
+   **/
+  public DiskPoolData minimumDriveCount(Integer minimumDriveCount) {
+    this.minimumDriveCount = minimumDriveCount;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Minimum number of drives required for this disk pool")
+  @JsonProperty("minimumDriveCount")
+  public Integer getMinimumDriveCount() {
+    return minimumDriveCount;
+  }
+  
+  public void setMinimumDriveCount(Integer minimumDriveCount) {
+    this.minimumDriveCount = minimumDriveCount;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -402,12 +423,13 @@ public class DiskPoolData   {
         Objects.equals(this.degradedReconstructPriority, diskPoolData.degradedReconstructPriority) &&
         Objects.equals(this.criticalReconstructPriority, diskPoolData.criticalReconstructPriority) &&
         Objects.equals(this.backgroundOperationPriority, diskPoolData.backgroundOperationPriority) &&
-        Objects.equals(this.allocGranularity, diskPoolData.allocGranularity);
+        Objects.equals(this.allocGranularity, diskPoolData.allocGranularity) &&
+        Objects.equals(this.minimumDriveCount, diskPoolData.minimumDriveCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reconstructionReservedDriveCount, reconstructionReservedAmt, reconstructionReservedDriveCountCurrent, poolUtilizationWarningThreshold, poolUtilizationCriticalThreshold, poolUtilizationState, unusableCapacity, degradedReconstructPriority, criticalReconstructPriority, backgroundOperationPriority, allocGranularity);
+    return Objects.hash(reconstructionReservedDriveCount, reconstructionReservedAmt, reconstructionReservedDriveCountCurrent, poolUtilizationWarningThreshold, poolUtilizationCriticalThreshold, poolUtilizationState, unusableCapacity, degradedReconstructPriority, criticalReconstructPriority, backgroundOperationPriority, allocGranularity, minimumDriveCount);
   }
 
   @Override
@@ -426,6 +448,7 @@ public class DiskPoolData   {
     sb.append("    criticalReconstructPriority: ").append(toIndentedString(criticalReconstructPriority)).append("\n");
     sb.append("    backgroundOperationPriority: ").append(toIndentedString(backgroundOperationPriority)).append("\n");
     sb.append("    allocGranularity: ").append(toIndentedString(allocGranularity)).append("\n");
+    sb.append("    minimumDriveCount: ").append(toIndentedString(minimumDriveCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

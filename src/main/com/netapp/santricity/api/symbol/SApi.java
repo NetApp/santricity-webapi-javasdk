@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class SApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class SApi {
   /**
    * This procedure causes a scan of the specified volume over the specified extent. The scan stops on any media or parity error encountered and reports the error. The procedure can also be used to repair media errors and parity errors.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, invalidVolumeref, volumeOffline, volumeNotOptimal, parityScanFailed, parityRepairFailed, mediaRepairFailed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeScanDescriptor that specifies the volume and extent to be scanned and contains indicators to enable repairing of media and parity errors. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class SApi {
   /**
    * This procedure converts the specified disk pool to a secure volume group.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes to convert the specified disk pool to a secure volume group. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class SApi {
   /**
    * This procedure converts the specified volume group to a secure volume group.
    * Documented return codes: ok, notImplemented, invalidVolumegroupref, volsInVgUsingNonSecureCapableFlashcache, volsInVgUsingSecureDisabledFlashcache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The VolumeGroupRef identifier for the volume to be secured. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -241,7 +241,7 @@ public class SApi {
   /**
    * This procedure sends chunks to the parallel drive firmware download process.
    * Documented return codes: ok, error, illegalParam, noHeap, invalidRequest, invalidOffset, overrun, invalidChunksize, invalidSetid, validationError, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information about the DriveFirmwareChunkDescriptor. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -301,7 +301,7 @@ public class SApi {
   /**
    * This procedure sets the allowed alarm controls.
    * Documented return codes: ok, error, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An AlarmUpdateDescriptor object that indicates the alarm to modify and the alarm control to activate. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -361,7 +361,7 @@ public class SApi {
   /**
    * This procedure is used to set the current Autosupport status values.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -421,7 +421,7 @@ public class SApi {
   /**
    * This procedure will change the parameters of an Async Mirror Group.
    * Documented return codes: ok, invalidWarnThreshold, arvmGroupUserLabelExists, arvmGroupHasIncompleteMember, invalidSyncPriority, invalidRecoveryPointAlertThreshold, invalidSyncAlertThreshold, arvmOrphanGroup, arvmOrphanMember, arvmInvalidSyncInterval, remoteInternalError, arvmRemoteGroupUserLabelExists, arvmRemoteGroupDoesNotExist, remoteDatabaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing the Asynchronous Mirror Group parameters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -481,7 +481,7 @@ public class SApi {
   /**
    * This procedure enables or disables the auto load balancing capability on this array.
    * Documented return codes: ok, noHeap, databaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Input descriptor indicating whether auto load balancing is to be enabled or disabled (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -541,7 +541,7 @@ public class SApi {
   /**
    * This procedure sets the allowable options for the auto resynchronization.
    * Documented return codes: ok, illegalParam, noHeap, internalError, iconFailure, invalidVolumeref, ghostVolume, invalidMirrorvol, rvmVersionMismatch, rvmOperNotAllowedOnSec. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object determines whether auto resynchronization is allowed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -601,7 +601,7 @@ public class SApi {
   /**
    * This procedure sets the battery parameters for the given battery.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, tryAlternate, internalError, noVolumes. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor object that specifies the battery properties. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -659,9 +659,69 @@ public class SApi {
   }
   
   /**
+   * This procedure allows checking of protection information of cache mirroring to be enabled or disabled, if this feature is supported. There is a capability enumeration that indicates whether or not this feature is supported.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body A CacheMirroringProtectionInformationDescriptor containing the arguments for the call. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolSetCacheMirroringProtectionInformation(String systemId, CacheMirroringProtectionInformationDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolSetCacheMirroringProtectionInformation");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolSetCacheMirroringProtectionInformation");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/setCacheMirroringProtectionInformation".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure allows the user to limit the performance of a host cluster. The limitations that can be set are throughput (MB/s) and IOPs.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The procedure takes as input a structure containing the limitations on the performance of the cluster. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -721,7 +781,7 @@ public class SApi {
   /**
    * This procedure is used to modify a portion of the controller&#39;s NVSRAM. Note that the NVSRAM data is changed only on the controller to which this request is directed.
    * Documented return codes: ok, error, illegalParam, noHeap, nvramError, invalidRegionid. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An NVSRAMUpdateDescriptor object that specifies the region to be modified, the starting byte offset within the region, and the size and value of the new data to be stored into NVSRAM. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -781,7 +841,7 @@ public class SApi {
   /**
    * This procedure places a controller in Service Mode. It replaces the obsolete setControllerToPassive procedure. The command is serviced by the controller opposite to controllerRef.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, modesenseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller to be placed in service mode. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -841,7 +901,7 @@ public class SApi {
   /**
    * This procedure allows the client to set the clock of the controller to the specified value. Note that the clock value is only set on the controller to which this request is directed. If the client wishes to set the clock value on each controller, then an independent request of this form should be directed to each controller.
    * Documented return codes: ok, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A 64-bit integer value that represents the new clock value to be set on the controller. The integer specifies the time value as the number of seconds that have elapsed since 12:00AM GMT on January 1, 1970. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -901,7 +961,7 @@ public class SApi {
   /**
    * This procedure causes the specified controller to be transitioned into the active state. If the controller was previously active, no visible changes will occur as a result of this operation. If it was previously passive or in service mode, it will be made active. After this transition occurs, it will be possible to assign ownership of volume groups to the controller so that it may participate in standard I/O operations.
    * Documented return codes: ok, error, illegalParam, noHeap, internalError, invalidRequest, iconFailure, cacheSyncFailure, invalidControllerref, modesenseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller that is to be made active. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -961,7 +1021,7 @@ public class SApi {
   /**
    * This procedure marks the specified controller as being failed. Furthermore, the alternate of the specified controller will force the failed controller into a reset state (if possible).
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, internalError, invalidRequest, iconFailure, cacheSyncFailure, invalidControllerref, modesenseError, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller that is to be marked failed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1021,7 +1081,7 @@ public class SApi {
   /**
    * This procedure causes the specified controller&#39;s state to be set to optimal. If the controller was previously in the failed state, it will be reactivated. If necessary, the alternate controller will also remove any forced reset signal being applied to the specified controller.
    * Documented return codes: ok, error, illegalParam, noHeap, internalError, invalidRequest, iconFailure, cacheSyncFailure, invalidControllerref, modesenseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller to be set to the optimal state. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1081,7 +1141,7 @@ public class SApi {
   /**
    * This procedure causes the specified controller to be transitioned to the passive state. All volume groups owned by the controller will be transitioned to the alternate controller, which remains in the active state.
    * Documented return codes: obsolete. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the controller reference for the controller that is to be made passive. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1141,7 +1201,7 @@ public class SApi {
   /**
    * This procedure will set the Disk Pool Reconstruction and Background Operation priorities.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to set priorities for a Disk Pool. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1201,7 +1261,7 @@ public class SApi {
   /**
    * This procedure will set the Disk Pool Reserved Drive Count value.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to set a reserved drive count value on a disk pool. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1261,7 +1321,7 @@ public class SApi {
   /**
    * This procedure will set the Disk Pool Utilization Threshold values.
    * Documented return codes: ok, invalidCriticalThreshold. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to set utilization threshold values for a Disk Pool. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1321,7 +1381,7 @@ public class SApi {
   /**
    * This procedure forces the Disk Pool to a complete (optimal) state. This may be necessary if a drive is missing and the drive is not going to be replaced.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the Disk Pool to complete. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1381,7 +1441,7 @@ public class SApi {
   /**
    * This procedure is used to set the user assigned label for the disk pool.
    * Documented return codes: ok, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A DiskPoolLabelUpdateDescriptor structure that contains the user label and a reference to the volume group to update. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1441,7 +1501,7 @@ public class SApi {
   /**
    * This procedure sets the drive channel state to either degraded or optimal.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information on how to request a drive channel state change from the array. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1501,7 +1561,7 @@ public class SApi {
   /**
    * This procedure is used to set the Physical Security ID for a drive. The PSID is required in order to set a FIPS drive back to factory settings if the previous PSID is lost. In that case, the drive must be set back to factory settings in order to be used.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The input structure contains a reference to the drive and the Physical Security ID string. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1561,7 +1621,7 @@ public class SApi {
   /**
    * This procedure set the interval in minutes between automatic polls of drive temperatures. For interval &gt; 0, automatic polling is enabled at the specified interval. For interval == 0, automatic polling is disabled. Each polling event will update the driveTemperature field in each Drive structure in the ObjectBundle.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Polling interval in minutes. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1621,7 +1681,7 @@ public class SApi {
   /**
    * This procedure marks the specified drive as being failed. In general, this will also impact the operational state of the volume group to which the drive is assigned, plus all volumes defined on that volume group. The precise impact on the states of these other objects may vary, as it depends on the RAID level of the volumes, as well as the states of the other drives in the volume group.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotExist, tryAlternate, invalidDriveref, databaseError, invalidDriveState, takeRecoveryActionsFirst. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the drive reference for the drive that is to be marked failed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1681,7 +1741,7 @@ public class SApi {
   /**
    * This procedure forces the specified drive to the optimal state, including clearing the PFA condition for the drive, if any. Returning the drive to optimal may cause volumes on the associated volume group to be returned to the optimal state as well. This is a potentially dangerous operation, since a failed drive is usually accompanied by some form of parity inconsistency. Forcing a drive from the failed state to the optimal state may disrupt the controller&#39;s normal methods of providing availability in a degraded state, and may thus result in corrupted data being returned on ensuing data transfers to the host system.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, background, invalidDriveref, invalidDriveState. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the drive reference for the drive to be returned to the optimal state. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1739,9 +1799,69 @@ public class SApi {
   }
   
   /**
+   * Sets parameters necessary to communicate with an external key management server.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolSetExternalKMSParameters(String systemId, ExternalKMSParametersSetDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolSetExternalKMSParameters");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolSetExternalKMSParameters");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/setExternalKMSParameters".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure sets the parameters on a given flash cache.
    * Documented return codes: ok, illegalParam, noHeap, internalError, flashcacheInvalidConfigType, notFlashcacheVol, flashcacheDeleted, flashcacheFailed, flashcacheDegradedState. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A flash cache reference, configuration type, and whether or not flash cache should be enabled on new volumes. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1801,7 +1921,7 @@ public class SApi {
   /**
    * This procedure is used to get the state of a function, enable or disable the function, or revert the function back to its default value.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The function ID and the action to be performed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1861,7 +1981,7 @@ public class SApi {
   /**
    * This procedure enables or disables high resolution statistics gathering.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body None. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1921,7 +2041,7 @@ public class SApi {
   /**
    * This procedure updates the I/O interface parameters for the controller to which the request is directed.
    * Documented return codes: ok, error, noHeap, tryAlternate, nvramError, invalidControllerref, invalidFibreid. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An InterfaceUpdateDescriptor object that provides new values for the host I/O interface parameters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1981,7 +2101,7 @@ public class SApi {
   /**
    * This procedure sets selected HostPort properties, as specified by the input argument. It is a replacement for the deprecated moveHostPort, renameHostPort.
    * Documented return codes: ok, requestFailedDueToPiRestrictions. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A HostPortPropertiesUpdateDescriptor structure which indicates the affected host port, which properties to set, and what values to set for them. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2041,7 +2161,7 @@ public class SApi {
   /**
    * Changes the \&quot;host port type\&quot; attribute of a given HostPort object. Changing an individual host port type will cause all host port types to be changed if SPM is not enabled. This procedure does not apply to iSCSI; for iSCSI, the host type is set at the host level.
    * Documented return codes: ok, illegalParam, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A HostPortTypeUpdateDescriptor object that identifies the HostPort to be modified, and also provides the new type index value that specifies the type of the host port. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2099,9 +2219,69 @@ public class SApi {
   }
   
   /**
+   * This procedure sets selected HostPorts attributes, as specified by the input argument. It is meant to operate on a group of ports, for example all the ports on a host interface card or base board.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body A HostPortsAttributesUpdateDescriptor structure containing the arguments for the procedure call. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolSetHostPortsAttributes(String systemId, HostPortsAttributesUpdateDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolSetHostPortsAttributes");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolSetHostPortsAttributes");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/setHostPortsAttributes".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure sets selected host properties as indicated by the input argument. It is a replacement for the deprecated moveHost, renameHost.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A HostPropertiesUpdateDescriptor, indicating the affected Host, which properties to set, and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2161,7 +2341,7 @@ public class SApi {
   /**
    * This procedure updates the NVSRAM for the Host Specific region.
    * Documented return codes: ok, error, illegalParam, noHeap, nvramError, invalidRegionid, invalidHostTypeIndex. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A HostSpecificNVSRAMUpdateDescriptor object that specifies the region ID (in this case 0xF2), the host index for a specific host, the starting offset within the region, the number of bytes, and the values to be written. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2221,7 +2401,7 @@ public class SApi {
   /**
    * This procedure, from the client&#39;s perspective, resets the InfiniBand baselined statistical counters to zero. It is a logical reset in the sense that the raw counts maintained in hardware and firmware are not actually reset; instead the firmware makes a snapshot of the current counter values and uses that to report deltas in counts when the statistics are fetched. The new baseline time is applied to both controllers, so that their counts are in sync with one another. If one controller resets without the other resetting, the counters become effectively out of sync and the client is made aware of this fact by the timestamp data reported along with the statistics.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2275,7 +2455,7 @@ public class SApi {
   /**
    * This procedure sets selected Initiator properties as indicated by the input argument.
    * Documented return codes: ok, invalidAuthMethod, invalidSecret, secretAlreadyInUse, requestFailedDueToPiRestrictions. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An InitiatorPropertiesUpdateDescriptor, indicating which Initiator properties to set and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2335,7 +2515,7 @@ public class SApi {
   /**
    * This procedure sets selected iSCSI entity properties for the storage array as indicated by the input argument.
    * Documented return codes: ok, isnsDhcpNotSupported. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An IscsiEntityPropertiesUpdateDescriptor, indicating which iSCSI entity properties to set and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2395,7 +2575,7 @@ public class SApi {
   /**
    * This procedure sets selected properties of a controller iSCSI interface, as indicated by the input argument.
    * Documented return codes: ok, invalidInterfaceref, duplicateIscsiIpAddress, portSpeedConflict. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An IscsiInterfacePropertiesUpdateDescriptor, indicating the affected iSCSI interface, which properties to set, and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2455,7 +2635,7 @@ public class SApi {
   /**
    * This procedure, from the client&#39;s perspective, resets the iSCSI statistical counters to zero. It is a logical reset in the sense that the raw counts maintained in hardware and firmware are not actually reset; instead the firmware makes a snapshot of the current counter values and uses that to report deltas in counts when the statistics are fetched. The new baseline time is applied to both controllers, so that their counts are in sync with one another. If one controller resets without the other resetting, the counters become effectively out of sync and the client is made aware of this fact by the timestamp data reported along with the statistics.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2509,7 +2689,7 @@ public class SApi {
   /**
    * This procedure persists the association between the Key-Value tags and the Volumes (or Workloads). This procedure is used both for creating the initial mappings and to update. Each execution will remove any existing mappings and replace them with the mappings defined within the argument list.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The input is a list of mappings, each mapping consists of a Volume Reference and a Key-Value Pair reference. This method will create the initial associations and can be used to perform a replacement of those associations. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2569,7 +2749,7 @@ public class SApi {
   /**
    * This procedure is used in conjunction with the createLockKey procedure. This request may be issued to change the existing array lock key or to set an array lock key after a database adoption. The procedure commits the lock key generated by the createLockKey procedure to the drives and to the controllers.
    * Documented return codes: ok, volumeNotOptimal, driveSecurityEnabledFailed, lockkeyFailed, noFdeDrives, keyDoesNotExist. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2621,9 +2801,123 @@ public class SApi {
   }
   
   /**
+   * This procedure sets the properties of a NVMe over Fabrics Host Interface port.
+   * Documented return codes: ok, invalidInterfaceref, invalidIpAddress. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body NVMe over Fabrics Host Interface Properties (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolSetNVMeHostInterfaceProperties(String systemId, NVMeInterfacePropertiesUpdateDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolSetNVMeHostInterfaceProperties");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolSetNVMeHostInterfaceProperties");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/setNVMeHostInterfaceProperties".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * This procedure, from the client&#39;s perspective, resets the NVMe over Fabrics baselined statistical counters to zero. It is a logical reset in the sense that the raw counts maintained in hardware and firmware are not actually reset; instead the firmware makes a snapshot of the current counter values and uses that to report deltas in counts when the statistics are fetched. The new baseline time is applied to both storage controllers, so that their counts are in sync with one another. If one storage controller resets without the other resetting, the counters become effectively out of sync and the client is made aware of this fact by the timestamp data reported along with the statistics.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolSetNVMeoFStatisticsBaseline(String systemId, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolSetNVMeoFStatisticsBaseline");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/setNVMeoFStatisticsBaseline".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure updates the network parameters.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, background. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An EthernetParamsUpdateDescriptor object that specifies the controller IP address, the gateway IP address, the network subnet mask, and bootp enable/disable. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2683,7 +2977,7 @@ public class SApi {
   /**
    * This procedure will modify the attributes of a PiT consistency group.
    * Documented return codes: ok, invalidRollbackPriority, invalidWarnThreshold, invalidPitConsistencyGroupLabel, invalidPitAutoDeleteLimit, invalidPitRepositoryFullPolicy, attributeFixedByArvm, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the consistency group parameters to be updated. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2743,7 +3037,7 @@ public class SApi {
   /**
    * This procedure changes the user-settable parameters on a PITConsistencyGroupView.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing the required user-settable attributes to set on a PiT Consistency Group View. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2803,7 +3097,7 @@ public class SApi {
   /**
    * This procedure will update the changeable parameters of a PiT Group.
    * Documented return codes: ok, invalidBasevol, invalidRollbackPriority, invalidWarnThreshold, baseVolumeFailed, invalidPitGroupLabel, invalidPitAutoDeleteLimit, invalidPitRepositoryFullPolicy, invalidPitGroupRef, pitGroupInConsistencyGroup, attributeFixedByArvm, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Structure containing PiT parameter data. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2863,7 +3157,7 @@ public class SApi {
   /**
    * This procedure will change the attributes of an existing PiT View.
    * Documented return codes: ok, invalidWarnThreshold, pitViewInConsistencyGroup, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the PiT View parameters to be updated. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2923,7 +3217,7 @@ public class SApi {
   /**
    * This procedure sets the RLS baseline for all devices. The baseline is used to indicate the difference in error counts from when the baseline was established and the time at which the RLS data is requested.
    * Documented return codes: ok, dstNotFibre. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2977,7 +3271,7 @@ public class SApi {
   /**
    * This procedure sets the selected remote target properties as indicated by the input arguments.
    * Documented return codes: ok, invalidAuthMethod, invalidSecret, secretAlreadyInUse. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The updated settings for the new target initiator identified in the descriptor. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3037,7 +3331,7 @@ public class SApi {
   /**
    * This procedure allows rlogin to the controller to be enabled or disabled.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, background. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The RloginUpdateDescriptor object is used for specifying the remote login capability of the controller (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3097,7 +3391,7 @@ public class SApi {
   /**
    * This procedure updates the cache parameters that are maintained on a per-array basis, across all controllers in the array.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, volumeReconfiguring, tryAlternate, internalError, invalidCacheblksize, invalidFlushThreshold, invalidFlushAmount, noVolumes, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An SACacheParamsUpdateDescriptor object that provides new values for the storage array cache management parameters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3157,7 +3451,7 @@ public class SApi {
   /**
    * This procedure sets the target media scan period for background media scans to the value specified by the caller. The period is specified in units of days, and governs the approximate time required for a complete media scan of all volumes and drives in the system. The allowed period values can be determined by checking the appropriate fields of the FeatureParameters object for the storage array.
    * Documented return codes: ok, error, illegalParam, tryAlternate, invalidScanperiod, controllerInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The desired media scan period, expressed in units of days. This value must be within the valid range of media scan periods supported the controller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3217,7 +3511,7 @@ public class SApi {
   /**
    * This procedure is used by the client to request that the controller store (in nonvolatile storage) a TrayPositionList object that provides information about the relative physical positions of the storage array&#39;s trays within their enclosing rack(s) or container(s).
    * Documented return codes: ok, error, illegalParam, noHeap, invalidTrayposLength. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The TrayPositionList object to be stored for future retrieval. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3277,7 +3571,7 @@ public class SApi {
   /**
    * This procedure is used by a client to modify the user-assigned label for the storage array. The label value is stored in non-volatile storage and returned to the client as part of the SAInfo object.
    * Documented return codes: ok, error, illegalParam, invalidLabel. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The new user-assigned label for the storage array. This value is presented to the controller as a variable-length opaque byte array. However, the intention is that the byte array will contain a string value in double-byte character set format, with each two bytes representing one character value. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3337,7 +3631,7 @@ public class SApi {
   /**
    * This procedure is used to set the initial view array password or change an existing view array password.
    * Documented return codes: ok, authFailPassword, adminPasswordNotSet. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3397,7 +3691,7 @@ public class SApi {
   /**
    * This procedure is used to modify an existing SNMP community.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3457,7 +3751,7 @@ public class SApi {
   /**
    * This procedure is used to set values of user-settable SNMP system variables.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3517,7 +3811,7 @@ public class SApi {
   /**
    * This procedure is used to modify an existing SNMP trap destination.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3577,7 +3871,7 @@ public class SApi {
   /**
    * This procedure is used to enable and disable Simplex mode.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, notImplemented, internalError, iconFailure, mirrorsPresent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An enumeration object that describes the controller&#39;s redundancy mode. Use CTRL_REDUNDANCY_MODE_DUPLEX to set the redundancy mode to duplex and CTRL_REDUNDANCY_MODE_SIMPLEX to set the redundancy mode to simplex. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3637,7 +3931,7 @@ public class SApi {
   /**
    * This procedure is used to set various snapshot parameters including the repository warning threshold, the repository full policy, and the rollback operation priority.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, invalidVolumeref, snapNotAvailable, ghostVolume, invalidRollbackPriority, invalidWarnThreshold. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SnapshotParamsUpdateDescriptor object that specifies the various snapshot parameters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3697,7 +3991,7 @@ public class SApi {
   /**
    * This procedure sets selected properties for the storage array that is the recipient of the call.
    * Documented return codes: ok, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StorageArrayPropertiesUpdateDescriptor, indicating which properties to set and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3757,7 +4051,7 @@ public class SApi {
   /**
    * This procedure sets selected Target properties as indicated by the input argument.
    * Documented return codes: ok, invalidAuthMethod, invalidSecret, secretAlreadyInUse. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A TargetPropertiesUpdateDescriptor, indicating the affected Target, which properties to set and what values to set them to. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3817,7 +4111,7 @@ public class SApi {
   /**
    * This procedure will set a thin volume&#39;s capacity threshold warning level.
    * Documented return codes: ok, internalError, invalidVolumeref, invalidWarnThreshold, illegalVolume, thresholdBelowUsedCapacity, thinVolumeParametersCannotBeModified. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes for setting the capacity threshold warning level on a thin volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3877,7 +4171,7 @@ public class SApi {
   /**
    * This procedure will set a thin volume&#39;s repository volume expansion policy.
    * Documented return codes: ok, internalError, invalidVolumeref, illegalVolume, invalidExpansionPolicy, thinVolumeParametersCannotBeModified. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes needed to set the repository volume expansion policy for a thin volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3937,7 +4231,7 @@ public class SApi {
   /**
    * This procedure will set a thin volume&#39;s provisioned capacity quota. This is the maximum value to which a thin volume&#39;s repository can grow.
    * Documented return codes: ok, tryAlternate, internalError, invalidVolumeref, illegalVolume, invalidProvisionedCapacityQuota, invalidExpansionPolicy, invalidExpansionOperation, thinVolumeParametersCannotBeModified. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes needed to set a thin volume&#39;s provisioned capacity quota. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3997,7 +4291,7 @@ public class SApi {
   /**
    * This procedure changes the reporting policy of a thin volume. The reporting policy controls how a thin volume is reported to the host on the SCSI interface, i.e., as a thin volume that supports unmap commands or as a thick volume.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A ThinVolumeReportingPolicyUpdateDescriptor structure containing the arguments for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4057,7 +4351,7 @@ public class SApi {
   /**
    * This procedure sets arbitrary \&quot;attribute data\&quot; for a specified tray enclosure. Only the attributes specified in the argument are affected by this operation. The old data in an affected attribute is completely overwritten by the new attribute data.
    * Documented return codes: ok, error, illegalParam, noHeap, invalidRequest, invalidRequestForEnclosure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A TrayAttributeUpdateDescriptor indicating which tray is to receive the attribute data, along with a list of elements defining new attribute data to be written. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4117,7 +4411,7 @@ public class SApi {
   /**
    * This procedure is used to set the delay period before a volume transfer alert is issued.
    * Documented return codes: ok, error, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The delay period in seconds from 0 to 3600. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4177,7 +4471,7 @@ public class SApi {
   /**
    * This procedure updates the caching parameters for a particular volume as specified in the argument structure.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, volumeReconfiguring, tryAlternate, internalError, invalidRequest, volumeFormatting, invalidVolumeref, volumeOffline, invalidCacheModifier, invalidReadahead, ghostVolume, cacheParametersNotChangeable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeCacheParamsUpdateDescriptor object that specifies the volume whose cache parameters are to be updated, as well as the new parameter values themselves. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4237,7 +4531,7 @@ public class SApi {
   /**
    * This procedure modifies the parameters of a volume copy.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, internalError, invalidCopyPriority, invalidVolumecopyref, copyChangeFailed, copyGhostTarget, copyTargetReservation. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeCopyParamsUpdateDescriptor object that identifies the copy request and a set of attributes to be used to update the existing attributes. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4297,7 +4591,7 @@ public class SApi {
   /**
    * This procedure marks a volume group offline. When this operation completes, all volumes in the volume group will be inaccessible for I/O operations. The drives that comprise the volume group can be removed from the storage array and, if desired, inserted into a different storage array.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, invalidRequest, invalidVolumeref, driveNotOptimal, driveRemoved, duplicateDrives, numdrivesAdditional, numdrivesGroup. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the volume group reference for the volume group to be placed offline. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4357,7 +4651,7 @@ public class SApi {
   /**
    * This procedure marks a volume group online. It is typically used when the drives assigned to a volume group have been transported from one storage array to another. After the last such drive has been inserted into the new storage array, it is necessary to manually mark the volume group online. When this operation completes, assuming the drives are all functioning properly, the volumes defined in the volume group will become accessible for I/O operations.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, invalidRequest, invalidVolumeref, driveNotOptimal, duplicateDrives, numdrivesAdditional, numdrivesGroup. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the volume group reference for the volume group to be placed online. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4417,7 +4711,7 @@ public class SApi {
   /**
    * Sets the user assigned label for the volume group specified in the VolumeGroupLabelUpdate structure.
    * Documented return codes: ok, illegalParam. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeGroupUserLabelUpdateDescriptor structure that contains the user label and a reference to the volume group to update. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4477,7 +4771,7 @@ public class SApi {
   /**
    * Places the set of volumes online.
    * Documented return codes: ok, noHeap, volumeNotExist, internalError, invalidVolumeref, volumeNotOptimal. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The list AbstractVolRefList of volumes to be placed online. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4537,7 +4831,7 @@ public class SApi {
   /**
    * This procedure sets the media scan parameters for a particular volume. Each volume can be configured to either participate in media scans or not. Furthermore, if a volume is configured to participate, it can be further configured so that parity validation either occurs during the media scan or is skipped. The client uses this procedure to set these configuration options on a per-volume basis.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, invalidVolumeref, volumeOffline, ghostVolume, ssdMediaScanNotAllowed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeMediaScanParamsUpdateDescriptor object that identifies the volume to be modified, as well as the media scan settings to be used for the volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4597,7 +4891,7 @@ public class SApi {
   /**
    * This procedure updates various parameters (outside of cache-related parameters) for a particular volume as specified in the argument structure.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, tryAlternate, invalidRequest, invalidVolumeref, volumeOffline, invalidReconpriority, ghostVolume. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeParamsUpdateDescriptor object that specifies the volume whose parameters are to be updated, as well as the new parameter values themselves. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4657,7 +4951,7 @@ public class SApi {
   /**
    * This procedure is used for setting new values of certain volume properties. It supports setting some properties while leaving others unchanged.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, tryAlternate, internalError, invalidVolumeref, volumeOffline, volumeNotOptimal, invalidReconpriority, volumeNotConfigurable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumePropertiesUpdateDescriptor structure specifying which properties to change and what their new values should be. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4717,7 +5011,7 @@ public class SApi {
   /**
    * This procedure is used by a client to modify the user-assigned label for a volume. The label value is stored in non-volatile storage and returned to the client as part of the Volume or SnapshotVolume object when the client requests this information from the controller.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, invalidVolumeref, volumeOffline, invalidLabel, ghostVolume, volumeNotConfigurable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeLabelUpdateDescriptor object that contains the new user-assigned label for the volume. This value is presented to the controller as a variable-length opaque byte array. However, the intention is that the byte array will contain a string value in double-byte character set format, with each two bytes representing one character value. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4777,7 +5071,7 @@ public class SApi {
   /**
    * Starts a base controller diagnostic test on the controller.
    * Documented return codes: ok, illegalParam, diagInProgress, ctrlNotInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A structure containing the test type for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4837,7 +5131,7 @@ public class SApi {
   /**
    * This procedure will initiate a rollback on a specified PiT on all members of a consistency group (all members that have the specified PiT may not necessarily be all of them).
    * Documented return codes: ok, repositoryOffline, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the consistency group rollback to be started. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4897,7 +5191,7 @@ public class SApi {
   /**
    * Starts a cache backup device diagnostic test on the controller
    * Documented return codes: ok, illegalParam, diagInProgress, ctrlNotInServiceMode, cacheBackupDevNotExist. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A structure containing the test type and slot number for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4957,7 +5251,7 @@ public class SApi {
   /**
    * Starts a cache memory diagnostic test on the controller
    * Documented return codes: ok, illegalParam, diagInProgress, ctrlNotInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A structure containing the test type for the controller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5017,7 +5311,7 @@ public class SApi {
   /**
    * This procedure initiates a drive channel fault isolation diagnostic test. It returns a status code immediately and the requested tests proceed asynchronously. Any SYMbol request, other than getChannelDiagnosticsResults, cancelChannelDiagnostics, bindToController, and getSAData that is received while the test is running is rejected immediately. Since some SYMbol procedures do not provide a return code, the method of indicating the request rejection is specialized and entails the following: The RPC header that is returned to the client will consist of an RPC response of type \&quot;reply message.\&quot; The reply will have a general status of \&quot;accepted,\&quot; indicating the request was accepted by the controller for processing. The specific \&quot;accepted request status\&quot; value will be 0x80000001, which is an indication that the request could not be processed due to a diagnostic activity.
    * Documented return codes: ok, invalidRequest, channelDiagsLockErr, channelDiagsNotQuiesced, channelDiagsAltCommFailed, channelDiagsChanSetupFailed, channelDiagsDeviceBypassFailed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A ChannelDiagnosticDescriptor structure that contains all of the arguments needed to define the test to perform. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5076,8 +5370,8 @@ public class SApi {
   
   /**
    * This procedure causes visual indicators to be activated on the specified channel. The indicators will remain active until the stopIdentification procedure is invoked.
-   * Documented return codes: ok, error, illegalParam, noHeap. 
-   * @param systemId  (required)
+   * Documented return codes: ok, error, illegalParam, noHeap, noChannel. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An integer value specifying the channel number. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5137,7 +5431,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to expand the capacity of a Disk Pool by adding one or more drives to it.
    * Documented return codes: ok, exceedDiskPoolCapacity, exceedMaxVolumeCapacity. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the Disk Pool to expand and the drives to use for the expansion. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5197,7 +5491,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to reduce the capacity of a Disk Pool by removing one or more drives from it.
    * Documented return codes: ok, drivesNotAvailableForRemoval. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5257,7 +5551,7 @@ public class SApi {
   /**
    * This procedure starts the parallel drive firmware download process.
    * Documented return codes: ok, error, busy, illegalParam, noHeap, downloadNotPermitted, spawnError, downloadInProgress, sodInProgress, invalidDrives, invalidSetsize. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains the list of drives to download and an indicator of whether or not to perform the download keeping the volumes online. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5317,7 +5611,7 @@ public class SApi {
   /**
    * This procedure causes visual indicators to be activated on the physical drives specified in the argument list to allow an end-user to visually identify the drives. The indicators will remain active until the stopIdentification procedure is invoked.
    * Documented return codes: ok, error, illegalParam, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of drive reference objects that specifies the drives whose visual indicators are to be activated. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5377,7 +5671,7 @@ public class SApi {
   /**
    * This procedure initiates the reconstruction of a failed drive in a degraded RAID volume. The procedure returns once the reconstruction has started. If the indicated failed drive has an integrated hot spare serving in its place, then this procedure will initiate the copyback from the hot spare to the failed drive.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeReconfiguring, tryAlternate, invalidRequest, invalidDriveref, invalidRaidlevel, reconstructionInProgress, copybackInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the drive reference for the drive on which reconstruction is to begin. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5437,7 +5731,7 @@ public class SApi {
   /**
    * This procedure starts collecting analytics data for flash cache. It resets analytics counters and begins capturing cache data.
    * Documented return codes: ok, error, illegalParam, internalError, invalidVolumeref, notFlashcacheVol. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5497,7 +5791,7 @@ public class SApi {
   /**
    * Starts a host card diagnostic test on the controller
    * Documented return codes: ok, illegalParam, diagInProgress, ctrlNotInServiceMode. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A structure containing the test type and slot number for the procedure call. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5557,7 +5851,7 @@ public class SApi {
   /**
    * This procedure will initiate a rollback on a specified list of PiTs. Note that this list could be a subset of a set of consistency group PiTs.
    * Documented return codes: ok, repositoryOffline, invalidPitRef, pitGroupsFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of references to PiTs for which to start the rollback. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5617,7 +5911,7 @@ public class SApi {
   /**
    * This procedure returns the success of starting statistic data collection.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -5671,7 +5965,7 @@ public class SApi {
   /**
    * starts a raw data restore operation.
    * Documented return codes: ok, busy, noHeap, tryAlternate, rawdataTransferBadType, rawdataTransferAlreadyStarted, rawdataTransferReadError, rawdataTransferNoDrives, rawdataTransferInvalidImage, dbmDbSourceUnavailable, dbmRestoreSourceMismatch. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Specifies the controller ref, data transfer type and transfer-type-specific parameters for the restore operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5731,7 +6025,7 @@ public class SApi {
   /**
    * This procedure starts a raw data retrieval operation.
    * Documented return codes: ok, busy, noHeap, invalidControllerref, rawdataTransferBadType, rawdataTransferAlreadyStarted, rawdataTransferNoDrives, dqRetrieveNothingToTransfer, dplCoreDumpInvalidTag, coredumpBackupInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The controller ref and transfer-type-specific details of the retrieval. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5791,7 +6085,7 @@ public class SApi {
   /**
    * This procedure causes visual indicators to be activated on the physical storage array unit to allow an end-user to visually identify the storage array. The indicators will remain active until the stopIdentification procedure is invoked.
    * Documented return codes: ok, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -5843,9 +6137,69 @@ public class SApi {
   }
   
   /**
+   * This procedure starts a slow background scan of the free or both free and allocated blocks for the requested devices. Background scan is long running and can be checked using the getSSDBlockAllocationScanStatus procedure.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body A StartSSDBlockAllocationScanDescriptor specifying details of the start request. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolStartSSDBlockAllocationScan(String systemId, StartSSDBlockAllocationScanDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolStartSSDBlockAllocationScan");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolStartSSDBlockAllocationScan");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/startSSDBlockAllocationScan".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure is used to initiate a snapshot rollback (to base) on one or more snapshots.
    * Documented return codes: ok, rollbackStartFailure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the snapshots to roll back. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5905,7 +6259,7 @@ public class SApi {
   /**
    * This procedure starts the synchronization process on a mirror.
    * Documented return codes: ok, illegalParam, volumeNotExist, tryAlternate, internalError, invalidVolumeref, ghostVolume, invalidMirrorvol, mirrorVolNotPrimary. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the mirror that is to be synchronized. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5965,7 +6319,7 @@ public class SApi {
   /**
    * This procedure causes visual indicators to be activated on the physical storage array unit to allow an end-user to visually identify the trays. The indicators will remain active until the stopIdentification procedure is invoked.
    * Documented return codes: ok, invalidTrayref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of the trays. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6025,7 +6379,7 @@ public class SApi {
   /**
    * This procedure takes as its input a VolumeCopyRef and causes a copy operation to be initiated from the beginning of the Source volume. A failure status is returned if the Source and Target volumes do not meet compatibility requirements.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, tryAlternate, internalError, iconFailure, invalidVolumecopyref, copyActive, copyIncompatibleSource, copyIncompatibleTarget, copyGhostSource, copyGhostTarget, copyInvalidSourceState, copyInvalidTargetState, copySourceReconfig, copyTargetReconfig, copyTargetTooSmall, copyTargetLimit, copySourceReservation, copySourceFormat, copyTargetFormat, copyStartFailed, copySourceZeroCapacity, copyApptagMismatch. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor object that identifies the volumes to perform the copy operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6085,7 +6439,7 @@ public class SApi {
   /**
    * This procedure checks to make sure the additional capacity is available and then starts a DVE or DCE/DVE operation.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, internalError, invalidRequest, volumeFormatting, invalidVolumeref, invalidDriveref, volumeOffline, volumeNotOptimal, invalidExpansionList, driveNotOptimal, duplicateDrives, numdrivesAdditional, numdrivesGroup, driveTooSmall, ghostVolume, cannotReconfigure, drivesDacstoresOverlap, volumeHasAsyncMirror, insufficientCache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeExpansionDescriptor object that identifies the volume to be expanded, plus the drive or drives to be added to the volume. All drives specified for this operation must be in the unassigned state initially. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6145,7 +6499,7 @@ public class SApi {
   /**
    * This procedure causes the specified volume to be formatted. All data that is currently present on the volume will be irretrievably lost as a result of this operation. Once a format operation starts, the volume&#39;s action field will be changed to VOL_ACTION_INITIALIZING; the getVolumeActionProgress procedure can then be used to monitor the progress of the operation. Volume format operations are typically required only when reviving a volume that has been marked failed for some reason. Newly-created volumes need not be explicitly formatted using this procedure.
    * Documented return codes: ok, busy, illegalParam, noHeap, volumeNotExist, volumeReconfiguring, tryAlternate, reservationConflict, internalError, invalidRequest, invalidVolumeref, volumeOffline, ghostVolume, cannotFormatVolume. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the volume reference for the volume that is to be reformatted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6205,7 +6559,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to defragment a volume group by shifting the physical storage location of each volume in the volume group to eliminate any free extents that reside between defined volumes. Note that all volumes remain fully accessible and online during this transition. While the operation is in progress, the client can make calls to the getVolumeActionProgress procedure to determine how much progress has been made in completing the operation for each affected volume. The end result of a volume group defragment operation is that free extents that existed between defined volumes will be eliminated, and a single large free extent (if any) will appear at the end of the volume group.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, invalidRequest, volumeFormatting, invalidVolumegroupref, volumeOffline, volumeNotOptimal, driveNotOptimal, duplicateDrives, numdrivesAdditional, numdrivesGroup, driveTooSmall, cannotReconfigure, drivesDacstoresOverlap, reconfigLogSpaceError, insufficientCache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of a volume group reference for the volume group that is to be defragmented. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6265,7 +6619,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to expand the capacity of a volume group by adding one or more drives to it. An expansion of this form requires that the controller transparently move the data of existing volumes within the volume group; volumes remain fully accessible and online during this transition. While the operation is in progress, the client can make calls to the getVolumeActionProgress procedure to determine how much progress has been made in completing the operation for each affected volume. The end result of a volume group expansion is the appearance of a new (or enlarged) free extent at the end of the volume group. The free extent can then be used to create new volumes as desired by the user.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, invalidRequest, volumeFormatting, invalidVolumegroupref, invalidDriveref, volumeOffline, volumeNotOptimal, invalidExpansionList, driveNotOptimal, duplicateDrives, numdrivesAdditional, numdrivesGroup, driveTooSmall, cannotReconfigure, drivesDacstoresOverlap, volumeHasAsyncMirror, reconfigLogSpaceError, insufficientCache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeGroupExpansionDescriptor object that identifies the volume group to be expanded, plus the drive or drives to be added to the volume group. All drives specified for this operation must be in the unassigned state initially. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6325,7 +6679,7 @@ public class SApi {
   /**
    * Initiates an explicit parity check operation. This is a background task that verifies the correctness of all parity/redundancy data for the volume. Only one such operation may be active at any time on a given controller. After initiating the operation with this procedure, the operation&#39;s progress can be checked via the getParityCheckProgress procedure. This procedure is deprecated. The scanVolume procedure should be used instead.
    * Documented return codes: ok, noHeap, tryAlternate, background, invalidVolumeref, volumeOffline, volumeNotOptimal, invalidRaidlevel, parityScanInProgress, ghostVolume. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The AbstractVolRef of the volume on which the operation is to be performed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6385,7 +6739,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to change the RAID level of a volume group (and thus all volumes in the volume group) from one supported value to another. While the operation is in progress, the client can make calls to the getVolumeActionProgress procedure to determine how much progress has been made in completing the operation for each affected volume.
    * Documented return codes: ok, error, illegalParam, noHeap, driveNotUnassigned, volumeReconfiguring, tryAlternate, invalidRequest, volumeFormatting, invalidVolumegroupref, volumeOffline, invalidRaidlevel, driveNotOptimal, duplicateDrives, numdrivesAdditional, numdrivesGroup, cannotReconfigure, drivesDacstoresOverlap, insufficientCache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeRAIDMigrationDescriptor object that identifies the volume group and the new RAID level to be used. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6445,7 +6799,7 @@ public class SApi {
   /**
    * This procedure initiates a long-running operation to change the segment size (i.e. stripe depth) of a volume from one supported value to another. While the operation is in progress, the client can make calls to the getVolumeActionProgress procedure to determine how much progress has been made in completing the operation.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeReconfiguring, tryAlternate, reservationConflict, invalidRequest, volumeFormatting, invalidVolumeref, volumeOffline, invalidSegmentsize, ghostVolume, cannotReconfigure, drivesDacstoresOverlap, insufficientCache. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeSegmentSizingDescriptor object that identifies the volume and the new segment size to be used. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6505,7 +6859,7 @@ public class SApi {
   /**
    * This procedure is used to capture current controller conditions as specified by the function being passed through the variable string input.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A character string indicating the function being called and up to 2 function arguments. The individual elements of the string are separated by commas. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6565,7 +6919,7 @@ public class SApi {
   /**
    * This procedure cancels a running channel diagnostic test sequence that was initiated by the startChannelDiagnostics procedure. It is possible to retrieve the (partial) results of a canceled test by calling getChannelDiagnosticsResults.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -6619,7 +6973,7 @@ public class SApi {
   /**
    * This procedure stops the parallel drive firmware download process.
    * Documented return codes: ok, error, illegalParam, tryAlternate, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -6673,7 +7027,7 @@ public class SApi {
   /**
    * This procedure stops the collection of analytics data for flash cache. It disables the collection of cache hits.
    * Documented return codes: ok, error, illegalParam, internalError, invalidVolumeref, notFlashcacheVol. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6733,7 +7087,7 @@ public class SApi {
   /**
    * This procedure cancels the effects of any prior startDriveIdentification, startSAIdentification, startChannelIdentification and/or startTrayIdentification operations by deactivating all visual indicators.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -6787,7 +7141,7 @@ public class SApi {
   /**
    * This procedure forcibly terminates an iSCSI session.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An TargetSessionIdentifyingHandle object indicating which session to terminate. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6847,7 +7201,7 @@ public class SApi {
   /**
    * This procedure will stop the specified PITConsistencyGroupView (and thus all of its associated member views).
    * Documented return codes: ok, operationFailedVolumeCopyClone. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to stop a PiT Consistency Group View. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6907,7 +7261,7 @@ public class SApi {
   /**
    * This procedure will stop an existing PiT View.
    * Documented return codes: ok, operationFailedVolumeCopyClone. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Reference to PiT View to be stopped. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -6967,7 +7321,7 @@ public class SApi {
   /**
    * This procedure returns the success of stopping statistic data collection.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -7021,7 +7375,7 @@ public class SApi {
   /**
    * This procedure halts the active copy.
    * Documented return codes: ok, illegalParam, noHeap, volumeNotExist, tryAlternate, internalError, invalidVolumecopyref, copyInactive, copyStopFailed. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The VolumeCopyRef object to halt the active copy. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7081,7 +7435,7 @@ public class SApi {
   /**
    * This procedure will suspend an Async Mirror Group.
    * Documented return codes: ok, arvmGroupDoesNotExist, arvmRecoveryPointDeletionRequired, arvmGroupNotPrimary, arvmMemberFailed, arvmSuspendFailure, arvmOrphanGroup, remoteInternalError, arvmRemoteGroupDoesNotExist, remoteDatabaseError, arvmRemoteSuspendFailure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor that lists the AMG on which the synchronization is to be suspended. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7141,7 +7495,7 @@ public class SApi {
   /**
    * This procedure suspends the communications for all mirrors in a Write Consistency group with a specified group number.
    * Documented return codes: ok, noHeap, internalError, iconFailure, rvmQuiescenceInProgress, legacyRvmAsyncModeUnsupported. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information about the write consistency group object. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7201,7 +7555,7 @@ public class SApi {
   /**
    * This procedure suspends caching on the specified flash cache.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, internalError, invalidVolumeref, flashcacheAlreadySuspended, notFlashcacheVol, flashcacheDeleted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The flash cache reference. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7261,7 +7615,7 @@ public class SApi {
   /**
    * This procedure suspends the communication between a mirror pair.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, iconFailure, invalidVolumeref, ghostVolume, invalidMirrorvol, rvmVersionMismatch, rvmOperNotAllowedOnSec, mirrorAlreadySuspended. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information identifying the Mirror Proxy Volume to be removed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7321,7 +7675,7 @@ public class SApi {
   /**
    * This procedure suspends the communication between all mirrored pairs specified in the MirrorVolumeList.
    * Documented return codes: ok, noHeap, internalError, iconFailure, rvmQuiescenceInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information identifying the list of Mirror Volumes to suspend. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -7381,7 +7735,7 @@ public class SApi {
   /**
    * This procedure will start a manual resynchronization on an Async Mirror Group.
    * Documented return codes: ok, arvmGroupDoesNotExist, arvmRecoveryPointDeletionRequired, arvmGroupNotPrimary, arvmSynchronizeFailure, arvmInvalidAmgRequestWhileSuspended, arvmManualSyncAlreadyInProgress, arvmManualSyncRetryTooSoon, arvmOrphanGroup, remoteInternalError, arvmRemoteGroupDoesNotExist, remoteDatabaseError, arvmRemoteSynchronizeFailure, arvmExpansionSynchronizationInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the Asynchronous Mirror Group to synchronize. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

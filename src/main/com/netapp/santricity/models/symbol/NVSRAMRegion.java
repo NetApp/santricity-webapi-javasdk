@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * NVSRAMRegion
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class NVSRAMRegion   {
   
 
@@ -60,6 +60,7 @@ public class NVSRAMRegion   {
     bootpData("bootpData"),
     extUserConfigData("extUserConfigData"),
     hostTypeDependentData("hostTypeDependentData"),
+    userConfig2Data("userConfig2Data"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

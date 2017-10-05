@@ -44,33 +44,6 @@ public class WApiTest {
     private final WApi api = new WApi();
     
     /**
-     * This procedure saves a new value of the specified MgmtClientRecords.
-     *
-     * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void symbolWriteClientMgmtRecordsNoPasswordTest() throws ApiException {
-        
-        String systemId = null;
-        
-        MgmtClientRecordWriteDescriptor body = null;
-        
-        String controller = null;
-        
-        Boolean verboseErrorResponse = null;
-        
-        try{
-        String response = api.symbolWriteClientMgmtRecordsNoPassword(systemId, body, controller, verboseErrorResponse);
-        }
-        catch (ApiException ae) {
-            // The API call went through but got an API exception.
-        }
-    }
-    
-    /**
      * This procedure saves a new value of the specified MgmtClientRecord.
      *
      * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 

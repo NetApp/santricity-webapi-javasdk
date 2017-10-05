@@ -42,7 +42,7 @@ import java.util.Objects;
  * Asynchronous Mirror Group
  */
 @ApiModel(description = "Asynchronous Mirror Group")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class Amg   {
   
     private String groupRef;
@@ -207,6 +207,7 @@ public class Amg   {
     iscsi("iscsi"),
     ib("ib"),
     fcoe("fcoe"),
+    nvmeof("nvmeof"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

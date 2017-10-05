@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class IApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class IApi {
   /**
    * This procedure allows a security locked drive to be unlocked. An archived, wrapped and encrypted lock key is imported into the array. In response, the controller attempts to unlock all security-locked drives that have a matching lock key ID. The imported lock key and lock key id become the new array lock key and lock key ID.
    * Documented return codes: ok, notImplemented, noLockedDrives, invalidBlob, unlockFailed, noKeySet. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A LockKeyBlob structure that contains the wrapped lock key and the pass phrase used to encrypt the lock key. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class IApi {
   /**
    * This procedure causes the identified volume group to be imported, which move it from either the \&quot;exported\&quot; state or the \&quot;forced\&quot; state to the \&quot;complete\&quot; state in which it is fully operable and available for use. Note that \&quot;higher-level\&quot; volumes (SnapshotVolume, MetadataVolume, VolumeCopy, and MirrorProxyVolume) - but not their underlying RAID volumes - are removed as part of the import.
    * Documented return codes: ok, volumeGroupHasHotspare, volumeGroupReconfiguring, volumeGroupReconstructing, volumeGroupNotComplete, volumeGroupHasFailedDrives, volumeGroupHasNonOptimalVols, volumeGroupHasMirrorRelationship, volumeGroupHasVolcopyRelationship, volumeGroupHasMirroringMetadata, volumeGroupHasMappedVols, volumeGroupHasReservations, volumeGroupHasIncompatibleDacstores, volumeLimitExceeded, volumeGroupHasUnknownRaidLevel, volumeGroupHasUnsupportedRaidLevel, volumeGroupHasCloneOpportunity, volumeGroupHasInsufficientDrives, volumeGroupHasFailedVols, driveSpinUpError, volumeGroupHasIncompatibleDrive, volumeGroupVolumeEncroachesOnDacstore, volumeGroupImportInProgress, drivesNeedToBeSpunUp, noNativeSstor. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol VolumeGroupRef identifying the volume group to export. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class IApi {
   /**
    * This procedure causes the specified drive object to be initialized for use in the system. All data on the drive is irretrievably lost as a result of this operation. Only offline drives or drives whose status is DRIVE_STAT_INCOMPATIBLE are candidates for initialization. This procedure implicitly transitions the drive to the online state.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, invalidDriveref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the drive reference for the drive that is to be initialized. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -239,9 +239,69 @@ public class IApi {
   }
   
   /**
+   * Installs a Key Management Server (KMS) Certificate File on the storage array. In addition to the contents of the certificate file, the type of certificate must be specified. If a certificate of the type specified already exists on the storage array, it will be overwritten by the new certificate.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return String
+   * @throws ApiException if fails to make API call
+   */
+  public String symbolInstallKMSCertificateFile(String systemId, KMSCertificateFileInstallDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolInstallKMSCertificateFile");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolInstallKMSCertificateFile");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/installKMSCertificateFile".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Passes an existing lock key for the array and unlocks the disks.
    * Documented return codes: ok, invalidBlob. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -301,7 +361,7 @@ public class IApi {
   /**
    * Passes a new lock key for the array and commits the key to the disks.
    * Documented return codes: ok, invalidBlob, externalKmsNotEnabled, keyNotNeeded, keyInvalidSequence, externalKmsNotCompliant, invalidLockKeyId. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -361,7 +421,7 @@ public class IApi {
   /**
    * This procedure invalidates the staged controller firmware.
    * Documented return codes: ok, error, illegalParam, downloadInProgress. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -415,7 +475,7 @@ public class IApi {
   /**
    * This procedure executes the inter-controller discrete line diagnostics test.
    * Documented return codes: ok, error, dltNotCompleted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -469,7 +529,7 @@ public class IApi {
   /**
    * This procedure is used to start the Runtime Diagnostics.
    * Documented return codes: ok, illegalParam, tryAlternate, diagReadFailure, diagWriteFailure, diagLoopbackError, diagTimeout, diagInProgress, diagNoAlt, diagIconSendErr, diagInitErr, diagModeErr, diagInvalidTestId, diagDriveErr, diagLockErr, diagConfigErr, diagNoCacheMem, diagNotQuiesced, diagUtmNotEnabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A descriptor that specifies the Runtime Diagnostics tests to run. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

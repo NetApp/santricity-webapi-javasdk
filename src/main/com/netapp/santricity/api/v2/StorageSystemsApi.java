@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class StorageSystemsApi {
   private ApiClient apiClient;
 
@@ -100,7 +100,7 @@ public class StorageSystemsApi {
   /**
    * Configure the ethernet management connections on a controller
    * Mode: Both Embedded and Proxy. Update the ethernet management connection configuration. &lt;br&gt; This operation can lead to an inaccessible controller if performed incorrectly or if incorrect ip addresses, gateway addresses, etc, are provided. Configuration is performed by connecting to the alternate controller, so it must be accessible for the operation to succeed.
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return ManagementInterface
    * @throws ApiException if fails to make API call
@@ -191,7 +191,7 @@ public class StorageSystemsApi {
   /**
    * Enable a feature pack.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param keyFile The bundle key file (required)
    * @throws ApiException if fails to make API call
    */
@@ -245,7 +245,7 @@ public class StorageSystemsApi {
   /**
    * Enable a premium feature.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param keyFile The premium feature key file (optional)
    * @throws ApiException if fails to make API call
    */
@@ -420,7 +420,7 @@ public class StorageSystemsApi {
   /**
    * Get the list of ethernet interfaces
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<ManagementInterface>
    * @throws ApiException if fails to make API call
    */
@@ -468,7 +468,7 @@ public class StorageSystemsApi {
   /**
    * Retrieve one or more elements from the ObjectGraph using an XPath expression.
    * Mode: Both Embedded and Proxy. This method is used to query the ObjectGraph for one or more elements. &lt;br/&gt; &lt;b&gt;Examples:&lt;/b&gt; &lt;br/&gt; &lt;ul&gt;&lt;li&gt;Retrieve the list of drives: /drive &lt;/li&gt; &lt;li&gt;Locate all instances of an attribute called \&quot;id\&quot;: //id &lt;/li&gt; &lt;li&gt;Find a thinVolume with an id of \&quot;1\&quot;: /highLevelVolBundle/thinVolume[id=\&quot;1\&quot;]&lt;/li&gt;&lt;li&gt;Find all thin volumes and volumes inefficiently: //volume | //thinVolume&lt;/li&gt;&lt;li&gt;Get the NSVRAM version from saData: /sa/saData/nvsramVersion&lt;/li&gt;&lt;/ul&gt;&lt;b&gt;References: &lt;/b&gt; http://www.w3schools.com/xsl/xpath_intro.asp
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param query  (optional)
    * @return List<Object>
    * @throws ApiException if fails to make API call
@@ -567,7 +567,7 @@ public class StorageSystemsApi {
   /**
    * Retrieve information about the storage system lockdown status.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return LockdownStatusResponse
    * @throws ApiException if fails to make API call
    */
@@ -615,7 +615,7 @@ public class StorageSystemsApi {
   /**
    * Retrieve the ObjectGraph, which contains all configuration details for the storage-system.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return ObjectBundle
    * @throws ApiException if fails to make API call
    */
@@ -663,7 +663,7 @@ public class StorageSystemsApi {
   /**
    * Get the password status of the StorageDevice
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return PasswordStatusResponse
    * @throws ApiException if fails to make API call
    */
@@ -759,7 +759,7 @@ public class StorageSystemsApi {
   /**
    * Get a specific storage-system
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return StorageSystemResponse
    * @throws ApiException if fails to make API call
    */
@@ -807,7 +807,7 @@ public class StorageSystemsApi {
   /**
    * Get StorageDevice capabilities.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return CapabilitiesResponse
    * @throws ApiException if fails to make API call
    */
@@ -896,7 +896,7 @@ public class StorageSystemsApi {
   
   /**
    * Add a storage-system
-   * Mode: Both Embedded and Proxy. 
+   * This endpoint allows you to add additional storage-systems under management using their IP address[es].
    * @param body  (optional)
    * @return AddStorageSystemReturn
    * @throws ApiException if fails to make API call
@@ -938,8 +938,8 @@ public class StorageSystemsApi {
   
   /**
    * Remove all feature packs.
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Mode: Both Embedded and Proxy. \n\nWARNING: Removal of feature packs is an offline operation. Failure to quiesce IO prior to performing this operation may result in loss of access to data or loss of data. \n\nWhen used in embedded mode a client may not receive a response from this operation.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void removeFeaturePack(String systemId) throws ApiException {
@@ -1033,7 +1033,7 @@ public class StorageSystemsApi {
   /**
    * Remove a premium feature.
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param capability Capability to remove. (required)
    * @throws ApiException if fails to make API call
    */
@@ -1085,9 +1085,9 @@ public class StorageSystemsApi {
   }
   
   /**
-   * Remove one or more storage-systems. The path is a comma seperated list of IDs
-   * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * Remove one or more storage-systems
+   * The path is a comma-separated list of IDs. The identifiers of any storage-systems were failed to remove are provided in the response error response.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void removeStorageSystem(String systemId) throws ApiException {
@@ -1133,7 +1133,7 @@ public class StorageSystemsApi {
   /**
    * Set the password of the StorageDevice
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @throws ApiException if fails to make API call
    */
@@ -1229,7 +1229,7 @@ public class StorageSystemsApi {
   /**
    * Set the name of the StorageDevice
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return StorageSystemConfigResponse
    * @throws ApiException if fails to make API call
@@ -1278,7 +1278,7 @@ public class StorageSystemsApi {
   /**
    * Update a storage-system
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param updateRequest Update request (required)
    * @return StorageSystemResponse
    * @throws ApiException if fails to make API call
@@ -1332,7 +1332,7 @@ public class StorageSystemsApi {
   /**
    * Validate the stored password for a storage-system
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void validateStorageSystemPassword(String systemId) throws ApiException {

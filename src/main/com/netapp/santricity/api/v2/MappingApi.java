@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class MappingApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class MappingApi {
   /**
    * Get all HostGroups
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<HostGroup>
    * @throws ApiException if fails to make API call
    */
@@ -107,57 +107,9 @@ public class MappingApi {
   }
   
   /**
-   * Get all HostTypes
-   * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-   * @param systemId The id of the storage-system (required)
-   * @return List<HostType>
-   * @throws ApiException if fails to make API call
-   */
-  public List<HostType> getAllHostPortTypes(String systemId) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getAllHostPortTypes");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/host-port-types".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<List<HostType>> localVarReturnType = new GenericType<List<HostType>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
    * Get the list of HostTypes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<HostTypeValues>
    * @throws ApiException if fails to make API call
    */
@@ -205,7 +157,7 @@ public class MappingApi {
   /**
    * Get all HostTypes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<HostType>
    * @throws ApiException if fails to make API call
    */
@@ -253,7 +205,7 @@ public class MappingApi {
   /**
    * Get all Hosts
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<HostEx>
    * @throws ApiException if fails to make API call
    */
@@ -301,8 +253,8 @@ public class MappingApi {
   /**
    * Get a Host
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Get a Host (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the host (required)
    * @return HostEx
    * @throws ApiException if fails to make API call
    */
@@ -356,8 +308,8 @@ public class MappingApi {
   /**
    * Get a HostGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Get a HostGroup (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the hostgroup (required)
    * @return HostGroup
    * @throws ApiException if fails to make API call
    */
@@ -410,64 +362,9 @@ public class MappingApi {
   
   /**
    * Get a HostType
-   * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-   * @param systemId The id of the storage-system (required)
-   * @param id  (required)
-   * @return HostType
-   * @throws ApiException if fails to make API call
-   */
-  public HostType getHostPortType(String systemId, String id) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getHostPortType");
-    }
-    
-    // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getHostPortType");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/host-port-types/{id}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<HostType> localVarReturnType = new GenericType<HostType>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
-   * Get a HostType
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Het a HostType (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the HostType (required)
    * @return HostType
    * @throws ApiException if fails to make API call
    */
@@ -521,7 +418,7 @@ public class MappingApi {
   /**
    * Get the list of HostTypes
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param index \&quot;The value of the index for the desired host type value. This value corresponds to the index attribute of the HostTypeValues model\&quot; (required)
    * @return HostTypeValues
    * @throws ApiException if fails to make API call
@@ -576,7 +473,7 @@ public class MappingApi {
   /**
    * Get the list of unassociated HostPorts
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<UnassociatedHostPort>
    * @throws ApiException if fails to make API call
    */
@@ -624,7 +521,7 @@ public class MappingApi {
   /**
    * Move a Host under a different HostGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param hostId The id of an existing host entry configured on the specified array (required)
    * @param body  (optional)
    * @return HostEx
@@ -680,7 +577,7 @@ public class MappingApi {
   /**
    * Create a new Host
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return Host
    * @throws ApiException if fails to make API call
@@ -729,7 +626,7 @@ public class MappingApi {
   /**
    * Create a HostGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return HostGroup
    * @throws ApiException if fails to make API call
@@ -778,8 +675,8 @@ public class MappingApi {
   /**
    * Delete a Host
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Delete a Host (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the host (required)
    * @throws ApiException if fails to make API call
    */
   public void removeHost(String systemId, String id) throws ApiException {
@@ -831,8 +728,8 @@ public class MappingApi {
   /**
    * Delete a HostGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Delete a HostGroup (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the hostgroup (required)
    * @throws ApiException if fails to make API call
    */
   public void removeHostGroup(String systemId, String id) throws ApiException {
@@ -883,57 +780,8 @@ public class MappingApi {
   
   /**
    * Set default HostType
-   * Mode: Both Embedded and Proxy. DEPRECATED: See /host-types
-   * @param systemId The id of the storage-system (required)
-   * @param body  (optional)
-   * @return HostType
-   * @throws ApiException if fails to make API call
-   */
-  public HostType setHostPortTypeDefault(String systemId, SingleNumberValue body) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling setHostPortTypeDefault");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/host-port-types".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<HostType> localVarReturnType = new GenericType<HostType>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
-   * Set default HostType
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return HostType
    * @throws ApiException if fails to make API call
@@ -982,8 +830,8 @@ public class MappingApi {
   /**
    * Update the parameters of a Host
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Update the parameters of a Host (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the host (required)
    * @param body  (optional)
    * @return HostEx
    * @throws ApiException if fails to make API call
@@ -1038,8 +886,8 @@ public class MappingApi {
   /**
    * Update a HostGroup
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
-   * @param id Update a HostGroup (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param id The id of the hostgroup (required)
    * @param body  (optional)
    * @return HostGroup
    * @throws ApiException if fails to make API call

@@ -42,7 +42,7 @@ import java.util.Objects;
  * Object containing a Key/Value pair along with a Type to be used to  store data for a storage system.
  */
 @ApiModel(description = "Object containing a Key/Value pair along with a Type to be used to  store data for a storage system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class Rule   {
   
     private String ruleType;

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * MelEntryEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class MelEntryEx   {
   
     private Long sequenceNumber;
@@ -130,8 +130,11 @@ public class MelEntryEx   {
     snmpCommunity("snmpCommunity"),
     snmpTrapDestination("snmpTrapDestination"),
     fcTarget("fcTarget"),
+    blankOne("blankOne"),
+    blankTwo("blankTwo"),
     fanOnlyCru("fanOnlyCru"),
     psuCru("psuCru"),
+    nvmeInitiator("nvmeInitiator"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -198,9 +201,9 @@ public class MelEntryEx   {
 
     private String location;
 
-    private String id;
-
     private Boolean critical;
+
+    private String id;
 
     private Integer asc;
 
@@ -492,24 +495,6 @@ public class MelEntryEx   {
   
   /**
    **/
-  public MelEntryEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public MelEntryEx critical(Boolean critical) {
     this.critical = critical;
     return this;
@@ -523,6 +508,24 @@ public class MelEntryEx   {
   
   public void setCritical(Boolean critical) {
     this.critical = critical;
+  }
+
+  
+  /**
+   **/
+  public MelEntryEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -587,15 +590,15 @@ public class MelEntryEx   {
         Objects.equals(this.controlParams, melEntryEx.controlParams) &&
         Objects.equals(this.description, melEntryEx.description) &&
         Objects.equals(this.location, melEntryEx.location) &&
-        Objects.equals(this.id, melEntryEx.id) &&
         Objects.equals(this.critical, melEntryEx.critical) &&
+        Objects.equals(this.id, melEntryEx.id) &&
         Objects.equals(this.asc, melEntryEx.asc) &&
         Objects.equals(this.ascq, melEntryEx.ascq);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sequenceNumber, eventType, timeStamp, category, componentType, componentLocation, locationValid, priority, eventSourceController, senseKey, rawData, extComponentLocation, controlParams, description, location, id, critical, asc, ascq);
+    return Objects.hash(sequenceNumber, eventType, timeStamp, category, componentType, componentLocation, locationValid, priority, eventSourceController, senseKey, rawData, extComponentLocation, controlParams, description, location, critical, id, asc, ascq);
   }
 
   @Override
@@ -618,8 +621,8 @@ public class MelEntryEx   {
     sb.append("    controlParams: ").append(toIndentedString(controlParams)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    asc: ").append(toIndentedString(asc)).append("\n");
     sb.append("    ascq: ").append(toIndentedString(ascq)).append("\n");
     sb.append("}");

@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class DApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class DApi {
   /**
    * This procedure deactivates the discrete time series statistical streams
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the discrete time series to deactivate. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class DApi {
   /**
    * This procedure will disable mirroring over Fibre Channel (freeing up dedicated channel).
    * Documented return codes: ok, arvmAsyncMirrorGroupPresent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -175,7 +175,7 @@ public class DApi {
   /**
    * This procedure deactivates a histogram statistics set, given a stream ID.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the histogram set to deactivate. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +235,7 @@ public class DApi {
   /**
    * Deactivate Remote Mirroring
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, iconFailure, mirrorsPresent, rvmFibreError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -289,7 +289,7 @@ public class DApi {
   /**
    * This procedure causes the drives specified by the argument to be deassigned as hot spares. They will be returned to the pool of unassigned drives, and thus be added to the unconfigured capacity pool of the storage array. Note that a hot spare drive cannot be deassigned if it is currently in use, sparing for a failed drive.
    * Documented return codes: ok, illegalParam, tryAlternate, noSparesDeassigned, someSparesDeassigned. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of DriveRef values that identifies all drives to be affected by this operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -349,7 +349,7 @@ public class DApi {
   /**
    * This procedure will delete an Async Mirror Group (AMG).
    * Documented return codes: ok, arvmGroupDoesNotExist, arvmGroupNotEmpty, remoteInternalError, remoteDatabaseError, arvmRemoteGroupNotEmpty, remoteTryAlternate, arvmOnlyLocalAmgDeleted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required attributes to delete an Asynchronous Mirror Group. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -409,7 +409,7 @@ public class DApi {
   /**
    * This procedure is used to clean up a mirror \&quot;place holder.\&quot;
    * Documented return codes: ok, invalidIncompleteMemberRef, arvmGroupNotSecondary, remoteInternalError, arvmRemoteMirrorMemberDoesNotExist, arvmRemoteGroupDoesNotExist, remoteDatabaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object with all of the required attributes to delete an incomplete member of an Asynchronous Mirror Group. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -469,7 +469,7 @@ public class DApi {
   /**
    * This procedure will delete a PiT in one or more members of a consistency group.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Structure containing information about the consistency group PiT to delete. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -527,69 +527,9 @@ public class DApi {
   }
   
   /**
-   * This procedure deletes a range of (i.e. one or more) specified MgmtClientRecords.
-   * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-   * @param systemId  (required)
-   * @param body The MgmtClientRecordDeleteDescriptor value. (required)
-   * @param controller Controller selection (optional, default to auto)
-   * @param verboseErrorResponse  (optional, default to true)
-   * @return String
-   * @throws ApiException if fails to make API call
-   */
-  public String symbolDeleteClientMgmtRecordsNoPassword(String systemId, MgmtClientRecordDeleteDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
-    Object localVarPostBody = body;
-    
-    // verify the required parameter 'systemId' is set
-    if (systemId == null) {
-      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolDeleteClientMgmtRecordsNoPassword");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolDeleteClientMgmtRecordsNoPassword");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/storage-systems/{system-id}/symbol/deleteClientMgmtRecordsNoPassword".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
-    
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
-    
-
-    
-
-    
-
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] { "basicAuth" };
-
-    
-    GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-    
-  }
-  
-  /**
    * This procedure causes the Cluster object identified by the argument value to be deleted from the Storage Partitions configuration.
    * Documented return codes: ok, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The ClusterRef value for the cluster to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -649,7 +589,7 @@ public class DApi {
   /**
    * This procedure is used to delete a disk pool and all volumes in that pool.
    * Documented return codes: ok, diskPoolNotEmpty. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the volume group to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -709,7 +649,7 @@ public class DApi {
   /**
    * This procedure deletes the High Level Volume, the RAID Volumes on the SSD, and disables flash caching on any associated user volumes.
    * Documented return codes: ok, error, noHeap, internalError, invalidVolumeref, notFlashcacheVol, flashcacheDeleted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the flash cache object to delete. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -769,7 +709,7 @@ public class DApi {
   /**
    * This procedure causes the Host object identified by the argument value to be deleted from the Storage Partitions configuration.
    * Documented return codes: ok, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The HostRef value for the host to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -829,7 +769,7 @@ public class DApi {
   /**
    * This procedure causes the HostPort object identified by the argument value to be deleted from the Storage Partitions configuration.
    * Documented return codes: ok, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The HostPortRef value for the host port to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -889,7 +829,7 @@ public class DApi {
   /**
    * This procedure deletes an initiator object.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A ScsiNodeRef object that identifies the initiator to delete. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -949,7 +889,7 @@ public class DApi {
   /**
    * This procedure removes from the array the specified key-value tags. It is an error to remove in-use key-value tags.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The input identifies the key-value pairs to be deleted from the array. Unknown references are ignored. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1009,7 +949,7 @@ public class DApi {
   /**
    * This procedure removes from the specified volumes all references to specific Key-Value tags.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The input is a list of references to Volumes (or Workloads). For each in the list, all references to Key-Value tags are deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1069,7 +1009,7 @@ public class DApi {
   /**
    * This procedure causes the LUNMapping object identified by the argument value to be deleted from the Storage Partitions configuration.
    * Documented return codes: ok, partNodeNonexistent. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The LUNMappingRef value for the mapping to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1129,7 +1069,7 @@ public class DApi {
   /**
    * This procedure deletes a range of (i.e. one or more) specified MgmtCleintRecords.
    * Documented return codes: ok, noHeap, volumeNotExist, databaseError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The MgmtClientRecordDeleteDescriptor value. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1189,7 +1129,7 @@ public class DApi {
   /**
    * This procedure will delete one or more PiTs.
    * Documented return codes: ok, rollbackInProgress, invalidPitRef, notOldestPit, pitInConsistencyGroup. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Structure containing a list of PiTs. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1249,7 +1189,7 @@ public class DApi {
   /**
    * This procedure will delete an existing PiT consistency group, all of the child PiT groups and their PiTs and associated ERVs. All associated views are stopped.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Descriptor for the consistency group to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1309,7 +1249,7 @@ public class DApi {
   /**
    * This procedure will delete the specified PITConsistencyGroupView.
    * Documented return codes: ok, operationFailedVolumeCopyClone. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the attributes required to delete a PiT Consistency Group View. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1369,7 +1309,7 @@ public class DApi {
   /**
    * This procedure will delete a PiT Group.
    * Documented return codes: ok, rollbackInProgress, invalidPitGroupRef, pitGroupInConsistencyGroup, operationFailedVolumeCopyClone. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Structure containing PiT group reference data. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1429,7 +1369,7 @@ public class DApi {
   /**
    * This procedure will delete an existing PiT View.
    * Documented return codes: ok, operationFailedVolumeCopyClone. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Structure containing information about the PiT View to delete. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1489,7 +1429,7 @@ public class DApi {
   /**
    * Removes all SAPorts from an SAPortGroup, and deletes the group. OBSOLETE: Any call to deleteSAPortGroup will get a return status indicating the command is obsolete. No alternative procedure is available.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1549,7 +1489,7 @@ public class DApi {
   /**
    * This procedure will delete a list of schedules.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of schedule references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1609,7 +1549,7 @@ public class DApi {
   /**
    * Deletes the snapshot volume identified by the input argument. All data on the volume is lost and all resources associated with maintaining the snapshot are released.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol reference to the snapshot volume that is to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1669,7 +1609,7 @@ public class DApi {
   /**
    * This procedure is used to delete a Thin Volume. The procedure has been deprecated for deleting RAID Volumes - it has been replaced by the procedure deleteVolumeFromGroup.
    * Documented return codes: ok, illegalParam, noHeap, volumeReconfiguring, reservationConflict, internalError, volumeFormatting, invalidVolumeref, volumeOffline, repositoryOffline, repositoryReconfiguring, rollbackInProgress, repositoryMissing, volumeHasMirrorRelationship, volumeInUse. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the AbstractVolRef for the volume to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1729,7 +1669,7 @@ public class DApi {
   /**
    * This procedure deletes the volume referenced by the input argument. The procedure allows the caller to specify which behavior is desired for the case of deleting the last volume in the volume group - either delete or retain the volume group.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeDeletionDescriptor which contains (1) a reference to the volume to delete and (2) a boolean indicator, which indicates whether to delete or retain the volume group when the last volume in the group is deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1789,7 +1729,7 @@ public class DApi {
   /**
    * Delete VolumeGroup and all Volumes in that group
    * Documented return codes: ok, volumeInUse. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the volume group that is to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1849,7 +1789,7 @@ public class DApi {
   /**
    * This procedure removes the specified application awareness workloads. It is not an error to remove in-use (association mapped) workloads. All association mappings for the workload are removed including any KeyValueTag mappings. The actual KeyValueTag records are not deleted.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of SYMbol application awareness workload references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1909,7 +1849,7 @@ public class DApi {
   /**
    * This procedure deletes the specified workload to volume mappings.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of unique identifiers to the workload to volume mappings to be deleted. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1969,7 +1909,7 @@ public class DApi {
   /**
    * This procedure is used to disable Autosupport.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -2023,7 +1963,7 @@ public class DApi {
   /**
    * Disables external KMS.
    * Documented return codes: ok, externalKmsNotEnabled, cannotDisableNoKey, externalKmsDisabledNoKey. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2083,7 +2023,7 @@ public class DApi {
   /**
    * Disable a single add-on(optional feature
    * Documented return codes: ok, error, invalidSafeCapability, disableNotPermitted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The Capability value for the \&quot;premium\&quot; feature to be disabled. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2143,7 +2083,7 @@ public class DApi {
   /**
    * This procedure disables a feature.
    * Documented return codes: uninitialized, ok, error, illegalParam, noHeap, disableNotPermitted, disableEvaluationFeatureNotPermitted, invalidFeatureref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the feature to disable. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2203,7 +2143,7 @@ public class DApi {
   /**
    * This procedure deletes the proxy and turns off flash cache volume attributes on the referenced user volume.
    * Documented return codes: ok, error, illegalParam, noHeap, volumeNotExist, internalError, invalidVolumeref, notFlashcacheVol, flashcacheDeleted. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the volume to disable. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2263,7 +2203,7 @@ public class DApi {
   /**
    * This procedure will disable (stop) the indicated snapshot volume.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, internalError, invalidVolumeref, snapNotAvailable, notDisabled, repositoryOffline, ghostVolume, repositoryMissing, repositoryFailed, baseVolumeFailed, baseVolumeOffline. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The SnapshotRef of the snapshot volume on which the operation is to be performed. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2323,7 +2263,7 @@ public class DApi {
   /**
    * This procedure will disable (stop) each snapshot volume identified in the argument list. Validation checks for necessary snapshot-disable preconditions are performed prior to disabling any snapshot; if any of the requested snapshots do not meet the preconditions to be disabled, the entire command will be failed and no snapshots will be disabled. If command validation succeeds for all snapshots in the list, but one or more of the snapshots in the list fails to be disabled, the entire command will be failed and no snapshots will be disabled. Requests to disable an already-disabled Snapshot will be treated as no-ops and will be considered successful.
    * Documented return codes: ok, illegalParam, noHeap, internalError, invalidVolumeref, snapNotAvailable, notDisabled, repositoryOffline, ghostVolume, repositoryMissing, repositoryFailed, baseVolumeFailed, baseVolumeOffline. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SnapshotRefList structure identifying the snapshot volume that are to be disabled. The list may contain as few as one snapshot reference or up to MAX_SNAPSHOT_COLLECTION_SIZE references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2383,7 +2323,7 @@ public class DApi {
   /**
    * Disables protection information (PI) usage for the specified volume.
    * Documented return codes: ok, volumeHasSnapshotRelationship, volumeHasMirrorRelationship, volumeHasVolcopyRelationship. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2443,7 +2383,7 @@ public class DApi {
   /**
    * Returns a DiscoveryResponse object that identifies the storage arrays and controllers known to the RPC server that handles this request. Response also indicates if RPC server is RAID controller or SYMbol RPC UTM agent.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DiscoveryResponse

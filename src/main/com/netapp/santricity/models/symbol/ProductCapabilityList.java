@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * ProductCapabilityList
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class ProductCapabilityList   {
   
 
@@ -125,6 +125,8 @@ public class ProductCapabilityList   {
     capabilityWlcLogging("capabilityWlcLogging"),
     capabilityFipsDriveSupport("capabilityFipsDriveSupport"),
     capabilityApplicationAwareness("capabilityApplicationAwareness"),
+    capabilityEmbeddedEkms("capabilityEmbeddedEkms"),
+    capabilityCacheMirroringProtectionInformation("capabilityCacheMirroringProtectionInformation"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;

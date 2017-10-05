@@ -41,14 +41,14 @@ import java.util.Objects;
 /**
  * Dom0SupportDataChunkDetails
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class Dom0SupportDataChunkDetails   {
   
     private String dom0DataChunk;
 
 
   /**
-   * Sepcified which type of support data we're processing.
+   * Specified which type of support data we're processing.
    */
   public enum Dom0SupportDataTypeEnum {
     unknownType("unknownType"),
@@ -95,14 +95,14 @@ public class Dom0SupportDataChunkDetails   {
 
   
   /**
-   * Sepcified which type of support data we're processing.
+   * Specified which type of support data we're processing.
    **/
   public Dom0SupportDataChunkDetails dom0SupportDataType(Dom0SupportDataTypeEnum dom0SupportDataType) {
     this.dom0SupportDataType = dom0SupportDataType;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "Sepcified which type of support data we're processing.")
+  @ApiModelProperty(example = "null", required = true, value = "Specified which type of support data we're processing.")
   @JsonProperty("dom0SupportDataType")
   public Dom0SupportDataTypeEnum getDom0SupportDataType() {
     return dom0SupportDataType;

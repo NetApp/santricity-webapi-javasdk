@@ -42,7 +42,7 @@ import java.util.Objects;
  * A Storage System is a collection of both physical components and logical  components. Physical components include disk drives, controllers, fans, and other hardware.  The physical disk drives are grouped into Storage Pools. The storage capacity of these Storage  Pools is provisioned into logical Volumes.
  */
 @ApiModel(description = "A Storage System is a collection of both physical components and logical  components. Physical components include disk drives, controllers, fans, and other hardware.  The physical disk drives are grouped into Storage Pools. The storage capacity of these Storage  Pools is provisioned into logical Volumes.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class StorageSystemResponse   {
   
     private String id;
@@ -58,7 +58,8 @@ public class StorageSystemResponse   {
   public enum PasswordStatusEnum {
     unknown("unknown"),
     invalid("invalid"),
-    valid("valid");
+    valid("valid"),
+    securityLockout("securityLockout");
 ;
     private String value;
 
@@ -108,6 +109,8 @@ public class StorageSystemResponse   {
     private String ip1;
 
     private String ip2;
+
+    private List<String> managementPaths;
 
     private Integer driveCount;
 
@@ -218,6 +221,8 @@ public class StorageSystemResponse   {
     private Boolean asupEnabled;
 
     private Boolean securityKeyEnabled;
+
+    private Boolean externalKeyEnabled;
 
     private Date lastContacted;
 
@@ -375,6 +380,24 @@ public class StorageSystemResponse   {
   
   public void setIp2(String ip2) {
     this.ip2 = ip2;
+  }
+
+  
+  /**
+   **/
+  public StorageSystemResponse managementPaths(List<String> managementPaths) {
+    this.managementPaths = managementPaths;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "")
+  @JsonProperty("managementPaths")
+  public List<String> getManagementPaths() {
+    return managementPaths;
+  }
+  
+  public void setManagementPaths(List<String> managementPaths) {
+    this.managementPaths = managementPaths;
   }
 
   
@@ -631,13 +654,14 @@ public class StorageSystemResponse   {
 
   
   /**
+   * Deprecated: The controller boot time.
    **/
   public StorageSystemResponse bootTime(Date bootTime) {
     this.bootTime = bootTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", value = "Deprecated: The controller boot time.")
   @JsonProperty("bootTime")
   public Date getBootTime() {
     return bootTime;
@@ -925,6 +949,24 @@ public class StorageSystemResponse   {
 
   
   /**
+   **/
+  public StorageSystemResponse externalKeyEnabled(Boolean externalKeyEnabled) {
+    this.externalKeyEnabled = externalKeyEnabled;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "")
+  @JsonProperty("externalKeyEnabled")
+  public Boolean getExternalKeyEnabled() {
+    return externalKeyEnabled;
+  }
+  
+  public void setExternalKeyEnabled(Boolean externalKeyEnabled) {
+    this.externalKeyEnabled = externalKeyEnabled;
+  }
+
+  
+  /**
    * The last time that the device was considered accessible.
    **/
   public StorageSystemResponse lastContacted(Date lastContacted) {
@@ -1071,6 +1113,7 @@ public class StorageSystemResponse   {
         Objects.equals(this.status, storageSystemResponse.status) &&
         Objects.equals(this.ip1, storageSystemResponse.ip1) &&
         Objects.equals(this.ip2, storageSystemResponse.ip2) &&
+        Objects.equals(this.managementPaths, storageSystemResponse.managementPaths) &&
         Objects.equals(this.driveCount, storageSystemResponse.driveCount) &&
         Objects.equals(this.trayCount, storageSystemResponse.trayCount) &&
         Objects.equals(this.traceEnabled, storageSystemResponse.traceEnabled) &&
@@ -1101,6 +1144,7 @@ public class StorageSystemResponse   {
         Objects.equals(this.fcRemoteMirroringState, storageSystemResponse.fcRemoteMirroringState) &&
         Objects.equals(this.asupEnabled, storageSystemResponse.asupEnabled) &&
         Objects.equals(this.securityKeyEnabled, storageSystemResponse.securityKeyEnabled) &&
+        Objects.equals(this.externalKeyEnabled, storageSystemResponse.externalKeyEnabled) &&
         Objects.equals(this.lastContacted, storageSystemResponse.lastContacted) &&
         Objects.equals(this.definedPartitionCount, storageSystemResponse.definedPartitionCount) &&
         Objects.equals(this.simplexModeEnabled, storageSystemResponse.simplexModeEnabled) &&
@@ -1112,7 +1156,7 @@ public class StorageSystemResponse   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, wwn, passwordStatus, passwordSet, status, ip1, ip2, driveCount, trayCount, traceEnabled, types, model, metaTags, hotSpareSize, usedPoolSpace, freePoolSpace, unconfiguredSpace, driveTypes, hostSpareCountInStandby, hotSpareCount, hostSparesUsed, bootTime, fwVersion, appVersion, bootVersion, nvsramVersion, chassisSerialNumber, accessVolume, unconfiguredSpaceByDriveType, mediaScanPeriod, driveChannelPortDisabled, recoveryModeEnabled, autoLoadBalancingEnabled, remoteMirroringEnabled, fcRemoteMirroringState, asupEnabled, securityKeyEnabled, lastContacted, definedPartitionCount, simplexModeEnabled, freePoolSpaceAsString, hotSpareSizeAsString, unconfiguredSpaceAsStrings, usedPoolSpaceAsString);
+    return Objects.hash(id, name, wwn, passwordStatus, passwordSet, status, ip1, ip2, managementPaths, driveCount, trayCount, traceEnabled, types, model, metaTags, hotSpareSize, usedPoolSpace, freePoolSpace, unconfiguredSpace, driveTypes, hostSpareCountInStandby, hotSpareCount, hostSparesUsed, bootTime, fwVersion, appVersion, bootVersion, nvsramVersion, chassisSerialNumber, accessVolume, unconfiguredSpaceByDriveType, mediaScanPeriod, driveChannelPortDisabled, recoveryModeEnabled, autoLoadBalancingEnabled, remoteMirroringEnabled, fcRemoteMirroringState, asupEnabled, securityKeyEnabled, externalKeyEnabled, lastContacted, definedPartitionCount, simplexModeEnabled, freePoolSpaceAsString, hotSpareSizeAsString, unconfiguredSpaceAsStrings, usedPoolSpaceAsString);
   }
 
   @Override
@@ -1128,6 +1172,7 @@ public class StorageSystemResponse   {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    ip1: ").append(toIndentedString(ip1)).append("\n");
     sb.append("    ip2: ").append(toIndentedString(ip2)).append("\n");
+    sb.append("    managementPaths: ").append(toIndentedString(managementPaths)).append("\n");
     sb.append("    driveCount: ").append(toIndentedString(driveCount)).append("\n");
     sb.append("    trayCount: ").append(toIndentedString(trayCount)).append("\n");
     sb.append("    traceEnabled: ").append(toIndentedString(traceEnabled)).append("\n");
@@ -1158,6 +1203,7 @@ public class StorageSystemResponse   {
     sb.append("    fcRemoteMirroringState: ").append(toIndentedString(fcRemoteMirroringState)).append("\n");
     sb.append("    asupEnabled: ").append(toIndentedString(asupEnabled)).append("\n");
     sb.append("    securityKeyEnabled: ").append(toIndentedString(securityKeyEnabled)).append("\n");
+    sb.append("    externalKeyEnabled: ").append(toIndentedString(externalKeyEnabled)).append("\n");
     sb.append("    lastContacted: ").append(toIndentedString(lastContacted)).append("\n");
     sb.append("    definedPartitionCount: ").append(toIndentedString(definedPartitionCount)).append("\n");
     sb.append("    simplexModeEnabled: ").append(toIndentedString(simplexModeEnabled)).append("\n");

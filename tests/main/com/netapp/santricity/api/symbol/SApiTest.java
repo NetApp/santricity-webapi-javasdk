@@ -314,6 +314,33 @@ public class SApiTest {
     }
     
     /**
+     * This procedure allows checking of protection information of cache mirroring to be enabled or disabled, if this feature is supported. There is a capability enumeration that indicates whether or not this feature is supported.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolSetCacheMirroringProtectionInformationTest() throws ApiException {
+        
+        String systemId = null;
+        
+        CacheMirroringProtectionInformationDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolSetCacheMirroringProtectionInformation(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * This procedure allows the user to limit the performance of a host cluster. The limitations that can be set are throughput (MB/s) and IOPs.
      *
      * Documented return codes: ok. 
@@ -800,6 +827,33 @@ public class SApiTest {
     }
     
     /**
+     * Sets parameters necessary to communicate with an external key management server.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolSetExternalKMSParametersTest() throws ApiException {
+        
+        String systemId = null;
+        
+        ExternalKMSParametersSetDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolSetExternalKMSParameters(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * This procedure sets the parameters on a given flash cache.
      *
      * Documented return codes: ok, illegalParam, noHeap, internalError, flashcacheInvalidConfigType, notFlashcacheVol, flashcacheDeleted, flashcacheFailed, flashcacheDegradedState. 
@@ -955,6 +1009,33 @@ public class SApiTest {
         
         try{
         String response = api.symbolSetHostPortType(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure sets selected HostPorts attributes, as specified by the input argument. It is meant to operate on a group of ports, for example all the ports on a host interface card or base board.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolSetHostPortsAttributesTest() throws ApiException {
+        
+        String systemId = null;
+        
+        HostPortsAttributesUpdateDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolSetHostPortsAttributes(systemId, body, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -1192,6 +1273,58 @@ public class SApiTest {
         
         try{
         String response = api.symbolSetLockKey(systemId, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure sets the properties of a NVMe over Fabrics Host Interface port.
+     *
+     * Documented return codes: ok, invalidInterfaceref, invalidIpAddress. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolSetNVMeHostInterfacePropertiesTest() throws ApiException {
+        
+        String systemId = null;
+        
+        NVMeInterfacePropertiesUpdateDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolSetNVMeHostInterfaceProperties(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure, from the client&#39;s perspective, resets the NVMe over Fabrics baselined statistical counters to zero. It is a logical reset in the sense that the raw counts maintained in hardware and firmware are not actually reset; instead the firmware makes a snapshot of the current counter values and uses that to report deltas in counts when the statistics are fetched. The new baseline time is applied to both storage controllers, so that their counts are in sync with one another. If one storage controller resets without the other resetting, the counters become effectively out of sync and the client is made aware of this fact by the timestamp data reported along with the statistics.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolSetNVMeoFStatisticsBaselineTest() throws ApiException {
+        
+        String systemId = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolSetNVMeoFStatisticsBaseline(systemId, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -2306,7 +2439,7 @@ public class SApiTest {
     /**
      * This procedure causes visual indicators to be activated on the specified channel. The indicators will remain active until the stopIdentification procedure is invoked.
      *
-     * Documented return codes: ok, error, illegalParam, noHeap. 
+     * Documented return codes: ok, error, illegalParam, noHeap, noChannel. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -2644,6 +2777,33 @@ public class SApiTest {
         
         try{
         String response = api.symbolStartSAIdentification(systemId, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure starts a slow background scan of the free or both free and allocated blocks for the requested devices. Background scan is long running and can be checked using the getSSDBlockAllocationScanStatus procedure.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolStartSSDBlockAllocationScanTest() throws ApiException {
+        
+        String systemId = null;
+        
+        StartSSDBlockAllocationScanDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        String response = api.symbolStartSSDBlockAllocationScan(systemId, body, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

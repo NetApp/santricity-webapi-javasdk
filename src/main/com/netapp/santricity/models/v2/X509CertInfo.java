@@ -42,7 +42,7 @@ import java.util.Objects;
  * Basic information for X509 Certs stored in the system.
  */
 @ApiModel(description = "Basic information for X509 Certs stored in the system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class X509CertInfo   {
   
     private String alias;
@@ -54,6 +54,12 @@ public class X509CertInfo   {
     private Date start;
 
     private Date expire;
+
+    private Boolean truststore;
+
+    private Boolean isUserInstalled;
+
+    private Boolean isKeyEntry;
 
   
   /**
@@ -146,6 +152,60 @@ public class X509CertInfo   {
   }
 
   
+  /**
+   **/
+  public X509CertInfo truststore(Boolean truststore) {
+    this.truststore = truststore;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("truststore")
+  public Boolean getTruststore() {
+    return truststore;
+  }
+  
+  public void setTruststore(Boolean truststore) {
+    this.truststore = truststore;
+  }
+
+  
+  /**
+   **/
+  public X509CertInfo isUserInstalled(Boolean isUserInstalled) {
+    this.isUserInstalled = isUserInstalled;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("isUserInstalled")
+  public Boolean getIsUserInstalled() {
+    return isUserInstalled;
+  }
+  
+  public void setIsUserInstalled(Boolean isUserInstalled) {
+    this.isUserInstalled = isUserInstalled;
+  }
+
+  
+  /**
+   **/
+  public X509CertInfo isKeyEntry(Boolean isKeyEntry) {
+    this.isKeyEntry = isKeyEntry;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("isKeyEntry")
+  public Boolean getIsKeyEntry() {
+    return isKeyEntry;
+  }
+  
+  public void setIsKeyEntry(Boolean isKeyEntry) {
+    this.isKeyEntry = isKeyEntry;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +220,15 @@ public class X509CertInfo   {
         Objects.equals(this.subjectDN, x509CertInfo.subjectDN) &&
         Objects.equals(this.issuerDN, x509CertInfo.issuerDN) &&
         Objects.equals(this.start, x509CertInfo.start) &&
-        Objects.equals(this.expire, x509CertInfo.expire);
+        Objects.equals(this.expire, x509CertInfo.expire) &&
+        Objects.equals(this.truststore, x509CertInfo.truststore) &&
+        Objects.equals(this.isUserInstalled, x509CertInfo.isUserInstalled) &&
+        Objects.equals(this.isKeyEntry, x509CertInfo.isKeyEntry);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, subjectDN, issuerDN, start, expire);
+    return Objects.hash(alias, subjectDN, issuerDN, start, expire, truststore, isUserInstalled, isKeyEntry);
   }
 
   @Override
@@ -178,6 +241,9 @@ public class X509CertInfo   {
     sb.append("    issuerDN: ").append(toIndentedString(issuerDN)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    expire: ").append(toIndentedString(expire)).append("\n");
+    sb.append("    truststore: ").append(toIndentedString(truststore)).append("\n");
+    sb.append("    isUserInstalled: ").append(toIndentedString(isUserInstalled)).append("\n");
+    sb.append("    isKeyEntry: ").append(toIndentedString(isKeyEntry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

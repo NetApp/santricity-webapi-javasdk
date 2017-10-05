@@ -42,7 +42,7 @@ import java.util.Objects;
  * A failure currently active on the storage system
  */
 @ApiModel(description = "A failure currently active on the storage system")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class FailureData   {
   
 
@@ -332,6 +332,17 @@ public class FailureData   {
     hostRedundancyLost("hostRedundancyLost"),
     excessiveRebootsDetected("excessiveRebootsDetected"),
     cacheNotFlushedOnOnlyCtlr("cacheNotFlushedOnOnlyCtlr"),
+    securityAuditLogFull("securityAuditLogFull"),
+    securityAuditLogWarnThresh("securityAuditLogWarnThresh"),
+    directoryServicesConfigError("directoryServicesConfigError"),
+    kmipServerCertificateNearingExpiration("kmipServerCertificateNearingExpiration"),
+    kmipServerCertificateExpired("kmipServerCertificateExpired"),
+    kmipServerDnsError("kmipServerDnsError"),
+    kmipServerCertificateError("kmipServerCertificateError"),
+    kmipServerAuthenticationFailure("kmipServerAuthenticationFailure"),
+    kmipServerConnectionFailure("kmipServerConnectionFailure"),
+    kmipServerError("kmipServerError"),
+    kmipServerKeyRequirementNotMet("kmipServerKeyRequirementNotMet"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -356,6 +367,7 @@ public class FailureData   {
    * The type of object described in objectData
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),

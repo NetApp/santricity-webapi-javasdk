@@ -41,10 +41,10 @@ import java.util.Objects;
 /**
  * OpcodeCounter
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class OpcodeCounter   {
   
-    private String opcode;
+    private Integer opcode;
 
     private Long count;
 
@@ -52,18 +52,18 @@ public class OpcodeCounter   {
   /**
    * A SCSI opcode value.
    **/
-  public OpcodeCounter opcode(String opcode) {
+  public OpcodeCounter opcode(Integer opcode) {
     this.opcode = opcode;
     return this;
   }
   
   @ApiModelProperty(example = "null", required = true, value = "A SCSI opcode value.")
   @JsonProperty("opcode")
-  public String getOpcode() {
+  public Integer getOpcode() {
     return opcode;
   }
   
-  public void setOpcode(String opcode) {
+  public void setOpcode(Integer opcode) {
     this.opcode = opcode;
   }
 

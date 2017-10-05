@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * FirmwareUpgradeHealthCheckResult
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class FirmwareUpgradeHealthCheckResult   {
   
     private String storageDeviceId;
@@ -53,6 +53,8 @@ public class FirmwareUpgradeHealthCheckResult   {
     private Long processingTimeMS;
 
     private Boolean rerun;
+
+    private Boolean successful;
 
     private StorageDeviceHealthCheck storageDeviceAccessible;
 
@@ -79,8 +81,6 @@ public class FirmwareUpgradeHealthCheckResult   {
     private StorageDeviceHealthCheck validPasswordSet;
 
     private MelEventHealthCheck melCheck;
-
-    private Boolean successful;
 
   
   /**
@@ -171,6 +171,24 @@ public class FirmwareUpgradeHealthCheckResult   {
   
   public void setRerun(Boolean rerun) {
     this.rerun = rerun;
+  }
+
+  
+  /**
+   **/
+  public FirmwareUpgradeHealthCheckResult successful(Boolean successful) {
+    this.successful = successful;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "")
+  @JsonProperty("successful")
+  public Boolean getSuccessful() {
+    return successful;
+  }
+  
+  public void setSuccessful(Boolean successful) {
+    this.successful = successful;
   }
 
   
@@ -418,24 +436,6 @@ public class FirmwareUpgradeHealthCheckResult   {
   }
 
   
-  /**
-   **/
-  public FirmwareUpgradeHealthCheckResult successful(Boolean successful) {
-    this.successful = successful;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", required = true, value = "")
-  @JsonProperty("successful")
-  public Boolean getSuccessful() {
-    return successful;
-  }
-  
-  public void setSuccessful(Boolean successful) {
-    this.successful = successful;
-  }
-
-  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -451,6 +451,7 @@ public class FirmwareUpgradeHealthCheckResult   {
         Objects.equals(this.storageDeviceWWN, firmwareUpgradeHealthCheckResult.storageDeviceWWN) &&
         Objects.equals(this.processingTimeMS, firmwareUpgradeHealthCheckResult.processingTimeMS) &&
         Objects.equals(this.rerun, firmwareUpgradeHealthCheckResult.rerun) &&
+        Objects.equals(this.successful, firmwareUpgradeHealthCheckResult.successful) &&
         Objects.equals(this.storageDeviceAccessible, firmwareUpgradeHealthCheckResult.storageDeviceAccessible) &&
         Objects.equals(this.spmDatabaseVerification, firmwareUpgradeHealthCheckResult.spmDatabaseVerification) &&
         Objects.equals(this.configurationDatabaseCheck, firmwareUpgradeHealthCheckResult.configurationDatabaseCheck) &&
@@ -463,13 +464,12 @@ public class FirmwareUpgradeHealthCheckResult   {
         Objects.equals(this.exclusiveOperations, firmwareUpgradeHealthCheckResult.exclusiveOperations) &&
         Objects.equals(this.failedDrivesPresent, firmwareUpgradeHealthCheckResult.failedDrivesPresent) &&
         Objects.equals(this.validPasswordSet, firmwareUpgradeHealthCheckResult.validPasswordSet) &&
-        Objects.equals(this.melCheck, firmwareUpgradeHealthCheckResult.melCheck) &&
-        Objects.equals(this.successful, firmwareUpgradeHealthCheckResult.successful);
+        Objects.equals(this.melCheck, firmwareUpgradeHealthCheckResult.melCheck);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageDeviceId, storageDeviceName, storageDeviceWWN, processingTimeMS, rerun, storageDeviceAccessible, spmDatabaseVerification, configurationDatabaseCheck, objectGraphSyncCheck, volumeGroupsComplete, controllerStatusOptimal, hotSparesInUse, missingVolumes, driveCheck, exclusiveOperations, failedDrivesPresent, validPasswordSet, melCheck, successful);
+    return Objects.hash(storageDeviceId, storageDeviceName, storageDeviceWWN, processingTimeMS, rerun, successful, storageDeviceAccessible, spmDatabaseVerification, configurationDatabaseCheck, objectGraphSyncCheck, volumeGroupsComplete, controllerStatusOptimal, hotSparesInUse, missingVolumes, driveCheck, exclusiveOperations, failedDrivesPresent, validPasswordSet, melCheck);
   }
 
   @Override
@@ -482,6 +482,7 @@ public class FirmwareUpgradeHealthCheckResult   {
     sb.append("    storageDeviceWWN: ").append(toIndentedString(storageDeviceWWN)).append("\n");
     sb.append("    processingTimeMS: ").append(toIndentedString(processingTimeMS)).append("\n");
     sb.append("    rerun: ").append(toIndentedString(rerun)).append("\n");
+    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("    storageDeviceAccessible: ").append(toIndentedString(storageDeviceAccessible)).append("\n");
     sb.append("    spmDatabaseVerification: ").append(toIndentedString(spmDatabaseVerification)).append("\n");
     sb.append("    configurationDatabaseCheck: ").append(toIndentedString(configurationDatabaseCheck)).append("\n");
@@ -495,7 +496,6 @@ public class FirmwareUpgradeHealthCheckResult   {
     sb.append("    failedDrivesPresent: ").append(toIndentedString(failedDrivesPresent)).append("\n");
     sb.append("    validPasswordSet: ").append(toIndentedString(validPasswordSet)).append("\n");
     sb.append("    melCheck: ").append(toIndentedString(melCheck)).append("\n");
-    sb.append("    successful: ").append(toIndentedString(successful)).append("\n");
     sb.append("}");
     return sb.toString();
   }

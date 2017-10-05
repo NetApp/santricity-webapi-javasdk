@@ -42,11 +42,9 @@ import java.util.Objects;
  * Updates the RemoteVolumeMirror Data.
  */
 @ApiModel(description = "Updates the RemoteVolumeMirror Data.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class RemoteVolumeMirrorUpdateRequest   {
   
-    private String ref;
-
     private String baseVolumeId;
 
     private String remoteVolumeId;
@@ -84,25 +82,6 @@ public class RemoteVolumeMirrorUpdateRequest   {
     private Integer writeMode;
 
     private Boolean autoResync;
-
-  
-  /**
-   * Remote Volume Mirror Ref.
-   **/
-  public RemoteVolumeMirrorUpdateRequest ref(String ref) {
-    this.ref = ref;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "Remote Volume Mirror Ref.")
-  @JsonProperty("ref")
-  public String getRef() {
-    return ref;
-  }
-  
-  public void setRef(String ref) {
-    this.ref = ref;
-  }
 
   
   /**
@@ -245,8 +224,7 @@ public class RemoteVolumeMirrorUpdateRequest   {
       return false;
     }
     RemoteVolumeMirrorUpdateRequest remoteVolumeMirrorUpdateRequest = (RemoteVolumeMirrorUpdateRequest) o;
-    return Objects.equals(this.ref, remoteVolumeMirrorUpdateRequest.ref) &&
-        Objects.equals(this.baseVolumeId, remoteVolumeMirrorUpdateRequest.baseVolumeId) &&
+    return Objects.equals(this.baseVolumeId, remoteVolumeMirrorUpdateRequest.baseVolumeId) &&
         Objects.equals(this.remoteVolumeId, remoteVolumeMirrorUpdateRequest.remoteVolumeId) &&
         Objects.equals(this.role, remoteVolumeMirrorUpdateRequest.role) &&
         Objects.equals(this.updateType, remoteVolumeMirrorUpdateRequest.updateType) &&
@@ -257,7 +235,7 @@ public class RemoteVolumeMirrorUpdateRequest   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ref, baseVolumeId, remoteVolumeId, role, updateType, priority, writeMode, autoResync);
+    return Objects.hash(baseVolumeId, remoteVolumeId, role, updateType, priority, writeMode, autoResync);
   }
 
   @Override
@@ -265,7 +243,6 @@ public class RemoteVolumeMirrorUpdateRequest   {
     StringBuilder sb = new StringBuilder();
     sb.append("class RemoteVolumeMirrorUpdateRequest {\n");
     
-    sb.append("    ref: ").append(toIndentedString(ref)).append("\n");
     sb.append("    baseVolumeId: ").append(toIndentedString(baseVolumeId)).append("\n");
     sb.append("    remoteVolumeId: ").append(toIndentedString(remoteVolumeId)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");

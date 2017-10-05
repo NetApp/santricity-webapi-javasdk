@@ -44,6 +44,33 @@ public class GApiTest {
     private final GApi api = new GApi();
     
     /**
+     * Generates a Key Management Server (KMS) Client Certificate Signing Request (CSR) that needs to be signed by a Certificate Authority (CA). The resulting signed certificate or client certificate is installed on the storage array for authenticating with the KMIP server.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolGenerateCertificateSigningRequestTest() throws ApiException {
+        
+        String systemId = null;
+        
+        KMSClientCSRDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        KMSCertificateFileReturn response = api.symbolGenerateCertificateSigningRequest(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Allows a client to fetch a set of entries that have the alertable, needs attention, or collect support bundle flag set from the array&#39;s MEL for analysis or display.
      *
      * Documented return codes: ok, error. 
@@ -615,6 +642,33 @@ public class GApiTest {
         
         try{
         CumulativeStatisticsBundleListReturned response = api.symbolGetCumulativeStatisticsBundles(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure collects the wear life statistic information for the requested devices and returns this up to date information.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolGetCurrentSSDWearLifeStatsTest() throws ApiException {
+        
+        String systemId = null;
+        
+        CurrentSSDWearLifeStatsDescriptor body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        CurrentSSDWearLifeStatsResults response = api.symbolGetCurrentSSDWearLifeStats(systemId, body, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -1670,6 +1724,31 @@ public class GApiTest {
     }
     
     /**
+     * This procedure returns the NVMeoF statistics, which consist of start-of-day-relative interface/queue statistics and baseline-relative interface/queue statistics.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolGetNVMeoFStatisticsTest() throws ApiException {
+        
+        String systemId = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        NVMeoFStatisticsReturned response = api.symbolGetNVMeoFStatistics(systemId, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * This procedure causes all configuration and state information to be returned to the requester. The information is conveyed in the form of an object graph. The ObjectBundle object contains a set of all known logical and physical components. The reference values within these objects can be analyzed to determine the interrelationships and linkages between the key objects, and thus to establish the true graph-oriented image of the storage array state.
      *
      * Documented return codes: ok. 
@@ -2131,6 +2210,31 @@ public class GApiTest {
         
         try{
         SAViewPasswordDigestReturned response = api.symbolGetSAViewPasswordDigest(systemId, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * This procedure is used to retrieve the information collected by a SSD Block Allocation Scan. The requested devices and type of scan is set by the startSSDBlockAllocationScan procedure.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolGetSSDBlockAllocationScanStatusTest() throws ApiException {
+        
+        String systemId = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        SSDBlockAllocationScanStatusResults response = api.symbolGetSSDBlockAllocationScanStatus(systemId, controller, verboseErrorResponse);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * SACache
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class SACache   {
   
     private Integer cacheBlkSize;
@@ -53,6 +53,8 @@ public class SACache   {
     private String reserved1;
 
     private String reserved2;
+
+    private Boolean cacheMirroringProtectionInformation;
 
   
   /**
@@ -148,6 +150,25 @@ public class SACache   {
   }
 
   
+  /**
+   * True if checking of protection information during cache mirroring is enabled, false otherwise.
+   **/
+  public SACache cacheMirroringProtectionInformation(Boolean cacheMirroringProtectionInformation) {
+    this.cacheMirroringProtectionInformation = cacheMirroringProtectionInformation;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "True if checking of protection information during cache mirroring is enabled, false otherwise.")
+  @JsonProperty("cacheMirroringProtectionInformation")
+  public Boolean getCacheMirroringProtectionInformation() {
+    return cacheMirroringProtectionInformation;
+  }
+  
+  public void setCacheMirroringProtectionInformation(Boolean cacheMirroringProtectionInformation) {
+    this.cacheMirroringProtectionInformation = cacheMirroringProtectionInformation;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -162,12 +183,13 @@ public class SACache   {
         Objects.equals(this.demandFlushAmount, sACache.demandFlushAmount) &&
         Objects.equals(this.demandFlushThreshold, sACache.demandFlushThreshold) &&
         Objects.equals(this.reserved1, sACache.reserved1) &&
-        Objects.equals(this.reserved2, sACache.reserved2);
+        Objects.equals(this.reserved2, sACache.reserved2) &&
+        Objects.equals(this.cacheMirroringProtectionInformation, sACache.cacheMirroringProtectionInformation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheBlkSize, demandFlushAmount, demandFlushThreshold, reserved1, reserved2);
+    return Objects.hash(cacheBlkSize, demandFlushAmount, demandFlushThreshold, reserved1, reserved2, cacheMirroringProtectionInformation);
   }
 
   @Override
@@ -180,6 +202,7 @@ public class SACache   {
     sb.append("    demandFlushThreshold: ").append(toIndentedString(demandFlushThreshold)).append("\n");
     sb.append("    reserved1: ").append(toIndentedString(reserved1)).append("\n");
     sb.append("    reserved2: ").append(toIndentedString(reserved2)).append("\n");
+    sb.append("    cacheMirroringProtectionInformation: ").append(toIndentedString(cacheMirroringProtectionInformation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

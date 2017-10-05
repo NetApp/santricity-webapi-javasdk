@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ConfigurationApi {
   private ApiClient apiClient;
 
@@ -60,7 +60,7 @@ public class ConfigurationApi {
   
   /**
    * Dispatch the ASUP bundle
-   * Mode: Both Embedded and Proxy. 
+   * 
    * @param body  (optional)
    * @return AsupResponse
    * @throws ApiException if fails to make API call
@@ -102,7 +102,7 @@ public class ConfigurationApi {
   
   /**
    * Retrieve ASUP configuration info
-   * Mode: Both Embedded and Proxy. 
+   * 
    * @return AsupResponse
    * @throws ApiException if fails to make API call
    */
@@ -143,7 +143,7 @@ public class ConfigurationApi {
   
   /**
    * Get the current result data for the last operation, if no operation has been done, an empty body is returned
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Proxy only. 
    * @return ConfigurationResult
    * @throws ApiException if fails to make API call
    */
@@ -184,7 +184,7 @@ public class ConfigurationApi {
   
   /**
    * Returns a list of known configuration items that can be used by this server
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Proxy only. 
    * @return List<String>
    * @throws ApiException if fails to make API call
    */
@@ -225,7 +225,7 @@ public class ConfigurationApi {
   
   /**
    * Register the ASUP bundle
-   * Mode: Both Embedded and Proxy. 
+   * 
    * @param body  (optional)
    * @return String
    * @throws ApiException if fails to make API call
@@ -267,7 +267,7 @@ public class ConfigurationApi {
   
   /**
    * Starts a new bulk configuration operation. If an operation is already running a 200 is returned. If a new operation is started, a 201 is returned
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Proxy only. 
    * @param body  (optional)
    * @return ConfigurationResult
    * @throws ApiException if fails to make API call
@@ -309,7 +309,7 @@ public class ConfigurationApi {
   
   /**
    * Interrupts any current configuration process
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Proxy only. 
    * @throws ApiException if fails to make API call
    */
   public void stopConfiguration() throws ApiException {
@@ -348,7 +348,7 @@ public class ConfigurationApi {
   
   /**
    * Update ASUP configuration info
-   * Mode: Both Embedded and Proxy. 
+   * 
    * @param body  (optional)
    * @return AsupResponse
    * @throws ApiException if fails to make API call
@@ -390,7 +390,7 @@ public class ConfigurationApi {
   
   /**
    * Used to validate an input CSV file previously uploaded
-   * Mode: Both Embedded and Proxy. 
+   * Mode: Proxy only. 
    * @param body  (optional)
    * @return ValidateConfiurationFileResponse
    * @throws ApiException if fails to make API call

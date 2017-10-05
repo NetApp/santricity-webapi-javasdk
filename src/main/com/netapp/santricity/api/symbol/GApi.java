@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class GApi {
   private ApiClient apiClient;
 
@@ -59,9 +59,69 @@ public class GApi {
 
   
   /**
+   * Generates a Key Management Server (KMS) Client Certificate Signing Request (CSR) that needs to be signed by a Certificate Authority (CA). The resulting signed certificate or client certificate is installed on the storage array for authenticating with the KMIP server.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return KMSCertificateFileReturn
+   * @throws ApiException if fails to make API call
+   */
+  public KMSCertificateFileReturn symbolGenerateCertificateSigningRequest(String systemId, KMSClientCSRDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolGenerateCertificateSigningRequest");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolGenerateCertificateSigningRequest");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/generateCertificateSigningRequest".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<KMSCertificateFileReturn> localVarReturnType = new GenericType<KMSCertificateFileReturn>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Allows a client to fetch a set of entries that have the alertable, needs attention, or collect support bundle flag set from the array&#39;s MEL for analysis or display.
    * Documented return codes: ok, error. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The range of MEL entries. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +181,7 @@ public class GApi {
   /**
    * This procedure is used to get the current Autosupport status values.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return AsupStatusReturned
@@ -175,7 +235,7 @@ public class GApi {
   /**
    * This procedure returns information on the connections established to a remote array for an existing AsyncMirrorGroup. This will return connection information for both controllers.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -235,7 +295,7 @@ public class GApi {
   /**
    * This procedure will return sync progress information for Async Mirror Groups and their associated members. Calls to this procedure are valid even when a sync is not running.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of Asynchronous Mirror Group references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -295,7 +355,7 @@ public class GApi {
   /**
    * This procedure will return repository utilization information for async mirror members.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of Asynchronous Mirror Group member references. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -355,7 +415,7 @@ public class GApi {
   /**
    * This procedure will return synchronization time statistics for a list of mirror members.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -415,7 +475,7 @@ public class GApi {
   /**
    * This procedure automatically gets the configuration candidates.
    * Documented return codes: ok, illegalParam, noHeap, driveNotExist, internalError, invalidSegmentsize, raid6FeatureUnsupported, raid6FeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains a list of automatic configuration templates. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -475,7 +535,7 @@ public class GApi {
   /**
    * Retrieves the status of a running, interrupted, or completed base controller diagnostic test.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return FruDiagReturn
@@ -529,7 +589,7 @@ public class GApi {
   /**
    * Retrieves the status of a running, interrupted, or completed cache backup device diagnostic test.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return FruDiagReturn
@@ -583,7 +643,7 @@ public class GApi {
   /**
    * Retrieves the status of a running, interrupted, or completed cache memory diagnostic test.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return FruDiagReturn
@@ -637,7 +697,7 @@ public class GApi {
   /**
    * This procedure is used by clients to query the controller for indications of state changes that have occurred and which would necessitate that the client refresh its view of the storage array&#39;s state. If no state changes need to be reported, the controller will generally hold this request, without responding, for up to the amount of time specified in the argument. If, at any time during the hold period, a state change occurs, the controller will return immediately with the new configuration generation number and/or MEL sequence number. By using this hanging poll approach, the amount of traffic between the client and the server is reduced to an insignificant level, and yet near-immediate notification of changes is still possible.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A ChangeQueryDescriptor object that identifies the caller&#39;s current understanding of the storage array&#39;s state, along with an indication of the maximum hold time for this request. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -697,7 +757,7 @@ public class GApi {
   /**
    * This procedure reports the results of drive channel fault isolation diagnostic tests that were initiated by the startChannelDIagnostics procedure.
    * Documented return codes: ok, channelDiagsRunning, channelDiagsResultsPartial, channelDiagsResultsNotAvailable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return ChannelDiagResultsReturned
@@ -751,7 +811,7 @@ public class GApi {
   /**
    * This procedures returns the performance limitation values for a host cluster. Those values include the limits on the IOPs and throughput (MB/s). The number of IOPs impacted by the performance limits is also returned.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This procedure takes a cluster reference as an input parameter. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -811,7 +871,7 @@ public class GApi {
   /**
    * This procedure replaces the deprecated stateCapture procedure. It returns a single \&quot;chunk\&quot; of debug information and must be used in a series of like calls in order to retrieve the complete set of debug information.
    * Documented return codes: ok, illegalParam, tryAlternate, noSuchDebugChunk, debugInfoConfigChanged. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A DebugInfoExtent structure containing three pieces of information: a reference to the controller that is to return the data, a \&quot;handle\&quot; identifying a single mutually-consistent set of chunks, and a chunk number that identifies the specific chunk to be returned. On the request for the initial chunk (chunk zero), the handle is not significant. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -871,7 +931,7 @@ public class GApi {
   /**
    * This procedure is used by clients to query the referenced controller for up-to-date information about its host-side I/O interfaces. Since this interface information is highly volatile, the object graph data contains only a point-in-time snapshot of the interface data. This procedure can be used to obtain current information that may not be reflected in the most recent object graph.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IOInterfaceTypeDataList
@@ -925,7 +985,7 @@ public class GApi {
   /**
    * NOTE: object graph data may not be the most recent.
    * Documented return codes: ok, tryAlternate. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the controller for which the I/O interface information is desired. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -985,7 +1045,7 @@ public class GApi {
   /**
    * This procedure allows a client to fetch the data that resides within a designated region of the controller&#39;s NVSRAM. Note that the NVSRAM data is obtained only from the controller to which this request is directed.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An NVSRAMRegionId value that identifies the region whose data is to be retrieved. The caller is allowed to specify that all NVSRAM regions be obtained, if desired. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1045,7 +1105,7 @@ public class GApi {
   /**
    * This procedure gets the internal clock from the controllers. The time is expressed in seconds since midnight (GMT) on 1/1/1970.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return ControllerTime
@@ -1099,7 +1159,7 @@ public class GApi {
   /**
    * This procedure allows a client to fetch a set of entries with a priority value of EVENT_PRIORITY_CRITICAL from the storage array&#39;s Major Event Log for analysis or display. If there are less critical MEL events than MEL_MAX_XFER_COUNT, all the critical events will be displayed on the first call. If the client receives a number of critical MEL events that is equal to MEL_MAX_XFER_COUNT, then the user must increment the first sequence number to be the highest sequence number in the list of entries returned and repeat the procedure. This process must be repeated until the number of entries returned is less than MEL_MAX_XFER_COUNT.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A MelExtent object that provides the sequence number of the first and last MEL entries to be retrieved. All critical entries between these two numbers (inclusive) will be transferred to the caller as the result of the operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1159,7 +1219,7 @@ public class GApi {
   /**
    * Returns a structure containing information about the controller if it is locked down.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return LockDownInfoReturned
@@ -1213,7 +1273,7 @@ public class GApi {
   /**
    * This procedure returns up to two groups of statistical counters, one per controller, bundled together. A counter group is a set of related statistical counters, accumulated over a period of time, along with the associated base time.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A CumulativeStatisticsDescriptor structure describing the statistics of interest. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1273,7 +1333,7 @@ public class GApi {
   /**
    * This procedure is used to request a list of bundles of statistical data. The argument describes the statistics being requested.
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An object containing all of the required elements for the procedure. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1331,9 +1391,69 @@ public class GApi {
   }
   
   /**
+   * This procedure collects the wear life statistic information for the requested devices and returns this up to date information.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body Descriptor specifying details of the get current SSD wear life statistics request. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return CurrentSSDWearLifeStatsResults
+   * @throws ApiException if fails to make API call
+   */
+  public CurrentSSDWearLifeStatsResults symbolGetCurrentSSDWearLifeStats(String systemId, CurrentSSDWearLifeStatsDescriptor body, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolGetCurrentSSDWearLifeStats");
+    }
+    
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling symbolGetCurrentSSDWearLifeStats");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/getCurrentSSDWearLifeStats".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<CurrentSSDWearLifeStatsResults> localVarReturnType = new GenericType<CurrentSSDWearLifeStatsResults>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure is used to request the information about a DPL core dump. The parameter is a DPL Core Dump Tag. The value of the tag is unique for each core dump and may be obtained from the DPLCoreDumpData structure in StorageArray.
    * Documented return codes: ok, dplCoreDumpInvalidTag. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The integer value of the dplCoreDumpTag for which you are requesting information. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1393,7 +1513,7 @@ public class GApi {
   /**
    * This procedure gets a list of volumes encroaching the requested Dacstore area.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A number representing the size of a Dacstore in bytes. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1453,7 +1573,7 @@ public class GApi {
   /**
    * This procedure is used to retrieve stable store database metadata.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DatabaseMetadataReturned
@@ -1507,7 +1627,7 @@ public class GApi {
   /**
    * This procedure allows a client to retrieve diagnostic information from the storage array&#39;s diagnostic data capture. The client must specify a correct tag and appropriate chunk number. In case of failure, the client must either (1) retry the current chunk number or (2) discard any partially-received log data and retry from the first chunk number (which is one - zero is not a valid chunk number).
    * Documented return codes: ok, illegalParam, ddcUnavail, invalidDdcTag. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A DdcExtent structure specifying the chunk to be retrieved. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1567,7 +1687,7 @@ public class GApi {
   /**
    * This returns up to two groups of discrete time series statistics, one per controller
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the discrete time series statistics to return. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1627,7 +1747,7 @@ public class GApi {
   /**
    * This procedure returns a list of drive sets that are candidates for use in expanding the given Disk Pool.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the Disk Pool to be expanded. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1687,7 +1807,7 @@ public class GApi {
   /**
    * This procedure will return the maximum Reserved Drive Count possible on a disk pool.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the Disk Pool for which you want the maximum reserved drive count. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1747,7 +1867,7 @@ public class GApi {
   /**
    * This procedure calculates the maximum number of drives that can be removed from a disk pool.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1807,7 +1927,7 @@ public class GApi {
   /**
    * This procedure gets statistical information about all of the drive channels.
    * Documented return codes: ok, error, noHeap. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DriveChannelList
@@ -1861,7 +1981,7 @@ public class GApi {
   /**
    * This procedure gets the progress of the firmware download.
    * Documented return codes: ok, error, illegalParam, noHeap, tryAlternate, invalidRequest, cacheSyncFailure, downloadInProgress, missingData, quiescenceFailed, allFailed, partialOk. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DriveFirmwareStatus
@@ -1915,7 +2035,7 @@ public class GApi {
   /**
    * This procedure gets the drive&#39;s log sense pages.
    * Documented return codes: ok, noHeap, internalError, invalidDriveref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information identifying all drives that are affected by this operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -1975,7 +2095,7 @@ public class GApi {
   /**
    * This procedure retrieves temperature data for drives in the storage array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return DriveTemperatureReturned
@@ -2029,7 +2149,7 @@ public class GApi {
   /**
    * This procedure will retrieve state capture information from controller and expansion enclosures, including DCMs, if any. Send the command to both controllers if the tray is an RBOD.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The ref corresponding to the enclosure for which the data is requested. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2089,7 +2209,7 @@ public class GApi {
   /**
    * This procedure retrieves temperature data for each thermal sensor in each enclosure in the storage array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return TrayTemperatureReturned
@@ -2143,7 +2263,7 @@ public class GApi {
   /**
    * This procedure is used to request Energy Star data from all power supplies.
    * Documented return codes: ok, unsupportedEsmRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return EnergyStarDataReturn
@@ -2197,7 +2317,7 @@ public class GApi {
   /**
    * This procedure returns the InfiniBand statistics, which consists of start-of-day-relative interface statistics and baseline-relative statistics. It supersedes the deprecated getIbStatistics () routine.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return EnhancedIbStatisticsReturned
@@ -2251,7 +2371,7 @@ public class GApi {
   /**
    * This procedure gets the log data for the indicated environmental card.
    * Documented return codes: ok, noHeap, internalError, invalidEsmref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The argument is a component reference indicating the environmental card which is to have its log data returned. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2311,7 +2431,7 @@ public class GApi {
   /**
    * This procedure returns a list of volume group export dependencies for the identified volume group. The returned list consists of the input volume group&#39;s immediate export dependencies only. The procedure does not return transitive dependencies. It is up to the caller to create the complete dependency graph through successive calls to this procedure.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol VolumeGroupRef identifying the volume group for which export dependencies are to be reported. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2371,7 +2491,7 @@ public class GApi {
   /**
    * This procedure retrieves analytics data from the last capture period. It returns the cache hits for various sizes of flash cache.
    * Documented return codes: ok, error, illegalParam, internalError, invalidVolumeref, notFlashcacheVol, flashcacheInvalidAnalyticsState. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2431,7 +2551,7 @@ public class GApi {
   /**
    * This procedure is used to retrieve flash cache statistics.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2491,7 +2611,7 @@ public class GApi {
   /**
    * This procedure returns up to two groups of histogram statistics, one per controller,
    * Documented return codes: ok, error, illegalParam, invalidRequest. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A StatStreamId object that identifies the histogram statistics to return. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2551,7 +2671,7 @@ public class GApi {
   /**
    * Retrieves the status of a running, interrupted, or completed host card diagnostic test.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return FruDiagReturn
@@ -2605,7 +2725,7 @@ public class GApi {
   /**
    * This procedure allows the Host Specific NVSRAM region to be read to obtain information for a specific host.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An NVSRAMRegionIDAndHostIndex object that specifies the region ID (in this case 0xF2) and the host index for a specific host. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2665,7 +2785,7 @@ public class GApi {
   /**
    * This procedure returns a list of hot spare candidates with the volume groups that they potentially cover.
    * Documented return codes: ok, noHeap, internalError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body This object contains information describing the physical drive types supported. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2725,7 +2845,7 @@ public class GApi {
   /**
    * This procedure returns a list of all hot spare drives and their volume groups.
    * Documented return codes: ok, noHeap, volumeNotExist. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return HotSpareCoverageList
@@ -2779,7 +2899,7 @@ public class GApi {
   /**
    * This procedure is used to request information about an IOC Dump. The parameter is an IOC Dump Tag. The value of the tag is unique for each dump and may be obtained from the IOCDumpData structure in StorageArray.
    * Documented return codes: ok, iocDumpInvalidTag. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -2839,7 +2959,7 @@ public class GApi {
   /**
    * This procedure returns attribute information for each InfiniBand I/O controller that is part of the Infiniband I/O Unit. An InfiniBand I/O Controller is a logical entity defined in the InfiniBand Architecture. It does not correlate one-to-one with a storage array controller
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IbIocAttributesReturned
@@ -2893,7 +3013,7 @@ public class GApi {
   /**
    * This procedure returns a group of InfiniBand port partition tables, one table for each InfiniBand port of the Infiniband I/O Unit (i.e., storage array).
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IbPortPartitionTablesReturned
@@ -2947,7 +3067,7 @@ public class GApi {
   /**
    * This procedure returns various items of information about InfiniBand RDMA channels that are presently active in the Infiniband I/O Unit (i.e., storage array).
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IbRdmaChannelsReturned
@@ -3001,7 +3121,7 @@ public class GApi {
   /**
    * This procedure returns the InfiniBand statistics, which consist of start-of-day-relative interface statistics, baseline-relative interface statistics, target channel adapter statistics, and RDMA channel statistics.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IbStatisticsReturned
@@ -3055,7 +3175,7 @@ public class GApi {
   /**
    * This procedure returns a list of volume group import dependencies for the identified volume group. The reported information identifies the types of dependencies that exist for the volume group. It is necessary for this procedure to spin up the drives in the volume group so that their configuration databases can be read. An error is returned if the volume group is not in the exported or forced state.
    * Documented return codes: ok, volumeGroupStateNotValid, driveSpinUpError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbol VolumeGroupRef identifying the volume group for which import dependencies are to be reported. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3115,7 +3235,7 @@ public class GApi {
   /**
    * This procedure will perform diagnostic tests on all channels of a given iSCSI HIC. These diagnostics are dependent on the PHY used on a particular HIC, so they may not be available on all ports of the controller.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body Information used to start iSCSI cable diagnostics. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3175,7 +3295,7 @@ public class GApi {
   /**
    * This procedure returns the default values for negotiable settings for sessions and connections. These represent the storage array&#39;s starting point for negotiations.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return IscsiNegotiationDefaultsReturned
@@ -3229,7 +3349,7 @@ public class GApi {
   /**
    * This procedure returns data about active iSCSI sessions.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A GetIscsiSessionsFilter object that indicates that either all or a subset of the session data should be returned. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3289,7 +3409,7 @@ public class GApi {
   /**
    * This procedure returns iSCSI statistical data collected by the storage array. The caller may request either the \&quot;raw\&quot; counts, which are relative to controller start-of-day, or baseline-relative counters, which are relative to the baseline which was last set using the setIscsiStatisticsBaselilne procedure. If the user has not set a baseline since controller start-of-day, then the time at start-of-day is the default baseline time.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An IscsiStatisticsReportType object that indicates if the reported statistics should be the raw or baseline-relative counters. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3349,7 +3469,7 @@ public class GApi {
   /**
    * This procedure returns a list of LUN mappings that apply to the object identified by the argument SYMbolRef.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The SYMbolRef value of the entity for which applicable LUN mappings are to be returned. For example, to find all LUN mappings that apply to a particular Cluster object, the associated ClusterRef would be used as the argument. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3409,7 +3529,7 @@ public class GApi {
   /**
    * This procedure will report progress on each actively running long-lived operation.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return LongLivedOpsProgressReturn
@@ -3463,7 +3583,7 @@ public class GApi {
   /**
    * This procedure allows a client to fetch a set of entries from the storage array&#39;s Major Event Log for analysis or display. Note that the MEL_MAX_XFER_COUNT constant specifies that maximum number of entries that can be requested in one operation. If more entries are needed, the client must fetch them iteratively, ensuring that no single request exceeds the transfer limit.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A MelExtent object that provides the sequence number of the first and last MEL entries to be retrieved. All entries between these two numbers (inclusive) will be transferred to the caller as a result of this operation. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3523,7 +3643,7 @@ public class GApi {
   /**
    * This procedure is used to determine the head and tail sequence numbers of entries in the storage array&#39;s Major Event Log. The client can use these values to manage controlled fetching of log entries.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return MelExtent
@@ -3577,7 +3697,7 @@ public class GApi {
   /**
    * This procedure returns the amount of storage required for a metadata volume.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The metadata volume type e.g. remote volume mirror metadata. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3635,9 +3755,63 @@ public class GApi {
   }
   
   /**
+   * This procedure returns the NVMeoF statistics, which consist of start-of-day-relative interface/queue statistics and baseline-relative interface/queue statistics.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return NVMeoFStatisticsReturned
+   * @throws ApiException if fails to make API call
+   */
+  public NVMeoFStatisticsReturned symbolGetNVMeoFStatistics(String systemId, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolGetNVMeoFStatistics");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/getNVMeoFStatistics".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<NVMeoFStatisticsReturned> localVarReturnType = new GenericType<NVMeoFStatisticsReturned>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure causes all configuration and state information to be returned to the requester. The information is conveyed in the form of an object graph. The ObjectBundle object contains a set of all known logical and physical components. The reference values within these objects can be analyzed to determine the interrelationships and linkages between the key objects, and thus to establish the true graph-oriented image of the storage array state.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return ObjectBundle
@@ -3691,7 +3865,7 @@ public class GApi {
   /**
    * This procedure will return repository utilization information for PiT groups.
    * Documented return codes: ok, invalidPitGroupRef. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of PiT groups for which to return repository utilization. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3751,7 +3925,7 @@ public class GApi {
   /**
    * This procedure will return repository utilization information for PiT Views.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of PiT Views for which to return repository utilization. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3811,7 +3985,7 @@ public class GApi {
   /**
    * This procedure returns a list of persistent registrations on the array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return PRegistrationList
@@ -3865,7 +4039,7 @@ public class GApi {
   /**
    * This procedure returns a list of the persistent registrations for the specified volume.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The AbstractVolRef object for the specific volume. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -3925,7 +4099,7 @@ public class GApi {
   /**
    * This procedure is used to check the progress of a power supply firmware update operation.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return PSUFirmwareUpdateStatus
@@ -3979,7 +4153,7 @@ public class GApi {
   /**
    * This procedure returns an indication of the progress of an explicit parity check operation on a particular volume. This procedure is deprecated. The scanVolume procedure should be used instead.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The AbstractVolRef value for the volume whose parity check operation is being queried. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4039,7 +4213,7 @@ public class GApi {
   /**
    * 
    * Documented return codes: ok, noHeap, internalError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return CheckedPendingHostListReturned
@@ -4093,7 +4267,7 @@ public class GApi {
   /**
    * Get the list of persistent registrations on the array OBSOLETE: Any call to getPersistantReservations will get a return status indicating the command is obsolete. Please use the new command getPRegistrations.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return PersistentRegistrationList
@@ -4147,7 +4321,7 @@ public class GApi {
   /**
    * Get the persistent registrations for the specified volume. The list will contain no more than one PersistentRegistration element. OBSOLETE: Any call to getPersistantReservationsForVolume will get a return status indicating the command is obsolete. Please use the new commands getPRegistrationsForVolume.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4207,7 +4381,7 @@ public class GApi {
   /**
    * This procedure retrieves a list of product capabilities supported by the array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return ProductCapabilityList
@@ -4261,7 +4435,7 @@ public class GApi {
   /**
    * This procedure returns the Read Link Status information.
    * Documented return codes: ok, dstNotFibre. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A RLS Command Descriptor that provides the type of RLS command. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4321,7 +4495,7 @@ public class GApi {
   /**
    * This procedure is used by clients to obtain information about all component or logic failures on the storage array that require some form of recovery action.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return FailureTypeList
@@ -4375,7 +4549,7 @@ public class GApi {
   /**
    * This procedure returns information on the available connections between two arrays. This can be used prior to creation of an AsyncMirrorGroup to determine if there are wiring or other connection configuration issues between the two arrays. A call to this procedure acts like a ping test between the arrays and returns back information on the connections that succeed. This must be issued to each controller independently and should be called in fibre channel environments after activation of fibre channel remote mirroring.
    * Documented return codes: ok, notImplemented. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4435,7 +4609,7 @@ public class GApi {
   /**
    * This procedure is used by clients to obtain information about the utilization of the repository volume for selected snapshots.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of snapshot volume reference values. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4495,7 +4669,7 @@ public class GApi {
   /**
    * This procedure returns an object that contains high-level status information about the storage array as a whole.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return SAData
@@ -4549,7 +4723,7 @@ public class GApi {
   /**
    * Retrieves a storage array port. OBSOLETE: Any call to getSAPort will get a return status indicating the command is obsolete. No alternative procedure is available.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4609,7 +4783,7 @@ public class GApi {
   /**
    * This procedure is used to retrieve the digest of the view array password and its associated salt value which are saved in the array by the setViewPassword procedure. If the view array password isn&#39;t set, the procedure returns a random salt value and the digest of the salt value message.
    * Documented return codes: ok, adminPasswordNotSet. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return SAViewPasswordDigestReturned
@@ -4661,9 +4835,63 @@ public class GApi {
   }
   
   /**
+   * This procedure is used to retrieve the information collected by a SSD Block Allocation Scan. The requested devices and type of scan is set by the startSSDBlockAllocationScan procedure.
+   * Documented return codes: ok. 
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param controller Controller selection (optional, default to auto)
+   * @param verboseErrorResponse  (optional, default to true)
+   * @return SSDBlockAllocationScanStatusResults
+   * @throws ApiException if fails to make API call
+   */
+  public SSDBlockAllocationScanStatusResults symbolGetSSDBlockAllocationScanStatus(String systemId, String controller, Boolean verboseErrorResponse) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling symbolGetSSDBlockAllocationScanStatus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/symbol/getSSDBlockAllocationScanStatus".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "controller", controller));
+    
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "verboseErrorResponse", verboseErrorResponse));
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<SSDBlockAllocationScanStatusResults> localVarReturnType = new GenericType<SSDBlockAllocationScanStatusResults>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * This procedure returns the SAS PHY error statistics for all SAS devices in the storage array.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return SasStatisticsReturned
@@ -4717,7 +4945,7 @@ public class GApi {
   /**
    * This procedure returns SOC error statistics.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SOC command descriptor that indicates the devices for which statistics should be returned. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4777,7 +5005,7 @@ public class GApi {
   /**
    * This procedure returns the default values for system attributes.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return SystemAttributeDefaultsReturned
@@ -4831,7 +5059,7 @@ public class GApi {
   /**
    * This procedure will retrieve a thin volume&#39;s Expandable Repository Volume consumed capacity.
    * Documented return codes: ok, noHeap, invalidVolumeref, alternateRequiredForOperation, illegalVolume. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the thin volume for which you want the consumed capacity. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4891,7 +5119,7 @@ public class GApi {
   /**
    * This procedure will retrieve a thin volume&#39;s repository expansion history.
    * Documented return codes: ok, illegalParam, invalidVolumeref. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the thin volume for which you want the repository expansion history. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -4951,7 +5179,7 @@ public class GApi {
   /**
    * This procedure returns a list of initiators that have been detected by the storage array, but which are not configured into the storage array topology. An initiator is considered unconfigured if it is not associated with a host.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return UnconfiguredInitiatorsReturned
@@ -5005,7 +5233,7 @@ public class GApi {
   /**
    * This procedure returns information about host ports whose world-wide names are known to the controller, but which have not been defined as full HostPort objects via the SYMbol interface. Note that you only need to send the request to one of the controllers, and that the same list of unlabeled host ports are returned, regardless of which controller receives the request. This procedure does not apply to iSCSI. The getUnconfiguredInitiators procedure should be used instead.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return String
@@ -5059,7 +5287,7 @@ public class GApi {
   /**
    * This procedure returns an indication of the extent to which a long-running operation on a volume has completed. The set of supported long-running operations is defined by the VolumeAction enumeration. This procedure can also be called for a snapshot volume. The set of supported long-running operations for snapshot volumes is defined by the SnapshotAction enumeration.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body The value of the AbstractVolRef for the volume whose long-running operation is being queried. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5119,7 +5347,7 @@ public class GApi {
   /**
    * This procedure returns a list of volume candidates that can be used in an ensuing volume creation request.
    * Documented return codes: error, invalidSecurity, noFdeDrives, volumeGroupSecure. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A VolumeCandidateRequest descriptor that specifies the type of volume candidates to be returned to the caller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5179,7 +5407,7 @@ public class GApi {
   /**
    * This procedure returns a list of volume source candidates for creating a volume copy.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, iconFailure, maxVolumeCopysExceeded, volcopyFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
    * @return VolumeCopyCandidateList
@@ -5233,7 +5461,7 @@ public class GApi {
   /**
    * This procedure returns a list of volume target candidates for creating a volume copy.
    * Documented return codes: ok, illegalParam, noHeap, tryAlternate, iconFailure, maxVolumeCopysExceeded, volcopyFeatureDisabled. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body An AbstractVolRef descriptor that specifies the source volume for which the target candidates are requested (i.e. the source volume in the candidate copy relationship\u2026 the SYMbol client is requesting valid target volumes to use with this source volume). (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5293,7 +5521,7 @@ public class GApi {
   /**
    * The firmware prioritizes the properties of candidates for constructing the return list, subject to the volume group having a given property in the first place. The prioritization and ordering of the list is as follows:
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A reference to the volume group to which the candidates are to apply. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5353,7 +5581,7 @@ public class GApi {
   /**
    * This procedure returns a list of mirror volume candidates that can be used in an ensuing mirror volume creation request.
    * Documented return codes: ok, illegalParam, noHeap, internalError, invalidVolumeref, ghostVolume, metadataVolNonexistent, rvmFeatureDisabled, maxMirrorsExceeded, invalidMirrorCandidateVol, noValidMirrorCandidate, remoteMaxMirrorsExceeded, remoteRvmFeatureDisabled, remoteMetadataVolNonexistent, rvmVersionMismatch, rvmRemoteArrayError, rvmCommunicationError. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A MirrorVolumeCandidateRequest descriptor that specifies the type of mirror volume candidates to be returned to the caller. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -5413,7 +5641,7 @@ public class GApi {
   /**
    * This procedure is used by the client to retrieve performance monitoring data for one or more volumes.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of AbstractVolRef values of the volumes for which the caller wishes to obtain performance monitoring information. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

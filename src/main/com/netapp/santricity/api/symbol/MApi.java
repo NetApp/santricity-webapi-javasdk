@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class MApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class MApi {
   /**
    * This procedure is used to modify a list of schedules.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A list of schedule update descriptors. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -121,7 +121,7 @@ public class MApi {
   /**
    * Changes the Storage Partitions configuration for a Host object by modifying the host&#39;s cluster assignment.
    * Documented return codes: ok, partNodeNonexistent, partLunCollision, requestFailedDueToPiRestrictions. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbolRefPair object. The itemRef field of the argument is a HostRef that identifies the host being modified, and the containerRef field is a ClusterRef that identifies the cluster to which the host is to be moved. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -181,7 +181,7 @@ public class MApi {
   /**
    * Changes the Storage Partitions configuration for a HostPort object by modifying the port&#39;s host assignment. This procedure does not apply for iSCSI .
    * Documented return codes: ok, partNodeNonexistent, partLunCollision, requestFailedDueToPiRestrictions. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A SYMbolRefPair object. The itemRef field of the argument is a HostPortRef that identifies the host port being modified, and the containerRef field is a HostRef that identifies the host to which the port is to be moved. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -241,7 +241,7 @@ public class MApi {
   /**
    * Move a LUN mapping.
    * Documented return codes: ok, partNodeNonexistent, partLunCollision, partMappingNonexistent, partNoHostports, partIsUtmLun, tooManyPartitions, partPiIncapable. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body A LUNMappingUpdateDescriptor that provides the new values for the LUN used to access the mapped value, as well as the host/cluster for which the mapping applies. (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)
@@ -301,7 +301,7 @@ public class MApi {
   /**
    * Removes the SA Port &#39;itemRef&#39; from any SA Port Group that it might be in, &amp; moves it to the group &#39;containerRef&#39;. If this leaves the previous SAPortGroup empty, the previous SAPortGroup is deleted. OBSOLETE: Any call to moveSAPort will get a return status indicating the command is obsolete. No alternative procedure is available.
    * Documented return codes: ok. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (required)
    * @param controller Controller selection (optional, default to auto)
    * @param verboseErrorResponse  (optional, default to true)

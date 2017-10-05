@@ -42,12 +42,10 @@ import java.util.Objects;
  * Key value pair.  Can be a key to single value or key to valueList.
  */
 @ApiModel(description = "Key value pair.  Can be a key to single value or key to valueList.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class KeyValue   {
   
     private String key;
-
-    private String value;
 
     private List<String> valueList;
 
@@ -68,25 +66,6 @@ public class KeyValue   {
   
   public void setKey(String key) {
     this.key = key;
-  }
-
-  
-  /**
-   * Single value item. If this is populated it is used. This field is deprecated.
-   **/
-  public KeyValue value(String value) {
-    this.value = value;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "Single value item. If this is populated it is used. This field is deprecated.")
-  @JsonProperty("value")
-  public String getValue() {
-    return value;
-  }
-  
-  public void setValue(String value) {
-    this.value = value;
   }
 
   
@@ -120,13 +99,12 @@ public class KeyValue   {
     }
     KeyValue keyValue = (KeyValue) o;
     return Objects.equals(this.key, keyValue.key) &&
-        Objects.equals(this.value, keyValue.value) &&
         Objects.equals(this.valueList, keyValue.valueList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, value, valueList);
+    return Objects.hash(key, valueList);
   }
 
   @Override
@@ -135,7 +113,6 @@ public class KeyValue   {
     sb.append("class KeyValue {\n");
     
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    valueList: ").append(toIndentedString(valueList)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -134,7 +134,7 @@ public class DiagnosticsApiTest {
     /**
      * Retrieve the status of a pending data retrieval request
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -157,7 +157,7 @@ public class DiagnosticsApiTest {
     /**
      * Retrieve the syslog configuration
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -178,7 +178,7 @@ public class DiagnosticsApiTest {
     /**
      * Update the syslog configuration
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -201,7 +201,7 @@ public class DiagnosticsApiTest {
     /**
      * Initiate a support data retrieval request
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails
@@ -245,7 +245,7 @@ public class DiagnosticsApiTest {
     /**
      * Initiate sending test syslog messages using the syslog settings
      *
-     * Mode: Both Embedded and Proxy. 
+     * Mode: Embedded only. 
      *
      * @throws ApiException
      *          if the Api call fails

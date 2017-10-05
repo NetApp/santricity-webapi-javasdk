@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * VolumeEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class VolumeEx   {
   
     private Boolean offline;
@@ -286,6 +286,7 @@ public class VolumeEx   {
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -359,11 +360,11 @@ public class VolumeEx   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private Long totalSizeInBytes;
+
+    private String currentControllerId;
 
     private VolumeCache cacheSettings;
 
@@ -373,13 +374,13 @@ public class VolumeEx   {
 
     private Boolean mapped;
 
-    private String currentControllerId;
-
     private String preferredControllerId;
 
     private Boolean onlineVolumeCopy;
 
-    private Long totalSizeInBytes;
+    private String name;
+
+    private String id;
 
   
   /**
@@ -1196,42 +1197,6 @@ public class VolumeEx   {
   
   /**
    **/
-  public VolumeEx name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public VolumeEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public VolumeEx wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -1245,6 +1210,42 @@ public class VolumeEx   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public VolumeEx totalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("totalSizeInBytes")
+  public Long getTotalSizeInBytes() {
+    return totalSizeInBytes;
+  }
+  
+  public void setTotalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+  }
+
+  
+  /**
+   **/
+  public VolumeEx currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -1323,24 +1324,6 @@ public class VolumeEx   {
   
   /**
    **/
-  public VolumeEx currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-  }
-
-  
-  /**
-   **/
   public VolumeEx preferredControllerId(String preferredControllerId) {
     this.preferredControllerId = preferredControllerId;
     return this;
@@ -1377,19 +1360,37 @@ public class VolumeEx   {
   
   /**
    **/
-  public VolumeEx totalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public VolumeEx name(String name) {
+    this.name = name;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("totalSizeInBytes")
-  public Long getTotalSizeInBytes() {
-    return totalSizeInBytes;
+  @JsonProperty("name")
+  public String getName() {
+    return name;
   }
   
-  public void setTotalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public VolumeEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -1446,22 +1447,22 @@ public class VolumeEx   {
         Objects.equals(this.metadata, volumeEx.metadata) &&
         Objects.equals(this.dataAssurance, volumeEx.dataAssurance) &&
         Objects.equals(this.objectType, volumeEx.objectType) &&
-        Objects.equals(this.name, volumeEx.name) &&
-        Objects.equals(this.id, volumeEx.id) &&
         Objects.equals(this.wwn, volumeEx.wwn) &&
+        Objects.equals(this.totalSizeInBytes, volumeEx.totalSizeInBytes) &&
+        Objects.equals(this.currentControllerId, volumeEx.currentControllerId) &&
         Objects.equals(this.cacheSettings, volumeEx.cacheSettings) &&
         Objects.equals(this.thinProvisioned, volumeEx.thinProvisioned) &&
         Objects.equals(this.listOfMappings, volumeEx.listOfMappings) &&
         Objects.equals(this.mapped, volumeEx.mapped) &&
-        Objects.equals(this.currentControllerId, volumeEx.currentControllerId) &&
         Objects.equals(this.preferredControllerId, volumeEx.preferredControllerId) &&
         Objects.equals(this.onlineVolumeCopy, volumeEx.onlineVolumeCopy) &&
-        Objects.equals(this.totalSizeInBytes, volumeEx.totalSizeInBytes);
+        Objects.equals(this.name, volumeEx.name) &&
+        Objects.equals(this.id, volumeEx.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(offline, extremeProtection, volumeHandle, raidLevel, sectorOffset, worldWideName, label, blkSize, capacity, reconPriority, segmentSize, action, cache, mediaScan, volumeRef, status, volumeGroupRef, currentManager, preferredManager, perms, mgmtClientAttribute, dssPreallocEnabled, dssMaxSegmentSize, preReadRedundancyCheckEnabled, protectionInformationCapable, protectionType, applicationTagOwned, repairedBlockCount, volumeUse, volumeFull, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, remoteMirrorSource, remoteMirrorTarget, diskPool, flashCached, increasingBy, metadata, dataAssurance, objectType, name, id, wwn, cacheSettings, thinProvisioned, listOfMappings, mapped, currentControllerId, preferredControllerId, onlineVolumeCopy, totalSizeInBytes);
+    return Objects.hash(offline, extremeProtection, volumeHandle, raidLevel, sectorOffset, worldWideName, label, blkSize, capacity, reconPriority, segmentSize, action, cache, mediaScan, volumeRef, status, volumeGroupRef, currentManager, preferredManager, perms, mgmtClientAttribute, dssPreallocEnabled, dssMaxSegmentSize, preReadRedundancyCheckEnabled, protectionInformationCapable, protectionType, applicationTagOwned, repairedBlockCount, volumeUse, volumeFull, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, remoteMirrorSource, remoteMirrorTarget, diskPool, flashCached, increasingBy, metadata, dataAssurance, objectType, wwn, totalSizeInBytes, currentControllerId, cacheSettings, thinProvisioned, listOfMappings, mapped, preferredControllerId, onlineVolumeCopy, name, id);
   }
 
   @Override
@@ -1512,17 +1513,17 @@ public class VolumeEx   {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    dataAssurance: ").append(toIndentedString(dataAssurance)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    cacheSettings: ").append(toIndentedString(cacheSettings)).append("\n");
     sb.append("    thinProvisioned: ").append(toIndentedString(thinProvisioned)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    preferredControllerId: ").append(toIndentedString(preferredControllerId)).append("\n");
     sb.append("    onlineVolumeCopy: ").append(toIndentedString(onlineVolumeCopy)).append("\n");
-    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

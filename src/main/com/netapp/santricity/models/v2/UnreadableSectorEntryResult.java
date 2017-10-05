@@ -42,10 +42,14 @@ import java.util.Objects;
  * Identifies the location of an unreable sector.
  */
 @ApiModel(description = "Identifies the location of an unreable sector.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class UnreadableSectorEntryResult   {
   
     private String driveRef;
+
+    private Long timeStamp;
+
+    private String volumeRef;
 
 
   /**
@@ -75,17 +79,13 @@ public class UnreadableSectorEntryResult   {
 
     private RecordTypeEnum recordType;
 
-    private Integer slotNo;
+    private Long driveLBA;
 
     private Integer trayNo;
 
     private Long volumeLBA;
 
-    private Long driveLBA;
-
-    private String volumeRef;
-
-    private Long timeStamp;
+    private Integer slotNo;
 
   
   /**
@@ -103,6 +103,42 @@ public class UnreadableSectorEntryResult   {
   
   public void setDriveRef(String driveRef) {
     this.driveRef = driveRef;
+  }
+
+  
+  /**
+   **/
+  public UnreadableSectorEntryResult timeStamp(Long timeStamp) {
+    this.timeStamp = timeStamp;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("timeStamp")
+  public Long getTimeStamp() {
+    return timeStamp;
+  }
+  
+  public void setTimeStamp(Long timeStamp) {
+    this.timeStamp = timeStamp;
+  }
+
+  
+  /**
+   **/
+  public UnreadableSectorEntryResult volumeRef(String volumeRef) {
+    this.volumeRef = volumeRef;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("volumeRef")
+  public String getVolumeRef() {
+    return volumeRef;
+  }
+  
+  public void setVolumeRef(String volumeRef) {
+    this.volumeRef = volumeRef;
   }
 
   
@@ -126,19 +162,19 @@ public class UnreadableSectorEntryResult   {
   
   /**
    **/
-  public UnreadableSectorEntryResult slotNo(Integer slotNo) {
-    this.slotNo = slotNo;
+  public UnreadableSectorEntryResult driveLBA(Long driveLBA) {
+    this.driveLBA = driveLBA;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("slotNo")
-  public Integer getSlotNo() {
-    return slotNo;
+  @JsonProperty("driveLBA")
+  public Long getDriveLBA() {
+    return driveLBA;
   }
   
-  public void setSlotNo(Integer slotNo) {
-    this.slotNo = slotNo;
+  public void setDriveLBA(Long driveLBA) {
+    this.driveLBA = driveLBA;
   }
 
   
@@ -180,55 +216,19 @@ public class UnreadableSectorEntryResult   {
   
   /**
    **/
-  public UnreadableSectorEntryResult driveLBA(Long driveLBA) {
-    this.driveLBA = driveLBA;
+  public UnreadableSectorEntryResult slotNo(Integer slotNo) {
+    this.slotNo = slotNo;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("driveLBA")
-  public Long getDriveLBA() {
-    return driveLBA;
+  @JsonProperty("slotNo")
+  public Integer getSlotNo() {
+    return slotNo;
   }
   
-  public void setDriveLBA(Long driveLBA) {
-    this.driveLBA = driveLBA;
-  }
-
-  
-  /**
-   **/
-  public UnreadableSectorEntryResult volumeRef(String volumeRef) {
-    this.volumeRef = volumeRef;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("volumeRef")
-  public String getVolumeRef() {
-    return volumeRef;
-  }
-  
-  public void setVolumeRef(String volumeRef) {
-    this.volumeRef = volumeRef;
-  }
-
-  
-  /**
-   **/
-  public UnreadableSectorEntryResult timeStamp(Long timeStamp) {
-    this.timeStamp = timeStamp;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("timeStamp")
-  public Long getTimeStamp() {
-    return timeStamp;
-  }
-  
-  public void setTimeStamp(Long timeStamp) {
-    this.timeStamp = timeStamp;
+  public void setSlotNo(Integer slotNo) {
+    this.slotNo = slotNo;
   }
 
   
@@ -243,18 +243,18 @@ public class UnreadableSectorEntryResult   {
     }
     UnreadableSectorEntryResult unreadableSectorEntryResult = (UnreadableSectorEntryResult) o;
     return Objects.equals(this.driveRef, unreadableSectorEntryResult.driveRef) &&
+        Objects.equals(this.timeStamp, unreadableSectorEntryResult.timeStamp) &&
+        Objects.equals(this.volumeRef, unreadableSectorEntryResult.volumeRef) &&
         Objects.equals(this.recordType, unreadableSectorEntryResult.recordType) &&
-        Objects.equals(this.slotNo, unreadableSectorEntryResult.slotNo) &&
+        Objects.equals(this.driveLBA, unreadableSectorEntryResult.driveLBA) &&
         Objects.equals(this.trayNo, unreadableSectorEntryResult.trayNo) &&
         Objects.equals(this.volumeLBA, unreadableSectorEntryResult.volumeLBA) &&
-        Objects.equals(this.driveLBA, unreadableSectorEntryResult.driveLBA) &&
-        Objects.equals(this.volumeRef, unreadableSectorEntryResult.volumeRef) &&
-        Objects.equals(this.timeStamp, unreadableSectorEntryResult.timeStamp);
+        Objects.equals(this.slotNo, unreadableSectorEntryResult.slotNo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(driveRef, recordType, slotNo, trayNo, volumeLBA, driveLBA, volumeRef, timeStamp);
+    return Objects.hash(driveRef, timeStamp, volumeRef, recordType, driveLBA, trayNo, volumeLBA, slotNo);
   }
 
   @Override
@@ -263,13 +263,13 @@ public class UnreadableSectorEntryResult   {
     sb.append("class UnreadableSectorEntryResult {\n");
     
     sb.append("    driveRef: ").append(toIndentedString(driveRef)).append("\n");
+    sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
+    sb.append("    volumeRef: ").append(toIndentedString(volumeRef)).append("\n");
     sb.append("    recordType: ").append(toIndentedString(recordType)).append("\n");
-    sb.append("    slotNo: ").append(toIndentedString(slotNo)).append("\n");
+    sb.append("    driveLBA: ").append(toIndentedString(driveLBA)).append("\n");
     sb.append("    trayNo: ").append(toIndentedString(trayNo)).append("\n");
     sb.append("    volumeLBA: ").append(toIndentedString(volumeLBA)).append("\n");
-    sb.append("    driveLBA: ").append(toIndentedString(driveLBA)).append("\n");
-    sb.append("    volumeRef: ").append(toIndentedString(volumeRef)).append("\n");
-    sb.append("    timeStamp: ").append(toIndentedString(timeStamp)).append("\n");
+    sb.append("    slotNo: ").append(toIndentedString(slotNo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

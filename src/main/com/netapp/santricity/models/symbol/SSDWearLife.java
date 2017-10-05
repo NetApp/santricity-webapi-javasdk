@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * SSDWearLife
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class SSDWearLife   {
   
     private Integer averageEraseCountPercent;
@@ -49,6 +49,8 @@ public class SSDWearLife   {
     private Integer spareBlocksRemainingPercent;
 
     private Boolean isWearLifeMonitoringSupported;
+
+    private Integer percentEnduranceUsed;
 
   
   /**
@@ -108,6 +110,25 @@ public class SSDWearLife   {
   }
 
   
+  /**
+   * The percentage of endurance used for this drive. The value is obtained from the Solid State Media log page. A value of PERCENTAGE_ENDURANCE_USED_UNKNOWN indicates that the information is inaccessible or not populated in this release.
+   **/
+  public SSDWearLife percentEnduranceUsed(Integer percentEnduranceUsed) {
+    this.percentEnduranceUsed = percentEnduranceUsed;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "The percentage of endurance used for this drive. The value is obtained from the Solid State Media log page. A value of PERCENTAGE_ENDURANCE_USED_UNKNOWN indicates that the information is inaccessible or not populated in this release.")
+  @JsonProperty("percentEnduranceUsed")
+  public Integer getPercentEnduranceUsed() {
+    return percentEnduranceUsed;
+  }
+  
+  public void setPercentEnduranceUsed(Integer percentEnduranceUsed) {
+    this.percentEnduranceUsed = percentEnduranceUsed;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,12 +141,13 @@ public class SSDWearLife   {
     SSDWearLife sSDWearLife = (SSDWearLife) o;
     return Objects.equals(this.averageEraseCountPercent, sSDWearLife.averageEraseCountPercent) &&
         Objects.equals(this.spareBlocksRemainingPercent, sSDWearLife.spareBlocksRemainingPercent) &&
-        Objects.equals(this.isWearLifeMonitoringSupported, sSDWearLife.isWearLifeMonitoringSupported);
+        Objects.equals(this.isWearLifeMonitoringSupported, sSDWearLife.isWearLifeMonitoringSupported) &&
+        Objects.equals(this.percentEnduranceUsed, sSDWearLife.percentEnduranceUsed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(averageEraseCountPercent, spareBlocksRemainingPercent, isWearLifeMonitoringSupported);
+    return Objects.hash(averageEraseCountPercent, spareBlocksRemainingPercent, isWearLifeMonitoringSupported, percentEnduranceUsed);
   }
 
   @Override
@@ -136,6 +158,7 @@ public class SSDWearLife   {
     sb.append("    averageEraseCountPercent: ").append(toIndentedString(averageEraseCountPercent)).append("\n");
     sb.append("    spareBlocksRemainingPercent: ").append(toIndentedString(spareBlocksRemainingPercent)).append("\n");
     sb.append("    isWearLifeMonitoringSupported: ").append(toIndentedString(isWearLifeMonitoringSupported)).append("\n");
+    sb.append("    percentEnduranceUsed: ").append(toIndentedString(percentEnduranceUsed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

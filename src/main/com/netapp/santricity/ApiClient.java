@@ -68,7 +68,7 @@ import com.netapp.santricity.auth.HttpBasicAuth;
 import com.netapp.santricity.auth.ApiKeyAuth;
 import com.netapp.santricity.auth.OAuth;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private String basePath = "https://localhost/devmgr/v2";

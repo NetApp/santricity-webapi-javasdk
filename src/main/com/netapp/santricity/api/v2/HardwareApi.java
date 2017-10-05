@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class HardwareApi {
   private ApiClient apiClient;
 
@@ -61,7 +61,7 @@ public class HardwareApi {
   /**
    * Cancel any active hardware identification
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @throws ApiException if fails to make API call
    */
   public void cancelHardwareIdentification(String systemId) throws ApiException {
@@ -107,7 +107,7 @@ public class HardwareApi {
   /**
    * Get the list of controllers
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<Controller>
    * @throws ApiException if fails to make API call
    */
@@ -155,7 +155,7 @@ public class HardwareApi {
   /**
    * Get the list of drives
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return List<DriveEx>
    * @throws ApiException if fails to make API call
    */
@@ -203,7 +203,7 @@ public class HardwareApi {
   /**
    * Get a controller
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param controllerId  (required)
    * @return Controller
    * @throws ApiException if fails to make API call
@@ -258,7 +258,7 @@ public class HardwareApi {
   /**
    * Get a drive
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param id  (required)
    * @return DriveEx
    * @throws ApiException if fails to make API call
@@ -313,7 +313,7 @@ public class HardwareApi {
   /**
    * Get connectivity information for drive trays
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return EsmPortConnectionResponse
    * @throws ApiException if fails to make API call
    */
@@ -361,7 +361,7 @@ public class HardwareApi {
   /**
    * Get hardware information
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return HardwareInventoryResponse
    * @throws ApiException if fails to make API call
    */
@@ -409,7 +409,7 @@ public class HardwareApi {
   /**
    * Get the iSCSI Entity data
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return IscsiEntityResponse
    * @throws ApiException if fails to make API call
    */
@@ -457,7 +457,7 @@ public class HardwareApi {
   /**
    * Get the iSCSI Target
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return Target
    * @throws ApiException if fails to make API call
    */
@@ -503,9 +503,105 @@ public class HardwareApi {
   }
   
   /**
+   * Get NVMeoF entity
+   * Mode: Both Embedded and Proxy.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return List<IoInterface>
+   * @throws ApiException if fails to make API call
+   */
+  public List<IoInterface> getNvmeofEntity(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getNvmeofEntity");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/nvmeof/entity".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<List<IoInterface>> localVarReturnType = new GenericType<List<IoInterface>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
+   * Get NVMeoF initiator settings
+   * Mode: Both Embedded and Proxy.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @return Target
+   * @throws ApiException if fails to make API call
+   */
+  public Target getNvmeofInitiatorSettings(String systemId) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling getNvmeofInitiatorSettings");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/nvmeof/initiator-settings".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<Target> localVarReturnType = new GenericType<Target>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Get the list of unreadable sectors
    * Mode: Both Embedded and Proxy. 
-   * @param systemId The id of the storage-system (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @return UnreadableSectorResponse
    * @throws ApiException if fails to make API call
    */
@@ -552,8 +648,8 @@ public class HardwareApi {
   
   /**
    * Select drives for storage-pool creation
-   * Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, an empty list is returned.
-   * @param systemId The id of the storage-system (required)
+   * Mode: Both Embedded and Proxy. Retrieve a list of drives based on provided selection criteria. If the number of drives you have selected is not available based on the request parameters, then a 204 is returned.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return List<DriveEx>
    * @throws ApiException if fails to make API call
@@ -600,9 +696,58 @@ public class HardwareApi {
   }
   
   /**
+   * Update NVMeoF entity
+   * Mode: Both Embedded and Proxy.
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
+   * @param body  (optional)
+   * @return List<IoInterface>
+   * @throws ApiException if fails to make API call
+   */
+  public List<IoInterface> setNvmeofEntity(String systemId, NVMeoFEntityUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+    
+    // verify the required parameter 'systemId' is set
+    if (systemId == null) {
+      throw new ApiException(400, "Missing the required parameter 'systemId' when calling setNvmeofEntity");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/storage-systems/{system-id}/nvmeof/entity".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "system-id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    
+
+    
+
+    
+
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] { "basicAuth" };
+
+    
+    GenericType<List<IoInterface>> localVarReturnType = new GenericType<List<IoInterface>>() {};
+    return apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    
+  }
+  
+  /**
    * Start hardware identification
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @throws ApiException if fails to make API call
    */
@@ -649,7 +794,7 @@ public class HardwareApi {
   /**
    * Update iSCSI Entity data
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return IscsiEntityResponse
    * @throws ApiException if fails to make API call
@@ -698,7 +843,7 @@ public class HardwareApi {
   /**
    * Update the iSCSI Target
    * Mode: Both Embedded and Proxy. 
-   * @param systemId  (required)
+   * @param systemId The unique identifier of the storage-system. This may be the id or the WWN. (required)
    * @param body  (optional)
    * @return IscsiTargetResponse
    * @throws ApiException if fails to make API call

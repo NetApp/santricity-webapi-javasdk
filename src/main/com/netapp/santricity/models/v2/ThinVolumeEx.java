@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * ThinVolumeEx
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class ThinVolumeEx   {
   
     private Integer volumeHandle;
@@ -225,6 +225,7 @@ public class ThinVolumeEx   {
    * Gets or Sets objectType
    */
   public enum ObjectTypeEnum {
+    unknown("unknown"),
     volume("volume"),
     pool("pool"),
     host("host"),
@@ -298,11 +299,13 @@ public class ThinVolumeEx   {
 
     private ObjectTypeEnum objectType;
 
-    private String name;
-
-    private String id;
-
     private String wwn;
+
+    private Integer segmentSize;
+
+    private Long totalSizeInBytes;
+
+    private String currentControllerId;
 
     private Boolean diskPool;
 
@@ -310,19 +313,17 @@ public class ThinVolumeEx   {
 
     private Boolean thinProvisioned;
 
-    private Integer segmentSize;
-
     private List<LUNMapping> listOfMappings;
 
     private Boolean mapped;
-
-    private String currentControllerId;
 
     private String preferredControllerId;
 
     private Boolean onlineVolumeCopy;
 
-    private Long totalSizeInBytes;
+    private String name;
+
+    private String id;
 
   
   /**
@@ -1096,42 +1097,6 @@ public class ThinVolumeEx   {
   
   /**
    **/
-  public ThinVolumeEx name(String name) {
-    this.name = name;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-  
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  
-  /**
-   **/
-  public ThinVolumeEx id(String id) {
-    this.id = id;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-  
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  
-  /**
-   **/
   public ThinVolumeEx wwn(String wwn) {
     this.wwn = wwn;
     return this;
@@ -1145,6 +1110,60 @@ public class ThinVolumeEx   {
   
   public void setWwn(String wwn) {
     this.wwn = wwn;
+  }
+
+  
+  /**
+   **/
+  public ThinVolumeEx segmentSize(Integer segmentSize) {
+    this.segmentSize = segmentSize;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("segmentSize")
+  public Integer getSegmentSize() {
+    return segmentSize;
+  }
+  
+  public void setSegmentSize(Integer segmentSize) {
+    this.segmentSize = segmentSize;
+  }
+
+  
+  /**
+   **/
+  public ThinVolumeEx totalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("totalSizeInBytes")
+  public Long getTotalSizeInBytes() {
+    return totalSizeInBytes;
+  }
+  
+  public void setTotalSizeInBytes(Long totalSizeInBytes) {
+    this.totalSizeInBytes = totalSizeInBytes;
+  }
+
+  
+  /**
+   **/
+  public ThinVolumeEx currentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("currentControllerId")
+  public String getCurrentControllerId() {
+    return currentControllerId;
+  }
+  
+  public void setCurrentControllerId(String currentControllerId) {
+    this.currentControllerId = currentControllerId;
   }
 
   
@@ -1205,24 +1224,6 @@ public class ThinVolumeEx   {
   
   /**
    **/
-  public ThinVolumeEx segmentSize(Integer segmentSize) {
-    this.segmentSize = segmentSize;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("segmentSize")
-  public Integer getSegmentSize() {
-    return segmentSize;
-  }
-  
-  public void setSegmentSize(Integer segmentSize) {
-    this.segmentSize = segmentSize;
-  }
-
-  
-  /**
-   **/
   public ThinVolumeEx listOfMappings(List<LUNMapping> listOfMappings) {
     this.listOfMappings = listOfMappings;
     return this;
@@ -1254,24 +1255,6 @@ public class ThinVolumeEx   {
   
   public void setMapped(Boolean mapped) {
     this.mapped = mapped;
-  }
-
-  
-  /**
-   **/
-  public ThinVolumeEx currentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("currentControllerId")
-  public String getCurrentControllerId() {
-    return currentControllerId;
-  }
-  
-  public void setCurrentControllerId(String currentControllerId) {
-    this.currentControllerId = currentControllerId;
   }
 
   
@@ -1313,19 +1296,37 @@ public class ThinVolumeEx   {
   
   /**
    **/
-  public ThinVolumeEx totalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public ThinVolumeEx name(String name) {
+    this.name = name;
     return this;
   }
   
   @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("totalSizeInBytes")
-  public Long getTotalSizeInBytes() {
-    return totalSizeInBytes;
+  @JsonProperty("name")
+  public String getName() {
+    return name;
   }
   
-  public void setTotalSizeInBytes(Long totalSizeInBytes) {
-    this.totalSizeInBytes = totalSizeInBytes;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  
+  /**
+   **/
+  public ThinVolumeEx id(String id) {
+    this.id = id;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  
+  public void setId(String id) {
+    this.id = id;
   }
 
   
@@ -1380,24 +1381,24 @@ public class ThinVolumeEx   {
         Objects.equals(this.metadata, thinVolumeEx.metadata) &&
         Objects.equals(this.dataAssurance, thinVolumeEx.dataAssurance) &&
         Objects.equals(this.objectType, thinVolumeEx.objectType) &&
-        Objects.equals(this.name, thinVolumeEx.name) &&
-        Objects.equals(this.id, thinVolumeEx.id) &&
         Objects.equals(this.wwn, thinVolumeEx.wwn) &&
+        Objects.equals(this.segmentSize, thinVolumeEx.segmentSize) &&
+        Objects.equals(this.totalSizeInBytes, thinVolumeEx.totalSizeInBytes) &&
+        Objects.equals(this.currentControllerId, thinVolumeEx.currentControllerId) &&
         Objects.equals(this.diskPool, thinVolumeEx.diskPool) &&
         Objects.equals(this.cacheSettings, thinVolumeEx.cacheSettings) &&
         Objects.equals(this.thinProvisioned, thinVolumeEx.thinProvisioned) &&
-        Objects.equals(this.segmentSize, thinVolumeEx.segmentSize) &&
         Objects.equals(this.listOfMappings, thinVolumeEx.listOfMappings) &&
         Objects.equals(this.mapped, thinVolumeEx.mapped) &&
-        Objects.equals(this.currentControllerId, thinVolumeEx.currentControllerId) &&
         Objects.equals(this.preferredControllerId, thinVolumeEx.preferredControllerId) &&
         Objects.equals(this.onlineVolumeCopy, thinVolumeEx.onlineVolumeCopy) &&
-        Objects.equals(this.totalSizeInBytes, thinVolumeEx.totalSizeInBytes);
+        Objects.equals(this.name, thinVolumeEx.name) &&
+        Objects.equals(this.id, thinVolumeEx.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(volumeHandle, worldWideName, label, allocationGranularity, capacity, reconPriority, volumeRef, status, repositoryRef, currentManager, preferredManager, perms, mgmtClientAttribute, preReadRedundancyCheckEnabled, protectionType, applicationTagOwned, maxVirtualCapacity, initialProvisionedCapacity, currentProvisionedCapacity, provisionedCapacityQuota, growthAlertThreshold, expansionPolicy, volumeCache, offline, reportingPolicy, volumeFull, volumeGroupRef, blkSize, storageVolumeRef, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, remoteMirrorSource, remoteMirrorTarget, flashCached, mediaScan, metadata, dataAssurance, objectType, name, id, wwn, diskPool, cacheSettings, thinProvisioned, segmentSize, listOfMappings, mapped, currentControllerId, preferredControllerId, onlineVolumeCopy, totalSizeInBytes);
+    return Objects.hash(volumeHandle, worldWideName, label, allocationGranularity, capacity, reconPriority, volumeRef, status, repositoryRef, currentManager, preferredManager, perms, mgmtClientAttribute, preReadRedundancyCheckEnabled, protectionType, applicationTagOwned, maxVirtualCapacity, initialProvisionedCapacity, currentProvisionedCapacity, provisionedCapacityQuota, growthAlertThreshold, expansionPolicy, volumeCache, offline, reportingPolicy, volumeFull, volumeGroupRef, blkSize, storageVolumeRef, volumeCopyTarget, volumeCopySource, pitBaseVolume, asyncMirrorTarget, asyncMirrorSource, remoteMirrorSource, remoteMirrorTarget, flashCached, mediaScan, metadata, dataAssurance, objectType, wwn, segmentSize, totalSizeInBytes, currentControllerId, diskPool, cacheSettings, thinProvisioned, listOfMappings, mapped, preferredControllerId, onlineVolumeCopy, name, id);
   }
 
   @Override
@@ -1446,19 +1447,19 @@ public class ThinVolumeEx   {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    dataAssurance: ").append(toIndentedString(dataAssurance)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    wwn: ").append(toIndentedString(wwn)).append("\n");
+    sb.append("    segmentSize: ").append(toIndentedString(segmentSize)).append("\n");
+    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    diskPool: ").append(toIndentedString(diskPool)).append("\n");
     sb.append("    cacheSettings: ").append(toIndentedString(cacheSettings)).append("\n");
     sb.append("    thinProvisioned: ").append(toIndentedString(thinProvisioned)).append("\n");
-    sb.append("    segmentSize: ").append(toIndentedString(segmentSize)).append("\n");
     sb.append("    listOfMappings: ").append(toIndentedString(listOfMappings)).append("\n");
     sb.append("    mapped: ").append(toIndentedString(mapped)).append("\n");
-    sb.append("    currentControllerId: ").append(toIndentedString(currentControllerId)).append("\n");
     sb.append("    preferredControllerId: ").append(toIndentedString(preferredControllerId)).append("\n");
     sb.append("    onlineVolumeCopy: ").append(toIndentedString(onlineVolumeCopy)).append("\n");
-    sb.append("    totalSizeInBytes: ").append(toIndentedString(totalSizeInBytes)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

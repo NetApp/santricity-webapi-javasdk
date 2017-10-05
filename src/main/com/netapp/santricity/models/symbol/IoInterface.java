@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * IoInterface
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class IoInterface   {
   
     private String interfaceRef;
@@ -74,6 +74,8 @@ public class IoInterface   {
     private IOInterfaceTypeData ioInterfaceTypeData;
 
     private String controllerRef;
+
+    private CommandProtocolPropertiesList commandProtocolPropertiesList;
 
   
   /**
@@ -152,6 +154,25 @@ public class IoInterface   {
   }
 
   
+  /**
+   * The list of properties that describe the command protocol.
+   **/
+  public IoInterface commandProtocolPropertiesList(CommandProtocolPropertiesList commandProtocolPropertiesList) {
+    this.commandProtocolPropertiesList = commandProtocolPropertiesList;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "The list of properties that describe the command protocol.")
+  @JsonProperty("commandProtocolPropertiesList")
+  public CommandProtocolPropertiesList getCommandProtocolPropertiesList() {
+    return commandProtocolPropertiesList;
+  }
+  
+  public void setCommandProtocolPropertiesList(CommandProtocolPropertiesList commandProtocolPropertiesList) {
+    this.commandProtocolPropertiesList = commandProtocolPropertiesList;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -165,12 +186,13 @@ public class IoInterface   {
     return Objects.equals(this.interfaceRef, ioInterface.interfaceRef) &&
         Objects.equals(this.channelType, ioInterface.channelType) &&
         Objects.equals(this.ioInterfaceTypeData, ioInterface.ioInterfaceTypeData) &&
-        Objects.equals(this.controllerRef, ioInterface.controllerRef);
+        Objects.equals(this.controllerRef, ioInterface.controllerRef) &&
+        Objects.equals(this.commandProtocolPropertiesList, ioInterface.commandProtocolPropertiesList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(interfaceRef, channelType, ioInterfaceTypeData, controllerRef);
+    return Objects.hash(interfaceRef, channelType, ioInterfaceTypeData, controllerRef, commandProtocolPropertiesList);
   }
 
   @Override
@@ -182,6 +204,7 @@ public class IoInterface   {
     sb.append("    channelType: ").append(toIndentedString(channelType)).append("\n");
     sb.append("    ioInterfaceTypeData: ").append(toIndentedString(ioInterfaceTypeData)).append("\n");
     sb.append("    controllerRef: ").append(toIndentedString(controllerRef)).append("\n");
+    sb.append("    commandProtocolPropertiesList: ").append(toIndentedString(commandProtocolPropertiesList)).append("\n");
     sb.append("}");
     return sb.toString();
   }

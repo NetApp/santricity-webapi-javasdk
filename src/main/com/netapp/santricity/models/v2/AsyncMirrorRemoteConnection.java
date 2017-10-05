@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * AsyncMirrorRemoteConnection
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AsyncMirrorRemoteConnection   {
   
     private String localPortName;
@@ -55,14 +55,6 @@ public class AsyncMirrorRemoteConnection   {
     private Integer localPortNumber;
 
     private Integer remotePortNumber;
-
-    private IscsiRemoteTargetConnections iscsiConnectionDetail;
-
-    private FibreRemoteTargetConnections fibreConnectionDetail;
-
-    private ScsiRemoteTargetConnections remoteTargetConnections;
-
-    private String localPortRef;
 
     private String controller;
 
@@ -79,6 +71,7 @@ public class AsyncMirrorRemoteConnection   {
     iscsi("iscsi"),
     ib("ib"),
     fcoe("fcoe"),
+    nvmeof("nvmeof"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -95,6 +88,14 @@ public class AsyncMirrorRemoteConnection   {
   }
 
     private IoInterfaceTypeEnum ioInterfaceType;
+
+    private IscsiRemoteTargetConnections iscsiConnectionDetail;
+
+    private FibreRemoteTargetConnections fibreConnectionDetail;
+
+    private ScsiRemoteTargetConnections remoteTargetConnections;
+
+    private String localPortRef;
 
   
   /**
@@ -211,6 +212,42 @@ public class AsyncMirrorRemoteConnection   {
   
   /**
    **/
+  public AsyncMirrorRemoteConnection controller(String controller) {
+    this.controller = controller;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("controller")
+  public String getController() {
+    return controller;
+  }
+  
+  public void setController(String controller) {
+    this.controller = controller;
+  }
+
+  
+  /**
+   **/
+  public AsyncMirrorRemoteConnection ioInterfaceType(IoInterfaceTypeEnum ioInterfaceType) {
+    this.ioInterfaceType = ioInterfaceType;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("ioInterfaceType")
+  public IoInterfaceTypeEnum getIoInterfaceType() {
+    return ioInterfaceType;
+  }
+  
+  public void setIoInterfaceType(IoInterfaceTypeEnum ioInterfaceType) {
+    this.ioInterfaceType = ioInterfaceType;
+  }
+
+  
+  /**
+   **/
   public AsyncMirrorRemoteConnection iscsiConnectionDetail(IscsiRemoteTargetConnections iscsiConnectionDetail) {
     this.iscsiConnectionDetail = iscsiConnectionDetail;
     return this;
@@ -282,42 +319,6 @@ public class AsyncMirrorRemoteConnection   {
   }
 
   
-  /**
-   **/
-  public AsyncMirrorRemoteConnection controller(String controller) {
-    this.controller = controller;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("controller")
-  public String getController() {
-    return controller;
-  }
-  
-  public void setController(String controller) {
-    this.controller = controller;
-  }
-
-  
-  /**
-   **/
-  public AsyncMirrorRemoteConnection ioInterfaceType(IoInterfaceTypeEnum ioInterfaceType) {
-    this.ioInterfaceType = ioInterfaceType;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("ioInterfaceType")
-  public IoInterfaceTypeEnum getIoInterfaceType() {
-    return ioInterfaceType;
-  }
-  
-  public void setIoInterfaceType(IoInterfaceTypeEnum ioInterfaceType) {
-    this.ioInterfaceType = ioInterfaceType;
-  }
-
-  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -334,17 +335,17 @@ public class AsyncMirrorRemoteConnection   {
         Objects.equals(this.localPortId, asyncMirrorRemoteConnection.localPortId) &&
         Objects.equals(this.localPortNumber, asyncMirrorRemoteConnection.localPortNumber) &&
         Objects.equals(this.remotePortNumber, asyncMirrorRemoteConnection.remotePortNumber) &&
+        Objects.equals(this.controller, asyncMirrorRemoteConnection.controller) &&
+        Objects.equals(this.ioInterfaceType, asyncMirrorRemoteConnection.ioInterfaceType) &&
         Objects.equals(this.iscsiConnectionDetail, asyncMirrorRemoteConnection.iscsiConnectionDetail) &&
         Objects.equals(this.fibreConnectionDetail, asyncMirrorRemoteConnection.fibreConnectionDetail) &&
         Objects.equals(this.remoteTargetConnections, asyncMirrorRemoteConnection.remoteTargetConnections) &&
-        Objects.equals(this.localPortRef, asyncMirrorRemoteConnection.localPortRef) &&
-        Objects.equals(this.controller, asyncMirrorRemoteConnection.controller) &&
-        Objects.equals(this.ioInterfaceType, asyncMirrorRemoteConnection.ioInterfaceType);
+        Objects.equals(this.localPortRef, asyncMirrorRemoteConnection.localPortRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(localPortName, remotePortName, remotePortId, localPortId, localPortNumber, remotePortNumber, iscsiConnectionDetail, fibreConnectionDetail, remoteTargetConnections, localPortRef, controller, ioInterfaceType);
+    return Objects.hash(localPortName, remotePortName, remotePortId, localPortId, localPortNumber, remotePortNumber, controller, ioInterfaceType, iscsiConnectionDetail, fibreConnectionDetail, remoteTargetConnections, localPortRef);
   }
 
   @Override
@@ -358,12 +359,12 @@ public class AsyncMirrorRemoteConnection   {
     sb.append("    localPortId: ").append(toIndentedString(localPortId)).append("\n");
     sb.append("    localPortNumber: ").append(toIndentedString(localPortNumber)).append("\n");
     sb.append("    remotePortNumber: ").append(toIndentedString(remotePortNumber)).append("\n");
+    sb.append("    controller: ").append(toIndentedString(controller)).append("\n");
+    sb.append("    ioInterfaceType: ").append(toIndentedString(ioInterfaceType)).append("\n");
     sb.append("    iscsiConnectionDetail: ").append(toIndentedString(iscsiConnectionDetail)).append("\n");
     sb.append("    fibreConnectionDetail: ").append(toIndentedString(fibreConnectionDetail)).append("\n");
     sb.append("    remoteTargetConnections: ").append(toIndentedString(remoteTargetConnections)).append("\n");
     sb.append("    localPortRef: ").append(toIndentedString(localPortRef)).append("\n");
-    sb.append("    controller: ").append(toIndentedString(controller)).append("\n");
-    sb.append("    ioInterfaceType: ").append(toIndentedString(ioInterfaceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -42,7 +42,7 @@ import java.util.Objects;
  * Disk statistics for storage system.
  */
 @ApiModel(description = "Disk statistics for storage system.")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class AnalysedDiskStatistics   {
   
     private Date observedTime;
@@ -85,13 +85,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * A timestamp representing when the data was collected
    **/
   public AnalysedDiskStatistics observedTime(Date observedTime) {
     this.observedTime = observedTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "A timestamp representing when the data was collected")
   @JsonProperty("observedTime")
   public Date getObservedTime() {
     return observedTime;
@@ -103,13 +104,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * The time in which this data was polled and generated in milliseconds
    **/
   public AnalysedDiskStatistics observedTimeInMS(Long observedTimeInMS) {
     this.observedTimeInMS = observedTimeInMS;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The time in which this data was polled and generated in milliseconds")
   @JsonProperty("observedTimeInMS")
   public Long getObservedTimeInMS() {
     return observedTimeInMS;
@@ -121,14 +123,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * read_iops double NOT NULL
+   * Read operations per second.
    **/
   public AnalysedDiskStatistics readIOps(Double readIOps) {
     this.readIOps = readIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read operations per second.")
   @JsonProperty("readIOps")
   public Double getReadIOps() {
     return readIOps;
@@ -140,14 +142,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * write_iops double NOT NULL
+   * Write operations per second.
    **/
   public AnalysedDiskStatistics writeIOps(Double writeIOps) {
     this.writeIOps = writeIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write operations per second.")
   @JsonProperty("writeIOps")
   public Double getWriteIOps() {
     return writeIOps;
@@ -159,14 +161,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * other_iops double NOT NULL
+   * SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.
    **/
   public AnalysedDiskStatistics otherIOps(Double otherIOps) {
     this.otherIOps = otherIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "other_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "SCSI Operations to the disk that are not read/write operations. Example: Test Unit Ready.")
   @JsonProperty("otherIOps")
   public Double getOtherIOps() {
     return otherIOps;
@@ -178,14 +180,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * combined_iops double NOT NULL
+   * All operations per second.
    **/
   public AnalysedDiskStatistics combinedIOps(Double combinedIOps) {
     this.combinedIOps = combinedIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "All operations per second.")
   @JsonProperty("combinedIOps")
   public Double getCombinedIOps() {
     return combinedIOps;
@@ -197,14 +199,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * read_throughput double NOT NULL
+   * Read throughput in MB/s.
    **/
   public AnalysedDiskStatistics readThroughput(Double readThroughput) {
     this.readThroughput = readThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read throughput in MB/s.")
   @JsonProperty("readThroughput")
   public Double getReadThroughput() {
     return readThroughput;
@@ -216,14 +218,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * write_throughput double NOT NULL
+   * Write throughput in MB/s.
    **/
   public AnalysedDiskStatistics writeThroughput(Double writeThroughput) {
     this.writeThroughput = writeThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write throughput in MB/s.")
   @JsonProperty("writeThroughput")
   public Double getWriteThroughput() {
     return writeThroughput;
@@ -235,14 +237,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * combined_throughput double NOT NULL
+   * Combined read/write throughput in MB/s.
    **/
   public AnalysedDiskStatistics combinedThroughput(Double combinedThroughput) {
     this.combinedThroughput = combinedThroughput;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_throughput double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Combined read/write throughput in MB/s.")
   @JsonProperty("combinedThroughput")
   public Double getCombinedThroughput() {
     return combinedThroughput;
@@ -254,14 +256,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * read_response_time double NOT NULL
+   * Read response time average in milliseconds.
    **/
   public AnalysedDiskStatistics readResponseTime(Double readResponseTime) {
     this.readResponseTime = readResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Read response time average in milliseconds.")
   @JsonProperty("readResponseTime")
   public Double getReadResponseTime() {
     return readResponseTime;
@@ -273,14 +275,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * write_response_time double NOT NULL
+   * Write response time average in milliseconds.
    **/
   public AnalysedDiskStatistics writeResponseTime(Double writeResponseTime) {
     this.writeResponseTime = writeResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Write response time average in milliseconds.")
   @JsonProperty("writeResponseTime")
   public Double getWriteResponseTime() {
     return writeResponseTime;
@@ -292,14 +294,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * combined_response_time double NOT NULL
+   * Combined average response time in milliseconds.
    **/
   public AnalysedDiskStatistics combinedResponseTime(Double combinedResponseTime) {
     this.combinedResponseTime = combinedResponseTime;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "combined_response_time double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Combined average response time in milliseconds.")
   @JsonProperty("combinedResponseTime")
   public Double getCombinedResponseTime() {
     return combinedResponseTime;
@@ -311,13 +313,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * Average read operation size in bytes.
    **/
   public AnalysedDiskStatistics averageReadOpSize(Double averageReadOpSize) {
     this.averageReadOpSize = averageReadOpSize;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Average read operation size in bytes.")
   @JsonProperty("averageReadOpSize")
   public Double getAverageReadOpSize() {
     return averageReadOpSize;
@@ -329,13 +332,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * Average write operation size in bytes.
    **/
   public AnalysedDiskStatistics averageWriteOpSize(Double averageWriteOpSize) {
     this.averageWriteOpSize = averageWriteOpSize;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "Average write operation size in bytes.")
   @JsonProperty("averageWriteOpSize")
   public Double getAverageWriteOpSize() {
     return averageWriteOpSize;
@@ -347,13 +351,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * The amount of read operations in this analysed interval.
    **/
   public AnalysedDiskStatistics readOps(Double readOps) {
     this.readOps = readOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The amount of read operations in this analysed interval.")
   @JsonProperty("readOps")
   public Double getReadOps() {
     return readOps;
@@ -365,13 +370,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
+   * The amount of write operations in this analysed interval.
    **/
   public AnalysedDiskStatistics writeOps(Double writeOps) {
     this.writeOps = writeOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "")
+  @ApiModelProperty(example = "null", required = true, value = "The amount of write operations in this analysed interval.")
   @JsonProperty("writeOps")
   public Double getWriteOps() {
     return writeOps;
@@ -402,14 +408,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * read_physical_iops double NOT NULL
+   * Physical read operations per second.
    **/
   public AnalysedDiskStatistics readPhysicalIOps(Double readPhysicalIOps) {
     this.readPhysicalIOps = readPhysicalIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "read_physical_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Physical read operations per second.")
   @JsonProperty("readPhysicalIOps")
   public Double getReadPhysicalIOps() {
     return readPhysicalIOps;
@@ -421,14 +427,14 @@ public class AnalysedDiskStatistics   {
 
   
   /**
-   * write_physical_iops double NOT NULL
+   * Physical write operations per second.
    **/
   public AnalysedDiskStatistics writePhysicalIOps(Double writePhysicalIOps) {
     this.writePhysicalIOps = writePhysicalIOps;
     return this;
   }
   
-  @ApiModelProperty(example = "null", required = true, value = "write_physical_iops double NOT NULL")
+  @ApiModelProperty(example = "null", required = true, value = "Physical write operations per second.")
   @JsonProperty("writePhysicalIOps")
   public Double getWritePhysicalIOps() {
     return writePhysicalIOps;

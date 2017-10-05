@@ -42,7 +42,7 @@ import java.util.Objects;
  * A Volume Copy Job Control provides the start-stop operation for a   &lt;a href=\&quot;VolumeCopyPair.html\&quot;&gt;Volume Copy Job&lt;/a&gt; and reports the copy   progress of the volume copy job. &lt;br/&gt;&lt;br/&gt;  The valid values for the PUT control attribute are \&quot;start\&quot; and \&quot;stop\&quot;
  */
 @ApiModel(description = "A Volume Copy Job Control provides the start-stop operation for a   <a href=\"VolumeCopyPair.html\">Volume Copy Job</a> and reports the copy   progress of the volume copy job. <br/><br/>  The valid values for the PUT control attribute are \"start\" and \"stop\"")
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class JobProgress   {
   
     private String objectId;

@@ -176,4 +176,31 @@ public class TApiTest {
         }
     }
     
+    /**
+     * A procedure that provides a means to tunnel HTTP calls through the UTM Lun. The HTTP call is executed against the embedded web server.
+     *
+     * Documented return codes: ok. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void symbolTunnelHttpCallTest() throws ApiException {
+        
+        String systemId = null;
+        
+        SymbolTunnelRequest body = null;
+        
+        String controller = null;
+        
+        Boolean verboseErrorResponse = null;
+        
+        try{
+        SymbolTunnelReply response = api.symbolTunnelHttpCall(systemId, body, controller, verboseErrorResponse);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
 }

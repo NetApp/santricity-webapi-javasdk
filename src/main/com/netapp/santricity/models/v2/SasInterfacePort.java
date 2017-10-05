@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * SasInterfacePort
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class SasInterfacePort   {
   
     private Integer channel;
@@ -71,6 +71,9 @@ public class SasInterfacePort   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -113,6 +116,9 @@ public class SasInterfacePort   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -152,11 +158,11 @@ public class SasInterfacePort   {
 
     private String interfaceId;
 
+    private String basePortAddress;
+
     private String addressId;
 
     private String niceAddressId;
-
-    private String basePortAddress;
 
     private String id;
 
@@ -427,6 +433,24 @@ public class SasInterfacePort   {
   
   /**
    **/
+  public SasInterfacePort basePortAddress(String basePortAddress) {
+    this.basePortAddress = basePortAddress;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "")
+  @JsonProperty("basePortAddress")
+  public String getBasePortAddress() {
+    return basePortAddress;
+  }
+  
+  public void setBasePortAddress(String basePortAddress) {
+    this.basePortAddress = basePortAddress;
+  }
+
+  
+  /**
+   **/
   public SasInterfacePort addressId(String addressId) {
     this.addressId = addressId;
     return this;
@@ -458,24 +482,6 @@ public class SasInterfacePort   {
   
   public void setNiceAddressId(String niceAddressId) {
     this.niceAddressId = niceAddressId;
-  }
-
-  
-  /**
-   **/
-  public SasInterfacePort basePortAddress(String basePortAddress) {
-    this.basePortAddress = basePortAddress;
-    return this;
-  }
-  
-  @ApiModelProperty(example = "null", value = "")
-  @JsonProperty("basePortAddress")
-  public String getBasePortAddress() {
-    return basePortAddress;
-  }
-  
-  public void setBasePortAddress(String basePortAddress) {
-    this.basePortAddress = basePortAddress;
   }
 
   
@@ -521,15 +527,15 @@ public class SasInterfacePort   {
         Objects.equals(this.bidirectionalMaxRate, sasInterfacePort.bidirectionalMaxRate) &&
         Objects.equals(this.controllerId, sasInterfacePort.controllerId) &&
         Objects.equals(this.interfaceId, sasInterfacePort.interfaceId) &&
+        Objects.equals(this.basePortAddress, sasInterfacePort.basePortAddress) &&
         Objects.equals(this.addressId, sasInterfacePort.addressId) &&
         Objects.equals(this.niceAddressId, sasInterfacePort.niceAddressId) &&
-        Objects.equals(this.basePortAddress, sasInterfacePort.basePortAddress) &&
         Objects.equals(this.id, sasInterfacePort.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, currentInterfaceSpeed, maximumInterfaceSpeed, part, revision, isDegraded, iocPort, interfaceRef, physicalLocation, protectionInformationCapable, oneWayMaxRate, bidirectionalMaxRate, controllerId, interfaceId, addressId, niceAddressId, basePortAddress, id);
+    return Objects.hash(channel, currentInterfaceSpeed, maximumInterfaceSpeed, part, revision, isDegraded, iocPort, interfaceRef, physicalLocation, protectionInformationCapable, oneWayMaxRate, bidirectionalMaxRate, controllerId, interfaceId, basePortAddress, addressId, niceAddressId, id);
   }
 
   @Override
@@ -551,9 +557,9 @@ public class SasInterfacePort   {
     sb.append("    bidirectionalMaxRate: ").append(toIndentedString(bidirectionalMaxRate)).append("\n");
     sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
     sb.append("    interfaceId: ").append(toIndentedString(interfaceId)).append("\n");
+    sb.append("    basePortAddress: ").append(toIndentedString(basePortAddress)).append("\n");
     sb.append("    addressId: ").append(toIndentedString(addressId)).append("\n");
     sb.append("    niceAddressId: ").append(toIndentedString(niceAddressId)).append("\n");
-    sb.append("    basePortAddress: ").append(toIndentedString(basePortAddress)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

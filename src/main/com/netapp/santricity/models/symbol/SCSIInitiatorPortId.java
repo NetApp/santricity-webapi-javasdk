@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * SCSIInitiatorPortId
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:46.001-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:55.769-05:00")
 public class SCSIInitiatorPortId   {
   
 
@@ -57,6 +57,7 @@ public class SCSIInitiatorPortId   {
     iscsi("iscsi"),
     ib("ib"),
     fcoe("fcoe"),
+    nvmeof("nvmeof"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -81,6 +82,8 @@ public class SCSIInitiatorPortId   {
     private IscsiInitiatorPortId iscsiPortName;
 
     private String sasPortName;
+
+    private NVMeInitiatorPortId nvmeInitiatorPortId;
 
   
   /**
@@ -178,6 +181,25 @@ public class SCSIInitiatorPortId   {
   }
 
   
+  /**
+   * Initiator Port ID for an NVMe over Fabrics host
+   **/
+  public SCSIInitiatorPortId nvmeInitiatorPortId(NVMeInitiatorPortId nvmeInitiatorPortId) {
+    this.nvmeInitiatorPortId = nvmeInitiatorPortId;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "Initiator Port ID for an NVMe over Fabrics host")
+  @JsonProperty("nvmeInitiatorPortId")
+  public NVMeInitiatorPortId getNvmeInitiatorPortId() {
+    return nvmeInitiatorPortId;
+  }
+  
+  public void setNvmeInitiatorPortId(NVMeInitiatorPortId nvmeInitiatorPortId) {
+    this.nvmeInitiatorPortId = nvmeInitiatorPortId;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -192,12 +214,13 @@ public class SCSIInitiatorPortId   {
         Objects.equals(this.portName, sCSIInitiatorPortId.portName) &&
         Objects.equals(this.ibPortName, sCSIInitiatorPortId.ibPortName) &&
         Objects.equals(this.iscsiPortName, sCSIInitiatorPortId.iscsiPortName) &&
-        Objects.equals(this.sasPortName, sCSIInitiatorPortId.sasPortName);
+        Objects.equals(this.sasPortName, sCSIInitiatorPortId.sasPortName) &&
+        Objects.equals(this.nvmeInitiatorPortId, sCSIInitiatorPortId.nvmeInitiatorPortId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ioInterfaceType, portName, ibPortName, iscsiPortName, sasPortName);
+    return Objects.hash(ioInterfaceType, portName, ibPortName, iscsiPortName, sasPortName, nvmeInitiatorPortId);
   }
 
   @Override
@@ -210,6 +233,7 @@ public class SCSIInitiatorPortId   {
     sb.append("    ibPortName: ").append(toIndentedString(ibPortName)).append("\n");
     sb.append("    iscsiPortName: ").append(toIndentedString(iscsiPortName)).append("\n");
     sb.append("    sasPortName: ").append(toIndentedString(sasPortName)).append("\n");
+    sb.append("    nvmeInitiatorPortId: ").append(toIndentedString(nvmeInitiatorPortId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

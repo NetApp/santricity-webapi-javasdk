@@ -65,6 +65,67 @@ public class AdministrationApiTest {
     }
     
     /**
+     * Return a secure random token of 16 bytes
+     *
+     * Mode: Both Embedded and Proxy. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getClientTokenTest() throws ApiException {
+        
+        try{
+        String response = api.getClientToken();
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Retrieve the local users and if their password is set
+     *
+     * Mode: Embedded only
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getEmbeddedLocalUsersTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        List<EmbeddedLocalUserResponse> response = api.getEmbeddedLocalUsers(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Retrieve local users information.
+     *
+     * Mode: Embedded only
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getEmbeddedLocalUsersInfoTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        EmbeddedLocalUserInfoResponse response = api.getEmbeddedLocalUsersInfo(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * GET the SSL Configuration 
      *
      * Mode: Both Embedded and Proxy. 
@@ -84,6 +145,27 @@ public class AdministrationApiTest {
     }
     
     /**
+     * Retrieve if the SYMbol port is enabled
+     *
+     * Mode: Embedded.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSymbolPortEnabledTest() throws ApiException {
+        
+        String systemId = null;
+        
+        try{
+        SymbolPortResponse response = api.getSymbolPortEnabled(systemId);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
      * Gets the list of known trusted certificate authorities
      *
      * Mode: Both Embedded and Proxy. 
@@ -94,8 +176,10 @@ public class AdministrationApiTest {
     @Test
     public void getTrustedCertificateAuthoritiesTest() throws ApiException {
         
+        Boolean useTruststore = null;
+        
         try{
-        List<X509CertInfo> response = api.getTrustedCertificateAuthorities();
+        List<X509CertInfo> response = api.getTrustedCertificateAuthorities(useTruststore);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -113,8 +197,10 @@ public class AdministrationApiTest {
     @Test
     public void reloadSSLConfigurationTest() throws ApiException {
         
+        Boolean reloadBoth = null;
+        
         try{
-        api.reloadSSLConfiguration();
+        api.reloadSSLConfiguration(reloadBoth);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -134,8 +220,54 @@ public class AdministrationApiTest {
         
         String alias = null;
         
+        Boolean useTruststore = null;
+        
         try{
-        api.removeCA(alias);
+        api.removeCA(alias, useTruststore);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Resets the webserver back to a self-singed certificate, removes all previously uploaded certificates from the keystore and Asynchronously reloads the SSL configuration.
+     *
+     * Mode: Both Embedded and Proxy. 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void resetsSSLConfigurationTest() throws ApiException {
+        
+        Boolean reloadSSL = null;
+        
+        try{
+        api.resetsSSLConfiguration(reloadSSL);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Set the password for local users
+     *
+     * Mode: Embedded only
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setEmbeddedLocalUsersTest() throws ApiException {
+        
+        String systemId = null;
+        
+        EmbeddedLocalUserRequest body = null;
+        
+        try{
+        api.setEmbeddedLocalUsers(systemId, body);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.
@@ -164,7 +296,30 @@ public class AdministrationApiTest {
     }
     
     /**
-     * Upload a the CA that signed the certificate used for this server
+     * Set if the SYMbol port is enabled
+     *
+     * Mode: Embedded.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void setSymbolPortEnabledTest() throws ApiException {
+        
+        String systemId = null;
+        
+        SymbolPortRequest body = null;
+        
+        try{
+        api.setSymbolPortEnabled(systemId, body);
+        }
+        catch (ApiException ae) {
+            // The API call went through but got an API exception.
+        }
+    }
+    
+    /**
+     * Upload the root/intermediate certificates from a certificate authority that signed the certificate used for this server
      *
      * Mode: Both Embedded and Proxy. 
      *
@@ -174,10 +329,14 @@ public class AdministrationApiTest {
     @Test
     public void uploadCACertificateTest() throws ApiException {
         
+        Boolean useTruststore = null;
+        
+        String alias = null;
+        
         File file = null;
         
         try{
-        api.uploadCACertificate(file);
+        api.uploadCACertificate(useTruststore, alias, file);
         }
         catch (ApiException ae) {
             // The API call went through but got an API exception.

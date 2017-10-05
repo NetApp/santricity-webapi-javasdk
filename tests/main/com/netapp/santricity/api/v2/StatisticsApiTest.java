@@ -46,7 +46,7 @@ public class StatisticsApiTest {
     /**
      * Get all analysed controller statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -67,7 +67,7 @@ public class StatisticsApiTest {
     /**
      * Get all analysed disk statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -86,9 +86,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get all analysed controller statistics
+     * Get all analysed interface statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -107,9 +107,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get all analysed volume statistics
+     * Get a subset of analysed volume statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -184,7 +184,7 @@ public class StatisticsApiTest {
     /**
      * Get raw disk statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -205,9 +205,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw volume statistics
+     * Get all raw volume statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -228,9 +228,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get a subset of analysed controller statistics
+     * Get a subset of analysed controller statistics@deprecated NOTE: This method has been DEPRECATED
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -253,7 +253,7 @@ public class StatisticsApiTest {
     /**
      * Get a subset of analysed disk statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -274,9 +274,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get a subset of the analysed volume statistics
+     * Get all analysed volume statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -295,9 +295,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get a subset of analysed controller statistics
+     * Get a subset of analysed interface statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API requires at least two prior collections worth of raw statistics data in order to provide an analyzed result. If we have not yet collected at least two relevant statistics snapshots from the storage-system, the result will be an empty list.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -447,9 +447,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw controller statistics
+     * Get all raw controller statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -470,9 +470,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw controller statistics
+     * Get a subset of raw controller statistics@deprecated NOTE: This method has been DEPRECATED
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -497,7 +497,7 @@ public class StatisticsApiTest {
     /**
      * Get a subset of the raw disk statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -520,9 +520,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw interface statistics
+     * Get all raw interface statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -543,9 +543,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw controller statistics
+     * Get a subset of raw interface statistics
      *
-     * Mode: Embedded only. 
+     * This API is available on all model 28xx+ systems, as well as any model 27xx or 56xx that is running 08.30.20.xx/11.30.20.xx or greater code versions. &lt;br&gt;&lt;br&gt;This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -589,9 +589,9 @@ public class StatisticsApiTest {
     }
     
     /**
-     * Get raw volume statistics
+     * Get a subset of raw volume statistics
      *
-     * Mode: Both Embedded and Proxy. 
+     * This API will either retrieve a cached, previously collected statistics snapshot (default), or it will attempt to retrieve the statistics from the storage-system directly. If no previous statistics collections have been successful or have occurred, the statistics will be retrieved directly from the storage-system.
      *
      * @throws ApiException
      *          if the Api call fails

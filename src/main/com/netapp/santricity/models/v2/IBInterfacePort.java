@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * IBInterfacePort
  */
-@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2016-08-12T15:32:41.671-05:00")
+@javax.annotation.Generated(value = "class com.ni.aa.client.codegen.lang.JavaNetappClientCodegen", date = "2017-10-04T15:05:52.333-05:00")
 public class IBInterfacePort   {
   
     private String interfaceRef;
@@ -136,6 +136,9 @@ public class IBInterfacePort   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -178,6 +181,9 @@ public class IBInterfacePort   {
     speed16gig("speed16gig"),
     speed56gig("speed56gig"),
     speed12gig("speed12gig"),
+    speed25gig("speed25gig"),
+    speed32gig("speed32gig"),
+    speed100gig("speed100gig"),
     __UNDEFINED("__UNDEFINED");
 ;
     private String value;
@@ -293,7 +299,11 @@ public class IBInterfacePort   {
 
     private Long bidirectionalMaxRate;
 
+    private Boolean isNVMeSupported;
+
     private String controllerId;
+
+    private List<CommandProtocolProperties> commandProtocolProperties;
 
     private String interfaceId;
 
@@ -704,6 +714,25 @@ public class IBInterfacePort   {
 
   
   /**
+   * Indicates if the interface is configured to support NVMe over Fabrics protocol
+   **/
+  public IBInterfacePort isNVMeSupported(Boolean isNVMeSupported) {
+    this.isNVMeSupported = isNVMeSupported;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", required = true, value = "Indicates if the interface is configured to support NVMe over Fabrics protocol")
+  @JsonProperty("isNVMeSupported")
+  public Boolean getIsNVMeSupported() {
+    return isNVMeSupported;
+  }
+  
+  public void setIsNVMeSupported(Boolean isNVMeSupported) {
+    this.isNVMeSupported = isNVMeSupported;
+  }
+
+  
+  /**
    **/
   public IBInterfacePort controllerId(String controllerId) {
     this.controllerId = controllerId;
@@ -718,6 +747,25 @@ public class IBInterfacePort   {
   
   public void setControllerId(String controllerId) {
     this.controllerId = controllerId;
+  }
+
+  
+  /**
+   * List of properties that describe the command protocol.
+   **/
+  public IBInterfacePort commandProtocolProperties(List<CommandProtocolProperties> commandProtocolProperties) {
+    this.commandProtocolProperties = commandProtocolProperties;
+    return this;
+  }
+  
+  @ApiModelProperty(example = "null", value = "List of properties that describe the command protocol.")
+  @JsonProperty("commandProtocolProperties")
+  public List<CommandProtocolProperties> getCommandProtocolProperties() {
+    return commandProtocolProperties;
+  }
+  
+  public void setCommandProtocolProperties(List<CommandProtocolProperties> commandProtocolProperties) {
+    this.commandProtocolProperties = commandProtocolProperties;
   }
 
   
@@ -824,7 +872,9 @@ public class IBInterfacePort   {
         Objects.equals(this.physPortState, iBInterfacePort.physPortState) &&
         Objects.equals(this.oneWayMaxRate, iBInterfacePort.oneWayMaxRate) &&
         Objects.equals(this.bidirectionalMaxRate, iBInterfacePort.bidirectionalMaxRate) &&
+        Objects.equals(this.isNVMeSupported, iBInterfacePort.isNVMeSupported) &&
         Objects.equals(this.controllerId, iBInterfacePort.controllerId) &&
+        Objects.equals(this.commandProtocolProperties, iBInterfacePort.commandProtocolProperties) &&
         Objects.equals(this.interfaceId, iBInterfacePort.interfaceId) &&
         Objects.equals(this.addressId, iBInterfacePort.addressId) &&
         Objects.equals(this.niceAddressId, iBInterfacePort.niceAddressId) &&
@@ -833,7 +883,7 @@ public class IBInterfacePort   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(interfaceRef, channel, channelPortRef, localIdentifier, globalIdentifier, linkState, portState, maximumTransmissionUnit, currentSpeed, supportedSpeed, currentLinkWidth, supportedLinkWidth, currentDataVirtualLanes, maximumDataVirtualLanes, physicalLocation, protectionInformationCapable, isSRPSupported, isISERSupported, physPortState, oneWayMaxRate, bidirectionalMaxRate, controllerId, interfaceId, addressId, niceAddressId, id);
+    return Objects.hash(interfaceRef, channel, channelPortRef, localIdentifier, globalIdentifier, linkState, portState, maximumTransmissionUnit, currentSpeed, supportedSpeed, currentLinkWidth, supportedLinkWidth, currentDataVirtualLanes, maximumDataVirtualLanes, physicalLocation, protectionInformationCapable, isSRPSupported, isISERSupported, physPortState, oneWayMaxRate, bidirectionalMaxRate, isNVMeSupported, controllerId, commandProtocolProperties, interfaceId, addressId, niceAddressId, id);
   }
 
   @Override
@@ -862,7 +912,9 @@ public class IBInterfacePort   {
     sb.append("    physPortState: ").append(toIndentedString(physPortState)).append("\n");
     sb.append("    oneWayMaxRate: ").append(toIndentedString(oneWayMaxRate)).append("\n");
     sb.append("    bidirectionalMaxRate: ").append(toIndentedString(bidirectionalMaxRate)).append("\n");
+    sb.append("    isNVMeSupported: ").append(toIndentedString(isNVMeSupported)).append("\n");
     sb.append("    controllerId: ").append(toIndentedString(controllerId)).append("\n");
+    sb.append("    commandProtocolProperties: ").append(toIndentedString(commandProtocolProperties)).append("\n");
     sb.append("    interfaceId: ").append(toIndentedString(interfaceId)).append("\n");
     sb.append("    addressId: ").append(toIndentedString(addressId)).append("\n");
     sb.append("    niceAddressId: ").append(toIndentedString(niceAddressId)).append("\n");
